@@ -1,0 +1,7 @@
+{
+  "name": "az-nwch-js",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {},
+  "pre-commit": []
+}
