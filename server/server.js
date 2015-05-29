@@ -1,3 +1,4 @@
+"use strict";
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
@@ -7,7 +8,7 @@ app.start = function() {
   // start the web server
   return app.listen(function() {
     app.emit('started');
-    console.log('Web server listening at: %s', app.get('url'));
+    console.log('Web server listening at: %s', app.get('url')); //eslint-disable-line
   });
 };
 
@@ -17,6 +18,7 @@ boot(app, __dirname, function(err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
-  if (require.main === module)
+  if (require.main === module) {
     app.start();
+  }
 });
