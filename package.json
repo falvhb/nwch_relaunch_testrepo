@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Front-end stack for AZ Medien",
-  "main": "server/server.js",
+  "main": "./server/server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/lovelysystems/az-nwch-js"
@@ -13,13 +13,10 @@
     "url": "https://github.com/lovelysystems/az-nwch-js/issues"
   },
   "scripts": {
-    "watch": "node .",
-    "eslint": "node_modules/eslint/bin/eslint.js .",
-    "scss-lint": "scss-lint"
+    "lint": "gulp lint"
   },
   "pre-commit": [
-    "eslint",
-    "scss-lint"
+    "lint"
   ],
   "dependencies": {
     "compression": "^1.0.3",
@@ -39,6 +36,16 @@
     "consolidate": "^0.13.1",
     "eslint": "^0.21.2",
     "gulp": "^3.8.11",
-    "precommit-hook": "^2.0.1"
+    "gulp-autoprefixer": "^2.3.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-eslint": "^0.12.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-sass": "^2.0.1",
+    "gulp-scss-lint": "^0.2.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.4",
+    "precommit-hook": "^2.0.1",
+    "sassdoc": "^2.1.13"
   }
 }

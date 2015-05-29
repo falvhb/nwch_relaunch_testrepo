@@ -25,11 +25,20 @@ nunjucks.configure(path.resolve(__dirname, '..'), {
   autoescape: true
 });
 
+app.use('/client', loopback.static('client'));
+
 app.get('/styleguide', function(req, res) {
   res.render('views/layouts/styleguide.html', {
     title: 'Styleguide',
     content: 'Hello world!'
   });
+});
+
+// Serve SassDoc assets folder
+app.use('/sassdoc/assets', loopback.static('views/sassdoc/assets'));
+
+app.get('/sassdoc/', function (req, res) {
+  res.render('views/sassdoc/index.html');
 });
 
 // Bootstrap the application, configure models, datasources and middleware.

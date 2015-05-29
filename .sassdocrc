@@ -1,0 +1,9 @@
+basePath: https://github.com/lovelysystems/az-nwch-js/blob/master
+display:
+    access:
+        - public
+    alias: false
+    watermark: true
+
+package: ./package.json
+theme: default
