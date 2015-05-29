@@ -1,4 +1,5 @@
-# For SCSS-Lint v0.32.0
+scss_files: './'
+exclude: './node_modules/**/*'
 
 linters:
 
@@ -94,7 +95,7 @@ linters:
 
   QualifyingElement:
     enabled: true
-    allow_element_with_attribute: false
+    allow_element_with_attribute: true
     allow_element_with_class: false
     allow_element_with_id: false
 
@@ -116,7 +117,7 @@ linters:
     allow_single_line_rule_sets: false
 
   SingleLinePerSelector:
-    enabled: true
+    enabled: false
 
   SpaceAfterComma:
     enabled: true
@@ -162,8 +163,7 @@ linters:
   VendorPrefixes:
     enabled: true
     identifier_list: base
-    include: []
-    exclude: []
+    excluded_identifiers: []
 
   ZeroUnit:
     enabled: true

@@ -1,1 +1,0 @@
-This holds our Hunjucks layout template

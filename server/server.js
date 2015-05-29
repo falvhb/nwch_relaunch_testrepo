@@ -1,6 +1,7 @@
 "use strict";
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var nunjucks = require('nunjucks');
 
 var app = module.exports = loopback();
 
@@ -11,6 +12,18 @@ app.start = function() {
     console.log('Web server listening at: %s', app.get('url')); //eslint-disable-line
   });
 };
+
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app
+});
+
+app.get('/styleguide', function(req, res) {
+  res.render('../views/layouts/styleguide.html', {
+    title: 'Styleguide',
+    content: 'Hello world!'
+  });
+});
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
