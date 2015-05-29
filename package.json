@@ -36,6 +36,7 @@
     "loopback-explorer": "^1.1.0"
   },
   "devDependencies": {
+    "consolidate": "^0.13.1",
     "eslint": "^0.21.2",
     "gulp": "^3.8.11",
     "precommit-hook": "^2.0.1"

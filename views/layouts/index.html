@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <title>{% block title %}AZ{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {# Inline the JavaScript utilities file since it needs to be synchronously
+       loaded. Also, it is very lightweight so it should not make any difference. #}
+    <script>
+    {% include "assets/javascripts/utilities.js" %}
+    </script>
 
+    {# Asynchronously request the font-face stylesheet based on the WOFF support,
+       then store it in localStorage for future visits. #}
+    <script>
+      (function (global) {
+        global.loadFont(
+          // Font storage name
+          'az-fonts',
+          // WOFF URL
+          '/assets/stylesheets/fonts/data-woff.css',
+          // WOFF2 URL
+          '/assets/stylesheets/fonts/data-woff2.css'
+        );
+      })(window);
+    </script>
     {% block head %}{% endblock %}
   </head>
 

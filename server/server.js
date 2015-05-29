@@ -2,6 +2,8 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
+var path = require('path');
+var engines = require('consolidate');
 
 var app = module.exports = loopback();
 
@@ -13,13 +15,18 @@ app.start = function() {
   });
 };
 
-nunjucks.configure('views', {
-  autoescape: true,
-  express: app
+
+app.set('views', path.resolve(__dirname, '..'));
+app.set('view engine', 'html');
+app.engine('html', engines.nunjucks);
+
+nunjucks.configure(path.resolve(__dirname, '..'), {
+  watch: true,
+  autoescape: true
 });
 
 app.get('/styleguide', function(req, res) {
-  res.render('../views/layouts/styleguide.html', {
+  res.render('views/layouts/styleguide.html', {
     title: 'Styleguide',
     content: 'Hello world!'
   });
