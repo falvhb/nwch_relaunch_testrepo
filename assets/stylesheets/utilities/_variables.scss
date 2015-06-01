@@ -5,9 +5,23 @@
 /// Application-wide breakpoints map
 /// @type Map
 /// @prop {String} key - Name of the breakpoint
-/// @prop {Map} value - Media-query like map
-/// @prop {String} value.key - Media query type (e.g. `min-width`)
-/// @prop {Number} value.value - Media query value (e.g. `1337p`)
+/// @prop {Map} value - Breakpoint value expressed in pixels
 $breakpoints: (
-  'small': (min-width: 767px)
-) !default;
+  'small': 450px,
+  'medium': 750px,
+  'large': 1150px
+);
+
+/// Application-wide static queries map
+/// @type Map
+/// @prop {String} key - Name of the query
+/// @prop {String | List} value - Query value
+///   - key is repeated as value if simple query (e.g. `print`)
+///   - list is used for *or* conditions (e.g. retina)
+$media-expressions: (
+  'print': 'print',
+  'retina': (
+    '(-webkit-min-device-pixel-ratio: 2)', 
+    '(min-resolution: 192dpi)'
+  )
+);
