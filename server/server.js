@@ -7,6 +7,13 @@ var engines = require('consolidate');
 
 var app = module.exports = loopback();
 
+// ES6 stuff
+require('babel/register')({
+  ignore: /client/,
+  stage: 1,
+  extensions: [".jsx"]
+});
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
