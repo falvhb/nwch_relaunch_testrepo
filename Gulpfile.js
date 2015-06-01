@@ -2,6 +2,17 @@
 'use strict';
 
 // -----------------------------------------------------------------------------
+// Dependencies
+// -----------------------------------------------------------------------------
+
+var pkg = require('./package.json');
+var gulp = require('gulp');
+var plugins = require('gulp-load-plugins')();
+var sassdoc = require('sassdoc');
+var gulpSequence = require('gulp-sequence').use(gulp);
+
+
+// -----------------------------------------------------------------------------
 // Constants
 // -----------------------------------------------------------------------------
 var BUILD_DIR  = './client/';
@@ -11,16 +22,6 @@ function assetDir(path) {
   return SOURCE_DIR + path;
 }
 
-
-// -----------------------------------------------------------------------------
-// Dependencies
-// -----------------------------------------------------------------------------
-
-var pkg = require('./package.json');
-var gulp = require('gulp');
-var plugins = require('gulp-load-plugins')();
-var sassdoc = require('sassdoc');
-var gulpSequence = require('gulp-sequence').use(gulp);
 
 // -----------------------------------------------------------------------------
 // Helpers
@@ -67,7 +68,7 @@ var autoprefixerOptions = {
 };
 
 // -----------------------------------------------------------------------------
-// Clear the build folder
+// Clear build folder
 // -----------------------------------------------------------------------------
 
 gulp.task('clean', function() {
@@ -75,6 +76,7 @@ gulp.task('clean', function() {
     read: false
   }).pipe(plugins.clean());
 });
+
 
 // -----------------------------------------------------------------------------
 // Linting
@@ -97,7 +99,7 @@ gulp.task('lint', ['scss-lint', 'eslint']);
 
 
 // -----------------------------------------------------------------------------
-// Sass
+// Sass bundle
 // -----------------------------------------------------------------------------
 
 gulp.task('sass', function() {
@@ -116,8 +118,31 @@ gulp.task('sassdoc', function() {
   return gulp
     .src(sassInput)
     .pipe(sassdoc(sassdocOptions))
+    .pipe(plugins.exit())
     .resume();
 });
+
+
+// -----------------------------------------------------------------------------
+// Webpack bundle
+// -----------------------------------------------------------------------------
+var webpackConfig = require('./webpack.config.js');
+
+if (isDev()) {
+  webpackConfig.watch = true;
+}
+
+if (isProd()) {
+  webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
+}
+
+gulp.task('webpack', function() {
+  return gulp
+    .src('views/browser.js')
+    .pipe(plugins.webpack(webpackConfig))
+    .pipe(gulp.dest(BUILD_DIR));
+});
+
 
 // -----------------------------------------------------------------------------
 // Compress font files
@@ -134,11 +159,7 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(BUILD_DIR));
 });
 
-// -----------------------------------------------------------------------------
-// Compress misc JS
-// -----------------------------------------------------------------------------
-
-gulp.task('inlinejs', function() {
+gulp.task('fontloader', function() {
   return gulp.src(assetDir('javascripts/*.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(BUILD_DIR));
@@ -146,7 +167,7 @@ gulp.task('inlinejs', function() {
 
 
 // -----------------------------------------------------------------------------
-// Watching
+// Watch task
 // -----------------------------------------------------------------------------
 
 gulp.task('watch', function() {
@@ -177,30 +198,10 @@ gulp.task('server', function() {
 
 
 // -----------------------------------------------------------------------------
-// Webpack compilation
-// -----------------------------------------------------------------------------
-var webpackConfig = require('./webpack.config.js');
-
-if (isDev()) {
-  webpackConfig.watch = true;
-}
-
-if (isProd()) {
-  webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
-}
-
-gulp.task('webpack', function() {
-  return gulp
-    .src('views/browser.js')
-    .pipe(plugins.webpack(webpackConfig))
-    .pipe(gulp.dest(BUILD_DIR));
-});
-
-// -----------------------------------------------------------------------------
 // <head> task
 // -----------------------------------------------------------------------------
 
-gulp.task('head', ['fonts', 'inlinejs']);
+gulp.task('head', ['fonts', 'fontloader']);
 
 // -----------------------------------------------------------------------------
 // Bundle task
@@ -212,12 +213,10 @@ gulp.task('bundle', ['sass', 'webpack']);
 // Build task
 // -----------------------------------------------------------------------------
 
-gulp.task('build', gulpSequence('clean', ['lint', 'head', 'bundle', 'sassdoc']));
-
+gulp.task('build', gulpSequence('lint', 'clean', ['head', 'bundle'], 'sassdoc'));
 
 // -----------------------------------------------------------------------------
 // Default task
 // -----------------------------------------------------------------------------
 
 gulp.task('default', gulpSequence(['clean', 'server'], ['head', 'bundle'], 'watch'));
-
