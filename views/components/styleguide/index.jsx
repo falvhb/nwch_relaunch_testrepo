@@ -5,11 +5,11 @@ var Sample = require('../sample');
 var Styleguide = React.createClass({
 
   componentDidMount: function() {
-    console.log('mounted');
+    console.log('mounted'); //eslint-disable-line
   },
 
   test: function() {
-    alert('test behaviour');
+    alert('test behaviour'); //eslint-disable-line
   },
 
   render: function() {

@@ -92,11 +92,11 @@ gulp.task('eslint', function() {
   return gulp
     .src(jsInput)
     .pipe(plugins.eslint())
-    .pipe(plugins.eslint.format('stylish'))
+    .pipe(plugins.eslint.format())
     .pipe(plugins.eslint.failAfterError());
 });
 
-gulp.task('lint', ['scss-lint', 'eslint']);
+gulp.task('lint', ['eslint', 'scss-lint']);
 
 
 // -----------------------------------------------------------------------------
