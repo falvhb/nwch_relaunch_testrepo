@@ -12,13 +12,7 @@
   "bugs": {
     "url": "https://github.com/lovelysystems/az-nwch-js/issues"
   },
-  "scripts": {
-    "lint": "gulp lint",
-    "webpack": "gulp webpack"
-  },
-  "pre-commit": [
-    "lint"
-  ],
+  "precommit": "gulp lint",
   "dependencies": {
     "babel": "^5.4.7",
     "compression": "^1.0.3",
@@ -57,6 +51,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4",
     "gulp-webpack": "^1.4.0",
+    "javascript-gulp-precommit": "0.0.2",
     "precommit-hook": "^2.0.1",
     "run-sequence": "^1.1.0",
     "sassdoc": "^2.1.13",
