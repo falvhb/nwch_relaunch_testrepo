@@ -14,7 +14,7 @@
   },
   "scripts": {
     "lint": "gulp lint",
-    "webpack": "webpack"
+    "webpack": "gulp webpack"
   },
   "pre-commit": [
     "lint"

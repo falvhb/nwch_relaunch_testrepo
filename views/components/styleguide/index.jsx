@@ -1,3 +1,4 @@
+/* eslint-disable no-console no-alert */
 'use strict';
 var React = require('react');
 var Sample = require('../sample');

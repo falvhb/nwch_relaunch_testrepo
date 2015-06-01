@@ -92,7 +92,8 @@ gulp.task('eslint', function() {
   return gulp
     .src(jsInput)
     .pipe(plugins.eslint())
-    .pipe(plugins.eslint.failOnError());
+    .pipe(plugins.eslint.format('stylish'))
+    .pipe(plugins.eslint.failAfterError());
 });
 
 gulp.task('lint', ['scss-lint', 'eslint']);
