@@ -10,6 +10,7 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
 
+
 // -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
@@ -112,9 +113,14 @@ gulp.task('sassdoc', function() {
 // -----------------------------------------------------------------------------
 
 gulp.task('fonts', function() {
-  return gulp
-    .src(['./assets/fonts/**/*'])
-    .pipe(gulp.dest('./client/fonts'));
+  return gulp.src('./assets/fonts/**/*.css')
+    .pipe(plugins.base64({
+      baseDir: './assets/fonts/',
+      maxImageSize: 100*1024,
+      extensionsAllowed: ['woff', 'woff2'],
+      debug: true
+    }))
+    .pipe(gulp.dest('./client/fonts/'));
 });
 
 
@@ -174,11 +180,11 @@ gulp.task('webpack', function() {
 // Build
 // -----------------------------------------------------------------------------
 
-gulp.task('build', ['lint', 'clean', 'sass', 'webpack', 'sassdoc']);
+gulp.task('build', ['lint', 'clean', 'fonts', 'sass', 'webpack', 'sassdoc']);
 
 
 // -----------------------------------------------------------------------------
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', ['lint', 'clean', 'sass', 'webpack', 'server', 'watch']);
+gulp.task('default', ['lint', 'clean', 'fonts', 'sass', 'webpack', 'server', 'watch']);

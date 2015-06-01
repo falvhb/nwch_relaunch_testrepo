@@ -48,7 +48,6 @@ function loadFont(fontName, woffUrl, woff2Url) {
   document.head.appendChild(styleElement);
   // Setting styleElement.textContent must be after this line, because of IE9 errors
 
-
   // 3. Checking whether the font data is already in localStorage and up-to-date
   if (storedFontCss && (storedFontUrl === woffUrl || storedFontUrl === woff2Url)) {
     // the css is still in the localStorage
@@ -64,7 +63,6 @@ function loadFont(fontName, woffUrl, woff2Url) {
     var url = (woff2Url && supportsWoff2)
       ? woff2Url // WOFF2 URL provided and supported
       : woffUrl; // only WOFF support
-
 
     // 6. Fetching the font data from the server
     var request = new XMLHttpRequest();
