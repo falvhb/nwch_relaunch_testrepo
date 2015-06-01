@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+/// Breakpoint manager
+/// Prints out a `@media` block based on the given value. If the value is a map,
+/// it will be printed as is. If the value is a string, it will be used as a
+/// key from the `$breakpoints` map.
+/// @param {Map | String} $breakpoint - Breakpoint or breakpoint name
+/// @example scss
+///   .foo {
+///     color: red;
+///
+///     @include respond-to('small') {
+///       color: blue;
+///     }
+///
+///     @include respond-to((min-height: 500px)) {
+///       height: 550px;
+///     }
+///   }
+@mixin respond-to($breakpoint) {
+  @if type-of($breakpoint) == 'string' {
+    $breakpoint: map-get($breakpoints, $breakpoint);
+  }
+
+  @if not $breakpoint {
+    @error 'Invalid query `#{inspect($breakpoint)}` for `@media`.';
+  }
+
+  @media #{inspect($breakpoint)} {
+    @content;
+  }
+}

@@ -1,0 +1,13 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Application-wide breakpoints map
+/// @type Map
+/// @prop {String} key - Name of the breakpoint
+/// @prop {Map} value - Media-query like map
+/// @prop {String} value.key - Media query type (e.g. `min-width`)
+/// @prop {Number} value.value - Media query value (e.g. `1337p`)
+$breakpoints: (
+  'small': (min-width: 767px)
+) !default;
