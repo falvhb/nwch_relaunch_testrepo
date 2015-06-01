@@ -37,7 +37,7 @@ app.get('/styleguide', function(req, res) {
 // Serve SassDoc assets folder
 app.use('/sassdoc/assets', loopback.static('views/sassdoc/assets'));
 
-app.get('/sassdoc/', function (req, res) {
+app.get('/sassdoc/', function(req, res) {
   res.render('views/sassdoc/index.html');
 });
 

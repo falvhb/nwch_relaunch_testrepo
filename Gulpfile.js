@@ -1,5 +1,6 @@
-'use strict';
+/* eslint-disable no-console */
 
+'use strict';
 
 // -----------------------------------------------------------------------------
 // Dependencies
@@ -8,8 +9,6 @@
 var pkg = require('./package.json');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var sass = require('gulp-sass');
-var spawn = require('child_process').spawn;
 var sassdoc = require('sassdoc');
 
 
@@ -37,7 +36,10 @@ var sassInput = [
 
 var jsInput = [
   './assets/javascripts/**/*.js',
-  './views/components/**/index.jsx'
+  './views/components/**/*.js',
+  './views/components/**/*.jsx',
+  './server/**/*.js',
+  './*.js'
 ];
 
 var sassOptions = {
@@ -54,33 +56,32 @@ var autoprefixerOptions = {
   browsers: ['last 2 versions', 'IE 9', '> 5%', 'Firefox ESR']
 };
 
-var node;
-
 
 // -----------------------------------------------------------------------------
 // Linting
 // -----------------------------------------------------------------------------
 
-gulp.task('scss-lint', function () {
+gulp.task('scss-lint', function() {
   return gulp
     .src(sassInput)
     .pipe(plugins.scssLint({ config: './.scss-lint.yml' }));
 });
 
-gulp.task('eslint', function () {
+gulp.task('eslint', function() {
   return gulp
     .src(jsInput)
-    .pipe(plugins.eslint({ configFile: './.eslintrc' }));
+    .pipe(plugins.eslint())
+    .pipe(plugins.eslint.failOnError());
 });
 
-gulp.task('lint', ['scss-lint', 'eslint'], function () {});
+gulp.task('lint', ['scss-lint', 'eslint']);
 
 
 // -----------------------------------------------------------------------------
 // Sass
 // -----------------------------------------------------------------------------
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
   return gulp
     .src(sassInput)
     .pipe(isDev() ? plugins.sourcemaps.init() : plugins.util.noop())
@@ -89,10 +90,10 @@ gulp.task('sass', function () {
     .pipe(isDev() ? plugins.sourcemaps.write() : plugins.util.noop())
     .pipe(plugins.autoprefixer(autoprefixerOptions))
     .pipe(gulp.dest('./client/stylesheets'))
-    .pipe(!!plugins.util.env.livereload ? plugins.livereload() : plugins.util.noop());
+    .pipe(plugins.util.env.livereload ? plugins.livereload() : plugins.util.noop());
 });
 
-gulp.task('sassdoc', function () {
+gulp.task('sassdoc', function() {
   return gulp
     .src(sassInput)
     .pipe(sassdoc(sassdocOptions))
@@ -105,7 +106,7 @@ gulp.task('sassdoc', function () {
 // -----------------------------------------------------------------------------
 
 gulp.task('watch', function() {
-  if (!!plugins.util.env.livereload) {
+  if (plugins.util.env.livereload) {
     plugins.livereload.listen();
   }
 
@@ -121,7 +122,7 @@ gulp.task('watch', function() {
 // Node server
 // -----------------------------------------------------------------------------
 
-gulp.task('server', function () {
+gulp.task('server', function() {
   plugins.nodemon({
     script: pkg.main,
     env: { 'NODE_ENV': (isProd() ? 'production' : 'development') }
