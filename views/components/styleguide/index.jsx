@@ -1,4 +1,6 @@
+'use strict';
 var React = require('react');
+var Sample = require('../sample');
 
 var Styleguide = React.createClass({
 
@@ -7,11 +9,16 @@ var Styleguide = React.createClass({
   },
 
   test: function() {
-    alert('test');
+    alert('test behaviour');
   },
 
   render: function() {
-    return <div onClick={this.test}>heldsfsfdlo world</div>
+    return (
+      <div onClick={this.test}>
+        <p>Styleguide component</p>
+        <Sample/>
+      </div>
+    );
   }
 });
 

@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-  entry: './views/browser.jsx',
+  entry: './views/browser.js',
   module: {
     loaders: [
       {
@@ -12,7 +12,7 @@ var config = {
     ]
   },
   output: {
-    filename: 'browser.js',
+    filename: 'frontend.bundled.js',
     path: path.join(__dirname, './client'),
   },
   resolve: {

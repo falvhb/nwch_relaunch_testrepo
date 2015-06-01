@@ -9,7 +9,7 @@ var pkg = require('./package.json');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
-
+var webpack = require('gulp-webpack');
 
 // -----------------------------------------------------------------------------
 // Helpers
@@ -84,7 +84,7 @@ gulp.task('sass', function() {
   return gulp
     .src(sassInput)
     .pipe(isDev() ? plugins.sourcemaps.init() : plugins.util.noop())
-    .pipe(plugins.concat('app.scss'))
+    .pipe(plugins.concat('styles.scss'))
     .pipe(plugins.sass(sassOptions))
     .pipe(isDev() ? plugins.sourcemaps.write() : plugins.util.noop())
     .pipe(plugins.autoprefixer(autoprefixerOptions))
@@ -132,14 +132,34 @@ gulp.task('server', function() {
 
 
 // -----------------------------------------------------------------------------
+// Webpack compilation
+// -----------------------------------------------------------------------------
+var webpackConfig = require('./webpack.config.js');
+
+if (isDev()) {
+  webpackConfig.watch = true;
+}
+
+if (isProd()) {
+  webpackConfig.plugins = webpackConfig.plugins.concat(new webpack.optimize.UglifyJsPlugin());
+}
+
+gulp.task('webpack', function() {
+  return gulp
+    .src('views/browser.js')
+    .pipe(webpack(webpackConfig))
+    .pipe(gulp.dest('./client'));
+});
+
+// -----------------------------------------------------------------------------
 // Build
 // -----------------------------------------------------------------------------
 
-gulp.task('build', ['lint', 'sass', 'sassdoc']);
+gulp.task('build', ['lint', 'sass', 'webpack', 'sassdoc']);
 
 
 // -----------------------------------------------------------------------------
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', ['lint', 'sass', 'server', 'watch']);
+gulp.task('default', ['lint', 'sass', 'server', 'webpack', 'watch']);

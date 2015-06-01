@@ -7,9 +7,8 @@ var path = require('path');
 var engines = require('consolidate');
 
 var app = module.exports = loopback();
-var Styleguide = require('../views/components/styleguide');
 
-// ES6 stuff
+// Allow requiring of JSX
 require('babel/register')({
   ignore: /client/,
   stage: 1,
@@ -39,6 +38,8 @@ app.use('/client', loopback.static('client'));
 app.use('/sassdoc/assets', loopback.static('views/sassdoc/assets'));
 
 // SassDoc route
+var Styleguide = require('../views/components/styleguide');
+
 app.get('/sassdoc/', function(req, res) {
   res.render('views/sassdoc/index.html');
 });
@@ -46,8 +47,10 @@ app.get('/sassdoc/', function(req, res) {
 // Styleguide route
 app.get('/styleguide', function(req, res) {
   res.render('views/layouts/styleguide.html', {
-    title: 'Styleguide',
-    content: React.renderToString(React.createElement(Styleguide))
+    title: 'AZ Medien Styleguide',
+    content: React.renderToString(
+      React.createElement(Styleguide)
+    )
   });
 });
 

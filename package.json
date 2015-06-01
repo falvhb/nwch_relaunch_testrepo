@@ -49,6 +49,7 @@
     "gulp-scss-lint": "^0.2.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.4",
+    "gulp-webpack": "^1.4.0",
     "precommit-hook": "^2.0.1",
     "sassdoc": "^2.1.13",
     "webpack": "^1.9.10"
