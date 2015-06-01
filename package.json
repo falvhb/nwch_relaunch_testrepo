@@ -50,10 +50,13 @@
     "gulp-nodemon": "^2.0.3",
     "gulp-sass": "^2.0.1",
     "gulp-scss-lint": "^0.2.0",
+    "gulp-sequence": "^0.3.2",
     "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4",
     "gulp-webpack": "^1.4.0",
     "precommit-hook": "^2.0.1",
+    "run-sequence": "^1.1.0",
     "sassdoc": "^2.1.13",
     "webpack": "^1.9.10"
   }

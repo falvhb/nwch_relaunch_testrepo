@@ -2,6 +2,17 @@
 'use strict';
 
 // -----------------------------------------------------------------------------
+// Constants
+// -----------------------------------------------------------------------------
+var BUILD_DIR  = './client/';
+var SOURCE_DIR = './assets/';
+
+function assetDir(path) {
+  return SOURCE_DIR + path;
+}
+
+
+// -----------------------------------------------------------------------------
 // Dependencies
 // -----------------------------------------------------------------------------
 
@@ -9,7 +20,7 @@ var pkg = require('./package.json');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
-
+var gulpSequence = require('gulp-sequence').use(gulp);
 
 // -----------------------------------------------------------------------------
 // Helpers
@@ -60,7 +71,7 @@ var autoprefixerOptions = {
 // -----------------------------------------------------------------------------
 
 gulp.task('clean', function() {
-  return gulp.src('./client', {
+  return gulp.src(BUILD_DIR, {
     read: false
   }).pipe(plugins.clean());
 });
@@ -97,7 +108,7 @@ gulp.task('sass', function() {
     .pipe(plugins.sass(sassOptions))
     .pipe(isDev() ? plugins.sourcemaps.write() : plugins.util.noop())
     .pipe(plugins.autoprefixer(autoprefixerOptions))
-    .pipe(gulp.dest('./client/'))
+    .pipe(gulp.dest(BUILD_DIR))
     .pipe(plugins.util.env.livereload ? plugins.livereload() : plugins.util.noop());
 });
 
@@ -109,18 +120,28 @@ gulp.task('sassdoc', function() {
 });
 
 // -----------------------------------------------------------------------------
-// Font files
+// Compress font files
 // -----------------------------------------------------------------------------
 
 gulp.task('fonts', function() {
-  return gulp.src('./assets/fonts/**/*.css')
+  return gulp.src(assetDir('fonts/**/*.css'))
     .pipe(plugins.base64({
       baseDir: './assets/fonts/',
       maxImageSize: 100*1024,
       extensionsAllowed: ['woff', 'woff2'],
       debug: true
     }))
-    .pipe(gulp.dest('./client/fonts/'));
+    .pipe(gulp.dest(BUILD_DIR));
+});
+
+// -----------------------------------------------------------------------------
+// Compress misc JS
+// -----------------------------------------------------------------------------
+
+gulp.task('inlinejs', function() {
+  return gulp.src(assetDir('javascripts/*.js'))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest(BUILD_DIR));
 });
 
 
@@ -172,19 +193,31 @@ gulp.task('webpack', function() {
   return gulp
     .src('views/browser.js')
     .pipe(plugins.webpack(webpackConfig))
-    .pipe(gulp.dest('./client'));
+    .pipe(gulp.dest(BUILD_DIR));
 });
 
+// -----------------------------------------------------------------------------
+// <head> task
+// -----------------------------------------------------------------------------
+
+gulp.task('head', ['fonts', 'inlinejs']);
 
 // -----------------------------------------------------------------------------
-// Build
+// Bundle task
 // -----------------------------------------------------------------------------
 
-gulp.task('build', ['lint', 'clean', 'fonts', 'sass', 'webpack', 'sassdoc']);
+gulp.task('bundle', ['sass', 'webpack']);
+
+// -----------------------------------------------------------------------------
+// Build task
+// -----------------------------------------------------------------------------
+
+gulp.task('build', gulpSequence('clean', ['lint', 'head', 'bundle', 'sassdoc']));
 
 
 // -----------------------------------------------------------------------------
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', ['lint', 'clean', 'fonts', 'sass', 'webpack', 'server', 'watch']);
+gulp.task('default', gulpSequence(['clean', 'server'], ['head', 'bundle'], 'watch'));
+
