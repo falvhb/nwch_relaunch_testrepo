@@ -9,7 +9,6 @@ var pkg = require('./package.json');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
-var webpack = require('gulp-webpack');
 
 // -----------------------------------------------------------------------------
 // Helpers
@@ -55,6 +54,15 @@ var autoprefixerOptions = {
   browsers: ['last 2 versions', 'IE 9', '> 5%', 'Firefox ESR']
 };
 
+// -----------------------------------------------------------------------------
+// Clear the build folder
+// -----------------------------------------------------------------------------
+
+gulp.task('clean', function() {
+  return gulp.src('./client', {
+    read: false
+  }).pipe(plugins.clean());
+});
 
 // -----------------------------------------------------------------------------
 // Linting
@@ -141,13 +149,13 @@ if (isDev()) {
 }
 
 if (isProd()) {
-  webpackConfig.plugins = webpackConfig.plugins.concat(new webpack.optimize.UglifyJsPlugin());
+  webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
 }
 
 gulp.task('webpack', function() {
   return gulp
     .src('views/browser.js')
-    .pipe(webpack(webpackConfig))
+    .pipe(plugins.webpack(webpackConfig))
     .pipe(gulp.dest('./client'));
 });
 
@@ -155,11 +163,11 @@ gulp.task('webpack', function() {
 // Build
 // -----------------------------------------------------------------------------
 
-gulp.task('build', ['lint', 'sass', 'webpack', 'sassdoc']);
+gulp.task('build', ['lint', 'clean', 'sass', 'webpack', 'sassdoc']);
 
 
 // -----------------------------------------------------------------------------
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', ['lint', 'sass', 'server', 'webpack', 'watch']);
+gulp.task('default', ['lint', 'clean', 'sass', 'server', 'webpack', 'watch']);
