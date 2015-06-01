@@ -7,7 +7,7 @@
     {# Inline the JavaScript utilities file since it needs to be synchronously
        loaded. Also, it is very lightweight so it should not make any difference. #}
     <script>
-    {% include "assets/javascripts/utilities.js" %}
+      {% include "assets/javascripts/utilities.js" %}
     </script>
 
     {# Asynchronously request the font-face stylesheet based on the WOFF support,
@@ -29,6 +29,7 @@
   </head>
 
   <body>
-    {% block content %}{% endblock %}
+    <main id="app">{% block content %}{% endblock %}</main>
+    <script src="client/browser.js"></script>
   </body>
 </html>
