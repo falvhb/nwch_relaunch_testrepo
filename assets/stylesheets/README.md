@@ -15,7 +15,14 @@ The `vendor/` folder contains third-party stylesheets. Please, only add a third-
 
 The `base/` folder contains application-wide styles such as the reset stylesheet (which is a mix of Normalize.css, Meyer's reset and custom flavoured styles) and the typography baseline (including vertical rhythm rules for isntance).
 
-Anything related to a specific component should live in the `stylesheets/` folder from the component. Variables, mixins, functions and placeholders specific to a component should lie in a `utilities/` folder in the component `stylesheets/` folder, following the same conventions as the global folder.
+Anything related to a specific component should live in the `stylesheets/` folder from the component. Variables, mixins, functions and placeholders specific to a component should lie in a `utilities/` folder in the component `stylesheets/` folder, following the same conventions as the global folder. Then, the main file from the component (`main.scss`) should include these helpers like so:
+
+```scss
+@import 'my-component/stylesheets/utilities/variables';
+@import 'my-component/stylesheets/utilities/mixins';
+
+// Component code...
+```
 
 ## Naming conventions
 
@@ -38,3 +45,22 @@ All variables, mixins, functions and placeholders should be documented with [Sas
 ## Code quality
 
 There is a pre-commit hook running [SCSS-lint](https://github.com/brigade/scss-lint) on the codebase to make sure everything stays clean and consistent. Please, respect the linter and fix your code rather than changing the linter's rules. 
+
+## Responsive breakpoints
+
+We use the [include-media](https://github.com/eduardoboucas/include-media) Sass library to manage responsive breakpoints; it provides a simple and friendly API to work with. Breakpoints are defined in a global `$breakpoints` map (which should never be updated dynamically).
+
+```scss
+.my-component {
+  @include media('>small') {
+    color: red;
+  }
+
+  @include media('>small', 'retina') {
+    color: blue;
+  }
+}
+```
+
+If a component needs to define its own breakpoints, do it in `./views/components/COMPONENT/stylesheets/utilities/_variables.scss` and then use it safely in the `media(..)` mixin.
+
