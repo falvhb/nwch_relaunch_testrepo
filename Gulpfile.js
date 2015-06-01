@@ -96,7 +96,7 @@ gulp.task('sass', function() {
     .pipe(plugins.sass(sassOptions))
     .pipe(isDev() ? plugins.sourcemaps.write() : plugins.util.noop())
     .pipe(plugins.autoprefixer(autoprefixerOptions))
-    .pipe(gulp.dest('./client/stylesheets'))
+    .pipe(gulp.dest('./client/'))
     .pipe(plugins.util.env.livereload ? plugins.livereload() : plugins.util.noop());
 });
 
@@ -105,6 +105,16 @@ gulp.task('sassdoc', function() {
     .src(sassInput)
     .pipe(sassdoc(sassdocOptions))
     .resume();
+});
+
+// -----------------------------------------------------------------------------
+// Font files
+// -----------------------------------------------------------------------------
+
+gulp.task('fonts', function() {
+  return gulp
+    .src(['./assets/fonts/**/*'])
+    .pipe(gulp.dest('./client/fonts'));
 });
 
 
@@ -159,6 +169,7 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest('./client'));
 });
 
+
 // -----------------------------------------------------------------------------
 // Build
 // -----------------------------------------------------------------------------
@@ -170,4 +181,4 @@ gulp.task('build', ['lint', 'clean', 'sass', 'webpack', 'sassdoc']);
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', ['lint', 'clean', 'sass', 'server', 'webpack', 'watch']);
+gulp.task('default', ['lint', 'clean', 'sass', 'webpack', 'server', 'watch']);
