@@ -73,6 +73,17 @@ var autoprefixerOptions = {
   browsers: ['last 2 versions', 'IE 9', '> 5%', 'Firefox ESR']
 };
 
+var webpackConfig = require('./webpack.config.js');
+
+if (isBuild() || isProd()) {
+  webpackConfig.watch = false;
+}
+
+if (isProd()) {
+  webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
+}
+
+
 // -----------------------------------------------------------------------------
 // Clear build folder
 // -----------------------------------------------------------------------------
@@ -134,15 +145,6 @@ gulp.task('sassdoc', function() {
 // -----------------------------------------------------------------------------
 // Webpack bundle
 // -----------------------------------------------------------------------------
-var webpackConfig = require('./webpack.config.js');
-
-if (isBuild() || isProd()) {
-  webpackConfig.watch = false;
-}
-
-if (isProd()) {
-  webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
-}
 
 gulp.task('webpack', function() {
   return gulp
