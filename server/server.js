@@ -7,7 +7,6 @@ var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var engines = require('consolidate');
-var Styleguide = require('../views/components/styleguide');
 
 var app = module.exports = loopback();
 
@@ -32,22 +31,24 @@ app.start = function() {
   });
 };
 
-app.set('views', path.resolve(__dirname, '..'));
+app.set('views', path.resolve(__dirname, '../app'));
 app.set('view engine', 'html');
 app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
 // Serve SassDoc assets folder
-app.use('/sassdoc/assets', loopback.static('views/sassdoc/assets'));
+app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
 
 // SassDoc route
-app.get('/sassdoc/', function(req, res) {
-  res.render('views/sassdoc/index.html');
+app.get('/sassdoc', function(req, res) {
+  res.render('sassdoc/index.html');
 });
 
 // Styleguide route
 app.get('/styleguide', function(req, res) {
-  res.render('views/layouts/styleguide.html', {
+  var Styleguide = require('../app/components/styleguide');
+
+  res.render('layouts/styleguide.html', {
     title: 'AZ Medien Styleguide',
     content: React.renderToString(
       React.createElement(Styleguide)

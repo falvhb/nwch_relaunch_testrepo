@@ -1,8 +1,0 @@
-@import 'globals';
-@import 'utilities/variables';
-
-.sample {
-  @include media('≥400px', $my-custom-breakpoint, 'retina') {
-    background: deepskyblue;
-  }
-}

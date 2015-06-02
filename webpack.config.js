@@ -5,7 +5,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-  entry: './views/browser.js',
+  entry: './app/browser.js',
   watch: true,
   module: {
     loaders: [
