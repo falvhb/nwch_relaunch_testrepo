@@ -15,11 +15,12 @@ var Styleguide = React.createClass({
   render: function() {
     return (
       <div onClick={this.test}>
-        <p>Styleguide componentsss</p>
+        <p>Styleguide component</p>
         <Sample/>
       </div>
     );
   }
+
 });
 
 module.exports = Styleguide;

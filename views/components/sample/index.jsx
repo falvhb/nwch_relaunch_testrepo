@@ -1,4 +1,5 @@
 'use strict';
+
 var React = require('react');
 
 var Sample = React.createClass({
@@ -10,6 +11,7 @@ var Sample = React.createClass({
       </div>
     );
   }
+
 });
 
 module.exports = Sample;

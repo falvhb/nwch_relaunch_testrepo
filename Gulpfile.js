@@ -14,6 +14,7 @@ var sassdoc = require('sassdoc');
 // -----------------------------------------------------------------------------
 // Constants
 // -----------------------------------------------------------------------------
+
 var BUILD_DIR  = './client/';
 var SOURCE_DIR = './assets/';
 
@@ -89,9 +90,11 @@ if (isProd()) {
 // -----------------------------------------------------------------------------
 
 gulp.task('clean', function() {
-  return gulp.src(BUILD_DIR, {
-    read: false
-  }).pipe(plugins.clean());
+  return gulp
+    .src(BUILD_DIR, {
+      read: false
+    })
+    .pipe(plugins.clean());
 });
 
 
@@ -137,8 +140,7 @@ gulp.task('sassdoc', function() {
   return gulp
     .src(sassInput)
     .pipe(sassdoc(sassdocOptions))
-    .pipe(plugins.exit())
-    .resume();
+    .pipe(plugins.exit());
 });
 
 
@@ -148,7 +150,7 @@ gulp.task('sassdoc', function() {
 
 gulp.task('webpack', function() {
   return gulp
-    .src('views/browser.js')
+    .src('./views/browser.js')
     .pipe(plugins.webpack(webpackConfig))
     .pipe(gulp.dest(BUILD_DIR));
 });
@@ -159,10 +161,11 @@ gulp.task('webpack', function() {
 // -----------------------------------------------------------------------------
 
 gulp.task('fonts', function() {
-  return gulp.src(assetDir('fonts/**/*.css'))
+  return gulp
+    .src(assetDir('fonts/**/*.css'))
     .pipe(plugins.base64({
       baseDir: assetDir('fonts'),
-      maxImageSize: 100*1024,
+      maxImageSize: 100 * 1024,
       extensionsAllowed: ['woff', 'woff2'],
       debug: true
     }))
@@ -170,7 +173,8 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('fontloader', function() {
-  return gulp.src(assetDir('javascripts/*.js'))
+  return gulp
+    .src(assetDir('javascripts/*.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(buildDir('javascripts')));
 });
@@ -213,17 +217,20 @@ gulp.task('server', function() {
 
 gulp.task('head', ['fonts', 'fontloader']);
 
+
 // -----------------------------------------------------------------------------
 // Bundle task
 // -----------------------------------------------------------------------------
 
 gulp.task('bundle', ['sass', 'webpack']);
 
+
 // -----------------------------------------------------------------------------
 // Build task
 // -----------------------------------------------------------------------------
 
 gulp.task('build', plugins.sequence('lint', 'clean', ['head', 'bundle'], 'sassdoc'));
+
 
 // -----------------------------------------------------------------------------
 // Default task

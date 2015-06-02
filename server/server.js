@@ -1,10 +1,13 @@
+/*eslint-disable no-console */
 'use strict';
+
 var React = require('react');
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var engines = require('consolidate');
+var Styleguide = require('../views/components/styleguide');
 
 var app = module.exports = loopback();
 
@@ -25,7 +28,7 @@ nunjucks.configure(path.resolve(__dirname, '..'), {
 app.start = function() {
   return app.listen(function() {
     app.emit('started');
-    console.log('Web server listening at: %s', app.get('url')); //eslint-disable-line
+    console.log('Web server listening at: %s', app.get('url'));
   });
 };
 
@@ -38,8 +41,6 @@ app.use('/client', loopback.static('client'));
 app.use('/sassdoc/assets', loopback.static('views/sassdoc/assets'));
 
 // SassDoc route
-var Styleguide = require('../views/components/styleguide');
-
 app.get('/sassdoc/', function(req, res) {
   res.render('views/sassdoc/index.html');
 });

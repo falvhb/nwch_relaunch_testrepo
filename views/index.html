@@ -2,7 +2,7 @@
 <html lang="de-ch">
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <title>{% block title %}{{ title | default('AZ') }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {# Inline the JavaScript utilities file since it needs to be synchronously
        loaded. Also, it is very lightweight so it should not make any difference. #}
