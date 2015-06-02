@@ -15,7 +15,7 @@ var Styleguide = React.createClass({
   render: function() {
     return (
       <div onClick={this.test}>
-        <p>Styleguide compsonent</p>
+        <p>Styleguide component</p>
         <Sample/>
       </div>
     );

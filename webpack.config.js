@@ -5,6 +5,7 @@ var path = require('path');
 
 var config = {
   entry: './views/browser.js',
+  watch: true,
   module: {
     loaders: [
       {

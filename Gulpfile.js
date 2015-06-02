@@ -18,23 +18,30 @@ var gulpSequence = require('gulp-sequence').use(gulp);
 var BUILD_DIR  = './client/';
 var SOURCE_DIR = './assets/';
 
-function assetDir(path) {
+var buildDir = function(path) {
+  return BUILD_DIR + path;
+};
+
+var assetDir = function(path) {
   return SOURCE_DIR + path;
-}
+};
 
 
 // -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
 
-function isProd() {
+var isProd = function() {
   return !!plugins.util.env.prod;
-}
+};
 
-function isDev() {
+var isDev = function() {
   return !isProd();
-}
+};
 
+var isBuild = function() {
+  return plugins.util.env._[0] === 'build';
+};
 
 // -----------------------------------------------------------------------------
 // Configuration
@@ -82,18 +89,19 @@ gulp.task('clean', function() {
 // Linting
 // -----------------------------------------------------------------------------
 
-gulp.task('scss-lint', function() {
-  return gulp
-    .src(sassInput)
-    .pipe(plugins.scssLint({ config: './.scss-lint.yml' }));
-});
-
 gulp.task('eslint', function() {
   return gulp
     .src(jsInput)
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
     .pipe(plugins.eslint.failAfterError());
+});
+
+gulp.task('scss-lint', function() {
+  return gulp
+    .src(sassInput)
+    .pipe(plugins.scssLint({ config: './.scss-lint.yml' }))
+    .pipe(plugins.scssLint.failReporter());
 });
 
 gulp.task('lint', ['eslint', 'scss-lint']);
@@ -129,8 +137,8 @@ gulp.task('sassdoc', function() {
 // -----------------------------------------------------------------------------
 var webpackConfig = require('./webpack.config.js');
 
-if (isDev()) {
-  webpackConfig.watch = true;
+if (isBuild() || isProd()) {
+  webpackConfig.watch = false;
 }
 
 if (isProd()) {
@@ -152,18 +160,18 @@ gulp.task('webpack', function() {
 gulp.task('fonts', function() {
   return gulp.src(assetDir('fonts/**/*.css'))
     .pipe(plugins.base64({
-      baseDir: './assets/fonts/',
+      baseDir: assetDir('fonts'),
       maxImageSize: 100*1024,
       extensionsAllowed: ['woff', 'woff2'],
       debug: true
     }))
-    .pipe(gulp.dest(BUILD_DIR));
+    .pipe(gulp.dest(buildDir('fonts')));
 });
 
 gulp.task('fontloader', function() {
   return gulp.src(assetDir('javascripts/*.js'))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest(BUILD_DIR));
+    .pipe(gulp.dest(buildDir('javascripts')));
 });
 
 
@@ -220,4 +228,4 @@ gulp.task('build', gulpSequence('lint', 'clean', ['head', 'bundle'], 'sassdoc'))
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', gulpSequence(['clean', 'server'], ['head', 'bundle'], 'watch'));
+gulp.task('default', gulpSequence('clean', ['server', 'head', 'bundle', 'watch']));

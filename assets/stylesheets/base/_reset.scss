@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // This reset is a mix of Eric Meyer's reset, Normalize.css and custom rules.
-// Everything should be properly documented and justified.                   
+// Everything should be properly documented and justified.
 // -----------------------------------------------------------------------------
 
 /**
@@ -10,8 +10,9 @@
  *    without disabling user zoom.
  *    From: https://github.com/necolas/normalize.css/blob/2bdda84272650aedfb45d8abe11a6d177933a803/normalize.css#L11-L12
  */
-html { 
+html {
   box-sizing: border-box; /* 1 */
+  // scss-lint:disable PropertySpelling
   text-size-adjust: 100%; /* 2 */
 }
 

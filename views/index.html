@@ -7,7 +7,7 @@
     {# Inline the JavaScript utilities file since it needs to be synchronously
        loaded. Also, it is very lightweight so it should not make any difference. #}
     <script>
-      {% include "client/webfont-loading.js" %}
+      {% include "client/javascripts/webfont-loading.js" %}
     </script>
 
     {# Asynchronously request the font-face stylesheet based on the WOFF support,
@@ -18,9 +18,9 @@
           // Font storage name
           'az-fonts',
           // WOFF URL
-          '/client/data-woff.css',
+          '/client/fonts/data-woff.css',
           // WOFF2 URL
-          '/client/data-woff2.css'
+          '/client/fonts/data-woff2.css'
         );
       })(window);
     </script>
