@@ -9,7 +9,6 @@ var pkg = require('./package.json');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
-var gulpSequence = require('gulp-sequence').use(gulp);
 
 
 // -----------------------------------------------------------------------------
@@ -222,10 +221,10 @@ gulp.task('bundle', ['sass', 'webpack']);
 // Build task
 // -----------------------------------------------------------------------------
 
-gulp.task('build', gulpSequence('lint', 'clean', ['head', 'bundle'], 'sassdoc'));
+gulp.task('build', plugins.sequence('lint', 'clean', ['head', 'bundle'], 'sassdoc'));
 
 // -----------------------------------------------------------------------------
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', gulpSequence('clean', ['server', 'head', 'bundle', 'watch']));
+gulp.task('default', plugins.sequence('clean', ['server', 'head', 'bundle', 'watch']));
