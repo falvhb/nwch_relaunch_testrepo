@@ -45,8 +45,9 @@ app.get('/sassdoc', function(req, res) {
 });
 
 // Styleguide route
+var Styleguide = require('../app/node_modules/components/styleguide');
+
 app.get('/styleguide', function(req, res) {
-  var Styleguide = require('../app/components/styleguide');
 
   res.render('layouts/styleguide.html', {
     title: 'AZ Medien Styleguide',
