@@ -57,6 +57,10 @@ var jsInput = [
   './*.js'
 ];
 
+var fontsInput = [
+  './assets/fonts/**/*.css',
+];
+
 var sassOptions = {
   outputStyle: (isProd() ? 'compressed' : 'expanded'),
   errLogToConsole: isProd() === true,
@@ -159,7 +163,7 @@ gulp.task('webpack', function() {
 
 gulp.task('fonts', function() {
   return gulp
-    .src(assetDir('fonts/**/*.css'))
+    .src(assetDir(fontsInput))
     .pipe(plugins.base64({
       baseDir: assetDir('fonts'),
       maxImageSize: 100 * 1024,
