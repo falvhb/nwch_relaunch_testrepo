@@ -15,15 +15,15 @@ var sassdoc = require('sassdoc');
 // Constants
 // -----------------------------------------------------------------------------
 
-var SOURCE_DIR = './app/assets/';
+var SOURCE_DIR = './app/';
 var BUILD_DIR  = './client/';
 
 var sourceDir = function(path) {
-  return './views' + path;
+  return SOURCE_DIR + path;
 };
 
 var assetDir = function(path) {
-  return SOURCE_DIR + path;
+  return sourceDir('assets/' + path);
 };
 
 var buildDir = function(path) {
@@ -55,8 +55,8 @@ var sassInput = [
 
 var jsInput = [
   assetDir('scripts/**/*.js'),
-  sourceDir('views/components/**/*.js'),
-  sourceDir('views/components/**/*.jsx'),
+  sourceDir('components/**/*.js'),
+  sourceDir('components/**/*.jsx'),
   './server/**/*.js',
   './*.js'
 ];
@@ -73,7 +73,7 @@ var sassOptions = {
 };
 
 var sassdocOptions = {
-  dest: buildDir('sassdoc'),
+  dest: sourceDir('sassdoc'),
   config: './.sassdocrc',
   verbose: true
 };
@@ -144,9 +144,12 @@ gulp.task('sass', function() {
 
 gulp.task('sassdoc', function() {
   return gulp
-    .src(sassInput)
+    .src([
+      assetDir('styles/utilities/*.scss'),
+      sourceDir('components/**/styles/utilities/*.scss')
+    ])
     .pipe(sassdoc(sassdocOptions))
-    .pipe(plugins.exit());
+    .resume();
 });
 
 
