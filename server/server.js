@@ -40,7 +40,7 @@ app.use('/client', loopback.static('client'));
 app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
 
 // SassDoc route
-app.get('/sassdoc/', function(req, res) {
+app.get('/sassdoc', function(req, res) {
   res.render('sassdoc/index.html');
 });
 
