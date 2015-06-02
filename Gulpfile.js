@@ -15,7 +15,7 @@ var sassdoc = require('sassdoc');
 // Constants
 // -----------------------------------------------------------------------------
 
-var SOURCE_DIR = './assets/';
+var SOURCE_DIR = './app/assets/';
 var BUILD_DIR  = './client/';
 
 var sourceDir = function(path) {
@@ -48,13 +48,13 @@ var isBuild = function() {
 // -----------------------------------------------------------------------------
 
 var sassInput = [
-  assetDir('stylesheets/globals.scss'),
-  assetDir('stylesheets/base/reset.scss'),
-  sourceDir('components/**/stylesheets/main.scss')
+  assetDir('styles/globals.scss'),
+  assetDir('styles/base/reset.scss'),
+  sourceDir('components/**/styles/main.scss')
 ];
 
 var jsInput = [
-  assetDir('javascripts/**/*.js'),
+  assetDir('scripts/**/*.js'),
   sourceDir('views/components/**/*.js'),
   sourceDir('views/components/**/*.jsx'),
   './server/**/*.js',
@@ -68,7 +68,7 @@ var sassOptions = {
   errLogToConsole: isProd() === true,
   includePaths: [
     sourceDir('components'),
-    assetDir('stylesheets')
+    assetDir('styles')
   ]
 };
 
@@ -180,9 +180,9 @@ gulp.task('fonts', function() {
 
 gulp.task('fontloader', function() {
   return gulp
-    .src(assetDir('javascripts/*.js'))
+    .src(assetDir('scripts/*.js'))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest(buildDir('javascripts')));
+    .pipe(gulp.dest(buildDir('scripts')));
 });
 
 
