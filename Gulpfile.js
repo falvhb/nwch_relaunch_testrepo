@@ -35,10 +35,6 @@ var isProd = function() {
   return !!plugins.util.env.prod;
 };
 
-var isDev = function() {
-  return !isProd();
-};
-
 var isBuild = function() {
   return plugins.util.env._[0] === 'build';
 };
@@ -48,9 +44,8 @@ var isBuild = function() {
 // -----------------------------------------------------------------------------
 
 var sassInput = [
-  './assets/stylesheets/vendor/*.scss',
-  './assets/stylesheets/utilities/*.scss',
-  './assets/stylesheets/base/*.scss',
+  './assets/stylesheets/globals.scss',
+  './assets/stylesheets/base/reset.scss',
   './views/components/**/stylesheets/main.scss'
 ];
 
@@ -65,7 +60,7 @@ var jsInput = [
 var sassOptions = {
   outputStyle: (isProd() ? 'compressed' : 'expanded'),
   errLogToConsole: isProd() === true,
-  includePaths: './views/components'
+  includePaths: ['./views/components', './assets/stylesheets']
 };
 
 var sassdocOptions = {
@@ -131,10 +126,8 @@ gulp.task('lint', ['eslint', 'scss-lint']);
 gulp.task('sass', function() {
   return gulp
     .src(sassInput)
-    .pipe(isDev() ? plugins.sourcemaps.init() : plugins.util.noop())
-    .pipe(plugins.concat('styles.scss'))
     .pipe(plugins.sass(sassOptions))
-    .pipe(isDev() ? plugins.sourcemaps.write() : plugins.util.noop())
+    .pipe(plugins.concat('styles.css'))
     .pipe(plugins.autoprefixer(autoprefixerOptions))
     .pipe(gulp.dest(BUILD_DIR))
     .pipe(plugins.util.env.livereload ? plugins.livereload() : plugins.util.noop());

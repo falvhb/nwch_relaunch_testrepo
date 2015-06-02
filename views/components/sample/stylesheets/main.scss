@@ -1,5 +1,5 @@
-// Import component-specific variables
-@import 'sample/stylesheets/utilities/variables';
+@import 'globals';
+@import 'utilities/variables';
 
 .sample {
   @include media('≥400px', $my-custom-breakpoint, 'retina') {

@@ -1,0 +1,12 @@
+// This file is intended to provide a friendly API to components as they can
+// just use `@import 'globals'` at the top without having to import each helper
+// individually.
+//
+// /!\ Caution! Make sure this file never outputs any CSS on its own as it gets
+// included by all components from the application. Any CSS output by this file
+// will be duplicated in each component. Definitely not what you want.
+
+@import 'vendor/include-media';
+@import 'utilities/variables';
+@import 'utilities/functions';
+@import 'utilities/mixins';

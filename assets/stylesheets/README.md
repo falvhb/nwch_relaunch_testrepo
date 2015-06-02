@@ -6,20 +6,24 @@ This folder (`/assets/stylesheets/`) only contains application-wide styles and u
 
 The `utilities/` folder contains application-wide configuration and helpers:
 
-* `_variables.scss` contains all application-wide variables
-* `_mixins.scss` contains all application-wide mixins
-* `_functions.scss` contains all application-wide functions
-* `_placeholders.scss` contains all application-wide placeholders
+* `variables.scss` contains all application-wide variables
+* `mixins.scss` contains all application-wide mixins
+* `functions.scss` contains all application-wide functions
+* `placeholders.scss` contains all application-wide placeholders
 
-The `vendor/` folder contains third-party stylesheets. Please, only add a third-party is completely needed. Think of the technical debt.
+The `vendor/` folder contains third-party stylesheets. Please, only add a third-party when it is completely needed. Think of the technical debt.
 
 The `base/` folder contains application-wide styles such as the reset stylesheet (which is a mix of Normalize.css, Meyer's reset and custom flavoured styles) and the typography baseline (including vertical rhythm rules for isntance).
 
 Anything related to a specific component should live in the `stylesheets/` folder from the component. Variables, mixins, functions and placeholders specific to a component should lie in a `utilities/` folder in the component `stylesheets/` folder, following the same conventions as the global folder. Then, the main file from the component (`main.scss`) should include these helpers like so:
 
 ```scss
-@import 'my-component/stylesheets/utilities/variables';
-@import 'my-component/stylesheets/utilities/mixins';
+// Import the global helpers
+@import 'globals';
+
+// Import component-specific helpers
+@import 'utilities/variables';
+@import 'utilities/mixins';
 
 // Component code...
 ```
