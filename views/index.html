@@ -2,12 +2,12 @@
 <html lang="de-ch">
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}AZ{% endblock %}</title>
+    <title>{% block title %}{{ title | default('AZ') }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {# Inline the JavaScript utilities file since it needs to be synchronously
        loaded. Also, it is very lightweight so it should not make any difference. #}
     <script>
-    {% include "assets/javascripts/utilities.js" %}
+      {% include "client/javascripts/webfont-loading.js" %}
     </script>
 
     {# Asynchronously request the font-face stylesheet based on the WOFF support,
@@ -18,17 +18,18 @@
           // Font storage name
           'az-fonts',
           // WOFF URL
-          '/client/stylesheets/fonts/data-woff.css',
+          '/client/fonts/data-woff.css',
           // WOFF2 URL
-          '/client/stylesheets/fonts/data-woff2.css'
+          '/client/fonts/data-woff2.css'
         );
       })(window);
     </script>
-    <link rel="stylesheet" href="/client/stylesheets/app.css" />
+    <link rel="stylesheet" href="/client/styles.css" />
     {% block head %}{% endblock %}
   </head>
 
   <body>
-    {% block content %}{% endblock %}
+    <main id="app">{% block content %}{% endblock %}</main>
+    <script src="/client/frontend.bundled.js"></script>
   </body>
 </html>

@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-
 'use strict';
 
 // -----------------------------------------------------------------------------
@@ -13,17 +12,36 @@ var sassdoc = require('sassdoc');
 
 
 // -----------------------------------------------------------------------------
+// Constants
+// -----------------------------------------------------------------------------
+
+var BUILD_DIR  = './client/';
+var SOURCE_DIR = './assets/';
+
+var buildDir = function(path) {
+  return BUILD_DIR + path;
+};
+
+var assetDir = function(path) {
+  return SOURCE_DIR + path;
+};
+
+
+// -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
 
-function isProd() {
+var isProd = function() {
   return !!plugins.util.env.prod;
-}
+};
 
-function isDev() {
+var isDev = function() {
   return !isProd();
-}
+};
 
+var isBuild = function() {
+  return plugins.util.env._[0] === 'build';
+};
 
 // -----------------------------------------------------------------------------
 // Configuration
@@ -60,40 +78,65 @@ var autoprefixerOptions = {
   browsers: ['last 2 versions', 'IE 9', '> 5%', 'Firefox ESR']
 };
 
+var webpackConfig = require('./webpack.config.js');
+
+if (isBuild() || isProd()) {
+  webpackConfig.watch = false;
+}
+
+if (isProd()) {
+  webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
+}
+
+
+// -----------------------------------------------------------------------------
+// Clear build folder
+// -----------------------------------------------------------------------------
+
+gulp.task('clean', function() {
+  return gulp
+    .src(BUILD_DIR, {
+      read: false
+    })
+    .pipe(plugins.clean());
+});
+
 
 // -----------------------------------------------------------------------------
 // Linting
 // -----------------------------------------------------------------------------
 
-gulp.task('scss-lint', function() {
-  return gulp
-    .src(sassInput)
-    .pipe(plugins.scssLint({ config: './.scss-lint.yml' }));
-});
-
 gulp.task('eslint', function() {
   return gulp
     .src(jsInput)
     .pipe(plugins.eslint())
-    .pipe(plugins.eslint.failOnError());
+    .pipe(plugins.eslint.format())
+    .pipe(plugins.eslint.failAfterError());
 });
 
-gulp.task('lint', ['scss-lint', 'eslint']);
+gulp.task('scss-lint', function() {
+  return gulp
+    .src(sassInput)
+    .pipe(plugins.scssLint({ config: './.scss-lint.yml' }))
+    .pipe(plugins.scssLint.failReporter());
+});
+
+gulp.task('lint', ['eslint', 'scss-lint']);
 
 
 // -----------------------------------------------------------------------------
-// Sass
+// Sass bundle
 // -----------------------------------------------------------------------------
 
 gulp.task('sass', function() {
   return gulp
     .src(sassInput)
     .pipe(isDev() ? plugins.sourcemaps.init() : plugins.util.noop())
-    .pipe(plugins.concat('app.scss'))
+    .pipe(plugins.concat('styles.scss'))
     .pipe(plugins.sass(sassOptions))
     .pipe(isDev() ? plugins.sourcemaps.write() : plugins.util.noop())
     .pipe(plugins.autoprefixer(autoprefixerOptions))
-    .pipe(gulp.dest('./client/stylesheets'))
+    .pipe(gulp.dest(BUILD_DIR))
     .pipe(plugins.util.env.livereload ? plugins.livereload() : plugins.util.noop());
 });
 
@@ -101,12 +144,48 @@ gulp.task('sassdoc', function() {
   return gulp
     .src(sassInput)
     .pipe(sassdoc(sassdocOptions))
-    .resume();
+    .pipe(plugins.exit());
 });
 
 
 // -----------------------------------------------------------------------------
-// Watching
+// Webpack bundle
+// -----------------------------------------------------------------------------
+
+gulp.task('webpack', function() {
+  return gulp
+    .src('./views/browser.js')
+    .pipe(plugins.webpack(webpackConfig))
+    .pipe(gulp.dest(BUILD_DIR));
+});
+
+
+// -----------------------------------------------------------------------------
+// Compress font files
+// -----------------------------------------------------------------------------
+
+gulp.task('fonts', function() {
+  return gulp
+    .src(assetDir('fonts/**/*.css'))
+    .pipe(plugins.base64({
+      baseDir: assetDir('fonts'),
+      maxImageSize: 100 * 1024,
+      extensionsAllowed: ['woff', 'woff2'],
+      debug: true
+    }))
+    .pipe(gulp.dest(buildDir('fonts')));
+});
+
+gulp.task('fontloader', function() {
+  return gulp
+    .src(assetDir('javascripts/*.js'))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest(buildDir('javascripts')));
+});
+
+
+// -----------------------------------------------------------------------------
+// Watch task
 // -----------------------------------------------------------------------------
 
 gulp.task('watch', function() {
@@ -137,14 +216,28 @@ gulp.task('server', function() {
 
 
 // -----------------------------------------------------------------------------
-// Build
+// <head> task
 // -----------------------------------------------------------------------------
 
-gulp.task('build', ['lint', 'sass', 'sassdoc']);
+gulp.task('head', ['fonts', 'fontloader']);
+
+
+// -----------------------------------------------------------------------------
+// Bundle task
+// -----------------------------------------------------------------------------
+
+gulp.task('bundle', ['sass', 'webpack']);
+
+
+// -----------------------------------------------------------------------------
+// Build task
+// -----------------------------------------------------------------------------
+
+gulp.task('build', plugins.sequence('lint', 'clean', ['head', 'bundle'], 'sassdoc'));
 
 
 // -----------------------------------------------------------------------------
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', ['lint', 'sass', 'server', 'watch']);
+gulp.task('default', plugins.sequence('clean', ['server', 'head', 'bundle', 'watch']));
