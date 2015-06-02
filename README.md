@@ -3,7 +3,13 @@
 ## Setup
 
 ```sh
+# Install Gulp globally
+$ npm install gulp -g
+
+# Install SCSS-lint globally
 $ gem install scss-lint
+
+# Install project Node dependencies
 $ npm install
 ```
 
