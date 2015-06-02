@@ -7,7 +7,6 @@ var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var engines = require('consolidate');
-var Styleguide = require('../views/components/styleguide');
 
 var app = module.exports = loopback();
 
@@ -47,6 +46,7 @@ app.get('/sassdoc/', function(req, res) {
 
 // Styleguide route
 app.get('/styleguide', function(req, res) {
+  var Styleguide = require('../views/components/styleguide');
   res.render('views/layouts/styleguide.html', {
     title: 'AZ Medien Styleguide',
     content: React.renderToString(

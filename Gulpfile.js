@@ -15,15 +15,19 @@ var sassdoc = require('sassdoc');
 // Constants
 // -----------------------------------------------------------------------------
 
-var BUILD_DIR  = './client/';
 var SOURCE_DIR = './assets/';
+var BUILD_DIR  = './client/';
 
-var buildDir = function(path) {
-  return BUILD_DIR + path;
+var sourceDir = function(path) {
+  return './views' + path;
 };
 
 var assetDir = function(path) {
   return SOURCE_DIR + path;
+};
+
+var buildDir = function(path) {
+  return BUILD_DIR + path;
 };
 
 
@@ -44,31 +48,32 @@ var isBuild = function() {
 // -----------------------------------------------------------------------------
 
 var sassInput = [
-  './assets/stylesheets/globals.scss',
-  './assets/stylesheets/base/reset.scss',
-  './views/components/**/stylesheets/main.scss'
+  assetDir('stylesheets/globals.scss'),
+  assetDir('stylesheets/base/reset.scss'),
+  sourceDir('components/**/stylesheets/main.scss')
 ];
 
 var jsInput = [
-  './assets/javascripts/**/*.js',
-  './views/components/**/*.js',
-  './views/components/**/*.jsx',
+  assetDir('javascripts/**/*.js'),
+  sourceDir('views/components/**/*.js'),
+  sourceDir('views/components/**/*.jsx'),
   './server/**/*.js',
   './*.js'
 ];
 
-var fontsInput = [
-  './assets/fonts/**/*.css',
-];
+var fontsInput = assetDir('fonts/**/*.css');
 
 var sassOptions = {
   outputStyle: (isProd() ? 'compressed' : 'expanded'),
   errLogToConsole: isProd() === true,
-  includePaths: ['./views/components', './assets/stylesheets']
+  includePaths: [
+    sourceDir('components'),
+    assetDir('stylesheets')
+  ]
 };
 
 var sassdocOptions = {
-  dest: './views/sassdoc',
+  dest: buildDir('sassdoc'),
   config: './.sassdocrc',
   verbose: true
 };
@@ -151,7 +156,7 @@ gulp.task('sassdoc', function() {
 
 gulp.task('webpack', function() {
   return gulp
-    .src('./views/browser.js')
+    .src(sourceDir('browser.js'))
     .pipe(plugins.webpack(webpackConfig))
     .pipe(gulp.dest(BUILD_DIR));
 });
@@ -163,7 +168,7 @@ gulp.task('webpack', function() {
 
 gulp.task('fonts', function() {
   return gulp
-    .src(assetDir(fontsInput))
+    .src(fontsInput)
     .pipe(plugins.base64({
       baseDir: assetDir('fonts'),
       maxImageSize: 100 * 1024,
