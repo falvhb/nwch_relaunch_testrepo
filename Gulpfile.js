@@ -48,8 +48,10 @@ var isBuild = function() {
 // -----------------------------------------------------------------------------
 
 var sassInput = [
-  './assets/stylesheets/**/*.scss',
-  './views/components/**/main.scss'
+  './assets/stylesheets/vendor/*.scss',
+  './assets/stylesheets/utilities/*.scss',
+  './assets/stylesheets/base/*.scss',
+  './views/components/**/stylesheets/main.scss'
 ];
 
 var jsInput = [
@@ -61,7 +63,9 @@ var jsInput = [
 ];
 
 var sassOptions = {
-  outputStyle: (isProd() ? 'compressed' : 'expanded')
+  outputStyle: (isProd() ? 'compressed' : 'expanded'),
+  errLogToConsole: isProd() === true,
+  includePaths: './views/components'
 };
 
 var sassdocOptions = {

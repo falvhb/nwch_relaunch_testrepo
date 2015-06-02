@@ -1,23 +1,8 @@
 // Import component-specific variables
-@import 'utilities/variables';
+@import 'sample/stylesheets/utilities/variables';
 
-.my-component {
-  color: #f00;
-
-  // Use the `respond-to` mixin to use a global breakpoint
-  @include respond-to('small') {
-    color: #f0f;
+.sample {
+  @include media('≥400px', $my-custom-breakpoint, 'retina') {
+    background: deepskyblue;
   }
-
-  // Use the `respond-to` mixin to use a component-specific breakpoint
-  @include respond-to((min-height: 500px)) {
-    height: 550px;
-  }
-}
-
-body {
-  background: yellow;
-  font-family: 'HelveticaNeue', serif;
-  line-height: 1.2;
-  font-weight: bold;
 }
