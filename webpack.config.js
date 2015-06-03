@@ -18,6 +18,7 @@ var config = {
   output: {
     filename: 'frontend.bundled.js',
     path: path.join(__dirname, './client'),
+    publicPath: '/client/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],

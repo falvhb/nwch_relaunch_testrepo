@@ -72,11 +72,18 @@ app.get('/components.json', function(req, res) {
 var Styleguide = require('../app/node_modules/styleguide/layout');
 
 var renderReact = function(components, route) {
+  // Set props
   var props = {
-    components: components,
-    route: route
+    components: components
   };
-  var el = React.createElement(Styleguide, objectAssign({}, props));
+  // Create element to be passed as child
+  var children;
+  if (route) {
+    var reqPath = '../app/node_modules/components/' + route;
+    children = React.createElement(require(reqPath));
+  }
+  // Create our styleguide
+  var el = React.createElement(Styleguide, objectAssign({}, props), children);
   return el;
 };
 

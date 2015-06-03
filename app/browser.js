@@ -10,15 +10,23 @@ var renderReact = function(components) {
   var url = window.location.href;
   var slug = url.split('/component/').pop();
   var route = url === slug ? null : slug;
-  // Setup props
+  // Set props
   var props = {
-    components: components,
-    route: route
+    components: components
   };
-  // Render
-  var rootElement = document.getElementById('app');
-  var reactEl = React.createElement(Styleguide, objectAssign({}, props));
-  React.render(reactEl, rootElement);
+  // Create element to be passed as child
+  var reactEl, children, appElement = document.getElementById('app');
+  require.ensure([], function(require) {
+    if (route) {
+      // Set required component
+      var requiredComponent = require('components/' + route + '/index.jsx');
+      children = React.createElement(requiredComponent);
+    }
+    // Create our styleguide
+    reactEl = React.createElement(Styleguide, objectAssign({}, props), children);
+    // Render it
+    React.render(reactEl, appElement);
+  }, 'components');
 };
 
 // Parse all components client-side, then render
@@ -28,5 +36,5 @@ fetch('/components.json')
   }).then(function(json) {
     renderReact(json);
   }).catch(function(ex) {
-    console.log('Error parsing components Json', ex);
+    console.log('Error parsing components', ex);
   });
