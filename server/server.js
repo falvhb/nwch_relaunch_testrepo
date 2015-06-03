@@ -65,7 +65,6 @@ app.use(middleware());
 
 // Require the core Styleguide
 var Styleguide = require('../app/node_modules/styleguide/layout');
-var styleguideProps = this.props;
 
 // Json for all components
 app.get('/components.json', function(req, res) {
@@ -75,10 +74,10 @@ app.get('/components.json', function(req, res) {
 // Core Styleguide route
 app.get('/styleguide', function(req, res) {
   // append new props to Styleguide
-  var newProps = {
+  var props = {
     components: res.locals.components
   };
-  var reactEl = React.createElement(Styleguide, objectAssign({}, styleguideProps, newProps));
+  var reactEl = React.createElement(Styleguide, objectAssign({}, props));
   // route rendering
   res.render('layouts/styleguide.html', {
     title: 'AZ Medien Styleguide',
@@ -91,11 +90,11 @@ app.get('/styleguide/component/:component', function(req, res) {
   var components = res.locals.components;
   var slug = req.params.component;
   // append new props to Styleguide
-  var newProps = {
+  var props = {
     components: components,
     displaying: slug
   };
-  var reactEl = React.createElement(Styleguide, objectAssign({}, styleguideProps, newProps));
+  var reactEl = React.createElement(Styleguide, objectAssign({}, props));
   // route rendering
   res.render('layouts/styleguide.html', {
     title: slugToTitle(slug) + ' | AZ Medien Styleguide',
