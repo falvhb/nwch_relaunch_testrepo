@@ -9,7 +9,6 @@ var path = require('path');
 var engines = require('consolidate');
 var app = module.exports = loopback();
 
-var glob = require('glob');
 var slugToTitle = require('slug-to-title');
 var objectAssign = require('react/lib/Object.assign');
 
@@ -60,32 +59,24 @@ app.get('/sassdoc', function(req, res) {
 // Main app routing
 // -----------------------------------------------------------------------------
 
-// Middleware?
-var options = {
-  folder: './app/node_modules/components/',
-  file: 'index.jsx'
-};
-var files = glob.sync(options.folder + '**/*.jsx');
-var components = files.map(function(file) {
-  var requirePath = file.replace('/' + options.file, '');
-  var componentSlug = requirePath.replace(options.folder, '');
-  var componentName = slugToTitle(componentSlug);
-  var component = {};
-  component.componentName = componentName;
-  component.requirePath = requirePath;
-  component.componentSlug = componentSlug;
-  return component;
-});
+// Middleware for components
+var middleware = require('./middleware/components.js');
+app.use(middleware());
 
 // Require the core Styleguide
 var Styleguide = require('../app/node_modules/styleguide/layout');
 var styleguideProps = this.props;
 
+// Json for all components
+app.get('/components.json', function(req, res) {
+  res.json(res.locals.components);
+});
+
 // Core Styleguide route
 app.get('/styleguide', function(req, res) {
   // append new props to Styleguide
   var newProps = {
-    components: components
+    components: res.locals.components
   };
   var reactEl = React.createElement(Styleguide, objectAssign({}, styleguideProps, newProps));
   // route rendering
@@ -95,21 +86,20 @@ app.get('/styleguide', function(req, res) {
   });
 });
 
-// Loop all our component routes
-components.forEach(function(component) {
-  app.get('/styleguide/component/' + component.componentSlug, function(req, res) {
-    // append new props to Styleguide
-    var newProps = {
-      components: components,
-      displaying: [component]
-    };
-    console.log(newProps);
-    var reactEl = React.createElement(Styleguide, objectAssign({}, styleguideProps, newProps));
-    // route rendering
-    res.render('layouts/styleguide.html', {
-      title: component.componentName + ' | AZ Medien Styleguide',
-      content: React.renderToString(reactEl)
-    });
+// All our component routes
+app.get('/styleguide/component/:component', function(req, res) {
+  var components = res.locals.components;
+  var slug = req.params.component;
+  // append new props to Styleguide
+  var newProps = {
+    components: components,
+    displaying: slug
+  };
+  var reactEl = React.createElement(Styleguide, objectAssign({}, styleguideProps, newProps));
+  // route rendering
+  res.render('layouts/styleguide.html', {
+    title: slugToTitle(slug) + ' | AZ Medien Styleguide',
+    content: React.renderToString(reactEl)
   });
 });
 
