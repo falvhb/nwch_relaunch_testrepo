@@ -92,9 +92,10 @@ app.get('/styleguide/component/:component', function(req, res) {
   // append new props to Styleguide
   var props = {
     components: components,
-    displaying: slug
+    route: slug
   };
   var reactEl = React.createElement(Styleguide, objectAssign({}, props));
+  console.log(props, React.renderToString(reactEl));
   // route rendering
   res.render('layouts/styleguide.html', {
     title: slugToTitle(slug) + ' | AZ Medien Styleguide',

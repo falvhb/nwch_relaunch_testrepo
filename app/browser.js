@@ -6,8 +6,12 @@ var Styleguide = require('styleguide/layout');
 var objectAssign = require('react/lib/Object.assign');
 
 var renderReact = function(components) {
+  var url = window.location.href;
+  var slug = url.split('/component/').pop();
+  var route = url === slug ? null : slug;
   var props = {
-    components: components
+    components: components,
+    route: route
   };
   var rootElement = document.getElementById('app');
   var reactEl = React.createElement(Styleguide, objectAssign({}, props));
