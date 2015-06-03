@@ -63,43 +63,36 @@ app.get('/sassdoc', function(req, res) {
 var middleware = require('./middleware/components.js');
 app.use(middleware());
 
-// Require the core Styleguide
-var Styleguide = require('../app/node_modules/styleguide/layout');
-
 // Json for all components
 app.get('/components.json', function(req, res) {
   res.json(res.locals.components);
 });
 
+// Render for react
+var Styleguide = require('../app/node_modules/styleguide/layout');
+
+var renderReact = function(components, route) {
+  var props = {
+    components: components,
+    route: route
+  };
+  var el = React.createElement(Styleguide, objectAssign({}, props));
+  return el;
+};
+
 // Core Styleguide route
 app.get('/styleguide', function(req, res) {
-  // append new props to Styleguide
-  var props = {
-    components: res.locals.components
-  };
-  var reactEl = React.createElement(Styleguide, objectAssign({}, props));
-  // route rendering
   res.render('layouts/styleguide.html', {
     title: 'AZ Medien Styleguide',
-    content: React.renderToString(reactEl)
+    content: React.renderToString(renderReact(res.locals.components))
   });
 });
 
 // All our component routes
 app.get('/styleguide/component/:component', function(req, res) {
-  var components = res.locals.components;
-  var slug = req.params.component;
-  // append new props to Styleguide
-  var props = {
-    components: components,
-    route: slug
-  };
-  var reactEl = React.createElement(Styleguide, objectAssign({}, props));
-  console.log(props, React.renderToString(reactEl));
-  // route rendering
   res.render('layouts/styleguide.html', {
-    title: slugToTitle(slug) + ' | AZ Medien Styleguide',
-    content: React.renderToString(reactEl)
+    title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
+    content: React.renderToString(renderReact(res.locals.components, req.params.component))
   });
 });
 
