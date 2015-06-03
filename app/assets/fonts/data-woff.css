@@ -1,13 +1,27 @@
 @font-face {
-  font-family: 'HelveticaNeue';
-  src: url('HelveticaNeueRegular.woff') format('woff');
+  font-family: 'Publico';
+  src: url('PublicoText-Roman-Web.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'HelveticaNeue';
-  src: url('HelveticaNeueBold.woff') format('woff');
+  font-family: 'Publico';
+  src: url('PublicoText-Bold-Web.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Publico';
+  src: url('PublicoText-Italic-Web.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Publico Headline';
+  src: url('PublicoHeadline-Medium-Web.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }

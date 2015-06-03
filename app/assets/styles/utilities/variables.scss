@@ -25,3 +25,11 @@ $media-expressions: (
     '(min-resolution: 192dpi)'
   )
 );
+
+/// Default font stack
+/// @type List
+$text-font-stack: 'Publico', serif;
+
+/// Heading font stack
+/// @type List
+$heading-font-stack: 'Publico Headline', sans-serif;

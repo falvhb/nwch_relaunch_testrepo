@@ -49,7 +49,7 @@ var isBuild = function() {
 
 var sassInput = [
   assetDir('styles/globals.scss'),
-  assetDir('styles/base/reset.scss'),
+  assetDir('styles/base/*.scss'),
   sourceDir('components/**/styles/main.scss')
 ];
 
