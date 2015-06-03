@@ -14,6 +14,7 @@ var renderReact = function(components) {
   React.render(reactEl, rootElement);
 };
 
+// Parse list of all components on the client-side, then render
 fetch('/components.json')
   .then(function(response) {
     return response.json();
