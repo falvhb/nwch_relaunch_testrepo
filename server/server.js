@@ -74,7 +74,8 @@ var Styleguide = require('../app/node_modules/styleguide/layout');
 var renderReact = function(components, route) {
   // Set props
   var props = {
-    components: components
+    components: components,
+    route: route
   };
   // Create element to be passed as child
   var children;

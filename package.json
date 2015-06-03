@@ -65,6 +65,7 @@
     "gulp-webpack": "^1.4.0",
     "javascript-precommit": "0.0.8",
     "pre-commit": "^1.0.7",
+    "react-bem-helper": "0.0.3",
     "sassdoc": "^2.1.13",
     "url-parse": "^1.0.1"
   }

@@ -12,7 +12,8 @@ var renderReact = function(components) {
   var route = url === slug ? null : slug;
   // Set props
   var props = {
-    components: components
+    components: components,
+    route: route
   };
   // Create element to be passed as child
   var reactEl, children, appElement = document.getElementById('app');
@@ -33,8 +34,8 @@ var renderReact = function(components) {
 fetch('/components.json')
   .then(function(response) {
     return response.json();
-  }).then(function(json) {
-    renderReact(json);
-  }).catch(function(ex) {
+  })
+  .then(renderReact)
+  .catch(function(ex) {
     console.log('Error parsing components', ex);
   });
