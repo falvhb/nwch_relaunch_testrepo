@@ -7,24 +7,23 @@ var StyleguideFull = require('styleguide/layout-full');
 
 var objectAssign = require('react/lib/Object.assign');
 
-var isFullView = function(path) {
-  var suffix = '/full';
-  return path.indexOf(suffix, path.length - suffix.length) !== -1;
+var urlChunks = (function() {
+  return window.location.href.replace(/\/$/, '').split('/');
+}());
+
+var isFullView = function() {
+  return urlChunks[urlChunks.length - 1] === 'full';
+};
+
+var computeView = function() {
+  return isFullView() ? StyleguideFull : Styleguide;
 };
 
 var createProps = function(components) {
-  // Get current route
-  var url = window.location.href;
-  var cleanUrl = url.replace(/\/$/, '');
-  if (isFullView(cleanUrl)) {
-    cleanUrl = cleanUrl.replace('/full', '');
-  }
-  var slug = cleanUrl.split('/component/').pop();
-  var route = cleanUrl === slug ? null : slug;
-  // Return props
+  var slug = urlChunks[urlChunks.length - (isFullView() ? 2 : 1)];
   return {
     components: components,
-    route: route
+    route: slug === 'styleguide' ? null : slug
   };
 };
 
@@ -46,15 +45,8 @@ var renderReact = function(params) {
 };
 
 var renderPage = function(components) {
-  var view = Styleguide;
-  var url = window.location.href;
-  var cleanUrl = url.replace(/\/$/, '');
-  if (isFullView(cleanUrl)) {
-    cleanUrl = cleanUrl.replace('/full', '');
-    view = StyleguideFull;
-  }
   renderReact({
-    view: view,
+    view: computeView(),
     components: components
   });
 };
