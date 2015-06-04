@@ -55,8 +55,8 @@ var sassInput = [
 
 var jsInput = [
   assetDir('scripts/**/*.js'),
-  sourceDir('components/**/*.js'),
-  sourceDir('components/**/*.jsx'),
+  sourceDir('node_modules/**/*.js'),
+  sourceDir('node_modules/**/*.jsx'),
   './server/**/*.js',
   './*.js'
 ];
