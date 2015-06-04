@@ -1,7 +1,7 @@
 @import 'globals';
 
 body {
-  font: 125% / 1.4 $text-font-stack;
+  font: 125% / 1.5 $text-font-stack;
   color: $black;
 
   @include media('>=small') {
