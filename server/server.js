@@ -10,6 +10,7 @@ var path = require('path');
 var engines = require('consolidate');
 var app = module.exports = loopback();
 
+var slugify = require('slugify');
 var slugToTitle = require('slug-to-title');
 var objectAssign = require('react/lib/Object.assign');
 
@@ -74,31 +75,43 @@ var Layout = require('../app/node_modules/styleguide/layout');
 var LayoutFull = require('../app/node_modules/styleguide/layout-full');
 
 var renderReact = function(params) {
+
   // Define layout
+  // LATER: move to Nunjucks layout ?
   var layout = params.full === true ? LayoutFull : Layout;
-  console.log(params.component, params.variation);
+
   // Create element to be passed as child
   var child;
   if (params.component) {
-    var module = '../app/node_modules/components/' + params.component;
+    var module = '../app/node_modules/components/' + params.component.slug;
     child = React.createElement(require(module));
   }
+
   // Create our styleguide
   var el = React.createElement(layout, objectAssign({}, params), child);
   return React.renderToString(el);
 };
 
-var defaultComponentVariation = function(slug, components) {
-  var component = _.find(components, function(chr) {
-    return chr.slug === slug;
+var componentForRequest = function(request, components) {
+  var component, variation;
+  var componentId = request.component;
+  var variationId = request.variation;
+
+  // Find requested component
+  component = _.find(components, function(chr) {
+    return chr.slug === componentId;
   });
-  var variation;
-  if (component.variations) {
-    variation = component.variations[0].slug;
-  } else {
-    variation = false;
+
+  // Get our variation, defaulting to the first
+  if (variationId || component.variations) {
+    variation = _.find(component.variations, function(chr) {
+      return slugify(chr.title).toLowerCase() === variationId;
+    }) || component.variations[0];
   }
-  return variation;
+
+  // Attach and return
+  component.variation = variation;
+  return component;
 };
 
 // Core Styleguide route
@@ -117,8 +130,7 @@ app.get('/styleguide/component/:component', function(req, res) {
     title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
     content: renderReact({
       components: res.locals.components,
-      component: req.params.component,
-      variation: defaultComponentVariation(req.params.component, res.locals.components)
+      component: componentForRequest(req.params, res.locals.components)
     })
   });
 });
@@ -128,8 +140,7 @@ app.get('/styleguide/component/:component/full', function(req, res) {
     title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
     content: renderReact({
       components: res.locals.components,
-      component: req.params.component,
-      variation: defaultComponentVariation(req.params.component, res.locals.components),
+      component: componentForRequest(req.params, res.locals.components),
       full: true
     })
   });
@@ -140,8 +151,7 @@ app.get('/styleguide/component/:component/:variation', function(req, res) {
     title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
     content: renderReact({
       components: res.locals.components,
-      component: req.params.component,
-      variation: req.params.variation
+      component: componentForRequest(req.params, res.locals.components)
     })
   });
 });
@@ -152,8 +162,7 @@ app.get('/styleguide/component/:component/:variation/full', function(req, res) {
     title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
     content: renderReact({
       components: res.locals.components,
-      component: req.params.component,
-      variation: req.params.variation,
+      component: componentForRequest(req.params, res.locals.components),
       full: true
     })
   });

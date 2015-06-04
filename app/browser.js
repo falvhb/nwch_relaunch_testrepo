@@ -4,6 +4,7 @@
 var React = require('react');
 var _ = require('lodash');
 
+var slugify = require('slugify');
 var objectAssign = require('react/lib/Object.assign');
 
 var parseUrl = (function() {
@@ -27,14 +28,16 @@ var Layout = require('styleguide/layout');
 var LayoutFull = require('styleguide/layout-full');
 
 var renderReact = function(params) {
+
   // Define layout
   var layout = params.full ? LayoutFull : Layout;
+
   // Create element to be passed as child
   var child, el, app = document.getElementById('app');
   require.ensure([], function(require) {
+    // Ensure requiring of routed component
     if (params.component) {
-      // Set required component
-      var module = require('components/' + params.component + '/index.jsx');
+      var module = require('components/' + params.component.slug + '/index.jsx');
       child = React.createElement(module);
     }
     // Create our styleguide
@@ -43,11 +46,32 @@ var renderReact = function(params) {
   }, 'components');
 };
 
+var componentForRequest = function(request, components) {
+  var component, variation;
+  var componentId = request.component;
+  var variationId = request.variation;
+
+  // Find requested component
+  component = _.find(components, function(chr) {
+    return chr.slug === componentId;
+  });
+
+  // Get our variation, defaulting to the first
+  if (variationId || component.variations) {
+    variation = _.find(component.variations, function(chr) {
+      return slugify(chr.title).toLowerCase() === variationId;
+    }) || component.variations[0];
+  }
+
+  // Attach and return
+  component.variation = variation;
+  return component;
+};
+
 var renderPage = function(components) {
   renderReact({
     components: components,
-    component: parseUrl.component,
-    variation: parseUrl.variation,
+    component: componentForRequest(parseUrl, components),
     full: parseUrl.full
   });
 };
