@@ -7,8 +7,10 @@ var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var engines = require('consolidate');
-
 var app = module.exports = loopback();
+
+var slugToTitle = require('slug-to-title');
+var objectAssign = require('react/lib/Object.assign');
 
 // Allow requiring of JSX
 require('babel/register')({
@@ -17,7 +19,11 @@ require('babel/register')({
   extensions: ['.jsx']
 });
 
-// Nunjucks config
+// -----------------------------------------------------------------------------
+// Configuration
+// -----------------------------------------------------------------------------
+
+// Nunjucks
 nunjucks.configure(path.resolve(__dirname, '..'), {
   watch: true,
   autoescape: false
@@ -36,6 +42,10 @@ app.set('view engine', 'html');
 app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
+// -----------------------------------------------------------------------------
+// SassDoc
+// -----------------------------------------------------------------------------
+
 // Serve SassDoc assets folder
 app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
 
@@ -44,16 +54,53 @@ app.get('/sassdoc', function(req, res) {
   res.render('sassdoc/index.html');
 });
 
-// Styleguide route
-var Styleguide = require('../app/node_modules/components/styleguide');
 
+// -----------------------------------------------------------------------------
+// Main app routing
+// -----------------------------------------------------------------------------
+
+// Middleware for components
+var middleware = require('./middleware/components.js');
+app.use(middleware());
+
+// Json for all components
+app.get('/components.json', function(req, res) {
+  res.json(res.locals.components);
+});
+
+// Render for react
+var Styleguide = require('../app/node_modules/styleguide/layout');
+
+var renderReact = function(components, route) {
+  // Set props
+  var props = {
+    components: components,
+    route: route
+  };
+  // Create element to be passed as child
+  var children;
+  if (route) {
+    var reqPath = '../app/node_modules/components/' + route;
+    children = React.createElement(require(reqPath));
+  }
+  // Create our styleguide
+  var el = React.createElement(Styleguide, objectAssign({}, props), children);
+  return el;
+};
+
+// Core Styleguide route
 app.get('/styleguide', function(req, res) {
-
   res.render('layouts/styleguide.html', {
     title: 'AZ Medien Styleguide',
-    content: React.renderToString(
-      React.createElement(Styleguide)
-    )
+    content: React.renderToString(renderReact(res.locals.components))
+  });
+});
+
+// All our component routes
+app.get('/styleguide/component/:component', function(req, res) {
+  res.render('layouts/styleguide.html', {
+    title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
+    content: React.renderToString(renderReact(res.locals.components, req.params.component))
   });
 });
 
