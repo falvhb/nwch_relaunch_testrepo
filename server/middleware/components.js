@@ -7,7 +7,8 @@ var slugToTitle = require('slug-to-title');
 
 var defaults = {
   folder: './app/node_modules/components/',
-  extension: '.jsx'
+  extension: '.jsx',
+  variations: '.variations.json'
 };
 
 module.exports = function(opts) {
@@ -23,15 +24,15 @@ module.exports = function(opts) {
         readme = fs.readFileSync(readmePath, 'utf8');
       }
       // Get data from folder
-      var data, dataPath = path + '/.data.json';
-      if (fs.existsSync(dataPath)) {
-        data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      var variations, variationsPath = path + '/' + options.variations;
+      if (fs.existsSync(variationsPath)) {
+        variations = JSON.parse(fs.readFileSync(variationsPath, 'utf8'));
       }
       return {
         title: slugToTitle(slug),
         slug: slug,
         readme: readme,
-        data: data
+        variations: variations
       };
     });
     res.locals.components = components;
