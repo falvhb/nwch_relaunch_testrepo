@@ -15,10 +15,10 @@ module.exports = function(opts) {
     var components = files.map(function(file) {
       var path = file.replace('/index' + options.extension, '');
       var slug = path.replace(options.folder, '');
-      var component = {};
-      component.slug = slug;
-      component.path = path;
-      return component;
+      return {
+        slug: slug,
+        path: path
+      };
     });
     res.locals.components = components;
     next();
