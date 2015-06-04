@@ -26,10 +26,17 @@ $media-expressions: (
   )
 );
 
-/// Default font stack
+/// Default font stack for the copy text
 /// @type List
+/// @group typography
 $text-font-stack: 'Publico', 'Georgia', serif;
 
-/// Heading font stack
+/// Heading font stack only used on article headlines
 /// @type List
+/// @group typography
 $headline-font-stack: 'Publico Headline', 'Times New Roman', serif;
+
+/// Supporting font stack mostly used for UI elements
+/// @type List
+/// @group typography
+$supporting-font-stack: 'Colfax', 'Helvetica', 'Arial', sans-serif;
