@@ -15,6 +15,10 @@ var renderReact = function(components) {
     components: components,
     route: route
   };
+
+  // console.log(props.components[0].title);
+  // console.log(Object.getOwnPropertyDescriptor(props.components[0].title));
+
   // Create element to be passed as child
   var reactEl, children, appElement = document.getElementById('app');
   require.ensure([], function(require) {

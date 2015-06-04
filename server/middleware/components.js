@@ -3,6 +3,7 @@
 var glob = require('glob');
 var objectAssign = require('react/lib/Object.assign');
 var fs = require('fs');
+var slugToTitle = require('slug-to-title');
 
 var defaults = {
   folder: './app/node_modules/components/',
@@ -27,8 +28,8 @@ module.exports = function(opts) {
         data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
       }
       return {
+        title: slugToTitle(slug),
         slug: slug,
-        path: path,
         readme: readme,
         data: data
       };
