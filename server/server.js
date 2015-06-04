@@ -2,6 +2,7 @@
 'use strict';
 
 var React = require('react');
+var _ = require('lodash');
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
@@ -69,25 +70,35 @@ app.get('/components.json', function(req, res) {
 });
 
 // Render for react
-var Styleguide = require('../app/node_modules/styleguide/layout');
-var ComponentFull = require('../app/node_modules/styleguide/layout-full');
+var Layout = require('../app/node_modules/styleguide/layout');
+var LayoutFull = require('../app/node_modules/styleguide/layout-full');
 
 var renderReact = function(params) {
-  var layout = params.view || Styleguide;
-  // Set props
-  var props = {
-    components: params.components,
-    route: params.route
-  };
+  // Define layout
+  var layout = params.full === true ? LayoutFull : Layout;
+  console.log(params.component, params.variation);
   // Create element to be passed as child
-  var children;
-  if (params.route) {
-    var reqPath = '../app/node_modules/components/' + params.route;
-    children = React.createElement(require(reqPath));
+  var child;
+  if (params.component) {
+    var module = '../app/node_modules/components/' + params.component;
+    child = React.createElement(require(module));
   }
   // Create our styleguide
-  var el = React.createElement(layout, objectAssign({}, props), children);
+  var el = React.createElement(layout, objectAssign({}, params), child);
   return React.renderToString(el);
+};
+
+var defaultComponentVariation = function(slug, components) {
+  var component = _.find(components, function(chr) {
+    return chr.slug === slug;
+  });
+  var variation;
+  if (component.variations) {
+    variation = component.variations[0].slug;
+  } else {
+    variation = false;
+  }
+  return variation;
 };
 
 // Core Styleguide route
@@ -106,19 +117,44 @@ app.get('/styleguide/component/:component', function(req, res) {
     title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
     content: renderReact({
       components: res.locals.components,
-      route: req.params.component
+      component: req.params.component,
+      variation: defaultComponentVariation(req.params.component, res.locals.components)
+    })
+  });
+});
+
+app.get('/styleguide/component/:component/full', function(req, res) {
+  res.render('layouts/styleguide.html', {
+    title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
+    content: renderReact({
+      components: res.locals.components,
+      component: req.params.component,
+      variation: defaultComponentVariation(req.params.component, res.locals.components),
+      full: true
+    })
+  });
+});
+
+app.get('/styleguide/component/:component/:variation', function(req, res) {
+  res.render('layouts/styleguide.html', {
+    title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
+    content: renderReact({
+      components: res.locals.components,
+      component: req.params.component,
+      variation: req.params.variation
     })
   });
 });
 
 // Full view for each component
-app.get('/styleguide/component/:component/full', function(req, res) {
+app.get('/styleguide/component/:component/:variation/full', function(req, res) {
   res.render('layouts/styleguide.html', {
-    title: slugToTitle(req.params.component) + ' Full View | AZ Medien Styleguide',
+    title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
     content: renderReact({
-      view: ComponentFull,
       components: res.locals.components,
-      route: req.params.component
+      component: req.params.component,
+      variation: req.params.variation,
+      full: true
     })
   });
 });

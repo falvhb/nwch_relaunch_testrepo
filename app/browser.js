@@ -2,52 +2,53 @@
 'use strict';
 
 var React = require('react');
-var Styleguide = require('styleguide/layout');
-var StyleguideFull = require('styleguide/layout-full');
+var _ = require('lodash');
 
 var objectAssign = require('react/lib/Object.assign');
 
-var urlChunks = (function() {
-  return window.location.href.replace(/\/$/, '').split('/');
+var parseUrl = (function() {
+  var prefixes = 'styleguide/component'.split('/');
+  var suffix = 'full';
+  // Remove trailing slash and make array
+  var urlParts = window.location.href.replace(/\/$/, '').split('/');
+  // Remove first 3 url parts
+  urlParts = urlParts.splice(3);
+  // Diff prefixes with found parts
+  var paths = _.difference(urlParts, prefixes);
+  return {
+    component: paths.length ? paths[0] : false,
+    variation: paths.length > 1 && paths[1] !== suffix ? paths[1] : false,
+    full: paths[paths.length - 1] === suffix ? true : false
+  };
 }());
 
-var isFullView = function() {
-  return urlChunks[urlChunks.length - 1] === 'full';
-};
-
-var computeView = function() {
-  return isFullView() ? StyleguideFull : Styleguide;
-};
-
-var createProps = function(components) {
-  var slug = urlChunks[urlChunks.length - (isFullView() ? 2 : 1)];
-  return {
-    components: components,
-    route: slug === 'styleguide' ? null : slug
-  };
-};
+// Render for react
+var Layout = require('styleguide/layout');
+var LayoutFull = require('styleguide/layout-full');
 
 var renderReact = function(params) {
-  var props = createProps(params.components);
+  // Define layout
+  var layout = params.full ? LayoutFull : Layout;
   // Create element to be passed as child
-  var reactEl, children, appElement = document.getElementById('app');
+  var child, el, app = document.getElementById('app');
   require.ensure([], function(require) {
-    if (props.route) {
+    if (params.component) {
       // Set required component
-      var requiredComponent = require('components/' + props.route + '/index.jsx');
-      children = React.createElement(requiredComponent);
+      var module = require('components/' + params.component + '/index.jsx');
+      child = React.createElement(module);
     }
     // Create our styleguide
-    reactEl = React.createElement(params.view, objectAssign({}, props), children);
-    // Render it
-    React.render(reactEl, appElement);
+    el = React.createElement(layout, objectAssign({}, params), child);
+    React.render(el, app);
   }, 'components');
 };
 
 var renderPage = function(components) {
   renderReact({
-    view: computeView(),
-    components: components
+    components: components,
+    component: parseUrl.component,
+    variation: parseUrl.variation,
+    full: parseUrl.full
   });
 };
 
