@@ -70,8 +70,10 @@ app.get('/components.json', function(req, res) {
 
 // Render for react
 var Styleguide = require('../app/node_modules/styleguide/layout');
+var StyleguideFull = require('../app/node_modules/styleguide/layout-full');
 
-var renderReact = function(components, route) {
+var renderReact = function(view, components, route) {
+
   // Set props
   var props = {
     components: components,
@@ -84,7 +86,7 @@ var renderReact = function(components, route) {
     children = React.createElement(require(reqPath));
   }
   // Create our styleguide
-  var el = React.createElement(Styleguide, objectAssign({}, props), children);
+  var el = React.createElement(view, objectAssign({}, props), children);
   return el;
 };
 
@@ -92,7 +94,7 @@ var renderReact = function(components, route) {
 app.get('/styleguide', function(req, res) {
   res.render('layouts/styleguide.html', {
     title: 'AZ Medien Styleguide',
-    content: React.renderToString(renderReact(res.locals.components))
+    content: React.renderToString(renderReact(Styleguide, res.locals.components))
   });
 });
 
@@ -100,7 +102,15 @@ app.get('/styleguide', function(req, res) {
 app.get('/styleguide/component/:component', function(req, res) {
   res.render('layouts/styleguide.html', {
     title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
-    content: React.renderToString(renderReact(res.locals.components, req.params.component))
+    content: React.renderToString(renderReact(Styleguide, res.locals.components, req.params.component))
+  });
+});
+
+// Full view for each component
+app.get('/styleguide/component/:component/full', function(req, res) {
+  res.render('layouts/styleguide.html', {
+    title: slugToTitle(req.params.component) + ' Full View | AZ Medien Styleguide',
+    content: React.renderToString(renderReact(StyleguideFull, res.locals.components, req.params.component))
   });
 });
 
