@@ -70,31 +70,33 @@ app.get('/components.json', function(req, res) {
 
 // Render for react
 var Styleguide = require('../app/node_modules/styleguide/layout');
-var StyleguideFull = require('../app/node_modules/styleguide/layout-full');
+var ComponentFull = require('../app/node_modules/styleguide/layout-full');
 
-var renderReact = function(view, components, route) {
-
+var renderReact = function(params) {
+  var layout = params.view || Styleguide;
   // Set props
   var props = {
-    components: components,
-    route: route
+    components: params.components,
+    route: params.route
   };
   // Create element to be passed as child
   var children;
-  if (route) {
-    var reqPath = '../app/node_modules/components/' + route;
+  if (params.route) {
+    var reqPath = '../app/node_modules/components/' + params.route;
     children = React.createElement(require(reqPath));
   }
   // Create our styleguide
-  var el = React.createElement(view, objectAssign({}, props), children);
-  return el;
+  var el = React.createElement(layout, objectAssign({}, props), children);
+  return React.renderToString(el);
 };
 
 // Core Styleguide route
 app.get('/styleguide', function(req, res) {
   res.render('layouts/styleguide.html', {
     title: 'AZ Medien Styleguide',
-    content: React.renderToString(renderReact(Styleguide, res.locals.components))
+    content: renderReact({
+      components: res.locals.components
+    })
   });
 });
 
@@ -102,7 +104,10 @@ app.get('/styleguide', function(req, res) {
 app.get('/styleguide/component/:component', function(req, res) {
   res.render('layouts/styleguide.html', {
     title: slugToTitle(req.params.component) + ' | AZ Medien Styleguide',
-    content: React.renderToString(renderReact(Styleguide, res.locals.components, req.params.component))
+    content: renderReact({
+      components: res.locals.components,
+      route: req.params.component
+    })
   });
 });
 
@@ -110,7 +115,11 @@ app.get('/styleguide/component/:component', function(req, res) {
 app.get('/styleguide/component/:component/full', function(req, res) {
   res.render('layouts/styleguide.html', {
     title: slugToTitle(req.params.component) + ' Full View | AZ Medien Styleguide',
-    content: React.renderToString(renderReact(StyleguideFull, res.locals.components, req.params.component))
+    content: renderReact({
+      view: ComponentFull,
+      components: res.locals.components,
+      route: req.params.component
+    })
   });
 });
 
