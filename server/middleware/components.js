@@ -1,8 +1,8 @@
 'use strict';
 
-const glob = require('glob');
-const objectAssign = require('react/lib/Object.assign');
-const fs = require('fs');
+var glob = require('glob');
+var objectAssign = require('react/lib/Object.assign');
+var fs = require('fs');
 
 var defaults = {
   folder: './app/node_modules/components/',
