@@ -1,0 +1,37 @@
+@import 'globals';
+
+/**
+ * This file contains all styles applied to children of *copy* sections. Copy
+ * sections are sections containing user-generated content such as CMS entries,
+ * READMEs and comments.
+ */
+
+/**
+ * Links in copy sections
+ * 1. Remove default underline to have a better one with a gradient
+ * 2. Fake the underline with a gradient to have control over position and size
+ */
+.copy a {
+  color: $blue;
+  text-decoration: none; /* 1 */
+  background: linear-gradient(to bottom, currentcolor, currentcolor) no-repeat bottom; /* 2 */
+  background-size: 100% 1px;
+  
+  &:active,
+  &:hover {
+    color: $baby-blue;
+  }
+
+  &:visited {
+    color: $medium-grey;
+  }
+}
+
+.copy h1 {
+  margin-bottom: 25px;
+  font-family: $headline-font-stack;
+}
+
+.copy p {
+  margin-bottom: 15px;
+}
