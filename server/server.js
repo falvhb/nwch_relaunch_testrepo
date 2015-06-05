@@ -81,10 +81,15 @@ var renderReact = function(params) {
   var layout = params.full === true ? LayoutFull : Layout;
 
   // Create element to be passed as child
-  var child;
-  if (params.component) {
-    var module = '../app/node_modules/components/' + params.component.slug;
-    child = React.createElement(require(module));
+  var child, data;
+  var component = params.component;
+  if (component) {
+    var module = '../app/node_modules/components/' + component.slug;
+    // Attach data to component
+    if (component.variation) {
+      data = component.variation.data;
+    }
+    child = React.createElement(require(module), objectAssign({}, data));
   }
 
   // Create our styleguide
