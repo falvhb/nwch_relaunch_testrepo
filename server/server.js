@@ -81,15 +81,15 @@ var renderReact = function(params) {
   var layout = params.full === true ? LayoutFull : Layout;
 
   // Create element to be passed as child
-  var child, data;
+  var child, elData;
   var component = params.component;
   if (component) {
     var module = '../app/node_modules/components/' + component.slug;
     // Attach data to component
-    if (component.variation) {
-      data = component.variation.data;
+    if (component.variations) {
+      elData = component.variations[component.variationIndex].data;
     }
-    child = React.createElement(require(module), objectAssign({}, data));
+    child = React.createElement(require(module), objectAssign({}, elData));
   }
 
   // Create our styleguide
@@ -98,7 +98,7 @@ var renderReact = function(params) {
 };
 
 var componentForRequest = function(request, components) {
-  var component, variation;
+  var component, variationIndex;
   var componentId = request.component;
   var variationId = request.variation;
 
@@ -107,15 +107,20 @@ var componentForRequest = function(request, components) {
     return chr.slug === componentId;
   });
 
-  // Get our variation, defaulting to the first
+  // Find requested variation
   if (variationId || component.variations) {
-    variation = _.find(component.variations, function(chr) {
+    // Get index of variation
+    variationIndex = _.findIndex(component.variations, function(chr) {
       return slugify(chr.title).toLowerCase() === variationId;
-    }) || component.variations[0];
+    });
+    // Default to first component
+    if (variationIndex === -1) {
+      variationIndex = 0;
+    }
   }
 
   // Attach and return
-  component.variation = variation;
+  component.variationIndex = variationIndex;
   return component;
 };
 

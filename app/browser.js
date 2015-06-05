@@ -33,17 +33,17 @@ var renderReact = function(params) {
   var layout = params.full ? LayoutFull : Layout;
 
   // Create element to be passed as child
-  var child, data, el, app = document.getElementById('app');
+  var child, elData, el, app = document.getElementById('app');
   var component = params.component;
   require.ensure([], function(require) {
     // Ensure requiring of routed component
     if (component) {
       var module = require('components/' + component.slug + '/index.jsx');
       // Attach data to component
-      if (component.variation) {
-        data = component.variation.data;
+      if (component.variations) {
+        elData = component.variations[component.variationIndex].data;
       }
-      child = React.createElement(module, objectAssign({}, data));
+      child = React.createElement(module, objectAssign({}, elData));
     }
     // Create our styleguide
     el = React.createElement(layout, objectAssign({}, params), child);
@@ -52,7 +52,7 @@ var renderReact = function(params) {
 };
 
 var componentForRequest = function(request, components) {
-  var component, variation;
+  var component, variationIndex;
   var componentId = request.component;
   var variationId = request.variation;
 
@@ -61,15 +61,20 @@ var componentForRequest = function(request, components) {
     return chr.slug === componentId;
   });
 
-  // Get our variation, defaulting to the first
+  // Find requested variation
   if (variationId || component.variations) {
-    variation = _.find(component.variations, function(chr) {
+    // Get index of variation
+    variationIndex = _.findIndex(component.variations, function(chr) {
       return slugify(chr.title).toLowerCase() === variationId;
-    }) || component.variations[0];
+    });
+    // Default to first component
+    if (variationIndex === -1) {
+      variationIndex = 0;
+    }
   }
 
   // Attach and return
-  component.variation = variation;
+  component.variationIndex = variationIndex;
   return component;
 };
 
