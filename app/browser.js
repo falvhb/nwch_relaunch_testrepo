@@ -3,8 +3,6 @@
 
 var React = require('react');
 var _ = require('lodash');
-
-var slugify = require('slugify');
 var objectAssign = require('react/lib/Object.assign');
 
 var parseUrl = (function() {
@@ -22,6 +20,9 @@ var parseUrl = (function() {
     full: paths[paths.length - 1] === suffix ? true : false
   };
 }());
+
+// Middleware
+var componentForRequest = require('../server/middleware/componentForRequest');
 
 // Render for react
 var Layout = require('styleguide/layout');
@@ -49,33 +50,6 @@ var renderReact = function(params) {
     el = React.createElement(layout, objectAssign({}, params), child);
     React.render(el, app);
   }, 'components');
-};
-
-var componentForRequest = function(request, components) {
-  var component, variationIndex;
-  var componentId = request.component;
-  var variationId = request.variation;
-
-  // Find requested component
-  component = _.find(components, function(chr) {
-    return chr.slug === componentId;
-  });
-
-  // Find requested variation
-  if (variationId || component.variations) {
-    // Get index of variation
-    variationIndex = _.findIndex(component.variations, function(chr) {
-      return slugify(chr.title).toLowerCase() === variationId;
-    });
-    // Default to first component
-    if (variationIndex === -1) {
-      variationIndex = 0;
-    }
-  }
-
-  // Attach and return
-  component.variationIndex = variationIndex;
-  return component;
 };
 
 var renderPage = function(components) {

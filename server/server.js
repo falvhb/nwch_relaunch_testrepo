@@ -2,7 +2,6 @@
 'use strict';
 
 var React = require('react');
-var _ = require('lodash');
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
@@ -10,7 +9,6 @@ var path = require('path');
 var engines = require('consolidate');
 var app = module.exports = loopback();
 
-var slugify = require('slugify');
 var slugToTitle = require('slug-to-title');
 var objectAssign = require('react/lib/Object.assign');
 
@@ -62,8 +60,9 @@ app.get('/sassdoc', function(req, res) {
 // -----------------------------------------------------------------------------
 
 // Middleware for components
-var middleware = require('./middleware/components.js');
-app.use(middleware());
+var allComponents = require('./middleware/components');
+var componentForRequest = require('./middleware/componentForRequest');
+app.use(allComponents());
 
 // Json for all components
 app.get('/components.json', function(req, res) {
@@ -95,33 +94,6 @@ var renderReact = function(params) {
   // Create our styleguide
   var el = React.createElement(layout, objectAssign({}, params), child);
   return React.renderToString(el);
-};
-
-var componentForRequest = function(request, components) {
-  var component, variationIndex;
-  var componentId = request.component;
-  var variationId = request.variation;
-
-  // Find requested component
-  component = _.find(components, function(chr) {
-    return chr.slug === componentId;
-  });
-
-  // Find requested variation
-  if (variationId || component.variations) {
-    // Get index of variation
-    variationIndex = _.findIndex(component.variations, function(chr) {
-      return slugify(chr.title).toLowerCase() === variationId;
-    });
-    // Default to first component
-    if (variationIndex === -1) {
-      variationIndex = 0;
-    }
-  }
-
-  // Attach and return
-  component.variationIndex = variationIndex;
-  return component;
 };
 
 // Core Styleguide route
