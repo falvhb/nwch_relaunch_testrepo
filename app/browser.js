@@ -5,6 +5,10 @@ var React = require('react');
 var _ = require('lodash');
 var objectAssign = require('react/lib/Object.assign');
 
+// -----------------------------------------------------------------------------
+// Helpers
+// -----------------------------------------------------------------------------
+
 var parseUrl = (function() {
   var prefixes = 'styleguide/component'.split('/');
   var suffix = 'full';
@@ -21,10 +25,18 @@ var parseUrl = (function() {
   };
 }());
 
+
+// -----------------------------------------------------------------------------
 // Middleware
+// -----------------------------------------------------------------------------
+
 var componentForRequest = require('../server/middleware/componentForRequest');
 
-// Render for react
+
+// -----------------------------------------------------------------------------
+// React Render
+// -----------------------------------------------------------------------------
+
 var Layout = require('styleguide/layout');
 var LayoutFull = require('styleguide/layout-full');
 
@@ -60,7 +72,11 @@ var renderPage = function(components) {
   });
 };
 
-// Parse all components client-side, then render
+
+// -----------------------------------------------------------------------------
+// Get Json then render
+// -----------------------------------------------------------------------------
+
 fetch('/components.json')
   .then(function(response) {
     return response.json();
