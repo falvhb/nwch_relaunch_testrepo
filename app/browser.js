@@ -19,9 +19,9 @@ var parseUrl = (function() {
   // Diff prefixes with found parts
   var paths = _.difference(urlParts, prefixes);
   return {
-    component: paths.length ? paths[0] : false,
+    component: paths[0] || false,
     variation: paths.length > 1 && paths[1] !== suffix ? paths[1] : false,
-    full: paths[paths.length - 1] === suffix ? true : false
+    full: paths[paths.length - 1] === suffix || false
   };
 }());
 
