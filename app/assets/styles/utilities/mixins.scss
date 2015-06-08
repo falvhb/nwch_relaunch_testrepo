@@ -1,3 +1,102 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
+
+/// Introduction paragraph
+/// This is intended to be an introduction paragraph to an article. It should not
+/// be used for more than a single paragraph in a row.
+@mixin type-intro {
+  font: 24px / 1.41 $supporting-font-stack;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+
+/// Copy text
+/// This is intended to be the default typographic styles for paragraphs, lists
+/// and basically the core content of an article.
+@mixin type-copy {
+  font: 22px / 1.41 $text-font-stack;
+  letter-spacing: 0.3px;
+}
+
+
+/// Alternate copy text
+/// Type copy-alternate
+/// @todo To be determined.
+@mixin type-copy-alternate {
+  font: 22px / 1.41 $supporting-font-stack;
+}
+
+
+/// Primary headline
+/// This is intended to be used for the main headline, such as article's.
+@mixin type-h1 {
+  font: 48px / 1.125 $headline-font-stack;
+  letter-spacing: 0.9px;
+}
+
+
+/// Secondary headline
+/// This is intended to be used when `type-h1` is a bit too *in yo' face*.
+@mixin type-h2 {
+  font: 32px / 1.25 $headline-font-stack;
+  letter-spacing: 0.6px;
+}
+
+
+/// Tertiary headline
+/// This is intended to be used when `type-h2` is a bit too *in yo' face*.
+@mixin type-h3 {
+  font: 24px / 1.25 $headline-font-stack;
+  letter-spacing: 0.6px;
+}
+
+
+/// Mini headline
+/// This is intended to style titles that are part of secondary content, for 
+/// instance related content within an article.
+@mixin type-h4 {
+  font: 18px / 1.3333 $headline-font-stack;
+  letter-spacing: 0.6px;
+}
+
+
+/// Blockquote
+/// This is intended to style blockquotes. It should not be used on inline quotes.
+@mixin type-blockquote {
+  font: 32px / 1.1875 $headline-font-stack;
+  letter-spacing: 0.6px;
+}
+
+
+/// Caption
+/// This is intended to be used for captions such as under an image or video.
+@mixin type-caption {
+  font: 16px / 1.375 $supporting-font-stack;
+  letter-spacing: 0.2px;
+  color: $medium-grey;
+}
+
+
+/// Detail information
+/// This is intended to be used for tiny details, such as secondary labels
+/// or meta data on articles like the author name or the date.
+@mixin type-detail {
+  font: 12px / 1.3333 $supporting-font-stack;
+  letter-spacing: 0.1px;
+  color: $medium-grey;
+}
+
+
+/// Tiny header
+/// This is intended to be a word, phrase or name to give context to an article 
+/// or a quote.
+/// @see {mixin} type-blockquote
+@mixin type-tiny-header {
+  font: 13px / 1.23 $supporting-font-stack;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: $medium-grey;
+}

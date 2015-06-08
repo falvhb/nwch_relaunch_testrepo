@@ -2,6 +2,99 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
+
+
+// -----------------------------------------------------------------------------
+// FONT STACKS
+// -----------------------------------------------------------------------------
+
+
+/// Default font stack for the copy text
+/// @type List
+/// @group typography
+$text-font-stack: 'Publico', 'Georgia', serif;
+
+
+/// Heading font stack only used on article headlines
+/// @type List
+/// @group typography
+$headline-font-stack: 'Publico Headline', 'Times New Roman', serif;
+
+
+/// Supporting font stack mostly used for UI elements
+/// @type List
+/// @group typography
+$supporting-font-stack: 'Colfax', 'Helvetica', 'Arial', sans-serif;
+
+
+/// Supporting font stack mostly used for UI elements
+/// @type List
+/// @group typography
+$code-font-stack: 'Consolas', 'Monaco', 'Courier New', monospace;
+
+
+
+// -----------------------------------------------------------------------------
+// COLORS
+// -----------------------------------------------------------------------------
+
+
+/// Blue
+/// @type Color
+$blue: #1B4D85;
+
+
+/// Baby blue
+/// @type Color
+$baby-blue: #4781C2;
+
+
+/// Navy blue
+/// @type Color
+$navy-blue: #0B0A3B;
+
+
+/// Black
+/// @type Color
+$black: #050515;
+
+
+/// Orange
+/// @type Color
+$orange: #F56200;
+
+
+/// Yellow
+/// @type Color
+$yellow: #FEEF75;
+
+
+/// Dark grey
+/// @type Color
+$dark-grey: #666666;
+
+
+/// Medium grey
+/// @type Color
+$medium-grey: #7A7A7A;
+
+
+/// Light grey
+/// @type Color
+$light-grey: #EDEDED;
+
+
+/// Very light grey
+/// @type Color
+$very-light-grey: #F9F9F9;
+
+
+
+// -----------------------------------------------------------------------------
+// BREAKPOINTS AND MEDIA-EXPRESSIONS
+// -----------------------------------------------------------------------------
+
+
 /// Application-wide breakpoints map
 /// @type Map
 /// @prop {String} key - Name of the breakpoint
@@ -12,6 +105,7 @@ $breakpoints: (
   'large': 1150px
 );
 
+
 /// Application-wide static queries map
 /// @type Map
 /// @prop {String} key - Name of the query
@@ -21,62 +115,7 @@ $breakpoints: (
 $media-expressions: (
   'print': 'print',
   'retina': (
-    '(-webkit-min-device-pixel-ratio: 2)', 
+    '(-webkit-min-device-pixel-ratio: 2)',
     '(min-resolution: 192dpi)'
   )
 );
-
-/// Default font stack for the copy text
-/// @type List
-/// @group typography
-$text-font-stack: 'Publico', 'Georgia', serif;
-
-/// Heading font stack only used on article headlines
-/// @type List
-/// @group typography
-$headline-font-stack: 'Publico Headline', 'Times New Roman', serif;
-
-/// Supporting font stack mostly used for UI elements
-/// @type List
-/// @group typography
-$supporting-font-stack: 'Colfax', 'Helvetica', 'Arial', sans-serif;
-
-/// Blue
-/// @type Color
-$blue: #1B4D85;
-
-/// Baby blue
-/// @type Color
-$baby-blue: #4781C2;
-
-/// Navy blue
-/// @type Color
-$navy-blue: #0B0A3B;
-
-/// Black
-/// @type Color
-$black: #050515;
-
-/// Orange
-/// @type Color
-$orange: #F56200;
-
-/// Yellow
-/// @type Color
-$yellow: #FEEF75;
-
-/// Dark grey
-/// @type Color
-$dark-grey: #666666;
-
-/// Medium grey
-/// @type Color
-$medium-grey: #7A7A7A;
-
-/// Light grey
-/// @type Color
-$light-grey: #EDEDED;
-
-/// Very light grey
-/// @type Color
-$very-light-grey: #F9F9F9;

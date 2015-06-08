@@ -1,0 +1,49 @@
+@import 'globals';
+
+/**
+ * This file contains CSS helper classes to apply specific styles to elements
+ */
+
+.type-intro {
+  @include type-intro;
+}
+
+.type-copy {
+  @include type-copy;
+}
+
+.type-copy-alternate {
+  @include type-copy-alternate;
+}
+
+.type-h1 {
+  @include type-h1;
+}
+
+.type-h2 {
+  @include type-h2;
+}
+
+.type-h3 {
+  @include type-h3;
+}
+
+.type-h4 {
+  @include type-h4;
+}
+
+.type-tiny-header {
+  @include type-tiny-header;
+}
+
+.type-blockquote {
+  @include type-blockquote;
+}
+
+.type-caption {
+  @include type-caption;
+}
+
+.type-detail {
+  @include type-detail;
+}
