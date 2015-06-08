@@ -1,15 +1,10 @@
 @import 'globals';
 
 body {
-  font: 125% / 1.5 $text-font-stack;
-  color: $black;
-
-  @include media('>=small') {
-    height: 100vh;
-  }
-
-  > div {
-    height: 100%;
-  }
+  font: 100% / 1.5 $text-font-stack;
+  color: $navy-blue;
 }
 
+code {
+  font-family: $code-font-stack;
+}

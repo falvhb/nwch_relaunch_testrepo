@@ -28,10 +28,33 @@
 }
 
 .copy h1 {
-  margin-bottom: 25px;
-  font-family: $headline-font-stack;
+  @include type-h1;
+  margin-bottom: 40px;
 }
 
-.copy p {
-  margin-bottom: 15px;
+.copy h1 + p {
+  @include type-intro;
+}
+
+.copy h2 {
+  @include type-h2;
+}
+
+.copy h3 {
+  @include type-h3;
+}
+
+.copy h4 {
+  @include type-h4;
+}
+
+.copy p,
+.copy ul,
+.copy ol {
+  @include type-copy;
+  margin-bottom: 20px;
+}
+
+.copy blockquote {
+  @include type-blockquote;
 }
