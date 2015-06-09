@@ -36,7 +36,7 @@ var buildDir = function(path) {
 // -----------------------------------------------------------------------------
 
 var isProd = function() {
-  return !!plugins.util.env.prod;
+  return !!plugins.util.env.production;
 };
 
 var isBuild = function() {
@@ -88,9 +88,9 @@ if (isBuild() || isProd()) {
   webpackConfig.watch = false;
 }
 
-if (isProd()) {
-  webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
-}
+// if (isProd()) {
+//   webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
+// }
 
 
 // -----------------------------------------------------------------------------
@@ -238,7 +238,7 @@ gulp.task('bundle', ['sass', 'webpack']);
 // Build task
 // -----------------------------------------------------------------------------
 
-gulp.task('build', plugins.sequence('clean', ['head', 'bundle'], 'sassdoc'));
+gulp.task('build', plugins.sequence('clean', ['head', 'bundle']));
 
 
 // -----------------------------------------------------------------------------
