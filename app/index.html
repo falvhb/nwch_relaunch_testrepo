@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>{% block title %}{{ title | default('AZ') }}{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {# Inline the JavaScript utilities file since it needs to be synchronously
        loaded. Also, it is very lightweight so it should not make any difference. #}
@@ -31,5 +32,6 @@
   <body>
     <div id="app" class="wrapper">{% block content %}{% endblock %}</div>
     <script src="/client/frontend.bundled.js"></script>
+    <script src="/client/scripts/vendor/svg4everybody.min.js"></script>
   </body>
 </html>
