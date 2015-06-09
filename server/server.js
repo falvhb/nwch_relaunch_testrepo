@@ -38,7 +38,8 @@ app.use(components());
 
 // Start our server
 app.start = function() {
-  return app.listen(function() {
+  var port = process.env.PORT || 8000;
+  return app.listen(port, function() {
     app.emit('started');
     console.log('Web server listening at: %s', app.get('url'));
   });
