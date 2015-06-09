@@ -238,7 +238,7 @@ gulp.task('bundle', ['sass', 'webpack']);
 // Build task
 // -----------------------------------------------------------------------------
 
-gulp.task('build', plugins.sequence('lint', 'clean', ['head', 'bundle'], 'sassdoc'));
+gulp.task('build', plugins.sequence('clean', ['head', 'bundle'], 'sassdoc'));
 
 
 // -----------------------------------------------------------------------------
