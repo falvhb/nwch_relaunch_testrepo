@@ -239,7 +239,7 @@ gulp.task('bundle', ['sass', 'webpack']);
 // -----------------------------------------------------------------------------
 
 gulp.task('build', plugins.sequence('lint', 'clean', ['head', 'bundle'], 'sassdoc'));
-gulp.task('heroku:production', ['build']);
+
 
 // -----------------------------------------------------------------------------
 // Default task

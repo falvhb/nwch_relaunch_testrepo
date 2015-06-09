@@ -1,6 +1,9 @@
 {
   "name": "az-nwch-js",
   "version": "0.0.0",
+  "engines": {
+    "node": "0.12.x"
+  },
   "private": true,
   "description": "Front-end stack for AZ Medien",
   "main": "./server/server.js",
