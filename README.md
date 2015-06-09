@@ -7,7 +7,7 @@
 $ npm install gulp -g
 
 # Install SCSS-lint globally
-$ gem install scss-lint
+$ gem install scss_lint
 
 # Install project Node dependencies
 $ npm install
@@ -31,6 +31,18 @@ $ gulp --livereload
 We use the [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) branching model. `master` **always** contains the current, tested live version.
 
 When working, create feature branches off `develop` in the form `feature/8-story-name` where `8` is the user story number and `story-name` is the name of the user story (both from ScrumDo).
+
+## Code Quality
+
+Before committing, code will be linted using `eslint` (JS/JSX) and `scss-lint` (Scss). You will not be able to commit unless your code passes linting. To make life easier, use plugins for your text editor to highlight any errors as you go e.g.
+
+- [SublimeLinter-scss-lint](https://packagecontrol.io/packages/SublimeLinter-contrib-scss-lint)
+- [Sublime​Linter-contrib-eslint](https://packagecontrol.io/packages/SublimeLinter-contrib-eslint)
+
+You might also find the following useful for this project:
+
+- [babel-sublime](https://github.com/babel/babel-sublime)
+
 
 ## Deployment
 
