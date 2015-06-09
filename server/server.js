@@ -79,10 +79,10 @@ app.get('/components.json', function(req, res) {
 // -----------------------------------------------------------------------------
 
 app.get('/styleguide', routing());
-app.get('/styleguide/component/:component', routing());
-app.get('/styleguide/component/:component/full', routing());
-app.get('/styleguide/component/:component/:variation', routing());
-app.get('/styleguide/component/:component/:variation/full', routing());
+app.get('/styleguide/:category/:component', routing());
+app.get('/styleguide/:category/:component/full', routing());
+app.get('/styleguide/:category/:component/:variation', routing());
+app.get('/styleguide/:category/:component/:variation/full', routing());
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
