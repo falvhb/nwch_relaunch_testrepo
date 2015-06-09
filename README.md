@@ -1,4 +1,4 @@
-# az-nwch-js
+# AZ Medien
 
 ## Setup
 
@@ -25,6 +25,12 @@ If you have the [LiveReload browser extension](http://livereload.com/extensions/
 ```sh
 $ gulp --livereload
 ```
+
+## Branching
+
+We use the [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) branching model. `master` **always** contains the current, tested live version.
+
+When working, create feature branches off `develop` in the form `feature/8-story-name` where `8` is the user story number and `story-name` is the name of the user story (both from ScrumDo).
 
 ## Deployment
 
