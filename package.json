@@ -17,7 +17,7 @@
   },
   "scripts": {
     "lint": "gulp lint",
-    "start": "slc run"
+    "start": "node server/server.js"
   },
   "pre-commit": {
     "run": "lint",
