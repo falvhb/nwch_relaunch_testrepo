@@ -1,5 +1,13 @@
 @import 'globals';
 
+// Hack for now
+html,
+body,
+.wrapper {
+  min-height: 100%;
+  height: 100%;
+}
+
 body {
   font: 100% / 1.5 $text-font-stack;
   color: $navy-blue;
