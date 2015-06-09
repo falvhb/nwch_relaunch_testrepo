@@ -16,8 +16,7 @@
     "url": "https://github.com/lovelysystems/az-nwch-js/issues"
   },
   "scripts": {
-    "lint": "gulp lint",
-    "start": "node server/server.js"
+    "lint": "gulp lint"
   },
   "pre-commit": {
     "run": "lint",
