@@ -19,7 +19,7 @@
     "lint": "gulp lint"
   },
   "pre-commit": {
-    // "run": "lint",
+    "run": "lint",
     "colors": true,
     "silent": true
   },
