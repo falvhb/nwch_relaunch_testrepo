@@ -16,7 +16,8 @@
     "url": "https://github.com/lovelysystems/az-nwch-js/issues"
   },
   "scripts": {
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "start": "slc run"
   },
   "pre-commit": {
     "run": "lint",
@@ -41,6 +42,7 @@
     "slug-to-title": "0.0.1",
     "slugify": "^0.1.1",
     "strong-express-metrics": "^1.1.0",
+    "strongloop": "^4.0.4",
     "webpack": "^1.9.10"
   },
   "optionalDependencies": {

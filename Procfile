@@ -1,1 +1,1 @@
-web: slc run --cluster 5
+web: slc run
