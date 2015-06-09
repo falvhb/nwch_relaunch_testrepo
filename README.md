@@ -13,24 +13,37 @@ $ gem install scss-lint
 $ npm install
 ```
 
-## Working task
+## Development
 
 ```sh
 $ gulp
 ```
 
-*If you have the LiveReload browser extension, feel free to pass the `--livereload` flag to benefit from instant page reloading on change.*
+If you have the [LiveReload browser extension](http://livereload.com/extensions/), feel free to pass the `--livereload` flag to benefit from instant page reloading on change i.e.
 
-## Environment build
 
 ```sh
-$ gulp build
+$ gulp --livereload
 ```
 
-## Production build
+## Deployment
+
+Check you have access to the Heroku app (ask Moritz) then add a Heroku remote to your repository.
 
 ```sh
-$ gulp build --prod
+$ git remote add heroku git@heroku.com:az-nwch.git
 ```
 
+For reference, we are using [this buildpack](https://github.com/robgraeber/heroku-buildpack-nodejs-bower-gulp) for Node / Gulp configuration.
 
+To deploy, the following command will deploy from the `master` branch
+
+```sh
+$ git push heroku master
+```
+
+If you want to deploy from a specific/feature branch, use:
+
+```sh
+$ git push heroku branchname:master
+```
