@@ -10,6 +10,13 @@ var engines = require('consolidate');
 var app = module.exports = loopback();
 
 // -----------------------------------------------------------------------------
+// Helpers
+// -----------------------------------------------------------------------------
+
+var isDevelopment = process.env.NODE_ENV === 'development';
+
+
+// -----------------------------------------------------------------------------
 // Configuration
 // -----------------------------------------------------------------------------
 
@@ -22,7 +29,7 @@ require('babel/register')({
 
 // Nunjucks
 nunjucks.configure(path.resolve(__dirname, '..'), {
-  watch: true,
+  watch: isDevelopment,
   autoescape: false
 });
 
