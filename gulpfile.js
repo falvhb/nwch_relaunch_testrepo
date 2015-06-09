@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-shadow */
 'use strict';
 
 // -----------------------------------------------------------------------------
@@ -9,6 +9,7 @@ var pkg = require('./package.json');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
+var path = require('path');
 
 
 // -----------------------------------------------------------------------------
@@ -183,7 +184,7 @@ gulp.task('fonts', function() {
 
 gulp.task('fontloader', function() {
   return gulp
-    .src(assetDir('scripts/*.js'))
+    .src(assetDir('scripts/**/*.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(buildDir('scripts')));
 });
@@ -221,6 +222,23 @@ gulp.task('server', function() {
 
 
 // -----------------------------------------------------------------------------
+// Icons spriting
+// -----------------------------------------------------------------------------
+
+gulp.task('icons', function() {
+  return gulp
+    .src(assetDir('images/icons/*.svg'))
+    .pipe(plugins.wrap(function(data) {
+      var name = path.basename(data.file.path, '.svg');
+      return '<symbol id="' + name + '" viewbox="0 0 100 100"><title>' + name + '</title><%= contents %></symbol>';
+    }))
+    .pipe(plugins.concat('icons.svg'))
+    .pipe(plugins.wrap('<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><%= contents %></svg>'))
+    .pipe(gulp.dest(buildDir('images')));
+});
+
+
+// -----------------------------------------------------------------------------
 // <head> task
 // -----------------------------------------------------------------------------
 
@@ -231,7 +249,7 @@ gulp.task('head', ['fonts', 'fontloader']);
 // Bundle task
 // -----------------------------------------------------------------------------
 
-gulp.task('bundle', ['sass', 'webpack']);
+gulp.task('bundle', ['sass', 'webpack', 'icons']);
 
 
 // -----------------------------------------------------------------------------
