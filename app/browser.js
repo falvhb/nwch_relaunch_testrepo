@@ -77,11 +77,17 @@ var renderPage = function(components) {
 // Get Json then render
 // -----------------------------------------------------------------------------
 
-fetch('/components.json')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(renderPage)
-  .catch(function(ex) {
-    console.log('Error parsing components', ex);
-  });
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/components.json');
+xhr.responseType = 'json';
+
+xhr.onload = function() {
+  renderPage(xhr.response);
+};
+
+xhr.onerror = function() {
+  console.log('Error parsing components', xhr.response);
+};
+
+xhr.send();
+
