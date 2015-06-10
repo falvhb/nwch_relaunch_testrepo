@@ -10,6 +10,7 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
 var path = require('path');
+var del = require('del');
 
 
 // -----------------------------------------------------------------------------
@@ -98,12 +99,10 @@ if (isBuild() || isProd()) {
 // Clear build folder
 // -----------------------------------------------------------------------------
 
-gulp.task('clean', function() {
-  return gulp
-    .src(BUILD_DIR, {
-      read: false
-    })
-    .pipe(plugins.clean());
+gulp.task('clean', function(cb) {
+  del([
+    BUILD_DIR
+  ], cb);
 });
 
 
