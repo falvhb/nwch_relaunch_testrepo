@@ -5,12 +5,14 @@
 // Dependencies
 // -----------------------------------------------------------------------------
 
+var fs = require('fs');
+var del = require('del');
 var pkg = require('./package.json');
+var path = require('path');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
-var path = require('path');
-var del = require('del');
+var _ = require('underscore');
 
 
 // -----------------------------------------------------------------------------
@@ -97,19 +99,13 @@ if (isBuild() || isProd()) {
   webpackConfig.watch = false;
 }
 
-// if (isProd()) {
-//   webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
-// }
-
 
 // -----------------------------------------------------------------------------
 // Clear build folder
 // -----------------------------------------------------------------------------
 
 gulp.task('clean', function(cb) {
-  del([
-    BUILD_DIR
-  ], cb);
+  del([BUILD_DIR], cb);
 });
 
 
@@ -174,7 +170,7 @@ gulp.task('webpack', function() {
 
 
 // -----------------------------------------------------------------------------
-// Compress font files
+// Fonts bundle
 // -----------------------------------------------------------------------------
 
 gulp.task('fonts', function() {
@@ -246,6 +242,76 @@ gulp.task('icons', function() {
 
 
 // -----------------------------------------------------------------------------
+// Styleguide
+// -----------------------------------------------------------------------------
+
+function postDataTypography(data) {
+  return data
+    .filter(function(item) { return item.context.name.match(/^type-/); })
+    .map(function(item) {
+      var chunks = item.description.split('\n');
+      return {
+        props: {
+          title: chunks[0],
+          description: chunks.slice(1).join(''),
+          code: item.context.code
+        },
+        content: item.example[0].code
+      };
+    });
+}
+
+function postDataColors(data) {
+  return _
+    .chain(data)
+    .filter(function(item) {
+      return item.group[0] === 'colors';
+    })
+    .map(function(item) {
+      var chunks = item.description.split('\n');
+      var first = chunks[0].split(' from ');
+
+      return {
+        name: first[0],
+        value: item.context.value,
+        description: chunks.slice(1).join(''),
+        palette: first[1]
+      };
+    })
+    .groupBy('palette')
+    .map(function(item, value) {
+      return {
+        title: value,
+        colors: item
+      };
+    })
+    .value();
+}
+
+gulp.task('sync-styleguide:typography', function() {
+  return gulp
+    .src(assetDir('styles/utilities/mixins.scss'))
+    .pipe(sassdoc.parse({ verbose: true }))
+    .on('data', function(data) {
+      var _data = JSON.stringify(postDataTypography(data));
+      fs.writeFileSync(sourceDir('node_modules/base/typography/data.json'), _data);
+    });
+});
+
+gulp.task('sync-styleguide:colors', function() {
+  return gulp
+    .src(assetDir('styles/utilities/variables.scss'))
+    .pipe(sassdoc.parse({ verbose: true }))
+    .on('data', function(data) {
+      var _data = JSON.stringify(postDataColors(data));
+      fs.writeFileSync(sourceDir('node_modules/base/colors/data.json'), _data);
+    });
+});
+
+gulp.task('styleguide', ['sync-styleguide:typography', 'sync-styleguide:colors']);
+
+
+// -----------------------------------------------------------------------------
 // <head> task
 // -----------------------------------------------------------------------------
 
@@ -256,7 +322,7 @@ gulp.task('head', ['fonts', 'fontloader']);
 // Bundle task
 // -----------------------------------------------------------------------------
 
-gulp.task('bundle', ['sass', 'webpack', 'icons']);
+gulp.task('bundle', ['sass', 'webpack', 'icons', 'styleguide']);
 
 
 // -----------------------------------------------------------------------------
