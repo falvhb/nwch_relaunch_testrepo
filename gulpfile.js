@@ -39,13 +39,13 @@ var buildDir = function(path) {
 // Helpers
 // -----------------------------------------------------------------------------
 
-var isProd = function() {
-  return !!plugins.util.env.production;
-};
+var isProd = (function() {
+  return !!plugins.util.env.production || !!plugins.util.env.prod;
+}());
 
-var isBuild = function() {
+var isBuild = (function() {
   return plugins.util.env._[0] === 'build';
-};
+}());
 
 // Don't break watch on error
 var onError = function(err) {
@@ -58,11 +58,20 @@ var onError = function(err) {
 // Configuration
 // -----------------------------------------------------------------------------
 
-var sassInput = [
-  assetDir('styles/globals.scss'),
-  assetDir('styles/base/*.scss'),
-  sourceDir('node_modules/**/styles/main.scss')
-];
+var sassInput = (function() {
+  var input = [
+    assetDir('styles/globals.scss'),
+    assetDir('styles/base/*.scss'),
+    sourceDir('node_modules/base/**/styles/main.scss'),
+    sourceDir('node_modules/components/**/styles/main.scss')
+  ];
+
+  if (!isProd) {
+    input.push(sourceDir('node_modules/styleguide/**/styles/main.scss'));
+  }
+
+  return input;
+}());
 
 var jsInput = [
   assetDir('scripts/**/*.js'),
@@ -75,8 +84,8 @@ var jsInput = [
 var fontsInput = assetDir('fonts/**/*.css');
 
 var sassOptions = {
-  outputStyle: (isProd() ? 'compressed' : 'expanded'),
-  errLogToConsole: isProd() === true,
+  outputStyle: (isProd ? 'compressed' : 'expanded'),
+  errLogToConsole: isProd === true,
   includePaths: [
     sourceDir('components'),
     assetDir('styles')
@@ -93,11 +102,15 @@ var autoprefixerOptions = {
   browsers: ['last 2 versions', 'IE 9', '> 5%', 'Firefox ESR']
 };
 
-var webpackConfig = require('./webpack.config.js');
+var webpackConfig = (function() {
+  var config = require('./webpack.config.js');
 
-if (isBuild() || isProd()) {
-  webpackConfig.watch = false;
-}
+  if (isBuild || isProd) {
+    config.watch = false;
+  }
+
+  return config;
+}());
 
 
 // -----------------------------------------------------------------------------
@@ -217,7 +230,7 @@ gulp.task('watch', function() {
 gulp.task('server', function() {
   plugins.nodemon({
     script: pkg.main,
-    env: { 'NODE_ENV': (isProd() ? 'production' : 'development') }
+    env: { 'NODE_ENV': (isProd ? 'production' : 'development') }
   })
   .on('start', plugins.livereload.reload)
   .on('change', plugins.livereload.reload);
