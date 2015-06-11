@@ -262,11 +262,10 @@ function postDataTypography(data) {
   return data
     .filter(function(item) { return item.context.name.match(/^type-/); })
     .map(function(item) {
-      var chunks = item.description.split('\n');
       return {
         props: {
-          title: chunks[0],
-          description: chunks.slice(1).join(''),
+          title: item.example[0].description,
+          description: item.description.replace('\n', ''),
           code: item.context.code
         },
         content: item.example[0].code
