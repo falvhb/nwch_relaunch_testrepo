@@ -5,19 +5,20 @@ var slugify = require('slugify');
 
 module.exports = function(request, components) {
   var component, variationIndex;
-  var componentId = request.component;
-  var variationId = request.variation;
+  var categorySlug = request.category;
+  var componentSlug = request.component;
+  var variationSlug = request.variation;
 
   // Find requested component
-  component = _.find(components, function(chr) {
-    return chr.slug === componentId;
+  component = _.find(components[categorySlug], function(chr) {
+    return chr.slug === componentSlug;
   });
 
-  // Find requested variation
-  if (variationId || component.variations) {
+  // // Find requested variation
+  if (variationSlug || component.variations) {
     // Get index of variation
     variationIndex = _.findIndex(component.variations, function(chr) {
-      return slugify(chr.title).toLowerCase() === variationId;
+      return slugify(chr.title).toLowerCase() === variationSlug;
     });
     // Default to first component
     if (variationIndex === -1) {

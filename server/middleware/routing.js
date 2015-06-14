@@ -22,8 +22,9 @@ module.exports = function() {
     // Create element to be passed as child
     var child, elData;
     var component = params.component;
+    var category = params.category;
     if (component) {
-      var module = '../../app/node_modules/' + component.section + '/' + component.slug;
+      var module = '../../app/node_modules/' + category + '/' + component.slug;
       // Attach data to component
       if (component.variations) {
         elData = component.variations[component.variationIndex].data;
@@ -41,7 +42,8 @@ module.exports = function() {
       title: req.params.component ? slugToTitle(req.params.component) + ' | AZ Medien Styleguide' : 'AZ Medien Styleguide',
       content: renderReact({
         components: res.locals.components,
-        component: req.params.component ? componentForRequest(req.params, res.locals.components) : false,
+        category: req.params.category,
+        component: req.params.component ? componentForRequest(req.params, res.locals.components) : null,
         full: (req.url.indexOf('full') > -1)
       })
     });

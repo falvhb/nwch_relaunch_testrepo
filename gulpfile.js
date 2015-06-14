@@ -174,7 +174,7 @@ gulp.task('fonts', function() {
     .src(fontsInput)
     .pipe(plugins.base64({
       baseDir: assetDir('fonts'),
-      maxImageSize: 100 * 1024,
+      maxImageSize: 200 * 1024,
       extensionsAllowed: ['woff', 'woff2'],
       debug: true
     }))

@@ -1,9 +1,9 @@
+/*eslint-disable no-console */
 'use strict';
 
 var glob = require('simple-glob');
 var objectAssign = require('react/lib/Object.assign');
 var fs = require('fs');
-var slugToTitle = require('slug-to-title');
 
 var defaults = {
   folder: './app/node_modules',
@@ -36,12 +36,20 @@ module.exports = function(opts) {
     var pattern = include.concat(exclude);
     var files = glob(pattern);
 
-    var components = files.map(function(file) {
+    var components = {};
+    files.map(function(file) {
       var path = file.split('/index')[0];
       var filename = file.split('/').pop();
+      // Get our sections from URL
       var sections = path.split(removeTrailingSlash(options.folder) + '/').pop();
-      var section = sections.split('/')[0];
-      var slug = sections.split('/')[1];
+      var paths = sections.split('/');
+      // Warn if too much nesting
+      if (paths.length > 2) {
+        console.warn('Folder structure cannot be 2 levels deep for ' + path + '. Categories can only be a direct sub-folder of `node_modules`.');
+        return;
+      }
+      var section = paths[0];
+      var slug = paths[1];
       // Get README from folder
       var readme, readmePath = path + '/' + options.readme;
       if (fs.existsSync(readmePath)) {
@@ -52,16 +60,21 @@ module.exports = function(opts) {
       if (fs.existsSync(variationsPath)) {
         variations = JSON.parse(fs.readFileSync(variationsPath, 'utf8'));
       }
-      // Return it
-      return {
+      // Compile JSON data
+      var data = {
         path: path,
         file: filename,
-        section: section,
-        title: slugToTitle(slug),
+        category: section,
         slug: slug,
         readme: readme,
         variations: variations
       };
+      // Create category if it doesn't exist
+      if (!components[section]) {
+        components[section] = [];
+      }
+      // Push our data
+      components[section].push(data);
     });
     res.locals.components = components;
     next();

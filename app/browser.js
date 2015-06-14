@@ -3,6 +3,7 @@
 
 var React = require('react');
 var _ = require('lodash');
+var path = require('path');
 var objectAssign = require('react/lib/Object.assign');
 
 // -----------------------------------------------------------------------------
@@ -10,17 +11,17 @@ var objectAssign = require('react/lib/Object.assign');
 // -----------------------------------------------------------------------------
 
 var parseUrl = (function() {
-  var prefixes = 'styleguide/'.split('/');
   var suffix = 'full';
   // Remove trailing slash and make array
   var urlParts = window.location.href.replace(/\/$/, '').split('/');
   // Remove first 3 url parts
   urlParts = urlParts.splice(3);
   // Diff prefixes with found parts
-  var paths = _.difference(urlParts, prefixes);
+  var paths = _.difference(urlParts, ['styleguide']);
   return {
-    component: paths[1] || false,
-    variation: paths.length > 1 && paths[2] !== suffix ? paths[2] : false,
+    category: paths[0],
+    component: paths[1],
+    variation: paths.length > 2 && paths[2] !== suffix ? paths[2] : false,
     full: paths[paths.length - 1] === suffix || false
   };
 }());
@@ -48,10 +49,12 @@ var renderReact = function(params) {
   // Create element to be passed as child
   var child, elData, el, app = document.getElementById('app');
   var component = params.component;
+  var category = params.category;
   require.ensure([], function(require) {
     // Ensure requiring of routed component
     if (component) {
-      var module = require(component.section + '/' + component.slug + '/index.jsx');
+      var requirePath = path.join(category, component.slug);
+      var module = require(requirePath + '/index.jsx');
       // Attach data to component
       if (component.variations) {
         elData = component.variations[component.variationIndex].data;
@@ -67,6 +70,7 @@ var renderReact = function(params) {
 var renderPage = function(components) {
   renderReact({
     components: components,
+    category: parseUrl.category,
     component: componentForRequest(parseUrl, components),
     full: parseUrl.full
   });
