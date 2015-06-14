@@ -4,18 +4,17 @@ var _ = require('lodash');
 var slugify = require('slugify');
 
 module.exports = function(request, components) {
-  var component, variationIndex;
-  var categorySlug = request.category;
+  var component, variationIndex = 0;
   var componentSlug = request.component;
   var variationSlug = request.variation;
 
   // Find requested component
-  component = _.find(components[categorySlug], function(chr) {
+  component = _.find(components, function(chr) {
     return chr.slug === componentSlug;
   });
 
-  // // Find requested variation
-  if (variationSlug || component.variations) {
+  // Find requested variation
+  if (variationSlug && component.variations) {
     // Get index of variation
     variationIndex = _.findIndex(component.variations, function(chr) {
       return slugify(chr.title).toLowerCase() === variationSlug;
@@ -26,7 +25,10 @@ module.exports = function(request, components) {
     }
   }
 
-  // Attach and return
-  component.variationIndex = variationIndex;
+  // If showing component, attach variation
+  if (component) {
+    component.variationIndex = variationIndex;
+  }
+
   return component;
 };

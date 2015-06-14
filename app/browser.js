@@ -21,7 +21,7 @@ var parseUrl = (function() {
   return {
     category: paths[0],
     component: paths[1],
-    variation: paths.length > 2 && paths[2] !== suffix ? paths[2] : false,
+    variation: paths.length > 2 && paths[2] !== suffix ? paths[2] : null,
     full: paths[paths.length - 1] === suffix || false
   };
 }());
@@ -49,11 +49,10 @@ var renderReact = function(params) {
   // Create element to be passed as child
   var child, elData, el, app = document.getElementById('app');
   var component = params.component;
-  var category = params.category;
   require.ensure([], function(require) {
     // Ensure requiring of routed component
     if (component) {
-      var requirePath = path.join(category, component.slug);
+      var requirePath = path.join(component.category, component.slug);
       var module = require(requirePath + '/index.jsx');
       // Attach data to component
       if (component.variations) {
@@ -70,7 +69,6 @@ var renderReact = function(params) {
 var renderPage = function(components) {
   renderReact({
     components: components,
-    category: parseUrl.category,
     component: componentForRequest(parseUrl, components),
     full: parseUrl.full
   });
