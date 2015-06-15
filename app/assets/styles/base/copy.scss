@@ -12,14 +12,14 @@
  * 2. Fake the underline with a gradient to have control over position and size
  */
 .copy a {
-  color: $blue;
+  color: $light-blue;
   text-decoration: none; /* 1 */
   background: linear-gradient(to bottom, currentcolor, currentcolor) no-repeat bottom; /* 2 */
   background-size: 100% 1px;
   
   &:active,
   &:hover {
-    color: $light-blue;
+    color: $blue;
   }
 
   &:visited {
@@ -30,10 +30,6 @@
 .copy h1 {
   @include type-h1;
   margin-bottom: 40px;
-}
-
-.copy h1 + p {
-  @include type-intro;
 }
 
 .copy h2 {
