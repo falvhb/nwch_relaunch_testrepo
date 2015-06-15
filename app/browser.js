@@ -61,7 +61,7 @@ var renderReact = function(params) {
       child = React.createElement(module, objectAssign({}, elData));
     }
     // Create our styleguide
-    el = React.createElement(layout, objectAssign({ name: component.slug }, params), child);
+    el = React.createElement(layout, objectAssign({}, params), child);
     React.render(el, app);
   }, 'components');
 };

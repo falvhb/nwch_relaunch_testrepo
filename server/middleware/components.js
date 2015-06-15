@@ -61,7 +61,6 @@ module.exports = function(opts) {
       // Compile JSON data
       return {
         category: section,
-        route: '/styleguide' + path.split('node_modules')[1],
         slug: slug,
         readme: readme,
         variations: variations
