@@ -311,24 +311,29 @@ function postDataColors(data) {
     .value();
 }
 
-gulp.task('sync-styleguide:typography', function() {
+function syncStyleguideData(src, output, postFn) {
   return gulp
-    .src(assetDir('styles/utilities/mixins.scss'))
+    .src(src)
     .pipe(sassdoc.parse({ verbose: true }))
     .on('data', function(data) {
-      var _data = JSON.stringify({ sections: postDataTypography(data) });
-      fs.writeFileSync(sourceDir('node_modules/base/typography/.data.json'), _data);
+      fs.writeFileSync(output, JSON.stringify({ sections: postFn(data) }));
     });
+}
+
+gulp.task('sync-styleguide:typography', function() {
+  return syncStyleguideData(
+    assetDir('styles/utilities/mixins.scss'),
+    sourceDir('node_modules/base/typography/.data.json'),
+    postDataTypography
+  );
 });
 
 gulp.task('sync-styleguide:colors', function() {
-  return gulp
-    .src(assetDir('styles/utilities/variables.scss'))
-    .pipe(sassdoc.parse({ verbose: true }))
-    .on('data', function(data) {
-      var _data = JSON.stringify({ sections: postDataColors(data) });
-      fs.writeFileSync(sourceDir('node_modules/base/colors/.data.json'), _data);
-    });
+  return syncStyleguideData(
+    assetDir('styles/utilities/variables.scss'),
+    sourceDir('node_modules/base/colors/.data.json'),
+    postDataColors
+  );
 });
 
 gulp.task('styleguide', ['sync-styleguide:typography', 'sync-styleguide:colors']);
