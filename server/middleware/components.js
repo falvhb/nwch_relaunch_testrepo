@@ -10,8 +10,9 @@ var defaults = {
   folder: './app/node_modules',
   extensions: ['.jsx', '.js'],
   ignore: ['styleguide', 'layouts'],
-  variations: '.variations.json',
+  config: '.config.json',
   data: '.data.json',
+  variations: '.variations.json',
   readme: 'README.md'
 };
 
@@ -54,25 +55,31 @@ module.exports = function(opts) {
       if (fs.existsSync(readmePath)) {
         readme = fs.readFileSync(readmePath, 'utf8');
       }
+      // Get config from folder
+      var config, configPath = path.join(filepath, options.config);
+      if (fs.existsSync(configPath)) {
+        config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+      }
       // Get data from folder
+      var data, dataPath = path.join(filepath, options.data);
+      if (fs.existsSync(dataPath)) {
+        data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      }
+      // Get variations from folder
       var variations, variationsPath = path.join(filepath, options.variations);
       if (fs.existsSync(variationsPath)) {
         variations = JSON.parse(fs.readFileSync(variationsPath, 'utf8'));
       }
 
-      var data, dataPath = path.join(filepath, options.data);
-      if (fs.existsSync(dataPath)) {
-        data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-      }
-
       // Compile JSON data
-      return {
+      var json = {
         category: section,
         slug: slug,
         readme: readme,
         variations: variations,
         data: data
       };
+      return objectAssign({}, config, json);
     });
     res.locals.components = components;
     next();
