@@ -7,9 +7,13 @@
 /// @example markup - Introduction paragraph
 ///   <p class='type-intro'>Vier Tage lang haben drei Schneeschuhwanderer aus Tschechien im Salzburger Pinzgau im Winterraum einer Hütte in 2100 Metern Seehöhe ausgeharrt, weil sie nach einem massiven Wetterumschwung nicht mehr absteigen konnten.</p>
 @mixin type-intro {
-  font: 24px / 1.41 $supporting-font-stack;
+  font: 22px / 1.41 $supporting-font-stack;
   font-weight: 700;
   letter-spacing: 0.2px;
+
+  @include media('≤small') {
+    font-size: 18px;
+  }
 }
 
 
@@ -18,8 +22,12 @@
 /// @example markup - Copy text
 ///  <p class='type-copy'>Die Männer seien am vergangen Freitagmorgen zu der Tour aufgebrochen, die sie zum Ingolstädterhaus auf 2119 Meter führen sollte, teilte die Polizei mit. Gegen 23.00 Uhr erreichten sie die im Winter nicht bewirtschaftete Hütte und quartierten sich im Winterraum ein, der frei zugänglich ist, über zwölf Schlafplätze, aber keine Verpflegung verfügt.</p>
 @mixin type-copy {
-  font: 22px / 1.41 $text-font-stack;
+  font: 20px / 1.41 $text-font-stack;
   letter-spacing: 0.3px;
+
+  @include media('≤small') {
+    font-size: 18px;
+  }
 }
 
 
@@ -38,6 +46,10 @@
 @mixin type-h1 {
   font: 48px / 1.125 $headline-font-stack;
   letter-spacing: 0.9px;
+
+  @include media('≤small') {
+    font-size: 26px;
+  }
 }
 
 
@@ -93,7 +105,7 @@
 /// @example markup - Detail information
 ///  <p class='type-detail'>Abonnieren</p>
 @mixin type-detail {
-  font: 12px / 1.3333 $supporting-font-stack;
+  font: 14px / 1.3333 $supporting-font-stack;
   letter-spacing: 0.1px;
   color: $medium-grey;
 }
