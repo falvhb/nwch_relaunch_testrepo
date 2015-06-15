@@ -26,7 +26,7 @@ module.exports = function(request, components) {
   }
 
   // If showing component, attach variation
-  if (component) {
+  if (component && component.variations) {
     component.variationIndex = variationIndex;
   }
 
