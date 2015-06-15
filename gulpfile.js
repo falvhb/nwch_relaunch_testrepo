@@ -12,7 +12,7 @@ var path = require('path');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
-var _ = require('underscore');
+var _ = require('lodash');
 
 
 // -----------------------------------------------------------------------------
@@ -306,7 +306,7 @@ gulp.task('sync-styleguide:typography', function() {
     .pipe(sassdoc.parse({ verbose: true }))
     .on('data', function(data) {
       var _data = JSON.stringify(postDataTypography(data));
-      fs.writeFileSync(sourceDir('node_modules/base/typography/data.json'), _data);
+      fs.writeFileSync(sourceDir('node_modules/base/typography/.data.json'), _data);
     });
 });
 
@@ -316,7 +316,7 @@ gulp.task('sync-styleguide:colors', function() {
     .pipe(sassdoc.parse({ verbose: true }))
     .on('data', function(data) {
       var _data = JSON.stringify(postDataColors(data));
-      fs.writeFileSync(sourceDir('node_modules/base/colors/data.json'), _data);
+      fs.writeFileSync(sourceDir('node_modules/base/colors/.data.json'), _data);
     });
 });
 
