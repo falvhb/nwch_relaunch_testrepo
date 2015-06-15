@@ -11,6 +11,7 @@ var defaults = {
   extensions: ['.jsx', '.js'],
   ignore: ['styleguide', 'layouts'],
   variations: '.variations.json',
+  data: '.data.json',
   readme: 'README.md'
 };
 
@@ -58,12 +59,19 @@ module.exports = function(opts) {
       if (fs.existsSync(variationsPath)) {
         variations = JSON.parse(fs.readFileSync(variationsPath, 'utf8'));
       }
+
+      var data, dataPath = path.join(filepath, options.data);
+      if (fs.existsSync(dataPath)) {
+        data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      }
+
       // Compile JSON data
       return {
         category: section,
         slug: slug,
         readme: readme,
-        variations: variations
+        variations: variations,
+        data: data
       };
     });
     res.locals.components = components;

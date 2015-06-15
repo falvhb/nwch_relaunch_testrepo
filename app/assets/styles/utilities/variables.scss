@@ -36,55 +36,77 @@ $code-font-stack: 'Consolas', 'Monaco', 'Courier New', monospace;
 
 // -----------------------------------------------------------------------------
 // COLORS
+// /!\ Caution! The *... from ... palette* on each color is the color name and
+//     the palette it belongs to in the styleguide. Do not change the format.
 // -----------------------------------------------------------------------------
 
 
-/// Blue
+/// AZ blue from primary palette
+/// This colour is used in the logo and navigation.
+/// @group colors
 /// @type Color
 $blue: #1B4D85;
 
 
-/// Baby blue
+/// Light blue from primary palette
+/// This colour is used to indicate links.
+/// @group colors
 /// @type Color
-$baby-blue: #4781C2;
+$light-blue: #4781C2;
 
 
-/// Navy blue
+/// Navy blue from primary palette
+/// This colour is used for all of the text content on the site, instead of black.
+/// @group colors
 /// @type Color
 $navy-blue: #0B0A3B;
 
 
-/// Black
+/// Black from secondary palette
+/// This colour is used for emphasis in text.
+/// @group colors
 /// @type Color
 $black: #050515;
 
 
-/// Orange
+/// Orange from secondary palette
+/// This colour is used for breaking news items and should be used sparingly.
+/// @group colors
 /// @type Color
 $orange: #F56200;
 
 
-/// Yellow
+/// Yellow from secondary palette
+/// This colour is used for subtle highlights & drawing attention to certain section and should be used sparingly.
+/// @group colors
 /// @type Color
 $yellow: #FEEF75;
 
 
-/// Dark grey
+/// Dark grey from grey palette
+/// This colour is for contextual tags, quotes, captions and other small details.
+/// @group colors
 /// @type Color
 $dark-grey: #666666;
 
 
-/// Medium grey
+/// Medium grey from grey palette
+/// This colour is for backgrounds that need to stand out.
+/// @group colors
 /// @type Color
 $medium-grey: #7A7A7A;
 
 
-/// Light grey
+/// Light grey from grey palette
+/// This colour is used to infer subtle backgrounds on pieces of content.
+/// @group colors
 /// @type Color
 $light-grey: #EDEDED;
 
 
-/// Very light grey
+/// Very light grey from grey palette
+/// This colour is used to infer subtle backgrounds on pieces of content.
+/// @group colors
 /// @type Color
 $very-light-grey: #F9F9F9;
 

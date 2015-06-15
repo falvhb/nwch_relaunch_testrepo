@@ -26,17 +26,22 @@ module.exports = function() {
     }
 
     // Create element to be passed as child
-    var child, elData;
+    var child;
     var component = params.component;
     if (component) {
-      var module = path.join(defaults.folder, component.category, component.slug);
-      // Attach data to component
-      if (component.variations) {
-        elData = component.variations[component.variationIndex].data;
+      var data, variations;
+      // Component data (from .data.json)
+      if (component.data) {
+        data = component.data;
       }
-      child = React.createElement(require(module), objectAssign({}, elData));
+      // Component variations (from .variations.json)
+      if (component.variations) {
+        variations = component.variations[component.variationIndex].data;
+      }
+      // Attact data/variations and create component
+      var module = path.join(defaults.folder, component.category, component.slug);
+      child = React.createElement(require(module), objectAssign({}, data, variations));
     }
-
     // Create our styleguide
     var el = React.createElement(layout, objectAssign({}, params), child);
     return React.renderToString(el);

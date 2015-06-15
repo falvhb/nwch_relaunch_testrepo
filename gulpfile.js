@@ -5,12 +5,14 @@
 // Dependencies
 // -----------------------------------------------------------------------------
 
+var fs = require('fs');
+var del = require('del');
 var pkg = require('./package.json');
+var path = require('path');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
-var path = require('path');
-var del = require('del');
+var _ = require('lodash');
 
 
 // -----------------------------------------------------------------------------
@@ -37,13 +39,13 @@ var buildDir = function(path) {
 // Helpers
 // -----------------------------------------------------------------------------
 
-var isProd = function() {
-  return !!plugins.util.env.production;
-};
+var isProd = (function() {
+  return !!plugins.util.env.production || !!plugins.util.env.prod;
+}());
 
-var isBuild = function() {
+var isBuild = (function() {
   return plugins.util.env._[0] === 'build';
-};
+}());
 
 // Don't break watch on error
 var onError = function(err) {
@@ -56,11 +58,20 @@ var onError = function(err) {
 // Configuration
 // -----------------------------------------------------------------------------
 
-var sassInput = [
-  assetDir('styles/globals.scss'),
-  assetDir('styles/base/*.scss'),
-  sourceDir('node_modules/**/styles/main.scss')
-];
+var sassInput = (function() {
+  var input = [
+    assetDir('styles/globals.scss'),
+    assetDir('styles/base/*.scss'),
+    sourceDir('node_modules/base/**/styles/main.scss'),
+    sourceDir('node_modules/components/**/styles/main.scss')
+  ];
+
+  if (!isProd) {
+    input.push(sourceDir('node_modules/styleguide/**/styles/main.scss'));
+  }
+
+  return input;
+}());
 
 var jsInput = [
   assetDir('scripts/**/*.js'),
@@ -73,8 +84,8 @@ var jsInput = [
 var fontsInput = assetDir('fonts/**/*.css');
 
 var sassOptions = {
-  outputStyle: (isProd() ? 'compressed' : 'expanded'),
-  errLogToConsole: isProd() === true,
+  outputStyle: (isProd ? 'compressed' : 'expanded'),
+  errLogToConsole: isProd === true,
   includePaths: [
     sourceDir('components'),
     assetDir('styles')
@@ -91,15 +102,15 @@ var autoprefixerOptions = {
   browsers: ['last 2 versions', 'IE 9', '> 5%', 'Firefox ESR']
 };
 
-var webpackConfig = require('./webpack.config.js');
+var webpackConfig = (function() {
+  var config = require('./webpack.config.js');
 
-if (isBuild() || isProd()) {
-  webpackConfig.watch = false;
-}
+  if (isBuild || isProd) {
+    config.watch = false;
+  }
 
-// if (isProd()) {
-//   webpackConfig.plugins = webpackConfig.plugins.concat(new plugins.webpack.optimize.UglifyJsPlugin());
-// }
+  return config;
+}());
 
 
 // -----------------------------------------------------------------------------
@@ -107,9 +118,7 @@ if (isBuild() || isProd()) {
 // -----------------------------------------------------------------------------
 
 gulp.task('clean', function(cb) {
-  del([
-    BUILD_DIR
-  ], cb);
+  del([BUILD_DIR], cb);
 });
 
 
@@ -174,7 +183,7 @@ gulp.task('webpack', function() {
 
 
 // -----------------------------------------------------------------------------
-// Compress font files
+// Fonts bundle
 // -----------------------------------------------------------------------------
 
 gulp.task('fonts', function() {
@@ -221,7 +230,7 @@ gulp.task('watch', function() {
 gulp.task('server', function() {
   plugins.nodemon({
     script: pkg.main,
-    env: { 'NODE_ENV': (isProd() ? 'production' : 'development') }
+    env: { 'NODE_ENV': (isProd ? 'production' : 'development') }
   })
   .on('start', plugins.livereload.reload)
   .on('change', plugins.livereload.reload);
@@ -246,6 +255,75 @@ gulp.task('icons', function() {
 
 
 // -----------------------------------------------------------------------------
+// Styleguide
+// -----------------------------------------------------------------------------
+
+function postDataTypography(data) {
+  return data
+    .filter(function(item) { return item.context.name.match(/^type-/); })
+    .map(function(item) {
+      return {
+        props: {
+          title: item.example[0].description,
+          description: item.description.replace('\n', ''),
+          code: item.context.code
+        },
+        content: item.example[0].code
+      };
+    });
+}
+
+function postDataColors(data) {
+  return _
+    .chain(data)
+    .filter(function(item) {
+      return item.group[0] === 'colors';
+    })
+    .map(function(item) {
+      var chunks = item.description.split('\n');
+      var first = chunks[0].split(' from ');
+
+      return {
+        name: first[0],
+        value: item.context.value,
+        description: chunks.slice(1).join(''),
+        palette: first[1]
+      };
+    })
+    .groupBy('palette')
+    .map(function(item, value) {
+      return {
+        title: value,
+        colors: item
+      };
+    })
+    .value();
+}
+
+gulp.task('sync-styleguide:typography', function() {
+  return gulp
+    .src(assetDir('styles/utilities/mixins.scss'))
+    .pipe(sassdoc.parse({ verbose: true }))
+    .on('data', function(data) {
+      var _data = JSON.stringify({ sections: postDataTypography(data) });
+      fs.writeFileSync(sourceDir('node_modules/base/typography/.data.json'), _data);
+    });
+});
+
+gulp.task('sync-styleguide:colors', function() {
+  return gulp
+    .src(assetDir('styles/utilities/variables.scss'))
+    .pipe(sassdoc.parse({ verbose: true }))
+    .on('data', function(data) {
+      var _data = JSON.stringify({ sections: postDataColors(data) });
+      fs.writeFileSync(sourceDir('node_modules/base/colors/.data.json'), _data);
+    });
+});
+
+gulp.task('styleguide', ['sync-styleguide:typography', 'sync-styleguide:colors']);
+
+
+// -----------------------------------------------------------------------------
 // <head> task
 // -----------------------------------------------------------------------------
 
@@ -256,7 +334,7 @@ gulp.task('head', ['fonts', 'fontloader']);
 // Bundle task
 // -----------------------------------------------------------------------------
 
-gulp.task('bundle', ['sass', 'webpack', 'icons']);
+gulp.task('bundle', ['sass', 'webpack', 'icons', 'styleguide']);
 
 
 // -----------------------------------------------------------------------------
