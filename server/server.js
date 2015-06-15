@@ -70,6 +70,7 @@ app.get('/sassdoc', function(req, res) {
 // -----------------------------------------------------------------------------
 
 app.get('/components.json', function(req, res) {
+  console.log(res.locals.components);
   res.json(res.locals.components);
 });
 

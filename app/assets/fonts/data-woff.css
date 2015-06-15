@@ -7,16 +7,16 @@
 
 @font-face {
   font-family: 'Publico';
-  src: url('PublicoText-Bold-Web.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
+  src: url('PublicoText-Italic-Web.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
 }
 
 @font-face {
   font-family: 'Publico';
-  src: url('PublicoText-Italic-Web.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
+  src: url('PublicoText-Bold-Web.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {

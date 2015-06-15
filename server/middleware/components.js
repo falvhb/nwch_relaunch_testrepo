@@ -1,9 +1,10 @@
+/*eslint-disable no-console */
 'use strict';
 
 var glob = require('simple-glob');
 var objectAssign = require('react/lib/Object.assign');
 var fs = require('fs');
-var slugToTitle = require('slug-to-title');
+var path = require('path');
 
 var defaults = {
   folder: './app/node_modules',
@@ -37,27 +38,29 @@ module.exports = function(opts) {
     var files = glob(pattern);
 
     var components = files.map(function(file) {
-      var path = file.split('/index')[0];
-      var filename = file.split('/').pop();
-      var sections = path.split(removeTrailingSlash(options.folder) + '/').pop();
-      var section = sections.split('/')[0];
-      var slug = sections.split('/')[1];
+      var filepath = file.split('/index')[0];
+      // Get our sections from URL
+      var folders = filepath.split(removeTrailingSlash(options.folder) + '/').pop();
+      var foldersArray = folders.split('/');
+      var section = foldersArray[0];
+      var slug = foldersArray[1];
+      // Warn if too much nesting
+      if (foldersArray.length > 2) {
+        console.warn('Folder structure should not be 2 levels deep for `' + folders + '`');
+      }
       // Get README from folder
-      var readme, readmePath = path + '/' + options.readme;
+      var readme, readmePath = path.join(filepath, options.readme);
       if (fs.existsSync(readmePath)) {
         readme = fs.readFileSync(readmePath, 'utf8');
       }
       // Get data from folder
-      var variations, variationsPath = path + '/' + options.variations;
+      var variations, variationsPath = path.join(filepath, options.variations);
       if (fs.existsSync(variationsPath)) {
         variations = JSON.parse(fs.readFileSync(variationsPath, 'utf8'));
       }
-      // Return it
+      // Compile JSON data
       return {
-        path: path,
-        file: filename,
-        section: section,
-        title: slugToTitle(slug),
+        category: section,
         slug: slug,
         readme: readme,
         variations: variations
