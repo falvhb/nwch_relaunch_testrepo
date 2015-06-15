@@ -305,7 +305,7 @@ gulp.task('sync-styleguide:typography', function() {
     .src(assetDir('styles/utilities/mixins.scss'))
     .pipe(sassdoc.parse({ verbose: true }))
     .on('data', function(data) {
-      var _data = JSON.stringify(postDataTypography(data));
+      var _data = JSON.stringify({ sections: postDataTypography(data) });
       fs.writeFileSync(sourceDir('node_modules/base/typography/.data.json'), _data);
     });
 });
@@ -315,7 +315,7 @@ gulp.task('sync-styleguide:colors', function() {
     .src(assetDir('styles/utilities/variables.scss'))
     .pipe(sassdoc.parse({ verbose: true }))
     .on('data', function(data) {
-      var _data = JSON.stringify(postDataColors(data));
+      var _data = JSON.stringify({ sections: postDataColors(data) });
       fs.writeFileSync(sourceDir('node_modules/base/colors/.data.json'), _data);
     });
 });

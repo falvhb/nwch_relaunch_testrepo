@@ -47,18 +47,23 @@ var renderReact = function(params) {
   var layout = params.full ? LayoutFull : Layout;
 
   // Create element to be passed as child
-  var child, elData, el, app = document.getElementById('app');
+  var child, el, app = document.getElementById('app');
   var component = params.component;
   require.ensure([], function(require) {
     // Ensure requiring of routed component
     if (component) {
+      var data, variations;
+      // Component data (from .data.json)
+      if (component.data) {
+        data = component.data;
+      }
+      // Component variations (from .variations.json)
+      if (component.variations) {
+        variations = component.variations[component.variationIndex].data;
+      }
       var requirePath = path.join(component.category, component.slug);
       var module = require(requirePath + '/index.jsx');
-      // Attach data to component
-      if (component.variations) {
-        elData = component.variations[component.variationIndex].data;
-      }
-      child = React.createElement(module, objectAssign({}, elData));
+      child = React.createElement(module, objectAssign({}, data, variations));
     }
     // Create our styleguide
     el = React.createElement(layout, objectAssign({}, params), child);
