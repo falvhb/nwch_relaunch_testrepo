@@ -9,7 +9,6 @@ var componentForRequest = require('./componentForRequest');
 module.exports = function() {
 
   var renderReact = function(params) {
-
     var defaults = {
       folder: '../../app/node_modules',
       base: 'styleguide',
@@ -49,7 +48,7 @@ module.exports = function() {
 
   return function(req, res) {
     res.render('layouts/styleguide.html', {
-      title: req.params.component ? slugToTitle(req.params.component) + ' | AZ Medien Styleguide' : 'AZ Medien Styleguide',
+      title: (req.params.component ? slugToTitle(req.params.component) + ' | ' : '') + 'AZ Medien Styleguide',
       content: renderReact({
         components: res.locals.components,
         component: componentForRequest(req.params, res.locals.components),
