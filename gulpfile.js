@@ -45,6 +45,13 @@ var isBuild = function() {
   return plugins.util.env._[0] === 'build';
 };
 
+// Don't break watch on error
+var onError = function(err) {
+  plugins.util.beep();
+  console.log(err);
+  this.emit('end');
+};
+
 // -----------------------------------------------------------------------------
 // Configuration
 // -----------------------------------------------------------------------------
@@ -135,6 +142,7 @@ gulp.task('lint', ['eslint', 'scss-lint']);
 gulp.task('sass', function() {
   return gulp
     .src(sassInput)
+    .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(plugins.sass(sassOptions))
     .pipe(plugins.concat('styles.css'))
     .pipe(plugins.autoprefixer(autoprefixerOptions))
