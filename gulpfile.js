@@ -67,6 +67,7 @@ var sassInput = (function() {
   ];
 
   if (!isProd) {
+    input.push(assetDir('styles/vendor/prism.scss'));
     input.push(sourceDir('node_modules/styleguide/**/styles/main.scss'));
   }
 
@@ -277,7 +278,7 @@ function postDataTypography(data) {
         props: {
           title: item.example[0].description,
           description: item.description.replace('\n', ''),
-          code: item.context.code
+          code: '.' + item.context.name + ' {' + item.context.code + '}'
         },
         content: item.example[0].code
       };
