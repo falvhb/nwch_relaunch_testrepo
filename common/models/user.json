@@ -1,6 +1,6 @@
 {
   "name": "User",
-  "base": "Model",
+  "base": "RESTModel",
   "idInjection": false,
   "options": {
     "validateUpsert": false

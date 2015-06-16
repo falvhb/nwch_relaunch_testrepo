@@ -1,6 +1,6 @@
 {
-  "name": "UserRepos",
-  "base": "RESTModel",
+  "name": "RESTModel",
+  "base": "Model",
   "idInjection": false,
   "options": {
     "validateUpsert": false
