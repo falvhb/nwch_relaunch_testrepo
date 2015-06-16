@@ -91,7 +91,6 @@ app.get('/dummy-model-test', function(req, res) {
     console.log('  error: ', err);
     console.log('article: ', article);
   });
-    
   res.send();
 });
 

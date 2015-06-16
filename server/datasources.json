@@ -29,6 +29,126 @@
             "id"
           ]
         }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_audios/{id}",
+          "query": {
+            "id": "{id:number}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetAudio": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_documents/{id}",
+          "query": {
+            "id": "{id:number}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetDocument": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_html_snippets/{id}",
+          "query": {
+            "id": "{id:number}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetHtmlSnippet": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_image_galleries/{id}",
+          "query": {
+            "id": "{id:number}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetGallery": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_images/{id}",
+          "query": {
+            "id": "{id:number}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetImage": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_quiz/{id}",
+          "query": {
+            "id": "{id:number}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetQuiz": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_surveys/{id}",
+          "query": {
+            "id": "{id:number}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetSurvey": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_videos/{id}",
+          "query": {
+            "id": "{id:number}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetVideo": [
+            "id"
+          ]
+        }
       }
     ]
   }
