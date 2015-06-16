@@ -54,3 +54,29 @@
 .copy blockquote {
   @include type-blockquote;
 }
+
+// scss-lint:disable ImportantRule
+
+/**
+ * Preventing underlines from TinyMCE
+ */
+.copy span {
+  text-decoration: none !important;
+}
+
+/**
+ * Preventing TinyMCE from indenting content
+ */
+.copy > p {
+  padding-left: 0 !important;
+}
+
+/**
+ * Preventing bold-italic in TinyMCE
+ */
+.copy strong > em,
+.copy em > strong {
+  font-style: normal !important;
+}
+
+// scss-lint:enable ImportantRule
