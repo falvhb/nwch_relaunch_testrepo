@@ -1,13 +1,4 @@
 {
   "name": "PublishedNewsArticle",
-  "base": "RESTModel",
-  "idInjection": false,
-  "options": {
-    "validateUpsert": false
-  },
-  "properties": {},
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": []
+  "base": "RESTModel"
 }
