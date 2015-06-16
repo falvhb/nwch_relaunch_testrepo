@@ -6,6 +6,7 @@
   "az-api": {
     "name": "az-api",
     "connector": "rest",
+    "baseUrl": "http://localhost:8711/api/v1",
     "options": {
       "headers": {
         "accepts": "application/json",
@@ -17,30 +18,15 @@
       {
         "template": {
           "method": "GET",
-          "url": "https://api.github.com/users/{user}/repos",
+          "url": "/published_news_articles/{id}",
           "query": {
-            "user": "{user:string}"
+            "id": "{id:number}"
           },
           "repsonsePath": "$//*"
         },
         "functions": {
-          "getUserRepos": [
-            "user"
-          ]
-        }
-      },
-      {
-        "template": {
-          "method": "GET",
-          "url": "https://api.github.com/users/{user}",
-          "query": {
-            "user": "{user:string}"
-          },
-          "repsonsePath": "$//*"
-        },
-        "functions": {
-          "getUser": [
-            "user"
+          "getPublishedNewsArticle": [
+            "id"
           ]
         }
       }

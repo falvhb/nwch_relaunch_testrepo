@@ -84,24 +84,14 @@ app.get('/styleguide/:category/:component/full', routing());
 app.get('/styleguide/:category/:component/:variation', routing());
 app.get('/styleguide/:category/:component/:variation/full', routing());
 
+// currently, the api returns an error
 app.get('/dummy-model-test', function(req, res) {
-  var User = loopback.getModel('User');
-  var UserRepos = loopback.getModel('UserRepos');
-
-  User.get('lovelysystems', function(err, user) {
-    console.log(user.id + ': ' + user.name);
+  var PublishedNewsArticle = loopback.getModel('PublishedNewsArticle');
+  PublishedNewsArticle.get('24', function(err, article) {
+    console.log('  error: ', err);
+    console.log('article: ', article);
   });
-
-  var reposInfo = '';
-  var addInfo = function(val) {
-    reposInfo += val.id + ': ' + val.full_name + '\n';
-  };
-
-  UserRepos.get('lovelysystems', function(err, repos) {
-    repos.forEach(addInfo);
-    console.log(reposInfo);
-  });
-
+    
   res.send();
 });
 

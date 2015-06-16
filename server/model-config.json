@@ -26,18 +26,12 @@
     "dataSource": "db",
     "public": false
   },
-
   "RESTModel": {
     "dataSource": "az-api",
     "public": false
   },
-
-  "User": {
-    "dataSource": "az-api",
-    "public": false
-  },
-  "UserRepos": {
-    "dataSource": "az-api",
-    "public": false
+  "PublishedNewsArticle": {
+      "dataSource": "az-api",
+      "public": false
   }
 }
