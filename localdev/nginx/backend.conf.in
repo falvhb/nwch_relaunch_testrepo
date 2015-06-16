@@ -1,0 +1,12 @@
+# -*- mode: perl -*-
+
+# Google DNS
+resolver 8.8.8.8;
+
+upstream backend {
+    server ${backend:upstream};
+}
+
+upstream node {
+    server ${backend:node};
+}

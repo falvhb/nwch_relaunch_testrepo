@@ -1,0 +1,14 @@
+.DS\_Store
+*.py[co]
+*.egg
+*.egg-info
+bin/
+build/
+develop-eggs/
+parts/
+etc/supervisord.conf
+.installed.cfg
+.coverage
+var
+nginx/backend.conf
+nginx/logs/
