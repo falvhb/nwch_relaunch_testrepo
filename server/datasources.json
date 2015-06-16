@@ -2,5 +2,48 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "az-api": {
+    "name": "az-api",
+    "connector": "rest",
+    "options": {
+      "headers": {
+        "accepts": "application/json",
+        "content-type": "application/json",
+        "user-agent": "az-frontend-node-agent"
+      }
+    },
+    "operations": [
+      {
+        "template": {
+          "method": "GET",
+          "url": "https://api.github.com/users/{user}/repos",
+          "query": {
+            "user": "{user:string}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "get_UserRepos": [
+            "user"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "https://api.github.com/users/{user}",
+          "query": {
+            "user": "{user:string}"
+          },
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "get_User": [
+            "user"
+          ]
+        }
+      }
+    ]
   }
 }

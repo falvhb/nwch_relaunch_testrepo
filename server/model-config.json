@@ -25,5 +25,14 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+
+  "User": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "UserRepos": {
+    "dataSource": "az-api",
+    "public": false
   }
 }
