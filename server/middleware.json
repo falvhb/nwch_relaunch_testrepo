@@ -4,7 +4,6 @@
     "strong-express-metrics": {}
   },
   "initial": {
-    "compression": {},
     "cors": {
       "params": {
         "origin": true,
