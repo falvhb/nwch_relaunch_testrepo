@@ -40,6 +40,7 @@ app.use('/client', loopback.static('client'));
 
 // Middleware
 var routing = require('./middleware/routing');
+require('./middleware/routingParams')(app);
 var components = require('./middleware/components');
 app.use(components());
 
@@ -91,6 +92,12 @@ app.get('/dummy-model-test', function(req, res) {
     console.log('  error: ', err);
     console.log('article: ', article);
   });
+  res.send();
+});
+
+// example route
+app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', function(req, res) {
+  console.log(req.item);
   res.send();
 });
 
