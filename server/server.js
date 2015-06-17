@@ -85,20 +85,26 @@ app.get('/styleguide/:category/:component/full', routing());
 app.get('/styleguide/:category/:component/:variation', routing());
 app.get('/styleguide/:category/:component/:variation/full', routing());
 
-// currently, the api returns an error
-app.get('/dummy-model-test', function(req, res) {
-  var PublishedNewsArticle = loopback.getModel('PublishedNewsArticle');
-  PublishedNewsArticle.get('24', function(err, article) {
-    console.log('  error: ', err);
-    console.log('article: ', article);
-  });
-  res.send();
-});
-
-// example route
 app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', function(req, res) {
-  console.log(req.item);
-  res.send();
+  /*
+   * A dummy function which does the following:
+   *  - Get the article from the API for given 'articleId'
+   *  - Renders an Article compontent.
+   */
+  // require the components directly in this function since this is a dummy
+  // function and most probably will get deleted again.
+  var React = require('react');
+  var objectAssign = require('react/lib/Object.assign');
+  var component = require('../app/node_modules/base/article');
+  // articleId is resolved by 'middleware/routingParams.js'. Therefore, the
+  // response of the "Article API endpoint" is on req.item.
+  // The actual article data is in req.item.data
+  var articleData = req.item.data;
+  var element = React.createElement(component,
+                                    objectAssign({}, articleData),
+                                    {} /*variations*/);
+  res.write(React.renderToString(element));
+  res.end();
 });
 
 // Bootstrap the application, configure models, datasources and middleware.
