@@ -6,7 +6,7 @@
   "az-api": {
     "name": "az-api",
     "connector": "rest",
-    "baseUrl": "http://localhost:8711/api/v1/content",
+    "baseUrl": "http://localhost:8811/api/v1/content",
     "options": {
       "headers": {
         "accepts": "application/json",
@@ -19,9 +19,6 @@
         "template": {
           "method": "GET",
           "url": "/published_news_articles/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
@@ -34,9 +31,6 @@
         "template": {
           "method": "GET",
           "url": "/asset_audios/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
@@ -49,9 +43,6 @@
         "template": {
           "method": "GET",
           "url": "/asset_documents/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
@@ -64,9 +55,6 @@
         "template": {
           "method": "GET",
           "url": "/asset_html_snippets/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
@@ -79,9 +67,6 @@
         "template": {
           "method": "GET",
           "url": "/asset_image_galleries/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
@@ -94,9 +79,6 @@
         "template": {
           "method": "GET",
           "url": "/asset_images/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
@@ -109,9 +91,6 @@
         "template": {
           "method": "GET",
           "url": "/asset_quiz/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
@@ -124,9 +103,6 @@
         "template": {
           "method": "GET",
           "url": "/asset_surveys/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
@@ -139,9 +115,6 @@
         "template": {
           "method": "GET",
           "url": "/asset_videos/{id}",
-          "query": {
-            "id": "{id:number}"
-          },
           "repsonsePath": "$//*"
         },
         "functions": {
