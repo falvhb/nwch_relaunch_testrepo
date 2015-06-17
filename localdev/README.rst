@@ -45,6 +45,12 @@ If you find something else this log is of interest::
     $ tail var/log/supervisor/nginx-stdout---supervisor-...
 
 
+Usage
+=====
+
+To use the server connect to "localhost:8801" in your favorite browser.
+
+
 Select A Backend
 ================
 
