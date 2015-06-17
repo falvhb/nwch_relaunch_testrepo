@@ -11,4 +11,5 @@ etc/supervisord.conf
 .coverage
 var
 nginx/backend.conf
+nginx/www.conf
 nginx/logs/
