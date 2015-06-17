@@ -1,0 +1,13 @@
+--- src/http/modules/ngx_http_userid_filter_module.c	2010-06-07 11:54:19.000000000 +0200
++++ src/http/modules/ngx_http_userid_filter_module.c	2012-01-20 16:15:56.000000000 +0100
+@@ -328,6 +328,10 @@
+ 
+     src = ctx->cookie;
+ 
++    if (src.data[0] == 0x22) {
++      src.data++;
++    }
++
+     /*
+      * we have to limit the encoded string to 22 characters because
+      *  1) cookie may be marked by "userid_mark",

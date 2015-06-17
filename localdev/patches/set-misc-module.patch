@@ -1,0 +1,14 @@
+diff --git a/src/ngx_http_set_hashed_upstream.c b/src/ngx_http_set_hashed_upstream.c
+index a924502..68b198d 100755
+--- a/set-misc-nginx-module-0.22/src/ngx_http_set_hashed_upstream.c
++++ b/set-misc-nginx-module-0.22/src/ngx_http_set_hashed_upstream.c
+@@ -78,7 +78,8 @@ ngx_http_set_misc_set_hashed_upstream(ngx_http_request_t *r,
+
+     dd("key: \"%.*s\"", key->len, key->data);
+
+-    hash = ngx_hash_key_lc(key->data, key->len);
++    hash = (ngx_crc32_short(key->data, key->len) >> 16) & 0x7fff;
++    hash = hash ? hash : 1;
+
+     index = ngx_http_set_misc_apply_distribution(r->connection->log, hash, ul,
+             ngx_http_set_misc_distribution_modula);
