@@ -16,6 +16,12 @@ server {
         break;
     }
 
+    location ~ '^/__node__/__static__/' {
+        rewrite ^/__node__/__static__/(.*) /$1;
+        proxy_pass http://${backend:node};
+        break;
+    }
+
     location / {
         proxy_set_header Cookie "ssi_off=1";
         proxy_pass http://${backend:upstream};
