@@ -44,6 +44,9 @@ require('./middleware/routingParams')(app);
 var components = require('./middleware/components');
 app.use(components());
 
+// API Middleware
+var publishedNewsArticleRoute = require('./middleware/routingPublishedNewsArticle');
+
 // Start our server
 app.start = function() {
   var port = process.env.PORT || 8000;
@@ -85,27 +88,7 @@ app.get('/styleguide/:category/:component/full', routing());
 app.get('/styleguide/:category/:component/:variation', routing());
 app.get('/styleguide/:category/:component/:variation/full', routing());
 
-app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', function(req, res) {
-  /*
-   * A dummy function which does the following:
-   *  - Get the article from the API for given 'articleId'
-   *  - Renders an Article compontent.
-   */
-  // require the components directly in this function since this is a dummy
-  // function and most probably will get deleted again.
-  var React = require('react');
-  var objectAssign = require('react/lib/Object.assign');
-  var component = require('../app/node_modules/base/article');
-  // articleId is resolved by 'middleware/routingParams.js'. Therefore, the
-  // response of the "Article API endpoint" is on req.item.
-  // The actual article data is in req.item.data
-  var articleData = req.item.data;
-  var element = React.createElement(component,
-                                    objectAssign({}, articleData),
-                                    {} /*variations*/);
-  res.write(React.renderToString(element));
-  res.end();
-});
+app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', publishedNewsArticleRoute);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
