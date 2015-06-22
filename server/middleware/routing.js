@@ -16,8 +16,8 @@ module.exports = function() {
 
     // Define layout
     var layout, requirePath = path.join(defaults.folder, defaults.base);
-    if (params.full) {
-      requirePath = path.join(requirePath, 'layout-full');
+    if (params.preview) {
+      requirePath = path.join(requirePath, 'layout-preview');
       layout = require(requirePath);
     } else {
       requirePath = path.join(requirePath, 'layout');
@@ -52,7 +52,7 @@ module.exports = function() {
       content: renderReact({
         components: res.locals.components,
         component: componentForRequest(req.params, res.locals.components),
-        full: (req.url.indexOf('full') > -1)
+        preview: (req.url.indexOf('preview') > -1)
       })
     });
   };
