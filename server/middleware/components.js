@@ -9,7 +9,7 @@ var path = require('path');
 var defaults = {
   folder: './app/node_modules',
   extensions: ['.jsx', '.js'],
-  ignore: ['styleguide', 'layouts'],
+  ignore: ['styleguide', 'mixins'],
   config: '.config.json',
   data: '.data.json',
   variations: '.variations.json',

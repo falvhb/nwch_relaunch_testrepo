@@ -84,9 +84,9 @@ app.get('/components.json', function(req, res) {
 
 app.get('/styleguide', routing());
 app.get('/styleguide/:category/:component', routing());
-app.get('/styleguide/:category/:component/full', routing());
+app.get('/styleguide/:category/:component/preview', routing());
 app.get('/styleguide/:category/:component/:variation', routing());
-app.get('/styleguide/:category/:component/:variation/full', routing());
+app.get('/styleguide/:category/:component/:variation/preview', routing());
 
 app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', publishedNewsArticleRoute);
 

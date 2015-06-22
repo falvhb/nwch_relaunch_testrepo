@@ -11,7 +11,7 @@ var objectAssign = require('react/lib/Object.assign');
 // -----------------------------------------------------------------------------
 
 var parseUrl = (function() {
-  var suffix = 'full';
+  var suffix = 'preview';
   // Remove trailing slash and make array
   var urlParts = window.location.href.replace(/\/$/, '').split('/');
   // Remove first 3 url parts
@@ -22,7 +22,7 @@ var parseUrl = (function() {
     category: paths[0],
     component: paths[1],
     variation: paths.length > 2 && paths[2] !== suffix ? paths[2] : null,
-    full: paths[paths.length - 1] === suffix || false
+    preview: paths[paths.length - 1] === suffix || false
   };
 }());
 
@@ -39,12 +39,12 @@ var componentForRequest = require('../server/middleware/componentForRequest');
 // -----------------------------------------------------------------------------
 
 var Layout = require('styleguide/layout');
-var LayoutFull = require('styleguide/layout-full');
+var LayoutPreview = require('styleguide/layout-preview');
 
 var renderReact = function(params) {
 
   // Define layout
-  var layout = params.full ? LayoutFull : Layout;
+  var layout = params.preview ? LayoutPreview : Layout;
 
   // Create element to be passed as child
   var child, el, app = document.getElementById('app');
@@ -75,7 +75,7 @@ var renderPage = function(components) {
   renderReact({
     components: components,
     component: componentForRequest(parseUrl, components),
-    full: parseUrl.full
+    preview: parseUrl.preview
   });
 };
 
