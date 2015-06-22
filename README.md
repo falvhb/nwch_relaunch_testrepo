@@ -36,6 +36,7 @@ When working, create feature branches off `develop` in the form `feature/8-story
 
 Before committing, code will be linted using `eslint` (JS/JSX) and `scss-lint` (Scss). You will not be able to commit unless your code passes linting. To make life easier, use plugins for your text editor to highlight any errors as you go e.g.
 
+- [Sublime​Linter](https://packagecontrol.io/packages/SublimeLinter)
 - [SublimeLinter-scss-lint](https://packagecontrol.io/packages/SublimeLinter-contrib-scss-lint)
 - [Sublime​Linter-contrib-eslint](https://packagecontrol.io/packages/SublimeLinter-contrib-eslint)
 
