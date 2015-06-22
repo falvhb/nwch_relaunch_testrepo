@@ -1,5 +1,4 @@
 /*eslint-disable no-console */
-'use strict';
 
 var React = require('react');
 var _ = require('lodash');

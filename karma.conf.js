@@ -37,6 +37,9 @@ module.exports = function(config) {
             loader: 'json'
           }
         ],
+      },
+      resolve: {
+        extensions: ['', '.js', '.jsx', '.json']
       }
     },
     webpackMiddleware: {
