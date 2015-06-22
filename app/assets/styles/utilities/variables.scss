@@ -42,45 +42,52 @@ $code-font-stack: 'Consolas', 'Monaco', 'Courier New', monospace;
 
 
 /// AZ blue from primary palette
-/// This colour is used in the logo and navigation.
+/// This colour is used in the logo and as main brand colour.
 /// @group colors
 /// @type Color
 $blue: #1B4D85;
 
 
 /// Light blue from primary palette
-/// This colour is used to indicate links.
+/// This colour is used to indicate links and interactive elements.
 /// @group colors
 /// @type Color
-$light-blue: #4781C2;
+$light-blue: #428BDD;
 
 
-/// Navy blue from primary palette
+/// Black from primary palette
 /// This colour is used for all of the text content on the site, instead of black.
 /// @group colors
 /// @type Color
-$navy-blue: #0B0A3B;
-
-
-/// Black from secondary palette
-/// This colour is used for emphasis in text.
-/// @group colors
-/// @type Color
-$black: #050515;
+$black: #0B0B0B;
 
 
 /// Orange from secondary palette
-/// This colour is used for breaking news items and should be used sparingly.
+/// This colour represents dialogue, opinion and community content.
 /// @group colors
 /// @type Color
-$orange: #F56200;
+$orange: #FFB64E;
 
 
 /// Yellow from secondary palette
-/// This colour is used for subtle highlights & drawing attention to certain section and should be used sparingly.
+/// This colour is used for subtle highlights & drawing attention to certain sections and should be used sparingly.
 /// @group colors
 /// @type Color
 $yellow: #FEEF75;
+
+
+/// Turquoise from secondary palette
+/// This colour is used to represent dossier pages.
+/// @group colors
+/// @type Color
+$turquoise: #2CC4A8;
+
+
+/// Red from secondary palette
+/// This colour indicates live events and breaking news.
+/// @group colors
+/// @type Color
+$red: #FF5858;
 
 
 /// Dark grey from grey palette
@@ -108,7 +115,7 @@ $light-grey: #EDEDED;
 /// This colour is used to infer subtle backgrounds on pieces of content.
 /// @group colors
 /// @type Color
-$very-light-grey: #F9F9F9;
+$very-light-grey: #F8F8F8;
 
 
 
