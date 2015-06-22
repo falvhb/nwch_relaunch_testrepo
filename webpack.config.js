@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-'use strict';
 
 var webpack = require('webpack');
 var path = require('path');
@@ -12,6 +11,10 @@ var config = {
       {
         test: /\.jsx$/,
         loaders: ['babel'],
+      },
+      {
+        test: /\.json$/,
+        loaders: ['json'],
       },
     ]
   },
