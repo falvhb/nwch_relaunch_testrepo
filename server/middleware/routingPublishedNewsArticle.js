@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react');
 var objectAssign = require('react/lib/Object.assign');
 var component = require('../../app/node_modules/demo/article');
