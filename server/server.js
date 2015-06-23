@@ -37,11 +37,15 @@ app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
 // Middleware
-var routing = require('./middleware/routing');
-var components = require('./middleware/components');
-app.use(components());
+var styleguideRoute = require('./middleware/routingStyleguide');
+var components = require('./middleware/components')();
+
+// API Middleware
+require('./middleware/routingParams')(app);
+var publishedNewsArticleRoute = require('./middleware/routingPublishedNewsArticle');
 
 // Start our server
+app.use(components);
 app.start = function() {
   var port = process.env.PORT || 8000;
   return app.listen(port, function() {
@@ -49,6 +53,7 @@ app.start = function() {
     console.log('Web server listening at: %s', app.get('url'));
   });
 };
+
 
 // -----------------------------------------------------------------------------
 // SassDoc
@@ -76,11 +81,13 @@ app.get('/components.json', function(req, res) {
 // App Routing
 // -----------------------------------------------------------------------------
 
-app.get('/styleguide', routing());
-app.get('/styleguide/:category/:component', routing());
-app.get('/styleguide/:category/:component/preview', routing());
-app.get('/styleguide/:category/:component/:variation', routing());
-app.get('/styleguide/:category/:component/:variation/preview', routing());
+app.get('/styleguide', styleguideRoute);
+app.get('/styleguide/:category/:component', styleguideRoute);
+app.get('/styleguide/:category/:component/preview', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
+
+app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', publishedNewsArticleRoute);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.

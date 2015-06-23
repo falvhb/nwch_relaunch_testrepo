@@ -2,5 +2,127 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "az-api": {
+    "name": "az-api",
+    "connector": "rest",
+    "baseUrl": "http://localhost:8711/api/v1/content",
+    "options": {
+      "headers": {
+        "accepts": "application/json",
+        "content-type": "application/json",
+        "user-agent": "az-frontend-node-agent"
+      }
+    },
+    "operations": [
+      {
+        "template": {
+          "method": "GET",
+          "url": "/published_news_articles/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getPublishedNewsArticle": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_audios/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetAudio": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_documents/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetDocument": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_html_snippets/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetHtmlSnippet": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_image_galleries/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetGallery": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_images/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetImage": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_quiz/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetQuiz": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_surveys/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetSurvey": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/asset_videos/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getAssetVideo": [
+            "id"
+          ]
+        }
+      }
+    ]
   }
 }

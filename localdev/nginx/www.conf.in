@@ -10,8 +10,14 @@ server {
     gzip on;
     gzip_types text/plain text/xml text/css application/x-javascript text/javascript;
 
-    location '/\+\+ckey\+\+ssi/__node__/' {
-        rewrite ^/__node__/(.*) /$1;
+    location ~ '^/\+\+ckey\+\+ssi/__node__/' {
+        rewrite ^/\+\+ckey\+\+ssi/__node__/(.*) /$1;
+        proxy_pass http://${backend:node};
+        break;
+    }
+
+    location ~ '^/__node__/__static__/' {
+        rewrite ^/__node__/__static__/(.*) /$1;
         proxy_pass http://${backend:node};
         break;
     }
@@ -19,5 +25,14 @@ server {
     location / {
         proxy_set_header Cookie "ssi_off=1";
         proxy_pass http://${backend:upstream};
+    }
+}
+
+server {
+
+    listen 8811;
+
+    location / {
+        proxy_pass http://${backend:api};
     }
 }

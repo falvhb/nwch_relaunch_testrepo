@@ -25,5 +25,41 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "RESTModel": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "PublishedNewsArticle": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "AssetAudio": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "AssetDocument": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "AssetHtmlSnippet": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "AssetImage": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "AssetImageGallery": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "AssetQuiz": {
+    "dataSource": "az-api",
+    "public": false
+  },
+  "AssetVideo": {
+    "dataSource": "az-api",
+    "public": false
   }
 }
