@@ -37,7 +37,7 @@ app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
 // Middleware
-var routing = require('./middleware/routingStyleguide');
+var routing = require('./middleware/routing');
 var components = require('./middleware/components');
 app.use(components());
 
