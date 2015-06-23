@@ -42,14 +42,12 @@ app.use('/client', loopback.static('client'));
 var styleguideRoute = require('./middleware/routingStyleguide');
 var components = require('./middleware/components')();
 
-require('./middleware/routingParams')(app);
-
-app.use(components);
-
 // API Middleware
+require('./middleware/routingParams')(app);
 var publishedNewsArticleRoute = require('./middleware/routingPublishedNewsArticle');
 
 // Start our server
+app.use(components);
 app.start = function() {
   var port = process.env.PORT || 8000;
   return app.listen(port, function() {
