@@ -131,3 +131,23 @@
   letter-spacing: 1.8px;
   color: $medium-grey;
 }
+
+
+/// Mixin to help specifying styles for all kinds of interaction at once
+/// @param {Bool} $self [false] - Whether to include default state as well
+@mixin on-interaction($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
