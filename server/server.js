@@ -39,10 +39,12 @@ app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
 // Middleware
-var routing = require('./middleware/routing');
+var styleguideRoute = require('./middleware/routingStyleguide');
+var components = require('./middleware/components')();
+
 require('./middleware/routingParams')(app);
-var components = require('./middleware/components');
-app.use(components());
+
+app.use(components);
 
 // API Middleware
 var publishedNewsArticleRoute = require('./middleware/routingPublishedNewsArticle');
@@ -82,11 +84,11 @@ app.get('/components.json', function(req, res) {
 // App Routing
 // -----------------------------------------------------------------------------
 
-app.get('/styleguide', routing());
-app.get('/styleguide/:category/:component', routing());
-app.get('/styleguide/:category/:component/preview', routing());
-app.get('/styleguide/:category/:component/:variation', routing());
-app.get('/styleguide/:category/:component/:variation/preview', routing());
+app.get('/styleguide', styleguideRoute);
+app.get('/styleguide/:category/:component', styleguideRoute);
+app.get('/styleguide/:category/:component/preview', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
 
 app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', publishedNewsArticleRoute);
 
