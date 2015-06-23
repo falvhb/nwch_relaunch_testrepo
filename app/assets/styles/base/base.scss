@@ -8,3 +8,25 @@ body {
 code {
   font-family: $code-font-stack;
 }
+
+table {
+  text-align: left;
+  margin: 10px 0;
+
+  @include media('>small') {
+    width: 100%;
+    table-layout: fixed;
+  }
+}
+
+thead {
+  border-bottom: 1px solid $light-grey;
+}
+
+th {
+  text-transform: capitalize;
+}
+
+td, th {
+  padding: 5px;
+}
