@@ -18,8 +18,7 @@
   "scripts": {
     "watch": "gulp",
     "lint": "gulp lint",
-    "start": "node server/server.js",
-    "test": "mocha --harmony test/components/*.spec.jsx --compilers jsx:test/util/compiler.js"
+    "start": "node server/server.js"
   },
   "pre-commit": {
     "run": "lint",
@@ -81,6 +80,7 @@
     "karma-chrome-launcher": "^0.1.12",
     "karma-cli": "0.0.4",
     "karma-mocha": "^0.2.0",
+    "karma-mocha-reporter": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.5.1",
     "mocha": "^2.2.5",

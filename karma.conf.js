@@ -15,12 +15,13 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-sourcemap-loader',
       'karma-webpack',
+      'karma-mocha-reporter'
     ],
     // run the bundle through the webpack and sourcemap plugins
     preprocessors: {
       'tests.bundle.js': [ 'webpack', 'sourcemap' ]
     },
-    reporters: [ 'dots' ],
+    reporters: [ 'mocha' ],
     singleRun: true,
     // webpack config object
     webpack: {
