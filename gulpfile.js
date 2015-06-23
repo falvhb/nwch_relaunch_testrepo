@@ -1,5 +1,4 @@
 /* eslint-disable no-console, no-shadow */
-'use strict';
 
 // -----------------------------------------------------------------------------
 // Dependencies
@@ -13,6 +12,7 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var sassdoc = require('sassdoc');
 var _ = require('lodash');
+var karma = require('karma').server;
 
 
 // -----------------------------------------------------------------------------
@@ -265,6 +265,17 @@ gulp.task('logo', function() {
     .pipe(gulp.dest(buildDir('images/')));
 });
 
+// -----------------------------------------------------------------------------
+// Logo
+// -----------------------------------------------------------------------------
+
+gulp.task('test', function(done) {
+  karma.start({
+    configFile: path.join(__dirname, 'karma.conf.js'),
+    singleRun: true
+  }, done);
+});
+
 
 // -----------------------------------------------------------------------------
 // Styleguide
@@ -337,7 +348,18 @@ gulp.task('sync-styleguide:colors', function() {
   );
 });
 
+// -----------------------------------------------------------------------------
+// Styleguide task
+// -----------------------------------------------------------------------------
+
 gulp.task('styleguide', ['sync-styleguide:typography', 'sync-styleguide:colors']);
+
+
+// -----------------------------------------------------------------------------
+// <head> task
+// -----------------------------------------------------------------------------
+
+gulp.task('setup', plugins.sequence('clean', ['head', 'icons', 'styleguide', 'logo']));
 
 
 // -----------------------------------------------------------------------------
@@ -351,18 +373,18 @@ gulp.task('head', ['fonts', 'fontloader']);
 // Bundle task
 // -----------------------------------------------------------------------------
 
-gulp.task('bundle', ['sass', 'webpack', 'icons', 'styleguide', 'logo']);
+gulp.task('bundle', ['sass', 'webpack']);
 
 
 // -----------------------------------------------------------------------------
 // Build task
 // -----------------------------------------------------------------------------
 
-gulp.task('build', plugins.sequence('clean', ['head', 'bundle']));
+gulp.task('build', plugins.sequence('test', 'setup', ['bundle']));
 
 
 // -----------------------------------------------------------------------------
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', plugins.sequence('clean', ['server', 'head', 'bundle', 'watch']));
+gulp.task('default', plugins.sequence('server', 'bundle', 'watch'));
