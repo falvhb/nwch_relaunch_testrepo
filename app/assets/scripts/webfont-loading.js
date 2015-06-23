@@ -1,5 +1,4 @@
 /*eslint-disable no-unused-vars */
-'use strict';
 
 // From https://github.com/filamentgroup/woff2-feature-test/
 var supportsWoff2 = (function(win) {

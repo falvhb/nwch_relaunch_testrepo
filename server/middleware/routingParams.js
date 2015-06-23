@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = function(app) {
   app.param('articleId', function(req, res, next, id) {
     app.models.PublishedNewsArticle.get(id, function(err, article) {

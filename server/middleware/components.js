@@ -1,5 +1,4 @@
 /*eslint-disable no-console */
-'use strict';
 
 var glob = require('simple-glob');
 var objectAssign = require('react/lib/Object.assign');
@@ -8,8 +7,8 @@ var path = require('path');
 
 var defaults = {
   folder: './app/node_modules',
-  extensions: ['.jsx', '.js'],
-  ignore: ['styleguide', 'mixins'],
+  extensions: ['index.jsx', 'index.js'],
+  ignore: ['styleguide', 'mixins', 'utils'],
   config: '.config.json',
   data: '.data.json',
   variations: '.variations.json',

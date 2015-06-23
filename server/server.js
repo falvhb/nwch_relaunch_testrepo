@@ -1,6 +1,4 @@
 /*eslint-disable no-console */
-'use strict';
-
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');

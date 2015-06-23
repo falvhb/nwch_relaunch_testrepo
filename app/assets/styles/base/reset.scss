@@ -9,10 +9,12 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  *    From: https://github.com/necolas/normalize.css/blob/2bdda84272650aedfb45d8abe11a6d177933a803/normalize.css#L11-L12
+ * 3. Prevent any horizontal overflow
  */
 html {
   box-sizing: border-box; /* 1 */
   text-size-adjust: 100%; /* 2 */
+  overflow-x: hidden; /* 3 */
 }
 
 /**
