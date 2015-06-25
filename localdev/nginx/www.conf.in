@@ -22,6 +22,10 @@ server {
         break;
     }
 
+    location ~ '/__addefend__' {
+        echo '';
+    }
+
     location / {
         proxy_set_header Cookie "ssi_off=1";
         proxy_pass http://${backend:upstream};
