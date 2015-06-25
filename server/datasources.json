@@ -122,6 +122,18 @@
             "id"
           ]
         }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/domains/{id}",
+          "repsonsePath": "$//*"
+        },
+        "functions": {
+          "getDomain": [
+            "id"
+          ]
+        }
       }
     ]
   }
