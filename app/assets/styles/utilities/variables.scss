@@ -158,7 +158,7 @@ $media-expressions: (
 /// The gutters at the side of the page
 /// @type Length
 /// @group container
-$container-padding: 18px;
+$container-spacing: 18px;
 
 /// The width of a störer, hardcoded to match the usual ads we have
 /// @type Length
@@ -188,7 +188,7 @@ $stoerer-breakpoint--large: map-get($breakpoints, 'large');
 /// The basic gap for a störer on small screens
 /// @type Length
 /// @group stoerer
-$stoerer-basic-gap: $container-padding;
+$stoerer-basic-gap: $container-spacing;
 
 /// The gap for floated störers (large screens)
 /// @type Length
