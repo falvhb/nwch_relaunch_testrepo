@@ -1,6 +1,7 @@
 var React = require('react');
 var objectAssign = require('react/lib/Object.assign');
 var component = require('../../app/node_modules/demo/article');
+var Iso = require('iso');
 
 module.exports = function(req, res) {
   /*
@@ -12,9 +13,10 @@ module.exports = function(req, res) {
   // response of the "Article API endpoint" is on req.item.
   // The actual article data is in req.item.data
   var articleData = req.item.data;
-  var element = React.createElement(component,
-                                    objectAssign({}, articleData),
-                                    {} /*variations*/);
-  res.write(React.renderToString(element));
-  res.end();
+  var element = React.createElement(component, objectAssign({}, articleData));
+  var stringEl = React.renderToString(element);
+
+  var iso = new Iso();
+  iso.add(stringEl, articleData, { id: 'demo' });
+  res.send(iso.render());
 };
