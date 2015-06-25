@@ -155,31 +155,50 @@ $media-expressions: (
 // BREAKPOINTS AND MEDIA-EXPRESSIONS
 // -----------------------------------------------------------------------------
 
+/// The gutters at the side of the page
+/// @type Length
+/// @group container
+$container-padding: 18px;
 
 /// The width of a störer, hardcoded to match the usual ads we have
 /// @type Length
 /// @group stoerer
 $stoerer-width: 300px;
 
-/// The offset of a störer in the left margin
+/// The small offset of a störer in the left margin
 /// @type Length
 /// @group stoerer
-$stoerer-offset: ($stoerer-width / 2);
+$stoerer-offset--small: ($stoerer-width / 4);
 
-/// The breakpoint at which a störer should be offseted
+/// The larger offset of a störer in the left margin
 /// @type Length
 /// @group stoerer
-$stoerer-breakpoint: (800px + $stoerer-offset);
+$stoerer-offset--large: ($stoerer-width / 2);
+
+/// The first breakpoint at which a störer should be offseted
+/// @type Length
+/// @group stoerer
+$stoerer-breakpoint--small: 960px;
+
+/// The second breakpoint where the störer offset is larger
+/// @type Length
+/// @group stoerer
+$stoerer-breakpoint--large: map-get($breakpoints, 'large');
 
 /// The basic gap for a störer on small screens
 /// @type Length
 /// @group stoerer
-$stoerer-basic-gap: 12px;
+$stoerer-basic-gap: $container-padding;
 
-/// The gap for floated störers on large screens
+/// The gap for floated störers (large screens)
 /// @type Length
 /// @group stoerer
 $stoerer-floated-gap: 20px;
+
+/// The spacing (right, bottom) for floated störers (large screens)
+/// @type Length
+/// @group stoerer
+$stoerer-floated-spacing: 30px;
 
 /// The basic gap for störers on large screens
 /// @type Length

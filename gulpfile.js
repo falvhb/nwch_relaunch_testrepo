@@ -62,8 +62,8 @@ var sassInput = (function() {
   var input = [
     assetDir('styles/globals.scss'),
     assetDir('styles/base/*.scss'),
-    sourceDir('node_modules/base/**/styles/main.scss'),
-    sourceDir('node_modules/components/**/styles/main.scss')
+    sourceDir('node_modules/base/**/*.scss'),
+    sourceDir('node_modules/components/**/*.scss')
   ];
 
   if (!isProd) {
@@ -388,4 +388,4 @@ gulp.task('build', plugins.sequence('setup', ['bundle']));
 // Default task
 // -----------------------------------------------------------------------------
 
-gulp.task('default', plugins.sequence('server', 'bundle', 'watch'));
+gulp.task('default', plugins.sequence('server', 'watch', 'bundle'));
