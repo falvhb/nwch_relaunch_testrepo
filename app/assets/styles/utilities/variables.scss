@@ -2,8 +2,6 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-
-
 // -----------------------------------------------------------------------------
 // FONT STACKS
 // -----------------------------------------------------------------------------
@@ -152,13 +150,18 @@ $media-expressions: (
 
 
 // -----------------------------------------------------------------------------
-// BREAKPOINTS AND MEDIA-EXPRESSIONS
+// GLOBAL VARIABLES
 // -----------------------------------------------------------------------------
 
 /// The gutters at the side of the page
 /// @type Length
 /// @group container
 $container-spacing: 18px;
+
+/// Container width expressed in pixels
+/// @type Length
+/// @group container
+$container-width: 800px;
 
 /// The width of a störer, hardcoded to match the usual ads we have
 /// @type Length
