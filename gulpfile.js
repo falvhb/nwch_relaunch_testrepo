@@ -113,6 +113,7 @@ var webpackConfig = (function() {
   return config;
 }());
 
+var webpackClientConfig = require('./webpack.client.config.js');
 
 // -----------------------------------------------------------------------------
 // Clear build folder
@@ -213,8 +214,8 @@ gulp.task('fontloader', function() {
 gulp.task('clientjs', function() {
   return gulp
     .src(sourceDir('client.js'))
-    .pipe(plugins.uglify())
-    .pipe(gulp.dest(buildDir('')));
+    .pipe(plugins.webpack(webpackClientConfig))
+    .pipe(gulp.dest(BUILD_DIR));
 });
 
 

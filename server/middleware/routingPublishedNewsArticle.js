@@ -1,7 +1,6 @@
 var React = require('react');
 var objectAssign = require('react/lib/Object.assign');
 var component = require('../../app/node_modules/demo/article');
-var Iso = require('iso');
 
 module.exports = function(req, res) {
   /*
@@ -15,8 +14,6 @@ module.exports = function(req, res) {
   var articleData = req.item.data;
   var element = React.createElement(component, objectAssign({}, articleData));
   var stringEl = React.renderToString(element);
-
-  var iso = new Iso();
-  iso.add(stringEl, articleData, { id: 'demo' });
-  res.send(iso.render());
+  res.locals.iso.add(stringEl, articleData, { id: 'demo' });
+  res.send(res.locals.iso.render());
 };

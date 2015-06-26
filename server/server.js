@@ -7,7 +7,6 @@ var path = require('path');
 var engines = require('consolidate');
 var app = module.exports = loopback();
 
-
 // -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
@@ -38,15 +37,19 @@ app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
 // Middleware
-var styleguideRoute = require('./middleware/routingStyleguide');
-var components = require('./middleware/components')();
-
-// API Middleware
 require('./middleware/routingParams')(app);
+var components = require('./middleware/components')();
+var iso = require('./middleware/iso');
+
+// Add Middleware to Express
+app.use(components);
+app.use(iso);
+
+// Routing Middleware
+var styleguideRoute = require('./middleware/routingStyleguide');
 var publishedNewsArticleRoute = require('./middleware/routingPublishedNewsArticle');
 
 // Start our server
-app.use(components);
 app.start = function() {
   var port = process.env.PORT || 8000;
   return app.listen(port, function() {
