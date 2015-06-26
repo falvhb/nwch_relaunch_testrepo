@@ -11,8 +11,8 @@ module.exports = function(req, cb) {
         req.domainConfig = domain;
         cb(undefined, req.domainConfig);
       }
-    });  
+    });
   } else {
-      cb(undefined, req.domainConfig);
+    cb(undefined, req.domainConfig);
   }
 };
