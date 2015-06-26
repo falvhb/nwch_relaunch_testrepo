@@ -1,3 +1,5 @@
+@import 'utilities/variables';
+
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
@@ -163,5 +165,16 @@
     &:focus {
       @content;
     }
+  }
+}
+
+
+@mixin expand {
+  margin-left: -$container-spacing;
+  margin-right: -$container-spacing;
+
+  @include media('>small') {
+    margin-left: -($container-spacing * 2);
+    margin-right: -($container-spacing * 2);
   }
 }

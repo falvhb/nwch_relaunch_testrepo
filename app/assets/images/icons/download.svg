@@ -1,0 +1,14 @@
+<svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Download</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Basic-Article" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Download-Icon" sketch:type="MSArtboardGroup" transform="translate(-17.000000, -18.000000)">
+            <g id="Download" sketch:type="MSLayerGroup" transform="translate(14.000000, 14.000000)">
+                <rect id="Rectangle-471" sketch:type="MSShapeGroup" x="0" y="0" width="20" height="20"></rect>
+                <path d="M9,12.2426407 L5.04699812,8.28963881 C4.66534914,7.90798982 4.02656326,7.90236893 3.63603897,8.29289322 C3.24279201,8.68614017 3.24405763,9.31512544 3.63278456,9.70385237 L9.29614763,15.3672154 C9.48644205,15.5575099 9.74066404,15.6543188 9.99616381,15.6551485 C10.2564622,15.6585391 10.5100243,15.5610435 10.7038524,15.3672154 L16.3672154,9.70385237 C16.7488644,9.32220338 16.7544853,8.68341751 16.363961,8.29289322 C15.9707141,7.89964626 15.3417288,7.90091188 14.9530019,8.28963881 L11,12.2426407 L11,4.99539757 C11,4.4556644 10.5522847,4 10,4 C9.44386482,4 9,4.44565467 9,4.99539757 L9,12.2426407 L9,12.2426407 Z M3,19 C3,18.4477153 3.44994876,18 4.00684547,18 L15.9931545,18 C16.5492199,18 17,18.4438648 17,19 C17,19.5522847 16.5500512,20 15.9931545,20 L4.00684547,20 C3.45078007,20 3,19.5561352 3,19 Z" id="Rectangle-430" fill="#6E6E6E" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
