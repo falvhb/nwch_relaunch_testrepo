@@ -25,6 +25,9 @@ var config = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ]
 };
 
 module.exports = config;

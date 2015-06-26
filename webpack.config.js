@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-  entry: './app/browser.js',
+  entry: './app/styleguide.js',
   watch: true,
   module: {
     loaders: [
