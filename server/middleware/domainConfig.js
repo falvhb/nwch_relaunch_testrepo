@@ -1,19 +1,18 @@
-module.exports = function(app) {
-  // hook into all requests
-  // -> loads the domain configuration from the REST API
-  // -> attaches the domain configuration to the request
-  app.use('/', function(req, res, next) {
+var app = require('../server');
+
+module.exports = function(req, cb) {
+  if (!req.domainConfig) {
     // until it is assured that the request header 'X_ZOPE_SKIN' is set, use a default
     var domainId = req.get('X_ZOPE_SKIN') || 'aaz';
     app.models.Domain.get(domainId, function(err, domain) {
       if (err) {
-        next(err);
-      } else if (domain) {
-        req.domainConfig = domain;
-        next();
+        cb(err, undefined);
       } else {
-        next('Domain Config not found.');
+        req.domainConfig = domain;
+        cb(undefined, req.domainConfig);
       }
-    });
-  });
+    });  
+  } else {
+      cb(undefined, req.domainConfig);
+  }
 };

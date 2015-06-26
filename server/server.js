@@ -42,7 +42,6 @@ var components = require('./middleware/components')();
 
 // API Middleware
 require('./middleware/routingParams')(app);
-require('./middleware/domainConfig')(app);
 var publishedNewsArticleRoute = require('./middleware/routingPublishedNewsArticle');
 
 // Start our server
