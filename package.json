@@ -33,7 +33,6 @@
     "crypto-js": "^3.1.5",
     "del": "^1.2.0",
     "errorhandler": "^1.1.1",
-    "iso": "^4.1.0",
     "lodash": "^3.9.3",
     "loopback": "^2.14.0",
     "loopback-boot": "^2.6.5",
@@ -58,6 +57,7 @@
   },
   "devDependencies": {
     "chai": "^3.0.0",
+    "escape-html": "^1.0.2",
     "eslint": "^0.22.1",
     "eslint-plugin-react": "^2.4.0",
     "gulp": "^3.8.11",

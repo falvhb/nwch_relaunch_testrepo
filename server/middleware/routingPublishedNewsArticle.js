@@ -1,6 +1,7 @@
 var React = require('react');
-var objectAssign = require('react/lib/Object.assign');
-var component = require('../../app/node_modules/demo/article');
+
+var Iso = require('../../app/node_modules/higher-order/isomorphic');
+var Component = require('../../app/node_modules/demo/article');
 
 module.exports = function(req, res) {
   /*
@@ -12,7 +13,7 @@ module.exports = function(req, res) {
   // response of the "Article API endpoint" is on req.item.
   // The actual article data is in req.item.data
   var articleData = req.item.data;
-  var element = React.createElement(component, objectAssign({}, articleData));
-  var stringEl = React.renderToString(element);
-  res.send(stringEl);
+  var element = React.createElement(Component, articleData);
+  var iso = React.createElement(Iso, { data: articleData }, element);
+  res.send(React.renderToString(iso));
 };

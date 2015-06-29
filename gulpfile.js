@@ -113,7 +113,15 @@ var webpackConfig = (function() {
   return config;
 }());
 
-var webpackClientConfig = require('./webpack.client.config.js');
+var webpackClientConfig = (function() {
+  var config = require('./webpack.client.config.js');
+
+  if (isBuild || isProd) {
+    config.watch = false;
+  }
+
+  return config;
+}());
 
 // -----------------------------------------------------------------------------
 // Clear build folder
