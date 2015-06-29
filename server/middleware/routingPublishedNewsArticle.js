@@ -14,6 +14,5 @@ module.exports = function(req, res) {
   var articleData = req.item.data;
   var element = React.createElement(component, objectAssign({}, articleData));
   var stringEl = React.renderToString(element);
-  res.locals.iso.add(stringEl, articleData, { id: 'demo' });
-  res.send(res.locals.iso.render());
+  res.send(stringEl);
 };

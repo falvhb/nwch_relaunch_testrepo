@@ -39,11 +39,9 @@ app.use('/client', loopback.static('client'));
 // Middleware
 require('./middleware/routingParams')(app);
 var components = require('./middleware/components')();
-var iso = require('./middleware/iso');
 
 // Add Middleware to Express
 app.use(components);
-app.use(iso);
 
 // Routing Middleware
 var styleguideRoute = require('./middleware/routingStyleguide');
