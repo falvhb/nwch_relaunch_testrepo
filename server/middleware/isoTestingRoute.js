@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Iso = require('../../app/node_modules/iso');
+var Iso = require('../../app/node_modules/iso-react');
 var Container = require('../../app/node_modules/components/container');
 
 module.exports = function(req, res) {
@@ -18,7 +18,6 @@ module.exports = function(req, res) {
     title: 'Testing1234'
   };
   var element = React.createElement(Container, data);
-  // res.send();
   res.render('iso.html', {
     title: 'Iso Rendering',
     content: iso.render(React.renderToString(element), data, { component: 'container' })

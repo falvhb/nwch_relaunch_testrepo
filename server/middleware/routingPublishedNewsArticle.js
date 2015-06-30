@@ -1,4 +1,4 @@
-var Iso = require('../../app/node_modules/iso');
+var Iso = require('../../app/node_modules/iso-react');
 
 var Demo = require('../../app/node_modules/demo/article');
 
@@ -12,6 +12,11 @@ module.exports = function(req, res) {
   // response of the "Article API endpoint" is on req.item.
   // The actual article data is in req.item.data
   var iso = new Iso();
-  var articleData = req.item.data;
-  res.send(iso.render(Demo, articleData, { id: 'demo' }));
+  var data = req.item.data;
+  var isoWrapped = iso.wrap({
+    component: Demo,
+    state: data,
+    meta: { id: 'demo' }
+  });
+  res.send(isoWrapped);
 };
