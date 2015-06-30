@@ -46,7 +46,6 @@ app.use(components);
 // Routing Middleware
 var styleguideRoute = require('./middleware/routingStyleguide');
 var publishedNewsArticleRoute = require('./middleware/routingPublishedNewsArticle');
-var isoTestingRoute = require('./middleware/isoTestingRoute');
 
 // Start our server
 app.start = function() {
@@ -91,8 +90,6 @@ app.get('/styleguide/:category/:component/:variation', styleguideRoute);
 app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
 
 app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', publishedNewsArticleRoute);
-
-app.get('/iso', isoTestingRoute);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
