@@ -1,6 +1,5 @@
-var React = require('react');
+var Iso = require('../../app/node_modules/iso');
 
-var Iso = require('../../app/node_modules/higher-order/iso');
 var Demo = require('../../app/node_modules/demo/article');
 
 module.exports = function(req, res) {
@@ -14,7 +13,5 @@ module.exports = function(req, res) {
   // The actual article data is in req.item.data
   var iso = new Iso();
   var articleData = req.item.data;
-  var element = React.createElement(Demo, articleData);
-  var isoWrapped = iso.render(React.renderToString(element), articleData, { component: 'demo' });
-  res.send(isoWrapped);
+  res.send(iso.render(Demo, articleData, { id: 'demo' }));
 };

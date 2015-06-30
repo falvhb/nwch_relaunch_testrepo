@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Iso = require('../../app/node_modules/higher-order/iso');
+var Iso = require('../../app/node_modules/iso');
 var Container = require('../../app/node_modules/components/container');
 
 module.exports = function(req, res) {
