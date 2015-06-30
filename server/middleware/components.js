@@ -4,6 +4,7 @@ var glob = require('simple-glob');
 var objectAssign = require('react/lib/Object.assign');
 var fs = require('fs');
 var path = require('path');
+var recursiveEscape = require('recursive-escape');
 
 var defaults = {
   folder: './app/node_modules',
@@ -18,7 +19,6 @@ var defaults = {
 module.exports = function(opts) {
   var options = objectAssign({}, defaults, opts);
   return function(req, res, next) {
-
     var removeTrailingSlash = function(string) {
       return string.replace(/\/$/, '');
     };
@@ -80,7 +80,7 @@ module.exports = function(opts) {
       };
       return objectAssign({}, config, json);
     });
-    res.locals.components = components;
+    res.locals.components = recursiveEscape(components);
     next();
   };
 };

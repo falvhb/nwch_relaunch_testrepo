@@ -4,6 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 var path = require('path');
 var objectAssign = require('react/lib/Object.assign');
+var recursiveUnescape = require('recursive-unescape');
 
 // -----------------------------------------------------------------------------
 // Helpers
@@ -71,6 +72,8 @@ var renderReact = function(params) {
 };
 
 var renderPage = function(components) {
+  components = recursiveUnescape(components);
+
   renderReact({
     components: components,
     component: componentForRequest(parseUrl, components),

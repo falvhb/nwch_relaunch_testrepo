@@ -3,6 +3,7 @@ var objectAssign = require('react/lib/Object.assign');
 var slugToTitle = require('slug-to-title');
 var path = require('path');
 var componentForRequest = require('./componentForRequest');
+var recursiveUnescape = require('recursive-unescape');
 
 var renderReact = function(params) {
   var defaults = {
@@ -43,11 +44,12 @@ var renderReact = function(params) {
 };
 
 module.exports = function(req, res) {
+  var components = recursiveUnescape(res.locals.components);
   res.render('layouts/styleguide.html', {
     title: (req.params.component ? slugToTitle(req.params.component) + ' | ' : '') + 'AZ Medien Styleguide',
     content: renderReact({
-      components: res.locals.components,
-      component: componentForRequest(req.params, res.locals.components),
+      components: components,
+      component: componentForRequest(req.params, components),
       preview: (req.url.indexOf('preview') > -1)
     })
   });
