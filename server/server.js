@@ -45,7 +45,8 @@ app.use(components);
 
 // Routing Middleware
 var styleguideRoute = require('./middleware/routingStyleguide');
-var publishedNewsArticleRoute = require('./middleware/routingPublishedNewsArticle');
+var reactComponentsRouter = require('./middleware/routingReactComponents');
+var nodeIncludesRouter = require('./middleware/routingNodeIncludes');
 
 // Start our server
 app.start = function() {
@@ -89,7 +90,8 @@ app.get('/styleguide/:category/:component/preview', styleguideRoute);
 app.get('/styleguide/:category/:component/:variation', styleguideRoute);
 app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
 
-app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', publishedNewsArticleRoute);
+app.get('/:ressort/:subressort?/:placeholder/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
+app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
