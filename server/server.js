@@ -91,7 +91,7 @@ app.get('/styleguide/:category/:component/:variation', styleguideRoute);
 app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
 
 app.get('/:ressort/:subressort?/:placeholder/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
-app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:viewname', publishedNewsArticleRoute);
+app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', publishedNewsArticleRoute);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
