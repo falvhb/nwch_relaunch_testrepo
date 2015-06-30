@@ -61,5 +61,9 @@
   "AssetVideo": {
     "dataSource": "az-api",
     "public": false
+  },
+  "Domain": {
+    "dataSource": "az-api",
+    "public": false
   }
 }
