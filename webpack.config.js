@@ -4,7 +4,11 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-  entry: './app/styleguide.js',
+  entry: {
+    client: ['./app/vendor.js', './app/client.js'],
+    styleguide: ['./app/vendor.js', './app/styleguide.js']
+  },
+  watch: true,
   module: {
     loaders: [
       {
