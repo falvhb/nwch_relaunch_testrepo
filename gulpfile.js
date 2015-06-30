@@ -108,20 +108,13 @@ var webpackConfig = (function() {
 
   if (isBuild || isProd) {
     config.watch = false;
+  } else {
+    config.plugins = false;
   }
 
   return config;
 }());
 
-var webpackClientConfig = (function() {
-  var config = require('./webpack.client.config.js');
-
-  if (isBuild || isProd) {
-    config.watch = false;
-  }
-
-  return config;
-}());
 
 // -----------------------------------------------------------------------------
 // Clear build folder
@@ -213,17 +206,6 @@ gulp.task('fontloader', function() {
     .src(assetDir('scripts/**/*.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(buildDir('scripts')));
-});
-
-
-// -----------------------------------------------------------------------------
-// Client JS
-// -----------------------------------------------------------------------------
-gulp.task('clientjs', function() {
-  return gulp
-    .src(sourceDir('client.js'))
-    .pipe(plugins.webpack(webpackClientConfig))
-    .pipe(gulp.dest(BUILD_DIR));
 });
 
 
@@ -379,21 +361,14 @@ gulp.task('styleguide', ['sync-styleguide:typography', 'sync-styleguide:colors']
 // <head> task
 // -----------------------------------------------------------------------------
 
-gulp.task('setup', plugins.sequence('clean', ['head', 'icons', 'styleguide', 'logo']));
-
-
-// -----------------------------------------------------------------------------
-// <head> task
-// -----------------------------------------------------------------------------
-
-gulp.task('head', ['fonts', 'fontloader']);
+gulp.task('assets', plugins.sequence('clean', ['fonts', 'fontloader', 'icons', 'styleguide', 'logo']));
 
 
 // -----------------------------------------------------------------------------
 // Bundle task
 // -----------------------------------------------------------------------------
 
-gulp.task('bundle', ['clientjs', 'sass', 'webpack']);
+gulp.task('bundle', ['sass', 'webpack']);
 
 
 // -----------------------------------------------------------------------------
@@ -401,11 +376,11 @@ gulp.task('bundle', ['clientjs', 'sass', 'webpack']);
 // -----------------------------------------------------------------------------
 
 // LATER: re-add 'test' to build task
-gulp.task('build', plugins.sequence('setup', ['bundle']));
+gulp.task('build', plugins.sequence('assets', ['bundle']));
 
 
 // -----------------------------------------------------------------------------
-// Default task
+// Default task (run $ gulp setup before starting development)
 // -----------------------------------------------------------------------------
 
 gulp.task('default', plugins.sequence('server', 'watch', 'bundle'));

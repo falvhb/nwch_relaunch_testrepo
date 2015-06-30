@@ -16,8 +16,11 @@ $ npm install
 ## Development
 
 ```sh
+$ gulp assets
 $ gulp
 ```
+
+`$gulp assets` compiles static assets to save them being compiled on every watch. Do this once, when you start developing or upate something in `/assets`.
 
 If you have the [LiveReload browser extension](http://livereload.com/extensions/), feel free to pass the `--livereload` flag to benefit from instant page reloading on change i.e.
 

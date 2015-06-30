@@ -4,7 +4,10 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-  entry: './app/styleguide.js',
+  entry: {
+    styleguide: './app/styleguide.js',
+    client: './app/client.js'
+  },
   watch: true,
   module: {
     loaders: [
@@ -19,13 +22,16 @@ var config = {
     ]
   },
   output: {
-    filename: 'frontend.bundled.js',
+    filename: '[name].bundled.js',
     path: path.join(__dirname, './client'),
     publicPath: '/client/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ]
 };
 
 module.exports = config;
