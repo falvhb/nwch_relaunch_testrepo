@@ -5,12 +5,8 @@ module.exports = function(Domain) {
     if (!req.domainConfig) {
       var domainId = req.get('X_ZOPE_SKIN') || 'aaz';
       Domain.get(domainId, function(err, domain) {
-        if (err) {
-          cb(err);
-        } else {
-          req.domainConfig = domain;
-          cb(null, req.domainConfig);
-        }
+        req.domainConfig = domain;
+        cb(err, domain);
       });
     } else {
       cb(null, req.domainConfig);
