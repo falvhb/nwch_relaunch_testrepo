@@ -5,8 +5,8 @@ var path = require('path');
 
 var config = {
   entry: {
-    styleguide: './app/styleguide.js',
-    client: './app/client.js'
+    client: './app/client.js',
+    styleguide: './app/styleguide.js'
   },
   watch: true,
   module: {
