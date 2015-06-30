@@ -9,10 +9,10 @@ module.exports = function(req, cb) {
         cb(err, undefined);
       } else {
         req.domainConfig = domain;
-        cb(undefined, req.domainConfig);
+        cb(null, req.domainConfig);
       }
     });
   } else {
-    cb(undefined, req.domainConfig);
+    cb(null, req.domainConfig);
   }
 };
