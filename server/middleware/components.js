@@ -28,7 +28,7 @@ module.exports = function(opts) {
     };
 
     var include = options.extensions.map(function(extension) {
-      return options.folder + '/**/*' + extension;
+      return options.folder + '/*/*/*' + extension;
     });
 
     var exclude = options.ignore.map(function(folder) {
@@ -46,9 +46,9 @@ module.exports = function(opts) {
       var section = foldersArray[0];
       var slug = foldersArray[1];
       // Warn if too much nesting
-      if (foldersArray.length > 2) {
-        console.warn('Folder structure should not be 2 levels deep for `' + folders + '`');
-      }
+      // if (foldersArray.length > 2) {
+      //   console.warn('Folder structure should not be 2 levels deep for `' + folders + '`');
+      // }
       // Get README from folder
       var readme, readmePath = path.join(filepath, options.readme);
       if (fs.existsSync(readmePath)) {
