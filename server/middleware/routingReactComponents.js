@@ -12,7 +12,7 @@ module.exports = function(req, res) {
   var state = {
     "article": articleData,
     "variation": componentVariation
-  }
+  };
 
   // resolve the component
   try {
