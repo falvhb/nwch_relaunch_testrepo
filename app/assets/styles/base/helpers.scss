@@ -47,3 +47,10 @@
 .type-detail {
   @include type-detail;
 }
+
+.hidden-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0;
+}
