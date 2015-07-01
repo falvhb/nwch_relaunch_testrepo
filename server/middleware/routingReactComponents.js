@@ -3,23 +3,37 @@ var Iso = require('../../app/node_modules/iso-react');
 
 module.exports = function(req, res) {
 
-  var iso = new Iso();
-  var article = req.item.data;
+  // get params
+  var articleData = req.item.data;
   var componentName = req.params.component;
   var componentVariation = req.params.variation;
 
+  // map our data
+  var state = {
+    "article": articleData,
+    "variation": componentVariation
+  }
+
   // resolve the component
-  var component = require('../../app/node_modules/components/' + componentName);
+  try {
+    var component = require('../../app/node_modules/components/' + componentName);
+  } catch (e) {
+    res.write('<!-- Component "' + componentName + '" not found! -->');
+    res.end();
+    return;
+  }
 
   // see if there is a data wrapper
   var wrapper;
+
   try {
     wrapper = require('../../app/node_modules/components/' + componentName+ '/wrapper');
   } catch (e) {
-    // not found (continue)
+    // not found (is okay, continue)
   }
 
-  if (!article) {
+  // no article found
+  if (!articleData) {
     res.write('<!-- Article "' + req.params.articleId + '" not found! -->\n');
     var errors = req.item.errors;
     if (errors && errors.length > 0) {
@@ -29,20 +43,11 @@ module.exports = function(req, res) {
     return;
   }
 
-  if (!component) {
-    res.write('<!-- Component "' + componentName + '" not found! -->');
-    res.end();
-    return;
-  }
-
-  var data = {
-    "article": article,
-    "variation": componentVariation
-  }
-
+  // wrap component in isomorphic layer (injects data to DOM)
+  var iso = new Iso();
   var isoWrapped = iso.wrap({
     component: wrapper ? wrapper(component) : component,
-    state: data,
+    state: state,
     meta: { id: camelCase(componentName), variation: componentVariation }
   });
 
