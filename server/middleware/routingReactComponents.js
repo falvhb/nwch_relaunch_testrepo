@@ -3,7 +3,7 @@ var objectAssign = require('react/lib/Object.assign');
 
 module.exports = function(req, res, next) {
   // resolve the component
-  var component = require('../../app/node_modules/components/' + req.params.component);
+  var component = require('../../app/node_modules/components/' + req.params.component + '/wrapper');
   if (!component) {
     next();
     return;
