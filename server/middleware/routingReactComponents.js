@@ -6,7 +6,7 @@ module.exports = function(req, res) {
   var iso = new Iso();
   var article = req.item.data;
   var componentName = req.params.component;
-  // var componentVariation = req.params.variation;
+  var componentVariation = req.params.variation;
 
   // resolve the component
   var component = require('../../app/node_modules/components/' + componentName);
@@ -35,17 +35,15 @@ module.exports = function(req, res) {
     return;
   }
 
-  // var data = {
-  //   "article": article,
-  //   "variation": componentVariation
-  // }
-
-  // var element = React.createElement(component, article);
+  var data = {
+    "article": article,
+    "variation": componentVariation
+  }
 
   var isoWrapped = iso.wrap({
     component: wrapper ? wrapper(component) : component,
-    state: article,
-    meta: { id: camelCase(componentName) }
+    state: data,
+    meta: { id: camelCase(componentName), variation: componentVariation }
   });
 
   res.send(isoWrapped);
