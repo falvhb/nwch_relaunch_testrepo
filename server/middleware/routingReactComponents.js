@@ -5,7 +5,7 @@ module.exports = function(req, res) {
 
   // get params
   var articleData = req.item.data;
-  var componentName = req.params.component;
+  var componentName = req.params.components;
   var componentVariation = req.params.variation;
 
   // map our data
