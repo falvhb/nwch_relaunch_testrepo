@@ -18,8 +18,9 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 serverurl = http://localhost:${ports:supervisor}
 
 [program:app]
-command = node ${buildout:directory}/..
+command = node .
+directory = ${buildout:directory}/..
+environment = NODE_ENV=production
 redirect_stderr=true
 priority = 1
 stopasgroup = true
-
