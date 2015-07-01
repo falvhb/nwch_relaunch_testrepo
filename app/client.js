@@ -3,12 +3,10 @@ var React = require('react');
 var Iso = require('iso-react');
 var iso = new Iso();
 
-var Demo = require('demo/article');
-var Container = require('components/container');
+var ArticleContent = require('components/article-content');
 
 var components = {
-  demo: Demo,
-  container: Container
+  articleContent: ArticleContent
 }
 
 iso.hydrate(components);
