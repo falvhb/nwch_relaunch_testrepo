@@ -27,7 +27,7 @@ module.exports = function(req, res) {
   var wrapper;
 
   try {
-    wrapper = require('../../app/node_modules/components/' + componentName+ '/wrapper');
+    wrapper = require('../../app/node_modules/components/' + componentName + '/wrapper');
   } catch (e) {
     // not found (is okay, continue)
   }
@@ -43,7 +43,9 @@ module.exports = function(req, res) {
     return;
   }
 
-  // wrap component in isomorphic layer (injects data to DOM)
+  // wrap component in isomorphic layer
+  // injects data to DOM and attaches component id
+  // component re-rendered client-side via app/client.js
   var iso = new Iso();
   var isoWrapped = iso.wrap({
     component: wrapper ? wrapper(component) : component,
