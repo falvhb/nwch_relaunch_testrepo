@@ -9,7 +9,15 @@ module.exports = function(req, res) {
   // var componentVariation = req.params.variation;
 
   // resolve the component
-  var component = require('../../app/node_modules/components/' + componentName+ '/wrapper');
+  var component = require('../../app/node_modules/components/' + componentName);
+
+  // see if there is a data wrapper
+  var wrapper;
+  try {
+    wrapper = require('../../app/node_modules/components/' + componentName+ '/wrapper');
+  } catch (e) {
+    // not found (continue)
+  }
 
   if (!article) {
     res.write('<!-- Article "' + req.params.articleId + '" not found! -->\n');
@@ -35,7 +43,7 @@ module.exports = function(req, res) {
   // var element = React.createElement(component, article);
 
   var isoWrapped = iso.wrap({
-    component: component,
+    component: wrapper ? wrapper(component) : component,
     state: article,
     meta: { id: camelCase(componentName) }
   });
