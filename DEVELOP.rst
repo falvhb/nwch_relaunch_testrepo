@@ -22,7 +22,7 @@ Component Rendering
 Component rendering is done using React::
 
   var element = React.createElement(component,
-                                    objectAssign({}, componentData),
+                                    objectAssign({}, data),
                                     {});
   res.write(React.renderToString(element));
   res.end();
@@ -31,24 +31,29 @@ Component rendering is done using React::
 NewsArticles
 ^^^^^^^^^^^^
 
-props::
+General URL for an article::
+
+    /:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation
+
+data for the react component::
 
     {
         "article": <article-object>,
-        "variation": <variationname>
+        "variation": <variation>
     }
 
 - article-object is requested from the API
-- variationname is from the URL
+- variation is from the URL
 
 
 Error Handling
 --------------
 
-Because the teasers are rendered as a part of a page it is important to return
-only correct HTML and no error HTML. 
+Because the teasers are rendered as part of the full page it is important to return
+only correct HTML without any visual content shown by the browser. 
 
 Therefore::
 
     In case of an error the response contains HTML with a comment describing
     the error.
+
