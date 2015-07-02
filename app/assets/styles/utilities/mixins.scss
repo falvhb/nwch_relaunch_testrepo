@@ -170,7 +170,8 @@
   }
 }
 
-
+/// Mixin used to make an element slightly larger than its container using 
+/// negative margins
 @mixin expand {
   margin-left: -$container-spacing;
   margin-right: -$container-spacing;
