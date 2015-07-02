@@ -87,7 +87,7 @@ var renderPage = function(components) {
 // -----------------------------------------------------------------------------
 
 var xhr = new XMLHttpRequest();
-xhr.open('GET', '/components.json');
+xhr.open('GET', '/styleguide/components.json');
 xhr.responseType = 'json';
 
 xhr.onload = function() {

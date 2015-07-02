@@ -38,10 +38,6 @@ app.use('/client', loopback.static('client'));
 
 // Middleware
 require('./middleware/routingParams')(app);
-var components = require('./middleware/components')();
-
-// Add Middleware to Express
-app.use(components);
 
 // Routing Middleware
 var styleguideRoute = require('./middleware/routingStyleguide');
@@ -75,8 +71,10 @@ app.get('/sassdoc', function(req, res) {
 // Components JSON
 // -----------------------------------------------------------------------------
 
-app.get('/components.json', function(req, res) {
-  res.json(res.locals.components);
+var components = require('./middleware/components')();
+
+app.get('/styleguide/components.json', function(req, res) {
+  res.json(components);
 });
 
 
