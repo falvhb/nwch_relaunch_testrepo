@@ -4,6 +4,7 @@ var slugToTitle = require('slug-to-title');
 var path = require('path');
 var componentForRequest = require('./componentForRequest');
 var recursiveUnescape = require('recursive-unescape');
+var components = require('./components');
 
 var renderReact = function(params) {
   var defaults = {
@@ -44,12 +45,12 @@ var renderReact = function(params) {
 };
 
 module.exports = function(req, res) {
-  var components = recursiveUnescape(res.locals.components);
+  var unescapedComponents = recursiveUnescape(components);
   res.render('layouts/styleguide.html', {
     title: (req.params.component ? slugToTitle(req.params.component) + ' | ' : '') + 'AZ Medien Styleguide',
     content: renderReact({
-      components: components,
-      component: componentForRequest(req.params, components),
+      components: unescapedComponents,
+      component: componentForRequest(req.params, unescapedComponents),
       preview: (req.url.indexOf('preview') > -1)
     })
   });

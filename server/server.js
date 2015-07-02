@@ -37,9 +37,9 @@ app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
 // Routing Middleware
-require('./middleware/routingParams')(app);
-var reactComponentsRouter = require('./middleware/routingReactComponents');
-var nodeIncludesRouter = require('./middleware/routingNodeIncludes');
+require('./routing/routingParams')(app);
+var reactComponentsRouter = require('./routing/routingReactComponents');
+var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
 // Start our server
 app.start = function() {
@@ -74,19 +74,17 @@ boot(app, __dirname, function(err) {
 // Styleguide Routing / Json
 // -----------------------------------------------------------------------------
 
-var components = require('./middleware/components')();
-var styleguideRoute = require('./middleware/routingStyleguide');
-
-app.get('/styleguide/components.json', function(req, res) {
-  res.json(components);
-});
+var components = require('./styleguide/components');
+var styleguideRoute = require('./styleguide/routing');
 
 app.get('/styleguide', styleguideRoute);
 app.get('/styleguide/:category/:component', styleguideRoute);
 app.get('/styleguide/:category/:component/preview', styleguideRoute);
 app.get('/styleguide/:category/:component/:variation', styleguideRoute);
 app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
-
+app.get('/styleguide/components.json', function(req, res) {
+  res.json(components);
+});
 
 // -----------------------------------------------------------------------------
 // SassDoc

@@ -16,7 +16,7 @@ var defaults = {
   readme: 'README.md'
 };
 
-module.exports = function(opts) {
+var Components = (function(opts) {
   var options = objectAssign({}, defaults, opts);
   var removeTrailingSlash = function(string) {
     return string.replace(/\/$/, '');
@@ -80,4 +80,6 @@ module.exports = function(opts) {
     return objectAssign({}, config, json);
   });
   return recursiveEscape(components);
-};
+}());
+
+module.exports = Components;
