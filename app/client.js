@@ -3,12 +3,12 @@ var React = require('react');
 var Iso = require('iso-react');
 var iso = new Iso();
 
-var ArticleContent = require('components/article-content');
+var ArticleDetail = require('components/article-detail');
 var ArticleHeader = require('components/article-header');
 var Teaser = require('components/teaser');
 
 var components = {
-  articleContent: ArticleContent,
+  articleDetail: ArticleDetail,
   articleHeader: ArticleHeader,
   teaser: Teaser
 }
