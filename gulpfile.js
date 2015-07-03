@@ -233,7 +233,9 @@ gulp.task('watch', function() {
 gulp.task('server', function() {
   plugins.nodemon({
     script: pkg.main,
-    env: { 'NODE_ENV': (isProd ? 'production' : 'development') }
+    env: {'NODE_ENV': (isProd ? 'production' : 'development'),
+          'DISQUS_API_KEY': '???'
+         }
   })
   .on('start', plugins.livereload.reload)
   .on('change', plugins.livereload.reload);
