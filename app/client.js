@@ -11,6 +11,6 @@ var components = {
   articleContent: ArticleContent,
   articleHeader: ArticleHeader,
   teaser: Teaser
-}
+};
 
 iso.hydrate(components);
