@@ -75,6 +75,7 @@
 @mixin type-h2 {
   font: 32px / 1.25 $headline-font-stack;
   letter-spacing: 0.6px;
+  margin-bottom: 15px;
 
   @include media('≤small') {
     font-size: 22px;
@@ -88,6 +89,7 @@
 @mixin type-h3 {
   font: 24px / 1.25 $headline-font-stack;
   letter-spacing: 0.6px;
+  margin-bottom: 15px;
 
   @include media('≤small') {
     font-size: 18px;
@@ -168,7 +170,8 @@
   }
 }
 
-
+/// Mixin used to make an element slightly larger than its container using 
+/// negative margins
 @mixin expand {
   margin-left: -$container-spacing;
   margin-right: -$container-spacing;
