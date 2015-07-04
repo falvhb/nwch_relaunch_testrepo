@@ -16,7 +16,7 @@
   text-decoration: none; /* 1 */
   background: linear-gradient(to bottom, currentcolor, currentcolor) no-repeat bottom; /* 2 */
   background-size: 100% 1px;
-  
+
   &:active,
   &:hover {
     color: $blue;
@@ -33,7 +33,9 @@
 }
 
 .copy h2 {
-  @include type-h2;
+  @include type-copy;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .copy h3 {
