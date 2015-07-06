@@ -28,18 +28,12 @@ var parseUrl = (function() {
 
 
 // -----------------------------------------------------------------------------
-// Middleware
-// -----------------------------------------------------------------------------
-
-var componentForRequest = require('../server/middleware/componentForRequest');
-
-
-// -----------------------------------------------------------------------------
 // React Render
 // -----------------------------------------------------------------------------
 
 var Layout = require('styleguide/layout');
 var LayoutPreview = require('styleguide/layout-preview');
+var componentForRequest = require('../server/styleguide/componentForRequest');
 
 var renderReact = function(params) {
 
@@ -87,7 +81,7 @@ var renderPage = function(components) {
 // -----------------------------------------------------------------------------
 
 var xhr = new XMLHttpRequest();
-xhr.open('GET', '/components.json');
+xhr.open('GET', '/styleguide/components.json');
 xhr.responseType = 'json';
 
 xhr.onload = function() {

@@ -233,7 +233,9 @@ gulp.task('watch', function() {
 gulp.task('server', function() {
   plugins.nodemon({
     script: pkg.main,
-    env: { 'NODE_ENV': (isProd ? 'production' : 'development') }
+    env: {'NODE_ENV': (isProd ? 'production' : 'development'),
+          'DISQUS_API_KEY': '???'
+         }
   })
   .on('start', plugins.livereload.reload)
   .on('change', plugins.livereload.reload);
@@ -249,7 +251,7 @@ gulp.task('icons', function() {
     .src(assetDir('images/icons/*.svg'))
     .pipe(plugins.wrap(function(data) {
       var name = path.basename(data.file.path, '.svg');
-      return '<symbol id="' + name + '" viewbox="0 0 100 100"><title>' + name + '</title><%= contents %></symbol>';
+      return '<symbol id="' + name + '" viewbox="0 0 20 20"><title>' + name + '</title><%= contents %></symbol>';
     }))
     .pipe(plugins.concat('icons.svg'))
     .pipe(plugins.wrap('<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><%= contents %></svg>'))

@@ -20,7 +20,7 @@ serverurl = http://localhost:${ports:supervisor}
 [program:app]
 command = node .
 directory = ${buildout:directory}/..
-environment = NODE_ENV=production
+environment = NODE_ENV=production, DISQUS_API_KEY=${node-env:disqus-api-key}
 redirect_stderr=true
 priority = 1
 stopasgroup = true

@@ -36,17 +36,10 @@ app.set('view engine', 'html');
 app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
-// Middleware
-require('./middleware/routingParams')(app);
-var components = require('./middleware/components')();
-
-// Add Middleware to Express
-app.use(components);
-
 // Routing Middleware
-var styleguideRoute = require('./middleware/routingStyleguide');
-var reactComponentsRouter = require('./middleware/routingReactComponents');
-var nodeIncludesRouter = require('./middleware/routingNodeIncludes');
+require('./routing/routingParams')(app);
+var reactComponentsRouter = require('./routing/routingReactComponents');
+var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
 // Start our server
 app.start = function() {
@@ -59,36 +52,8 @@ app.start = function() {
 
 
 // -----------------------------------------------------------------------------
-// SassDoc
-// -----------------------------------------------------------------------------
-
-// Serve SassDoc assets folder
-app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
-
-// SassDoc route
-app.get('/sassdoc', function(req, res) {
-  res.render('sassdoc/index.html');
-});
-
-
-// -----------------------------------------------------------------------------
-// Components JSON
-// -----------------------------------------------------------------------------
-
-app.get('/components.json', function(req, res) {
-  res.json(res.locals.components);
-});
-
-
-// -----------------------------------------------------------------------------
 // App Routing
 // -----------------------------------------------------------------------------
-
-app.get('/styleguide', styleguideRoute);
-app.get('/styleguide/:category/:component', styleguideRoute);
-app.get('/styleguide/:category/:component/preview', styleguideRoute);
-app.get('/styleguide/:category/:component/:variation', styleguideRoute);
-app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
 
 app.get('/:ressort/:subressort?/:placeholder/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
 app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
@@ -102,4 +67,33 @@ boot(app, __dirname, function(err) {
   if (require.main === module) {
     app.start();
   }
+});
+
+
+// -----------------------------------------------------------------------------
+// Styleguide Routing / Json
+// -----------------------------------------------------------------------------
+
+var components = require('./styleguide/components');
+var styleguideRoute = require('./styleguide/routing');
+
+app.get('/styleguide', styleguideRoute);
+app.get('/styleguide/:category/:component', styleguideRoute);
+app.get('/styleguide/:category/:component/preview', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
+app.get('/styleguide/components.json', function(req, res) {
+  res.json(components);
+});
+
+// -----------------------------------------------------------------------------
+// SassDoc
+// -----------------------------------------------------------------------------
+
+// Serve SassDoc assets folder
+app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
+
+// SassDoc route
+app.get('/sassdoc', function(req, res) {
+  res.render('sassdoc/index.html');
 });
