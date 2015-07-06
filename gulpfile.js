@@ -273,13 +273,23 @@ gulp.task('logo', function() {
 // Logo
 // -----------------------------------------------------------------------------
 
-gulp.task('test', function(done) {
+gulp.task('test.react', function(done) {
   karma.start({
     configFile: path.join(__dirname, 'karma.conf.js'),
     singleRun: true
   }, done);
 });
 
+
+gulp.task('test.api', function(done) {
+  require('child_process').exec('mocha --recursive', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    done(err);
+  });
+});
+
+gulp.task('test', ['test.react', 'test.api']);
 
 // -----------------------------------------------------------------------------
 // Styleguide
