@@ -11,7 +11,7 @@ module.exports = function() {
       'NODE_ENV': (helpers.isProd ? 'production' : 'development'),
       'DISQUS_API_KEY': '???'
     },
-    watch: ['app/', 'app/node_modules', 'common/', 'server/'],
+    watch: ['app/', 'app/node_modules/', 'common/', 'server/'],
     ext: 'jsx js json'
   });
 };
