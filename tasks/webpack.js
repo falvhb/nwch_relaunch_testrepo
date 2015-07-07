@@ -16,7 +16,7 @@ var webpackConfig = (function() {
 
 module.exports = function() {
   return gulp
-    .src(helpers.sourceDir('browser.js'))
+    .src(helpers.SOURCE_DIR)
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(helpers.BUILD_DIR));
 };
