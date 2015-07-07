@@ -1,11 +1,11 @@
 var gutil = require('gulp-util');
 
 function isProd() {
-  return gutil.env.type === 'production';
+  return gutil.env === 'production';
 }
 
 function isDev() {
-  return gutil.env.type === 'dev';
+  return gutil.env === 'dev';
 }
 
 function onError(err) {
