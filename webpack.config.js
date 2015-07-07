@@ -24,7 +24,7 @@ var config = {
     publicPath: '/client/'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.json']
   },
   plugins: [
     new webpack.EnvironmentPlugin(
