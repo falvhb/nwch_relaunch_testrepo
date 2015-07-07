@@ -36,14 +36,15 @@ module.exports = function(req, res) {
     return;
   }
 
-  // see if there is a data wrapper
-  // var wrapper;
+  // see if there is a slot function
+  // this typically maps data from the full API response -> only the data a component needs
+  var slot;
 
-  // try {
-  //   wrapper = require('../../app/node_modules/components/' + componentName + '/wrapper');
-  // } catch (e) {
-  //   // not found (is okay, continue)
-  // }
+  try {
+    slot = require('../../app/node_modules/components/' + componentName + '/slot');
+  } catch (e) {
+    // not found (is okay, continue)
+  }
 
   // wrap component in isomorphic layer
   // injects data to DOM and attaches component id
@@ -51,7 +52,7 @@ module.exports = function(req, res) {
   var iso = new Iso();
   var isoWrapped = iso.wrap({
     component: component,
-    state: state,
+    state: slot ? slot(state) : state,
     meta: { id: camelCase(componentName), variation: componentVariation }
   });
 
