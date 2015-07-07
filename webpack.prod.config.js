@@ -5,7 +5,6 @@ var path = require('path');
 
 var config = {
   entry: './app/client.js',
-  watch: true,
   module: {
     loaders: [
       {
@@ -27,6 +26,7 @@ var config = {
     extensions: ['', '.js', '.jsx'],
   },
   plugins: [
+    new webpack.EnvironmentPlugin('NODE_ENV', 'STATIC_ASSETS'),
     new webpack.optimize.UglifyJsPlugin({ output: { comments: false } })
   ]
 };

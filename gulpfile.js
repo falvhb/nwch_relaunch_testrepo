@@ -55,18 +55,26 @@ gulp.task('assets', sequence('clean', [
 ]));
 
 // Prod environment toggle
-gulp.task('env', function() {
-  gutil.env.type = 'prod';
+gulp.task('env-prod', function() {
+  gutil.env = 'production';
 });
 
-// Styleguide (Heroku build)
-gulp.task('styleguide', sequence('env', 'assets', 'sync-styleguide'));
+gulp.task('env-heroku', function() {
+  gutil.env = 'heroku';
+});
+
+gulp.task('env-dev', function() {
+  gutil.env = 'dev';
+});
 
 // Prod build
-gulp.task('build', sequence('env', 'assets', 'webpack'));
+gulp.task('build', sequence('env-prod', 'assets', 'webpack'));
+
+// Styleguide (Heroku build)
+gulp.task('styleguide', sequence('env-heroku', 'assets', 'webpack', 'sassdoc', 'sync-styleguide'));
 
 // Development environment
-gulp.task('dev', sequence('server', 'watch', 'webpack'));
+gulp.task('dev', sequence('env-dev', 'server', 'watch', 'webpack'));
 
 // Default task
 gulp.task('default', ['dev']);

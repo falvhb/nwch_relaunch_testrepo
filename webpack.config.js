@@ -5,7 +5,6 @@ var path = require('path');
 
 var config = {
   entry: './app/styleguide.js',
-  watch: true,
   module: {
     loaders: [
       {
@@ -27,7 +26,7 @@ var config = {
     extensions: ['', '.js', '.jsx'],
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.EnvironmentPlugin('NODE_ENV', 'STATIC_ASSETS')
   ]
 };
 
