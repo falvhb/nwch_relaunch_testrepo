@@ -100,6 +100,7 @@
     "react-remarkable": "^1.1.1",
     "react-tap-event-plugin": "^0.1.7",
     "react-to-jsx": "^1.3.1",
+    "sinon": "^1.15.4",
     "testdom": "^1.0.1",
     "whatwg-fetch": "^0.9.0"
   }
