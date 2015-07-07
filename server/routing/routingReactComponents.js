@@ -37,20 +37,20 @@ module.exports = function(req, res) {
   }
 
   // see if there is a data wrapper
-  var wrapper;
+  // var wrapper;
 
-  try {
-    wrapper = require('../../app/node_modules/components/' + componentName + '/wrapper');
-  } catch (e) {
-    // not found (is okay, continue)
-  }
+  // try {
+  //   wrapper = require('../../app/node_modules/components/' + componentName + '/wrapper');
+  // } catch (e) {
+  //   // not found (is okay, continue)
+  // }
 
   // wrap component in isomorphic layer
   // injects data to DOM and attaches component id
   // component re-rendered client-side via app/client.js
   var iso = new Iso();
   var isoWrapped = iso.wrap({
-    component: wrapper ? wrapper(component) : component,
+    component: component,
     state: state,
     meta: { id: camelCase(componentName), variation: componentVariation }
   });
