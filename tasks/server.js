@@ -8,7 +8,7 @@ module.exports = function() {
     script: pkg.main,
     // @TODO: move all API keys into .env file – don't keep them in Git
     env: {
-      'NODE_ENV': (helpers.isProd ? 'production' : 'development'),
+      'NODE_ENV': (helpers.isProd() ? 'production' : 'development'),
       'DISQUS_API_KEY': '???'
     },
     watch: ['app/', 'app/node_modules/', 'common/', 'server/'],
