@@ -1,11 +1,7 @@
 var gutil = require('gulp-util');
 
 function isProd() {
-  return !!gutil.env.production || !!gutil.env.prod;
-}
-
-function isBuild() {
-  return gutil.env._[0] === 'build';
+  return gutil.env.type === 'prod';
 }
 
 function onError() {
@@ -36,6 +32,5 @@ module.exports = {
   assetDir: assetDir,
   buildDir: buildDir,
   isProd: isProd,
-  isBuild: isBuild,
   onError: onError
 };

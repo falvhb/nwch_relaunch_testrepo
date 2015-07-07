@@ -1,6 +1,6 @@
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
 var helpers = require('./lib/helpers.js');
+var uglify = require('gulp-uglify');
 
 module.exports = function() {
   return gulp
