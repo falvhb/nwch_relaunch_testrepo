@@ -21,4 +21,5 @@ client
 __node__
 deploy/.installed.cfg
 deploy/bin/*
-deploy/etc/supervisord-dev.conf
+deploy/egs/*
+deploy/etc/supervisord.conf
