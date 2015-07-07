@@ -110,7 +110,6 @@ var parseAdSlots = function (adSlots) {
     siteSlots = parseSiteSlots(siteSlots);
 
     output.placements = siteSlots;
-    console.log(siteId, siteSlots.length);
     return output;
   });
   return allSiteSlots;
