@@ -4,7 +4,7 @@ function isProd() {
   return gutil.env.type === 'prod';
 }
 
-function onError() {
+function onError(err) {
   gutil.beep();
   console.log(err);
   this.emit('end');
