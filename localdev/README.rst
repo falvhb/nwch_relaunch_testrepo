@@ -22,6 +22,12 @@ Using homebrew::
 Python 2.7 is needed.
 
 
+For homebrew you also need to add this to your .profile or .bashrc::
+
+    export C_INCLUDE_PATH="/usr/local/include"
+    export LIBRARY_PATH="/usr/local/lib"
+
+
 Installation
 ============
 
