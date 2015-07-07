@@ -3,6 +3,6 @@ var helpers = require('./lib/helpers.js');
 
 module.exports = function() {
   return gulp
-    .src(helpers.assetDir('images/az-nwch-logo.svg'))
-    .pipe(gulp.dest(helpers.buildDir('images/')));
+    .src(helpers.assetDir('images/**/*'))
+    .pipe(gulp.dest(helpers.buildDir('images')));
 };
