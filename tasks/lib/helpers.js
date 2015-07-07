@@ -15,7 +15,7 @@ function onError(err) {
 }
 
 var SOURCE_DIR = './app/';
-var BUILD_DIR = isProd() ? './__node__/__static__/client/' : './client/';
+var BUILD_DIR = './client/';
 
 function buildDir(path) {
   return BUILD_DIR + path;
