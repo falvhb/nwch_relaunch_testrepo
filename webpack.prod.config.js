@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-  entry: './app/styleguide.js',
+  entry: './app/client.js',
   watch: true,
   module: {
     loaders: [
@@ -19,9 +19,9 @@ var config = {
     ]
   },
   output: {
-    filename: 'styleguide.bundled.js',
-    path: path.join(__dirname, './client'),
-    publicPath: '/client/'
+    filename: 'client.bundled.js',
+    path: path.join(__dirname, './__node__/__static__/client'),
+    publicPath: '/__node__/__static__/client/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
