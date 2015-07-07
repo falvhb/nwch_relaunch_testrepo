@@ -4,12 +4,13 @@ var Iso = require('../../app/node_modules/iso-react');
 module.exports = function(req, res) {
 
   // get params
-  var articleData = req.item.data;
+  var articleData = req.item && req.item.data ? req.item.data : undefined;
 
   if (!articleData) {
     // no article found
-    res.write('<!-- Article "' + req.params.articleId + '" not found! -->\n');
-    var errors = req.item.errors;
+    var articleId = req.params && req.params.articleId ? req.params.articleId : undefined;
+    res.write('<!-- Article "' + articleId + '" not found! -->\n');
+    var errors = req.item && req.item.errors ? req.item.errors : undefined;
     if (errors && errors.length > 0) {
       res.write('<!-- Error detail: ' + errors[0].detail + ' -->\n');
     }
@@ -17,8 +18,8 @@ module.exports = function(req, res) {
     return;
   }
 
-  var componentName = req.params.component;
-  var componentVariation = req.params.variation;
+  var componentName = req.params && req.params.component ? req.params.component : undefined;
+  var componentVariation = req.params && req.params.variation ? req.params.variation : undefined;
 
   // map our data
   var state = {
