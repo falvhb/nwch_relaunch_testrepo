@@ -5,6 +5,7 @@ var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var engines = require('consolidate');
+var winston = require('winston');
 var app = module.exports = loopback();
 
 // -----------------------------------------------------------------------------
@@ -31,6 +32,7 @@ nunjucks.configure(path.resolve(__dirname, '..'), {
   autoescape: false
 });
 
+app.set('x-powered-by', false);
 app.set('views', path.resolve(__dirname, '../app'));
 app.set('view engine', 'html');
 app.engine('html', engines.nunjucks);
@@ -50,6 +52,10 @@ app.start = function() {
   });
 };
 
+// Logging
+winston.remove(winston.transports.Console);
+winston.add(winston.transports.Console, { 'timestamp': true });
+app.set('logger', winston);
 
 // -----------------------------------------------------------------------------
 // App Routing
@@ -96,4 +102,18 @@ app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
 // SassDoc route
 app.get('/sassdoc', function(req, res) {
   res.render('sassdoc/index.html');
+});
+
+
+// catch-all route, throws an error to invoke error handling
+app.all('*', function() {
+  throw new Error('unknown route');
+});
+
+// error handling
+app.use(function(err, req, res) {
+  app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
+  res.status(200);
+  res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
+  res.end();
 });
