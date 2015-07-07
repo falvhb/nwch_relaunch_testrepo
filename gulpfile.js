@@ -282,7 +282,7 @@ gulp.task('test.react', function(done) {
 
 
 gulp.task('test.api', function(done) {
-  require('child_process').exec('mocha --recursive', function(err, stdout, stderr) {
+  require('child_process').exec('npm run mocha', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     done(err);
