@@ -1,4 +1,3 @@
-var gulp = require('gulp');
 var helpers = require('./lib/helpers.js');
 var sync = require('./lib/sync-styleguide.js');
 

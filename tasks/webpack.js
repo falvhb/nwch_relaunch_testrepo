@@ -2,21 +2,17 @@ var gulp = require('gulp');
 var webpack = require('gulp-webpack');
 var helpers = require('./lib/helpers.js');
 
-var webpackConfig = (function() {
-  var config = require('../webpack.config.js');
+module.exports = function() {
+  var webpackConfig = helpers.isProd()
+    ? require('../webpack.prod.config.js')
+    : require('../webpack.config.js');
 
-  if (helpers.isBuild() || helpers.isProd()) {
-    config.watch = false;
-  } else {
-    config.plugins = false;
+  if (helpers.isDev()) {
+    webpackConfig.watch = true;
   }
 
-  return config;
-}());
-
-module.exports = function() {
   return gulp
-    .src(helpers.sourceDir('browser.js'))
+    .src(helpers.SOURCE_DIR)
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(helpers.BUILD_DIR));
 };

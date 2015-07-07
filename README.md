@@ -22,13 +22,6 @@ $ gulp
 
 `$gulp assets` compiles static assets to save them being compiled on every watch. Do this once, when you start developing or upate something in `/assets`.
 
-If you have the [LiveReload browser extension](http://livereload.com/extensions/), feel free to pass the `--livereload` flag to benefit from instant page reloading on change i.e.
-
-
-```sh
-$ gulp --livereload
-```
-
 ## Branching
 
 We use the [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/) branching model. `master` **always** contains the current, tested live version.

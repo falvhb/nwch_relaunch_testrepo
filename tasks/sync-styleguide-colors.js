@@ -1,5 +1,4 @@
-var gulp = require('gulp');
-var lodash = require('lodash');
+var _ = require('lodash');
 var helpers = require('./lib/helpers.js');
 var sync = require('./lib/sync-styleguide.js');
 

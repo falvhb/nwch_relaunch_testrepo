@@ -4,11 +4,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-  entry: {
-    client: './app/client.js',
-    styleguide: './app/styleguide.js'
-  },
-  watch: true,
+  entry: './app/styleguide.js',
   module: {
     loaders: [
       {
@@ -22,7 +18,7 @@ var config = {
     ]
   },
   output: {
-    filename: '[name].bundled.js',
+    filename: 'styleguide.bundled.js',
     path: path.join(__dirname, './client'),
     publicPath: '/client/'
   },
@@ -30,7 +26,7 @@ var config = {
     extensions: ['', '.js', '.jsx'],
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.EnvironmentPlugin('NODE_ENV', 'STATIC_ASSETS')
   ]
 };
 
