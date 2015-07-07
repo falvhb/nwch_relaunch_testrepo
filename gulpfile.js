@@ -29,5 +29,5 @@ gulp.task('styleguide', ['sync-styleguide:typography', 'sync-styleguide:colors']
 
 gulp.task('assets', sequence('clean', ['fonts', 'fontloader', 'icons', 'styleguide', 'logo']));
 gulp.task('bundle', ['sass', 'webpack']);
-gulp.task('build', sequence('assets', ['sass', 'webpack']));
+gulp.task('build', ['assets', 'bundle']);
 gulp.task('default', sequence('server', 'watch', 'bundle'));

@@ -3,7 +3,10 @@ var webpack = require('gulp-webpack');
 var helpers = require('./lib/helpers.js');
 
 var webpackConfig = (function() {
-  var config = require('../webpack.config.js');
+  var build = require('../webpack.config.js');
+  var prod = require('../webpack.prod.config.js');
+
+  var config = helpers.isProd() ? prod : build;
 
   if (helpers.isBuild() || helpers.isProd()) {
     config.watch = false;

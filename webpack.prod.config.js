@@ -27,7 +27,7 @@ var config = {
     extensions: ['', '.js', '.jsx'],
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({ output: { comments: false } })
   ]
 };
 
