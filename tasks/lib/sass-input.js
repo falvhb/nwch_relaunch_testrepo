@@ -5,7 +5,8 @@ var sassInput = (function() {
     helpers.assetDir('styles/globals.scss'),
     helpers.assetDir('styles/base/*.scss'),
     helpers.sourceDir('node_modules/base/**/*.scss'),
-    helpers.sourceDir('node_modules/components/**/*.scss')
+    helpers.sourceDir('node_modules/components/**/*.scss'),
+    helpers.sourceDir('node_modules/pages/**/*.scss')
   ];
 
   if (!helpers.isProd()) {
