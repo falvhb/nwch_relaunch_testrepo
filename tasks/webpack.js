@@ -7,10 +7,8 @@ module.exports = function() {
     ? require('../webpack.prod.config.js')
     : require('../webpack.config.js');
 
-  if (helpers.isProd()) {
-    webpackConfig.watch = false;
-  } else {
-    webpackConfig.plugins = false;
+  if (helpers.isDev()) {
+    webpackConfig.watch = true;
   }
 
   return gulp
