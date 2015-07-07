@@ -36,11 +36,12 @@ module.exports = function(req, res) {
     return;
   }
 
-  // see if there is a data wrapper
-  var wrapper;
+  // see if there is a slot function
+  // this typically maps data from the full API response -> only the data a component needs
+  var slot;
 
   try {
-    wrapper = require('../../app/node_modules/components/' + componentName + '/wrapper');
+    slot = require('../../app/node_modules/components/' + componentName + '/slot');
   } catch (e) {
     // not found (is okay, continue)
   }
@@ -50,8 +51,8 @@ module.exports = function(req, res) {
   // component re-rendered client-side via app/client.js
   var iso = new Iso();
   var isoWrapped = iso.wrap({
-    component: wrapper ? wrapper(component) : component,
-    state: state,
+    component: component,
+    state: slot ? slot(state) : state,
     meta: { id: camelCase(componentName), variation: componentVariation }
   });
 
