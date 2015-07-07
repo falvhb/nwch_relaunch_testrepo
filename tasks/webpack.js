@@ -6,7 +6,7 @@ module.exports = function() {
   var webpackConfig = helpers.isProd()
     ? require('../webpack.prod.config.js')
     : require('../webpack.config.js');
-    
+
   if (helpers.isProd()) {
     webpackConfig.watch = false;
   } else {
