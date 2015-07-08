@@ -53,6 +53,25 @@ describe('Components Router', function() {
     assert.ok(res.body.indexOf('<!-- Article "100003399" not found! -->') >= 0);
   });
 
+  it('returns an HTML comment including errors if not data is found', function() {
+    var req = {
+      item: {
+        errors: [
+          { detail: 'err_detail' }
+        ]
+      },
+      params: {
+        articleId: 100003399
+      }
+    };
+
+    var res = new ResMock();
+
+    componentsRouter(req, res);
+
+    assert.ok(res.body.indexOf('err_detail') >= 0);
+  });
+
   it('returns an HTML comment if the component is not found', function() {
     var res = new ResMock();
     var req = {
