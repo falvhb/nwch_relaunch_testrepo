@@ -1,6 +1,5 @@
-var chai = require('chai');
+var assert = require('assert');
 var nock = require('nock');
-var expect = chai.expect;
 
 var http = require('http');
 
@@ -44,8 +43,8 @@ describe('Domain Model', function() {
       var req = { get: function(str) { return str === 'X_ZOPE_SKIN' ? domainId : undefined; }};
       // test case
       app.models.Domain.fromRequest(req, function(err, domain) {
-        expect(err).to.not.exist;
-        expect(domain.data.id).to.equal('nabaward');
+        assert.ok(typeof err === 'undefined' || err === null);
+        assert.strictEqual(domain.data.id, 'nabaward');
         done();
       });
     });
@@ -56,8 +55,28 @@ describe('Domain Model', function() {
       var req = { get: function() { return undefined; }};
       // test case
       app.models.Domain.fromRequest(req, function(err, domain) {
-        expect(err).to.not.exist;
-        expect(domain.data.id).to.equal('aaz');
+        assert.ok(typeof err === 'undefined' || err === null);
+        assert.strictEqual(domain.data.id, 'aaz');
+        done();
+      });
+    });
+
+    it('considers the cached domainConfig', function(done) {
+      var domainId = 'nabaward';
+      mockDomainsApi(domainId);
+      var req = {
+        get: function(str) { return str === 'X_ZOPE_SKIN' ? domainId : undefined; },
+        domainConfig: {
+          data: {
+            id: domainId
+          }
+        }
+      };
+      app.models.Domain.fromRequest(req, function(err, domain) {
+        var dummy = req.domainConfig;
+        assert.ok(typeof err === 'undefined' || err === null);
+        assert.strictEqual(domain.data.id, 'nabaward');
+        assert.ok(domain === dummy);
         done();
       });
     });
@@ -69,9 +88,9 @@ describe('Domain Model', function() {
       var req = { get: function(str) { return str === 'X_ZOPE_SKIN' ? domainId : undefined; }};
       // test case
       app.models.Domain.fromRequest(req, function(err, domain) {
-        expect(err).to.not.exist;
-        expect(domain.errors).to.exist;
-        expect(domain.errors[0].code).to.equal(404);
+        assert.ok(typeof err === 'undefined' || err === null);
+        assert.ok(typeof domain.errors !== 'undefined' && domain.errors !== null);
+        assert.strictEqual(domain.errors[0].code, 404);
         done();
       });
     });
