@@ -11,7 +11,7 @@ describe('Domain Model', function() {
   var basePath = '/api/v1/content/domains';
 
   function mockDomainsApi(domainId) {
-    return nock(host)
+    return nock(host, { allowUnmocked: true })
             .get(basePath + '/' + domainId)
             .reply(200, {
               data: {
@@ -21,7 +21,7 @@ describe('Domain Model', function() {
   }
 
   function mockDomainsApi404(domainId) {
-      return nock(host)
+      return nock(host, { allowUnmocked: true })
             .get(basePath + '/' + domainId)
             .reply(404, {
               errors: [
