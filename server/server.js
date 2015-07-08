@@ -1,4 +1,4 @@
-/*eslint-disable no-console */
+/*eslint-disable no-console, no-unused-vars */
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
@@ -111,7 +111,12 @@ app.all('*', function() {
 });
 
 // error handling
-app.use(function(err, req, res) {
+// http://expressjs.com/guide/using-middleware.html
+// An error-handling middleware has an arity of 4, which must always be maintained to be
+// identified as an error-handling middleware. Even if you don’t need to use the next
+// object, make sure specify it to maintain the signature, else it will be interpreted as
+// a regular middleware, and fail to handle errors.
+app.use(function(err, req, res, next) {
   app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
   res.status(200);
   res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
