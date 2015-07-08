@@ -1,3 +1,4 @@
+var assert = require('assert');
 var chai = require('chai');
 var nock = require('nock');
 var expect = chai.expect;
@@ -58,6 +59,26 @@ describe('Domain Model', function() {
       app.models.Domain.fromRequest(req, function(err, domain) {
         expect(err).to.not.exist;
         expect(domain.data.id).to.equal('aaz');
+        done();
+      });
+    });
+
+    it('considers the cached domainConfig', function(done) {
+      var domainId = 'nabaward';
+      mockDomainsApi(domainId);
+      var req = {
+        get: function(str) { return str === 'X_ZOPE_SKIN' ? domainId : undefined; },
+        domainConfig: {
+          data: {
+            id: domainId
+          }
+        }
+      };
+      app.models.Domain.fromRequest(req, function(err, domain) {
+        var dummy = req.domainConfig;
+        assert.ok(typeof err === 'undefined' || err === null);
+        expect(domain.data.id).to.equal('nabaward');
+        assert.ok(domain === dummy);
         done();
       });
     });
