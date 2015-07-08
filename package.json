@@ -19,7 +19,7 @@
     "watch": "gulp",
     "lint": "gulp lint",
     "start": "node server/server.js",
-    "mocha": "mocha --recursive"
+    "mocha": "mocha --recursive --colors"
   },
   "pre-commit": {
     "run": "lint",
