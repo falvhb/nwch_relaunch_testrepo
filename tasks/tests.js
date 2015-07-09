@@ -1,8 +1,8 @@
-var karma = require('karma');
+var karma = require('karma').server;
 var path = require('path');
 
 var karmaOptions = {
-  configFile: path.join(__dirname, 'karma.conf.js'),
+  configFile: path.join(__dirname, '../karma.conf.js'),
   singleRun: true
 };
 

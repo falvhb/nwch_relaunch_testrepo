@@ -68,10 +68,10 @@ gulp.task('env-dev', function() {
 });
 
 // Prod build
-gulp.task('build', sequence('env-prod', 'assets', 'webpack'));
+gulp.task('build', sequence('env-prod', 'test', 'assets', 'webpack'));
 
 // Styleguide (Heroku build)
-gulp.task('styleguide', sequence('env-heroku', 'assets', 'webpack', 'sassdoc', 'sync-styleguide'));
+gulp.task('styleguide', sequence('env-heroku', 'test', 'assets', 'webpack', 'sassdoc', 'sync-styleguide'));
 
 // Development environment
 gulp.task('dev', sequence('env-dev', 'server', 'watch', 'webpack'));
