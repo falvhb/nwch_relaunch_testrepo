@@ -17,9 +17,6 @@
   },
   "scripts": {
     "watch": "gulp",
-    "build": "gulp build",
-    "watch:prod": "gulp --prod",
-    "build:prod": "gulp build --prod",
     "lint": "gulp lint",
     "test": "gulp test",
     "start": "node server/server.js"

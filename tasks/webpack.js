@@ -17,9 +17,8 @@ module.exports = function() {
   if (helpers.isBuild()) {
     config.plugins.push(
       new webpack.optimize.UglifyJsPlugin({
-        minimize: true,
         output: { comments: false },
-        compress: { warnings: false}
+        compress: { warnings: false }
       })
     );
   } else {

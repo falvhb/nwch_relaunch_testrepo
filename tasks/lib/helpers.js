@@ -1,11 +1,11 @@
 var gutil = require('gulp-util');
 
 function isProduction() {
-  return gutil.env.production === true || gutil.env.prod === true;
+  return gutil.env.production || gutil.env.prod;
 }
 
 function isBuild() {
-  return gutil.env.buildtask === true;
+  return gutil.env.build;
 }
 
 function onError(err) {
