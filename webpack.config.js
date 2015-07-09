@@ -1,10 +1,11 @@
-/* eslint-disable no-unused-vars */
-
 var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-  entry: './app/styleguide.js',
+  entry: {
+    client: ['./app/vendor.js', './app/client.js'],
+    styleguide: ['./app/vendor.js', './app/styleguide.js']
+  },
   module: {
     loaders: [
       {
@@ -18,7 +19,7 @@ var config = {
     ]
   },
   output: {
-    filename: 'styleguide.bundled.js',
+    filename: '[name].bundled.js',
     path: path.join(__dirname, './client'),
     publicPath: '/client/'
   },
@@ -26,7 +27,10 @@ var config = {
     extensions: ['', '.js', '.jsx'],
   },
   plugins: [
-    new webpack.EnvironmentPlugin('NODE_ENV', 'STATIC_ASSETS')
+    new webpack.EnvironmentPlugin(
+      'DISQUS_API_KEY',
+      'GOLDBACH_SALT'
+    )
   ]
 };
 
