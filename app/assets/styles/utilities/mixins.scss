@@ -175,7 +175,7 @@
 
   @if $direction == 'pull' {
     $factor: -1;
-  } @else {
+  } @else if $direction == 'push' {
     $factor: 1;
   }
 
