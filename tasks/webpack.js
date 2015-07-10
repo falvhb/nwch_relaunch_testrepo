@@ -17,9 +17,10 @@ module.exports = function() {
   if (helpers.isBuild()) {
     config.plugins.push(
       new webpack.optimize.UglifyJsPlugin({
-        output: { comments: false },
+        // output: { comments: false },
         compress: { warnings: false }
-      })
+      }),
+      new webpack.optimize.DedupePlugin()
     );
   } else {
     config.watch = true;
@@ -28,6 +29,9 @@ module.exports = function() {
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
+        NODE_ENV: helpers.isProduction()
+          ? JSON.stringify('production')
+          : JSON.stringify('development'),
         STATIC_ASSETS: helpers.isProduction()
           ? '"/__node__/__static__/client"'
           : '"/client"'

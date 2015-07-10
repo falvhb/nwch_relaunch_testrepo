@@ -5,6 +5,8 @@ require('dotenv').load();
 
 module.exports = function() {
 
+  process.env.NODE_ENV = 'development';
+
   process.env.STATIC_ASSETS = helpers.isProduction()
     ? '/__node__/__static__/client'
     : '/client';
