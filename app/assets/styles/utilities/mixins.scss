@@ -171,7 +171,7 @@
 }
 
 /// Mixin used to pull or push and element in at the edges, in-line with the container padding
-@mixin edges($direction: 'pull') {
+@mixin edges($direction) {
 
   @if $direction == 'pull' {
     $factor: -1;
