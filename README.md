@@ -15,12 +15,35 @@ $ npm install
 
 ## Development
 
+### Styleguide
+
+When working in the styleguide, on http://localhost:8000
+
 ```sh
 $ gulp assets
 $ gulp
 ```
 
-`$gulp assets` compiles static assets to save them being compiled on every watch. Do this once, when you start developing or upate something in `/assets`.
+### Back-end
+
+When working with back-end integration, on http://localhost:8801.
+
+
+```sh
+$ gulp assets
+$ gulp --production
+```
+
+For full documentation of setting up this local development environment please see [localdev](localdev).
+
+### Note
+
+`gulp assets` compiles static assets to save them being compiled on every watch. Do this once, every time you start developing or update something in `/assets`.
+
+## API
+
+We use the Lovely Systems API for recieving data. Documentation can be found here:
+http://api-azdev.lovelysystems.com/docs/
 
 ## Branching
 
