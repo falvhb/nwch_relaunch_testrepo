@@ -3,14 +3,15 @@ webpackConfig.devtool = 'inline-source-map';
 
 module.exports = function(config) {
   config.set({
-    browsers: [ 'Chrome' ],
+    browsers: [ 'PhantomJS' ],
     // karma only needs to know about the test bundle
     files: [
+      'node_modules/phantomjs-polyfill/bind-polyfill.js',
       'tests.bundle.js'
     ],
     frameworks: [ 'chai', 'mocha' ],
     plugins: [
-      'karma-chrome-launcher',
+      'karma-phantomjs-launcher',
       'karma-chai',
       'karma-mocha',
       'karma-sourcemap-loader',

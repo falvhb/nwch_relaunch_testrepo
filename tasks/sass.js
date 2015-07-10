@@ -11,8 +11,8 @@ var autoprefixerOptions = {
 };
 
 var sassOptions = {
-  outputStyle: (helpers.isProd() ? 'compressed' : 'expanded'),
-  errLogToConsole: helpers.isProd() === true,
+  outputStyle: (helpers.isProduction() ? 'compressed' : 'expanded'),
+  errLogToConsole: helpers.isProduction() === true,
   includePaths: [
     helpers.sourceDir('components'),
     helpers.assetDir('styles')

@@ -31,8 +31,8 @@ For homebrew you also need to add this to your .profile or .bashrc::
 Installation
 ============
 
-Set the current working directory to this folder and run the following
-commands::
+Set the current working directory to '/localdev' folder and run the following
+commands:
 
     $ python bootstrap.py
     $ bin/buildout -N
@@ -41,7 +41,7 @@ Now you have an nginx which can be started under supervisor control::
 
     $ bin/supervisord
 
-To check if nginx is running::
+To check if nginx is running:
 
     $ bin/supervisorctl status
     nginx                            RUNNING   pid 19029, uptime 0:00:09
@@ -54,7 +54,7 @@ If you find something else this log is of interest::
 Usage
 =====
 
-To use the server connect to "localhost:8801" in your favorite browser.
+To use the server connect to http://localhost:8801 in your browser.
 
 
 Select A Backend
