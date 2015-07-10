@@ -60,7 +60,7 @@ gulp.task('buildtask', function() {
 });
 
 // Production build
-gulp.task('build', sequence('buildtask', 'webpack', 'test', 'assets', 'sync-styleguide', 'sassdoc'));
+gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'test', 'sync-styleguide', 'sassdoc'));
 
 // Development
 gulp.task('dev', sequence('server', 'watch', 'webpack'));
