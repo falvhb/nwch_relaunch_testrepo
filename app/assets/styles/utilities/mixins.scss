@@ -170,14 +170,24 @@
   }
 }
 
-/// Mixin used to make an element slightly larger than its container using 
-/// negative margins
-@mixin expand {
-  margin-left: -$container-spacing;
-  margin-right: -$container-spacing;
+/// Mixin used to pull or push and element in at the edges, in-line with the container padding
+@mixin edges($direction: 'pull') {
+
+  @if $direction == 'pull' {
+    $factor: -1;
+  } @else {
+    $factor: 1;
+  }
+
+  @include media('<=small') {
+    margin-left: $factor * $container-spacing;
+    margin-right: $factor * $container-spacing;
+  }
 
   @include media('>small') {
-    margin-left: -($container-spacing * 2);
-    margin-right: -($container-spacing * 2);
+    margin-left: $factor * ($container-spacing * 2);
+    margin-right: $factor * ($container-spacing * 2);
   }
+
 }
+
