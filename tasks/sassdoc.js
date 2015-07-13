@@ -9,11 +9,13 @@ var sassdocOptions = {
 };
 
 module.exports = function() {
-  return gulp
-    .src([
-      helpers.assetDir('styles/utilities/*.scss'),
-      helpers.sourceDir('components/**/styles/utilities/*.scss')
-    ])
-    .pipe(sassdoc(sassdocOptions))
-    .resume();
+  if (!helpers.isProduction()) {
+    return gulp
+      .src([
+        helpers.assetDir('styles/utilities/*.scss'),
+        helpers.sourceDir('components/**/styles/utilities/*.scss')
+      ])
+      .pipe(sassdoc(sassdocOptions))
+      .resume();
+  }
 };

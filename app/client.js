@@ -1,5 +1,3 @@
-var React = require('react');
-
 var Iso = require('iso-react');
 var iso = new Iso();
 

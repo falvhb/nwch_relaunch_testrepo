@@ -3,11 +3,13 @@ var helpers = require('./lib/helpers.js');
 var sync = require('./lib/sync-styleguide.js');
 
 module.exports = function() {
-  return sync(
-    helpers.assetDir('styles/utilities/variables.scss'),
-    helpers.sourceDir('node_modules/base/colors/.data.json'),
-    postDataColors
-  );
+  if (!helpers.isProduction()) {
+    return sync(
+      helpers.assetDir('styles/utilities/variables.scss'),
+      helpers.sourceDir('node_modules/base/colors/.data.json'),
+      postDataColors
+    );
+  }
 };
 
 function postDataColors(data) {
