@@ -171,7 +171,7 @@
 }
 
 /// Mixin used to pull or push and element in at the edges, in-line with the container padding
-@mixin edges($direction: 'pull') {
+@mixin edges($direction: 'pull', $breakpoint: 'both') {
 
   @if $direction == 'pull' {
     $factor: -1;
@@ -179,14 +179,18 @@
     $factor: 1;
   }
 
-  @include media('<=small') {
-    margin-left: $factor * $container-spacing;
-    margin-right: $factor * $container-spacing;
+  @if $breakpoint == 'both' or $breakpoint == 'mobile' {
+    @include media('<=small') {
+      margin-left: $factor * $container-spacing;
+      margin-right: $factor * $container-spacing;
+    }
   }
 
-  @include media('>small') {
-    margin-left: $factor * ($container-spacing * 2);
-    margin-right: $factor * ($container-spacing * 2);
+  @if $breakpoint == 'both' or $breakpoint == 'desktop' {
+    @include media('>small') {
+      margin-left: $factor * ($container-spacing * 2);
+      margin-right: $factor * ($container-spacing * 2);
+    }
   }
 
 }
