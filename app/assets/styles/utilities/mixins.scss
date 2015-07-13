@@ -171,7 +171,7 @@
 }
 
 /// Mixin used to pull or push and element in at the edges, in-line with the container padding
-@mixin edges($direction) {
+@mixin edges($direction: 'pull') {
 
   @if $direction == 'pull' {
     $factor: -1;
@@ -191,3 +191,43 @@
 
 }
 
+/// Helper for `island` mixin for DRY padding values
+@mixin island-padding($padding) {
+  padding: $padding;
+
+  &::before {
+    right: $padding;
+    left: $padding;
+  }
+}
+
+/// Create an island with blocked-off content and a top border
+@mixin island($color: $light-blue, $small-padding: $container-spacing, $large-padding: false) {
+
+  background: $very-light-grey;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    height: 4px;
+    background-color: $color;
+  }
+
+  @if $small-padding == $large-padding or $large-padding == false {
+    @include island-padding($small-padding);
+  } @else {
+
+    @include media('<=small') {
+      @include island-padding($small-padding);
+    }
+
+    @include media('>small') {
+      @include island-padding($large-padding);
+    }
+
+  }
+
+}
