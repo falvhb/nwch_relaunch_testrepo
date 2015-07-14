@@ -98,7 +98,18 @@ describe('Components Router', function() {
       item: {
         data: {
           catchword: 'catchword',
-          title: 'the title',
+          source: { title: 'the title'},
+          dc: {
+            publisher: 'ls.sample',
+            creator_name: '',
+            effective: '2009-02-25T05:10:19+01:00',
+            creator: 'ls.sample',
+            creator_email: '',
+            expires: null,
+            modified: '2009-02-25T05:10:19+01:00',
+            created: '2009-02-25T05:10:19+01:00',
+            contributor: 'ls.sample'
+          },
           author: 'the author',
           published: '',
           modified: '',
