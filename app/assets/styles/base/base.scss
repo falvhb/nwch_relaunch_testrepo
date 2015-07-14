@@ -3,6 +3,7 @@
 body {
   font: 100% / 1.5 $text-font-stack;
   color: $black;
+  overflow-x: hidden; /* NOTE: Dirty hack to kill horizontal scrollbars (caused by bottom recommendations) on small screens. TODO: Improve ASAP.*/
 }
 
 code {

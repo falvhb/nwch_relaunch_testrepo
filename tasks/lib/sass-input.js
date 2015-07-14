@@ -9,7 +9,7 @@ var sassInput = (function() {
     helpers.sourceDir('node_modules/pages/**/*.scss')
   ];
 
-  if (!helpers.isProd()) {
+  if (!helpers.isProduction()) {
     input.push(helpers.assetDir('styles/vendor/prism.scss'));
     input.push(helpers.sourceDir('node_modules/styleguide/**/styles/main.scss'));
   }

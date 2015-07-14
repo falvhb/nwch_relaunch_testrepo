@@ -167,3 +167,7 @@ $container-width: 1180px;
 /// @type Length
 /// @group container
 $sidebar-width: 350px;
+
+
+/// Main width
+$main-width: calc(100% - 410px);
