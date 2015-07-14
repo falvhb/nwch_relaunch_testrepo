@@ -28,7 +28,7 @@ var config = {
   },
   plugins: [
     new webpack.EnvironmentPlugin(
-      'DISQUS_API_KEY',
+      'DISQUS_SHORTNAME',
       'GOLDBACH_SALT'
     ),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de/)
