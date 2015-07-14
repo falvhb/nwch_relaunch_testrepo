@@ -14,3 +14,7 @@ var components = {
 };
 
 iso.hydrate(components);
+
+var RecommendationsTop = require('client/recommendations-top');
+var recommendationsTop = new RecommendationsTop();
+recommendationsTop.init();
