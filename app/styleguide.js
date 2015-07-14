@@ -66,11 +66,11 @@ var renderReact = function(params) {
 };
 
 var renderPage = function(components) {
-  components = recursiveUnescape(components);
+  var unescapedComponents = recursiveUnescape(components);
 
   renderReact({
-    components: components,
-    component: componentForRequest(parseUrl, components),
+    components: unescapedComponents,
+    component: componentForRequest(parseUrl, unescapedComponents),
     preview: parseUrl.preview
   });
 };

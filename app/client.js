@@ -15,6 +15,6 @@ var components = {
 
 iso.hydrate(components);
 
-var RecommendationsTop = require('client/recommendations-top');
+var RecommendationsTop = require('clientside/recommendations-top');
 var recommendationsTop = new RecommendationsTop();
 recommendationsTop.init();
