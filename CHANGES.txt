@@ -5,6 +5,17 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - improved image handling over all with 16x9 main asset cropping and letterbox option plus loading failed fallback
+ - improved image gallery styling, interactions and image sizing / mobile sizing
+ - fixed video enrichments in the production environment
+ - improved data handling for byline, sources, title/descrption and image_url
+ - implemented HTML snippet enrichment with parsing
+ - finalise sidebar recommendations panel and mobile-behaviour / client-side JS
+ - fix ordering of recommended article teaser slots on article page
+ - improved article rollovers, interactions and other layout / styling tweaks
+ - improved teaser layouts and fallbacks
+ - add social sharing button popups instead of new window on click
+
 
 2015/07/14 0.0.0
 ================
