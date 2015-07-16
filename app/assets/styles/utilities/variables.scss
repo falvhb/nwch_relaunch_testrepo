@@ -136,7 +136,9 @@ $letterbox-background: #333;
 $breakpoints: (
   'small': 640px,
   'medium': 900px,
-  'large': 1150px
+  'large': 1150px,
+  'before-large': 1090px,
+  'after-large': 1300px
 );
 
 
