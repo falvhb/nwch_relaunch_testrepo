@@ -176,5 +176,15 @@ $container-width: 1180px;
 $sidebar-width: 350px;
 
 
-/// Main width
-$main-width: calc(100% - 410px);
+@mixin content-width {
+  @include media('>large') {
+    margin-right: $sidebar-width + $container-spacing;
+  }
+}
+
+@mixin article-body-width {
+  @include media('>large') {
+    margin-right: $sidebar-width + (3 * $container-spacing);
+  }
+}
+

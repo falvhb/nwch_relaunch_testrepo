@@ -253,3 +253,21 @@
 @function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
 }
+
+
+/// Activate a grid layout
+/// @access public
+/// @param {Length} $spacing - distance between grid cells
+@mixin grid-wrap($spacing: $container-spacing) {
+  overflow: hidden;
+  margin-left: -$spacing;
+}
+
+/// Activate a grid cell
+/// @access public
+/// @param {Length} $spacing - distance between grid cells
+@mixin grid-cell($spacing: $container-spacing) {
+  float: left;
+  padding-left: $spacing;
+}
+
