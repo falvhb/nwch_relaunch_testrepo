@@ -5,6 +5,10 @@ var ArticleHeader = require('components/article-header');
 var ArticleIntro = require('components/article-intro');
 var ArticleDetail = require('components/article-detail');
 var Teaser = require('components/teaser');
+var AdTech = require('advertising');
+
+adTech = new AdTech('.ad');
+
 
 var components = {
   articleHeader: ArticleHeader,
