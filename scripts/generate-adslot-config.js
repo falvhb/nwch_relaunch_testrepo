@@ -7,7 +7,7 @@ var _ = require('lodash');
 
 var importFile = './az-banners-all-sites.csv';
 
-var adSlots = [];
+var adPlacements = [];
 
 function save(fileName, data) {
   fs.writeFile(fileName, data, function(err) {
@@ -19,7 +19,7 @@ function save(fileName, data) {
   });
 }
 
-var processAdSlotConfig = function (data) {
+var processAdPlacementConfig = function (data) {
   var filteredData = _.pick(data, [
       'website_id',
       'website_name',
@@ -27,16 +27,19 @@ var processAdSlotConfig = function (data) {
       'site_name',
       'placement_id',
       'placement_name',
-      'placement_size',
-      'placement_position',
+      // 'placement_size',
+      // 'placement_position',
       'placement_slot_id'
   ]);
+
+  var sizeType = getSizeTypeForPlacement(filteredData);
+  filteredData.placement_type = sizeType;
 
   return filteredData;
 };
 
-var getAdSlotsByWebsiteId = function (siteId) {
-  return _.where(adSlots, { 'website_id': siteId});
+var getAdPlacementsByWebsiteId = function (collection, siteId) {
+  return _.where(collection, { 'website_id': siteId});
 };
 
 var getAdSlotsBySiteId = function (collection, siteId) {
@@ -49,25 +52,18 @@ var getAdSlotsByPlacementSlotId = function (collection, placementSlotId) {
 };
 
 
-var getBoundsforAdSlot = function (slot) {
+var getSizeTypeForPlacement = function (placement) {
   var typeRegExp = /(Mobile|Tablet|Desktop)$/i;
-  var matches = typeRegExp.exec(slot.placement_name);
-  var bounds = { id: slot.placement_id, min: 729, max: 9999 };
+  var matches = typeRegExp.exec(placement.placement_name);
+  var bounds = { id: placement.placement_id, min: 729, max: 9999 };
+  var sizeType = 'desktop';
 
   if(matches && matches.length) {
     var type = matches[0];
-    switch (type) {
-      case "Mobile":
-        bounds = { id: slot.placement_id, min: 0, max: 727 };
-        break;
-      case "Tablet":
-        bounds = { id: slot.placement_id, min: 728, max: 1024 };
-        break;
-      default:
-        bounds = { id: slot.placement_id, min: 729, max: 9999 };
-    }
+    sizeType = type.toLowerCase();
   }
-  return bounds;
+
+  return sizeType;
 }
 
 var parseSiteSlots = function (siteSlots) {
@@ -80,36 +76,32 @@ var parseSiteSlots = function (siteSlots) {
     var placementSlotIds = _.unique(_.pluck(slots, 'placement_slot_id'));
 
     // loop through all placement slot ids and create config
-    var siteTypePlacements = _.map(placementSlotIds, function (placementSlotId) {
-      var placement = {
+    var siteTypeSlots = _.map(placementSlotIds, function (placementSlotId) {
+      var slot = {
         name: placementSlotId
       };
       var placementSlots = getAdSlotsByPlacementSlotId(slots, placementSlotId);
 
-      // placementSlots = _.map(placementSlots, function (slot) {
-      //   return _.omit(slot, ['site_id', 'site_name']);
-      // });
+      // omit non needed attributes
+      placementSlots = _.map(placementSlots, function (placement) {
+        var placementConfig = {
+          id: placement.placement_id,
+          name: placement.placement_name,
+          type: placement.placement_type
+        }
 
-      placement.slots = placementSlots;
-      placement.config = {
-        responsive: {
-          useresponsive: true,
-          bounds: []
-        },
-        params: { target: '_blank' }
-      };
+        return placementConfig;
+      });
 
-      // create the bounds for the placement
-      var bounds = _.map(placementSlots, getBoundsforAdSlot);
-      placement.config.responsive.bounds = bounds;
+      slot.placements = placementSlots;
 
-      return placement;
+      return slot;
     });
 
     return {
       "site_name": slots[0].site_name,
       "site_id": siteId,
-      "placements": siteTypePlacements
+      "slots": siteTypeSlots
     }
   });
 
@@ -117,11 +109,11 @@ var parseSiteSlots = function (siteSlots) {
 }
 
 
-var parseAdSlots = function (adSlots) {
+var parseAdPlacements = function (adSlots) {
   var siteIds = _.unique(_.pluck(adSlots, 'website_id'));
 
   var allSiteSlots = _.map(siteIds, function (siteId) {
-    var siteSlots = getAdSlotsByWebsiteId(siteId);
+    var siteSlots = getAdPlacementsByWebsiteId(adSlots, siteId);
     var siteName = siteSlots[0].website_name;
     var output = {
       website_name: siteName,
@@ -148,13 +140,13 @@ var readCSV = function () {
   );
 
   reader.addListener('data', function(data) {
-    data = processAdSlotConfig(data);
-    adSlots.push(data);
+    data = processAdPlacementConfig(data);
+    adPlacements.push(data);
   });
 
   reader.addListener('end', function() {
-    console.log('Processing %s entries', adSlots.length);
-    allSiteSlots = parseAdSlots(adSlots);
+    console.log('Processing %s entries', adPlacements.length);
+    allSiteSlots = parseAdPlacements(adPlacements);
     var output = JSON.stringify(allSiteSlots, undefined, 2);
     save('../app/node_modules/advertising/config/ad-config.json', output);
   });
