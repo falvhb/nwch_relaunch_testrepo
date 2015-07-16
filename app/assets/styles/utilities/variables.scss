@@ -116,6 +116,13 @@ $light-grey: #EDEDED;
 $very-light-grey: #F8F8F8;
 
 
+/// Letterbox background colour
+/// Behind image gallery / responsive letterbox images
+/// @group colors
+/// @type Color
+$letterbox-background: #333;
+
+
 
 // -----------------------------------------------------------------------------
 // BREAKPOINTS AND MEDIA-EXPRESSIONS
