@@ -16,6 +16,12 @@ unreleased
  - improved teaser layouts and fallbacks
  - added social sharing button popups instead of new window on click
  - added download file type and filesize to document enrichment
+ - integrated related videos into page and re-used slider / code from curated recommendations
+ - added slider resizing behaviour
+ - created extra helpers for improved data mapping
+ - added meta data to curated recommendations
+ - stopped social buttons being picked up by adblockers
+ - improved responsive behaviour overall and much DRYer Scss
 
 
 2015/07/14 0.0.0
