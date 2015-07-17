@@ -271,3 +271,56 @@
   padding-left: $spacing;
 }
 
+@mixin next-read-section($background-color) {
+  @include content-width;
+  position: relative;
+  background-color: $background-color;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  /**
+   * Dirty hack the full width background
+   */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: inherit;
+    width: $container-width;
+  }
+
+  &::before {
+    right: 100%;
+  }
+
+  &::after {
+    left: 100%;
+  }
+}
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin next-read-title($color: false) {
+  @include font-smoothing;
+  font-family: $supporting-font-stack;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+
+  @if $color {
+    color: $color;
+  }
+
+}
+
+@mixin media-aside {
+  float: left;
+  width: 25%;
+  margin-right: 20px;
+}
