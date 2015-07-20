@@ -96,7 +96,8 @@ Development
 
 This is the default and is activated with::
 
-    $ rm localdev/nginx/www.conf
+    $ cd localdev
+    $ rm nginx/www.conf
     $ bin/buildout -N
     $ bin/supervisorctl restart nginx
 
@@ -106,7 +107,8 @@ Staging
 
 Activate with::
 
-    $ rm localdev/nginx/www.conf
+    $ cd localdev
+    $ rm nginx/www.conf
     $ bin/buildout -N -c staging.cfg
     $ bin/supervisorctl restart nginx
 
@@ -118,6 +120,27 @@ This environment needs a fully working local a-z setup.
 
 Activate with::
 
-    $ rm localdev/nginx/www.conf
+    $ cd localdev
+    $ rm nginx/www.conf
     $ bin/buildout -N -c local.cfg
     $ bin/supervisorctl restart nginx
+
+
+Access To Different Domains
+===========================
+
+Domains are mapped to different ports::
+
+    localhost:8801 aaz;
+    localhost:8804 aaz;
+    localhost:8805 blz;
+    localhost:8806 liz;
+    localhost:8807 soz;
+    localhost:8808 ot;
+    localhost:8809 gtb;
+
+The HTTP-header "x-skin" contains the skin name.
+
+This header can be accessed in the node server::
+
+    req.headers['x-skin']
