@@ -4,6 +4,7 @@
 var fs = require('fs');
 var csv = require('ya-csv');
 var _ = require('lodash');
+var toSlug = require('to-slug')
 
 var importFile = './az-banners-all-sites.csv';
 
@@ -33,7 +34,10 @@ var processAdPlacementConfig = function (data) {
   ]);
 
   var sizeType = getSizeTypeForPlacement(filteredData);
+  var slotName = getSlotNameForPlacement(filteredData);
+
   filteredData.placement_type = sizeType;
+  filteredData.slot_name = slotName;
 
   return filteredData;
 };
@@ -58,12 +62,23 @@ var getSizeTypeForPlacement = function (placement) {
   var bounds = { id: placement.placement_id, min: 729, max: 9999 };
   var sizeType = 'desktop';
 
-  if(matches && matches.length) {
+  if (matches && matches.length) {
     var type = matches[0];
     sizeType = type.toLowerCase();
   }
 
   return sizeType;
+};
+
+var getSlotNameForPlacement = function (placement) {
+  var regex = /^(Artikel|Static|Home|Ressort) ([a-zA-Z0-9\/\s]+?) (Mobile|Tablet|Desktop|Native)$/ig;
+  var matches = regex.exec(placement.placement_name);
+
+  if (matches && matches.length) {
+    var pageType = matches[0];
+    var slot = matches[2];
+    return toSlug(slot.replace("/", "_"));
+  }
 }
 
 var parseSiteSlots = function (siteSlots) {
@@ -77,8 +92,10 @@ var parseSiteSlots = function (siteSlots) {
 
     // loop through all placement slot ids and create config
     var siteTypeSlots = _.map(placementSlotIds, function (placementSlotId) {
+      var pageTypeRegex = /^(Artikel|Static|Home|Ressort)_/ig;
+      var slotName = placementSlotId.replace(pageTypeRegex, '');
       var slot = {
-        name: placementSlotId
+        name: toSlug(slotName)
       };
       var placementSlots = getAdSlotsByPlacementSlotId(slots, placementSlotId);
 
@@ -115,8 +132,10 @@ var parseAdPlacements = function (adSlots) {
   var allSiteSlots = _.map(siteIds, function (siteId) {
     var siteSlots = getAdPlacementsByWebsiteId(adSlots, siteId);
     var siteName = siteSlots[0].website_name;
+    var siteDomain = siteName.replace(/_([0-9]{4})/, '');
     var output = {
       website_name: siteName,
+      website_domain: siteDomain,
       website_id: siteId
     }
 
