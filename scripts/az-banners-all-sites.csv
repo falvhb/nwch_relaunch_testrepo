@@ -5,7 +5,7 @@ website_id,website_name,category_name,category_comment,site_id,site_name,placeme
 1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720165,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
 1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720175,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
 1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720141,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
-1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720169,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720169,Artikel Rectangle Desktop,300 x 250,default,default,active,Artikel_Rectangle
 1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720172,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
 1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720177,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
 1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720181,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
@@ -63,7 +63,7 @@ website_id,website_name,category_name,category_comment,site_id,site_name,placeme
 1179264,bzbasel.ch_2015,,,783712,Home,5720222,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
 1179264,bzbasel.ch_2015,,,783713,Artikel,5720224,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
 1179264,bzbasel.ch_2015,,,783712,Home,5720209,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
-1179264,bzbasel.ch_2015,,,783713,Artikel,5720213,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720213,Artikel Rectangle Desktop,300 x 250,default,default,active,Artikel_Rectangle
 1179264,bzbasel.ch_2015,,,783714,Ressort,5720223,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
 1179264,bzbasel.ch_2015,,,783714,Ressort,5720233,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
 1179264,bzbasel.ch_2015,,,783712,Home,5720235,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
@@ -123,7 +123,7 @@ website_id,website_name,category_name,category_comment,site_id,site_name,placeme
 1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720260,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
 1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720274,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
 1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720280,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
-1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720283,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720283,Artikel Rectangle Desktop,300 x 250,default,default,active,Artikel_Rectangle
 1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720299,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
 1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720245,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
 1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720247,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
@@ -178,7 +178,7 @@ website_id,website_name,category_name,category_comment,site_id,site_name,placeme
 1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720347,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
 1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720353,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
 1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720358,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
-1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720305,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720305,Artikel Rectangle Desktop,300 x 250,default,default,active,Artikel_Rectangle
 1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720306,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
 1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720309,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
 1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720330,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
@@ -237,7 +237,7 @@ website_id,website_name,category_name,category_comment,site_id,site_name,placeme
 1179267,oltnertagblatt.ch_2015,,,783724,Home,5720393,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
 1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720410,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
 1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720375,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
-1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720376,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720376,Artikel Rectangle Desktop,300 x 250,default,default,active,Artikel_Rectangle
 1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720377,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
 1179267,oltnertagblatt.ch_2015,,,783724,Home,5720398,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
 1179267,oltnertagblatt.ch_2015,,,783724,Home,5720411,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
@@ -298,7 +298,7 @@ website_id,website_name,category_name,category_comment,site_id,site_name,placeme
 1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720456,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
 1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720460,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
 1179268,aargauerzeitung.ch_2015,,,783731,Home,5720461,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
-1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720467,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720467,Artikel Rectangle Desktop,300 x 250,default,default,active,Artikel_Rectangle
 1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720419,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
 1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720439,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
 1179268,aargauerzeitung.ch_2015,,,783731,Home,5720442,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
@@ -356,7 +356,7 @@ website_id,website_name,category_name,category_comment,site_id,site_name,placeme
 1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720494,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
 1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720524,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
 1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720526,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
-1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720533,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720533,Artikel Rectangle Desktop,300 x 250,default,default,active,Artikel_Rectangle
 1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720485,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
 1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720488,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
 1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720500,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
@@ -413,7 +413,7 @@ website_id,website_name,category_name,category_comment,site_id,site_name,placeme
 1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720537,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
 1179270,badenertagblatt.ch_2015,,,783738,Home,5720546,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
 1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720566,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
-1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720569,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720569,Artikel Rectangle Desktop,300 x 250,default,default,active,Artikel_Rectangle
 1179270,badenertagblatt.ch_2015,,,783738,Home,5720588,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
 1179270,badenertagblatt.ch_2015,,,783739,Static,5720541,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
 1179270,badenertagblatt.ch_2015,,,783738,Home,5720545,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
