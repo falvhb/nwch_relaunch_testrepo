@@ -17,8 +17,12 @@ module.exports = function nodeIncludesRouter(req, res) {
   /**
    * Gets an HTML file and renderes it with 'nunjucks'
    */
+  var skin = req.headers['x-skin'] || "";
+  var data = {
+    skin: skin
+  };
   var component = req.params.viewname;
-  res.write(renderNunchuck(component));
+  res.write(renderNunchuck(component, data));
   res.end();
 };
 
