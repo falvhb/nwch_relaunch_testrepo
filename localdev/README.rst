@@ -96,7 +96,8 @@ Development
 
 This is the default and is activated with::
 
-    $ rm localdev/nginx/www.conf
+    $ cd localdev
+    $ rm nginx/www.conf
     $ bin/buildout -N
     $ bin/supervisorctl restart nginx
 
@@ -106,7 +107,8 @@ Staging
 
 Activate with::
 
-    $ rm localdev/nginx/www.conf
+    $ cd localdev
+    $ rm nginx/www.conf
     $ bin/buildout -N -c staging.cfg
     $ bin/supervisorctl restart nginx
 
@@ -118,7 +120,8 @@ This environment needs a fully working local a-z setup.
 
 Activate with::
 
-    $ rm localdev/nginx/www.conf
+    $ cd localdev
+    $ rm nginx/www.conf
     $ bin/buildout -N -c local.cfg
     $ bin/supervisorctl restart nginx
 
