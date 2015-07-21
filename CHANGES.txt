@@ -24,6 +24,7 @@ unreleased
  - improved responsive behaviour overall and much DRYer Scss
  - allowed gallery and video assets as the main asset
  - implemented related videos panel
+   DEPLOY: add node view to staging in CMS
 
 
 2015/07/14 0.0.0
