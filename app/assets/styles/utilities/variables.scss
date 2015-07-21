@@ -136,8 +136,8 @@ $letterbox-background: #333;
 $breakpoints: (
   'small': 640px,
   'medium': 900px,
-  'large': 1150px,
   'before-large': 1090px,
+  'large': 1150px,
   'after-large': 1300px
 );
 
@@ -178,15 +178,36 @@ $container-width: 1180px;
 $sidebar-width: 350px;
 
 
-@mixin content-width {
+// -----------------------------------------------------------------------------
+// LAYOUT MIXINS
+// -----------------------------------------------------------------------------
+@mixin content-width($method: 'margin') {
   @include media('>large') {
-    margin-right: $sidebar-width + $container-spacing;
+    #{$method}-right: $sidebar-width + $container-spacing;
   }
 }
 
-@mixin article-body-width {
+@mixin article-body-width($method: 'margin') {
   @include media('>large') {
-    margin-right: $sidebar-width + (3 * $container-spacing);
+    #{$method}-right: $sidebar-width + (3 * $container-spacing);
+  }
+}
+
+@mixin main-layout {
+  @include media('>small', '<=medium') {
+    width: 100%;
+  }
+
+  @include media('>medium', '<=large') {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include media('>before-large', '<=after-large') {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }
 
