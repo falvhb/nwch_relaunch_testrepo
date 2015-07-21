@@ -22,6 +22,8 @@ unreleased
  - added meta data to curated recommendations
  - stopped social buttons being picked up by adblockers
  - improved responsive behaviour overall and much DRYer Scss
+ - allowed gallery and video assets as the main asset
+ - implemented related videos panel
 
 
 2015/07/14 0.0.0
