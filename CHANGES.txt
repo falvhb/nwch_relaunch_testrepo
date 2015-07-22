@@ -24,6 +24,15 @@ unreleased
  - improved responsive behaviour overall and much DRYer Scss
  - allowed gallery and video assets as the main asset
  - implemented related videos panel
+ - introduced tests for routing
+ - improved routing for components
+ - test runners now actually return an error code greate than 0 if a test failed
+ - introduced error handling: returns status code 200 if not explicitly set
+   otherwise.
+ - introduced 'catch all' route if no other router is found.
+ - introduced logger 'winston'
+ - disabled 'x-powered-by'
+ - removed boot/explorer.js
    DEPLOY: add node view to staging in CMS
 
 
