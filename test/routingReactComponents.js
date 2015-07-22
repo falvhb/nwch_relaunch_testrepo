@@ -125,6 +125,6 @@ describe('Components Router', function() {
 
     componentsRouter(req, res);
 
-    assert.ok(res.body.indexOf('<div class="az-iso"') >= 0);
+    assert.ok(res.body.indexOf('<div class="az-iso') >= 0);
   });
 });

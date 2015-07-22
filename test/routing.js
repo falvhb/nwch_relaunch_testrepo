@@ -39,6 +39,7 @@ describe('Express', function() {
       .get('/non-existent-route')
       .expect(200)
       .end(function(err, res) {
+        if (err) throw err;
         assert.notEqual(logger._error, '');
         done();
       });
