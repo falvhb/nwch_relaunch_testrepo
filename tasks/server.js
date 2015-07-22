@@ -15,7 +15,7 @@ module.exports = function() {
     script: pkg.main,
     env: {
       'STATIC_ASSETS': process.env.STATIC_ASSETS,
-      'DISQUS_API_KEY': process.env.DISQUS_API_KEY
+      'DISQUS_SHORTNAME': process.env.DISQUS_SHORTNAME
     },
     watch: ['app/', 'app/node_modules/', 'common/', 'server/'],
     ext: 'jsx js json'

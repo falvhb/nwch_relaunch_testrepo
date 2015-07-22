@@ -1,6 +1,22 @@
+map $http_host $skin_name {
+    hostnames;
+    default unknown;
+    include az_skins.map;
+}
+
+# Google DNS
+resolver 8.8.8.8;
+
 server {
 
     listen 8801;
+    listen 8804;
+    listen 8805;
+    listen 8806;
+    listen 8807;
+    listen 8808;
+    listen 8809;
+    listen 8810;
 
     ssi on;
     ssi_value_length 1024;
@@ -12,12 +28,14 @@ server {
 
     location ~ '^/\+\+ckey\+\+ssi/__node__/' {
         rewrite ^/\+\+ckey\+\+ssi/__node__/(.*) /$1;
+        proxy_set_header X-SKIN $skin_name;
         proxy_pass http://${backend:node};
         break;
     }
 
     location ~ '^/__node__/__static__/' {
         rewrite ^/__node__/__static__/(.*) /$1;
+        proxy_set_header X-SKIN $skin_name;
         proxy_pass http://${backend:node};
         break;
     }
@@ -28,11 +46,12 @@ server {
 
     location / {
         proxy_set_header Cookie "ssi_off=1";
-        proxy_pass http://${backend:upstream};
+        proxy_pass http://$skin_name-${backend:upstream};
     }
 }
 
 server {
+    # A proxy to connect the node server to the correct API.
 
     listen 8811;
 

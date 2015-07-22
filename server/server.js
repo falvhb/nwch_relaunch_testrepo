@@ -61,7 +61,7 @@ app.set('logger', winston);
 // App Routing
 // -----------------------------------------------------------------------------
 
-app.get('/:ressort/:subressort?/:placeholder/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
+app.get('/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
 app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
 
 // Bootstrap the application, configure models, datasources and middleware.

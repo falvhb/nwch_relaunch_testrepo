@@ -9,7 +9,7 @@ var recursiveEscape = require('recursive-escape');
 var defaults = {
   folder: './app/node_modules',
   extensions: ['index.jsx', 'index.js'],
-  ignore: ['styleguide', 'mixins', 'utils', 'helpers', 'iso-react'],
+  ignore: ['styleguide', 'mixins', 'utils', 'helpers', 'iso-react', 'client'],
   config: '.config.json',
   data: '.data.json',
   variations: '.variations.json',

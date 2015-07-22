@@ -30,3 +30,10 @@ th {
 td, th {
   padding: 5px 20px 5px 0;
 }
+
+/**
+ * Remove dirty outline when using Flickity
+ */
+.flickity-enabled {
+  outline: none;
+}

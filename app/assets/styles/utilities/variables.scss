@@ -116,6 +116,13 @@ $light-grey: #EDEDED;
 $very-light-grey: #F8F8F8;
 
 
+/// Letterbox background colour
+/// Behind image gallery / responsive letterbox images
+/// @group colors
+/// @type Color
+$letterbox-background: #333;
+
+
 
 // -----------------------------------------------------------------------------
 // BREAKPOINTS AND MEDIA-EXPRESSIONS
@@ -129,7 +136,9 @@ $very-light-grey: #F8F8F8;
 $breakpoints: (
   'small': 640px,
   'medium': 900px,
-  'large': 1150px
+  'before-large': 1090px,
+  'large': 1150px,
+  'after-large': 1300px
 );
 
 
@@ -169,5 +178,36 @@ $container-width: 1180px;
 $sidebar-width: 350px;
 
 
-/// Main width
-$main-width: calc(100% - 410px);
+// -----------------------------------------------------------------------------
+// LAYOUT MIXINS
+// -----------------------------------------------------------------------------
+@mixin content-width($method: 'margin') {
+  @include media('>large') {
+    #{$method}-right: $sidebar-width + $container-spacing;
+  }
+}
+
+@mixin article-body-width($method: 'margin') {
+  @include media('>large') {
+    #{$method}-right: $sidebar-width + (3 * $container-spacing);
+  }
+}
+
+@mixin main-layout {
+  @include media('>small', '<=medium') {
+    width: 100%;
+  }
+
+  @include media('>medium', '<=large') {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include media('>before-large', '<=after-large') {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
