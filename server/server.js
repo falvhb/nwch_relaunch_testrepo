@@ -1,10 +1,11 @@
-/*eslint-disable no-console */
+/*eslint-disable no-console, no-unused-vars */
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var engines = require('consolidate');
+var winston = require('winston');
 var app = module.exports = loopback();
 
 // -----------------------------------------------------------------------------
@@ -31,6 +32,7 @@ nunjucks.configure(path.resolve(__dirname, '..'), {
   autoescape: false
 });
 
+app.set('x-powered-by', false);
 app.set('views', path.resolve(__dirname, '../app'));
 app.set('view engine', 'html');
 app.engine('html', engines.nunjucks);
@@ -50,6 +52,10 @@ app.start = function() {
   });
 };
 
+// Logging
+winston.remove(winston.transports.Console);
+winston.add(winston.transports.Console, { 'timestamp': true });
+app.set('logger', winston);
 
 // -----------------------------------------------------------------------------
 // App Routing
@@ -96,4 +102,23 @@ app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
 // SassDoc route
 app.get('/sassdoc', function(req, res) {
   res.render('sassdoc/index.html');
+});
+
+
+// catch-all route, throws an error to invoke error handling
+app.all('*', function() {
+  throw new Error('unknown route');
+});
+
+// error handling
+// http://expressjs.com/guide/using-middleware.html
+// An error-handling middleware has an arity of 4, which must always be maintained to be
+// identified as an error-handling middleware. Even if you don’t need to use the next
+// object, make sure specify it to maintain the signature, else it will be interpreted as
+// a regular middleware, and fail to handle errors.
+app.use(function(err, req, res, next) {
+  app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
+  res.status(200);
+  res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
+  res.end();
 });
