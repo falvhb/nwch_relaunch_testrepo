@@ -44,6 +44,26 @@ server {
         echo '';
     }
 
+    location '/__fetchurl__' {
+        proxy_intercept_errors on;
+        error_page 404 = /__fetcherror__/404?$args;
+        error_page 500 = /__fetcherror__/500?$args;
+        error_page 502 = /__fetcherror__/502?$args;
+        error_page 504 = /__fetcherror__/504?$args;
+        proxy_set_header Accept-Encoding "";
+        proxy_connect_timeout 1s;
+        proxy_read_timeout 1s;
+        proxy_pass $arg_url;
+        break;
+    }
+
+    location ~ '/__fetcherror__/(.*)' {
+        add_header Varnish-Control '60';
+        add_header Varnish-Grace '79200';  # 22 hours
+        echo '<!-- __fetchurl__ error $1 "$arg_url" -->';
+        break;
+    }
+
     location / {
         proxy_set_header Cookie "ssi_off=1";
         proxy_pass http://$skin_name-${backend:upstream};
