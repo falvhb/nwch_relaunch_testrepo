@@ -29,7 +29,12 @@ var config = {
   plugins: [
     new webpack.EnvironmentPlugin(
       'DISQUS_SHORTNAME',
-      'GOLDBACH_SALT'
+      'GOLDBACH_SALT',
+      'KALTURA_ACCOUNT_ID',
+      'KALTURA_AUTOPLAY',
+      'KALTURA_PLAYER_ID',
+      'KALTURA_PLAYER_NOADS_ID',
+      'KALTURA_TRACKING_URL'
     ),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de/)
   ]
