@@ -1,9 +1,8 @@
 var helpers = require('./lib/helpers.js');
-var promisify = require('promisify-node');
-var fs = promisify('fs');
+var fs = require('fs');
 
 module.exports = function () {
   var env = helpers.isProduction() ? 'prod' : 'dev';
-  // var content = '$environment: ' + env + ';';
-  return fs.writeFile(helpers.assetDir('styles/utilities/environment.scss'), env);
+  var content = '$environment: \'' + env + '\';';
+  return fs.writeFileSync(helpers.assetDir('styles/utilities/environment.scss'), content);
 };

@@ -6,23 +6,8 @@
 // included by all components from the application. Any CSS output by this file
 // will be duplicated in each component. Definitely not what you want.
 
-@import 'environment';
-
-$environment: 'dev' !default;
-
-@function get-base-path() {
-  @if ($environment == 'prod') {
-    @return '/__node__/__static__/';
-  }
-
-  @return '/';
-}
-
-@function asset($path) {
-  @return get-base-path() + $path;
-}
-
 @import 'vendor/include-media';
+@import 'utilities/environment';
 @import 'utilities/variables';
 @import 'utilities/functions';
 @import 'utilities/mixins';
