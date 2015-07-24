@@ -10,7 +10,6 @@ module.exports = function(req, res) {
   function render() {
     var articles = req.item && req.item.data ? req.item.data : [];
     var keyword = req.params.topicKeyword;
-    var topic = keyword.charAt(0).toUpperCase() + keyword.substring(1);
 
     var componentName = 'topic-detail';
     var componentVariation = '';
@@ -19,7 +18,7 @@ module.exports = function(req, res) {
     var state = {
       'articles': articles,
       'page': page + 1,
-      'topic': topic,
+      'topic': keyword,
       'variation': componentVariation
     };
 
