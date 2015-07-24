@@ -40,6 +40,7 @@ app.use('/client', loopback.static('client'));
 
 // Routing Middleware
 require('./routing/routingParams')(app);
+var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
@@ -59,10 +60,20 @@ app.set('logger', winston);
 
 // -----------------------------------------------------------------------------
 // App Routing
+//
+// NOTE:
+//   Order matters here!
 // -----------------------------------------------------------------------------
 
-app.get('/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
-app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
+var LAYOUT_PREFIX = '/__layout__';
+var COMPONENT_PREFIX = '';
+
+app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
+         LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page',
+         LAYOUT_PREFIX + '/thema/:topicKeyword/page/:page'],
+        reactTopicLayoutRouter);
+app.get(COMPONENT_PREFIX + '/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
+app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.

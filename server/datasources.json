@@ -29,6 +29,26 @@
       {
         "template": {
           "method": "GET",
+          "url": "/published_news_articles",
+          "query": {
+            "keywords": "{keywords}",
+            "domain": "{domain=aaz}",
+            "limit": "{limit=10}",
+            "offset": "{offset=0}"
+          }
+        },
+        "functions": {
+          "queryPublishedNewsArticle": [
+            "keywords",
+            "domain",
+            "limit",
+            "offset"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
           "url": "/asset_audios/{id}"
         },
         "functions": {
