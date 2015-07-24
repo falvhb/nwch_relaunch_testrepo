@@ -23,8 +23,8 @@ module.exports = function(req, res) {
 
   // map our data
   var state = {
-    "article": articleData,
-    "variation": componentVariation
+    'article': articleData,
+    'variation': componentVariation
   };
 
   // resolve the component

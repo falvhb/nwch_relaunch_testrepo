@@ -9,15 +9,18 @@ module.exports = function(req, res) {
 
   function render() {
     var articles = req.item && req.item.data ? req.item.data : [];
+    var keyword = req.params.topicKeyword;
+    var topic = keyword.charAt(0).toUpperCase() + keyword.substring(1);
 
-    var componentName = 'topic-body';
+    var componentName = 'topic-detail';
     var componentVariation = '';
 
     // map our data
     var state = {
-      "articles": articles,
-      "page": page,
-      "variation": componentVariation
+      'articles': articles,
+      'page': page,
+      'topic': topic,
+      'variation': componentVariation
     };
 
     // resolve the component
@@ -45,9 +48,10 @@ module.exports = function(req, res) {
     var isoWrapped = iso.wrap({
       component: component,
       state: slot ? slot(state) : state,
-      meta: {id: camelCase(componentName),
-             variation: componentVariation
-            }
+      meta: {
+        id: camelCase(componentName),
+        variation: componentVariation
+      }
     });
 
     res.send(isoWrapped);
