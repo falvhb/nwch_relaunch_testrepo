@@ -6,9 +6,8 @@ unreleased (24.07.15)
 ==========
 
 - use .env fars for Kaltura params
-  DEPLOY: need to add Kaltura data to env files
+  DEPLOY: need to add Kaltura data and STATIC_ASSETS var to env files
 - now using two .env files - .env and .env.dev
-  DEPLOY: add both files
 
 
 unreleased
