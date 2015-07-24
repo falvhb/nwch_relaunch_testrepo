@@ -1,14 +1,13 @@
 var nodemon = require('gulp-nodemon');
 var pkg = require('../package.json');
 var helpers = require('./lib/helpers');
-require('dotenv').load();
+
+var envPath = helpers.isProduction() ? '.env' : '.env.dev';
+require('dotenv').load({
+  path: envPath
+});
 
 module.exports = function() {
-
-  process.env.STATIC_ASSETS = helpers.isProduction()
-    ? '/__node__/__static__/client'
-    : '/client';
-
   nodemon({
     script: pkg.main,
     env: {
