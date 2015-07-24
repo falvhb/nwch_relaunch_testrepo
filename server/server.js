@@ -68,12 +68,15 @@ app.set('logger', winston);
 var LAYOUT_PREFIX = '/__layout__';
 var COMPONENT_PREFIX = '';
 
+//TODO: fix router configuration hack
 app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
-         LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page',
-         LAYOUT_PREFIX + '/thema/:topicKeyword/page/:page'],
+         LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
         reactTopicLayoutRouter);
-app.get(COMPONENT_PREFIX + '/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
+app.get(COMPONENT_PREFIX + '/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
+app.get(COMPONENT_PREFIX + '/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
+app.get(COMPONENT_PREFIX + '/:component/:variation', reactComponentsRouter);
+app.get(COMPONENT_PREFIX + '/*/:component/:variation', reactComponentsRouter);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
