@@ -4,7 +4,7 @@ var Iso = require('../../app/node_modules/iso-react');
 module.exports = function(req, res) {
   var page = parseInt(req.params.page, 10) - 1 || 0;
   if (page < 0) {
-      page = 0;
+    page = 0;
   }
 
   function render() {
@@ -66,7 +66,6 @@ module.exports = function(req, res) {
       if (err) {
         // There was an error calling the API, we will render the page anyway
         // but without articles.
-        console.log(err);
         req.item = null;
       } else {
         // got a result to render
