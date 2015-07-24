@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var helpers = require('./tasks/lib/helpers');
 
 var config = {
   entry: {
@@ -27,15 +28,7 @@ var config = {
     extensions: ['', '.js', '.jsx'],
   },
   plugins: [
-    new webpack.EnvironmentPlugin(
-      'DISQUS_SHORTNAME',
-      'GOLDBACH_SALT',
-      'KALTURA_ACCOUNT_ID',
-      'KALTURA_AUTOPLAY',
-      'KALTURA_PLAYER_ID',
-      'KALTURA_PLAYER_NOADS_ID',
-      'KALTURA_TRACKING_URL'
-    ),
+    new webpack.EnvironmentPlugin(helpers.ENV_VARS.concat()),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de/)
   ]
 };
