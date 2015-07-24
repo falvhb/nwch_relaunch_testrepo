@@ -2,16 +2,12 @@
 Changes for az-nwch-js
 ======================
 
-unreleased (24.07.15)
-==========
-
-- use .env fars for Kaltura params
-  DEPLOY: need to add Kaltura data and STATIC_ASSETS var to env files
-- now using two .env files - .env and .env.dev
-
-
 unreleased
 ==========
+
+  - use .env vars for Kaltura params
+    DEPLOY: need to add Kaltura and STATIC_ASSETS vars to env files
+  - now using two .env files - .env and .env.dev
 
  - added __fetchurl__ endpoint to nginx to be able to fetch the azmedien
    footer in local dev environment
