@@ -68,7 +68,7 @@ app.set('logger', winston);
 var LAYOUT_PREFIX = '/__layout__';
 var COMPONENT_PREFIX = '';
 
-//TODO: fix router configuration hack
+// fix router configuration hack below
 app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
         reactTopicLayoutRouter);
