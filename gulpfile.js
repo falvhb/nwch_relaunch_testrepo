@@ -35,9 +35,9 @@ gulp.task('static-scripts', require('./tasks/static-scripts.js'));
 gulp.task('static-images', require('./tasks/static-images.js'));
 
 // Tests
-gulp.task('test.react', require('./tasks/tests.js').react);
-gulp.task('test.api', require('./tasks/tests.js').api);
-gulp.task('test', ['test.react', 'test.api']);
+gulp.task('test:react', require('./tasks/tests.js').react);
+gulp.task('test:api', require('./tasks/tests.js').api);
+gulp.task('test', ['test:react', 'test:api']);
 
 // Living Styleguide
 gulp.task('sync-styleguide:typography', require('./tasks/sync-styleguide-typography.js'));

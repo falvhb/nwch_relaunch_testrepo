@@ -19,7 +19,6 @@ process.on('exit', function() {
 
 
 // API tests
-
 function apiTests(done) {
   var mockaRunner = require('child_process').spawn('npm', ['run', 'mocha']);
   mockaRunner.stdout.pipe(process.stdout);
@@ -32,7 +31,6 @@ function apiTests(done) {
 
 
 // React tests
-
 var karmaOptions = {
   configFile: path.join(__dirname, '../karma.conf.js'),
   singleRun: true
