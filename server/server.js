@@ -41,6 +41,7 @@ app.use('/client', loopback.static('client'));
 // Routing Middleware
 require('./routing/routingParams')(app);
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
+var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
@@ -66,12 +67,18 @@ app.set('logger', winston);
 // -----------------------------------------------------------------------------
 
 var LAYOUT_PREFIX = '/__layout__';
+var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '';
 
-// fix router configuration hack below
+// fix router configuration hacks below
+app.get([API_PREFIX + '/thema/:topicKeyword',
+         API_PREFIX + '/thema/:topicKeyword/seite/:page'],
+        reactTopicAPIRouter);
+
 app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
         reactTopicLayoutRouter);
+
 app.get(COMPONENT_PREFIX + '/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
