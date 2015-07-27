@@ -10,24 +10,24 @@ describe('Components Router', function() {
     this.send = function(content) {
       this.write(content);
       this.end();
-    }
+    };
     this.end = function() {
       // dummy
-    }
-  };
+    };
+  }
 
-  it('can handle missing `item` property', function() {
+  it('can handle missing `article` property', function() {
     var req = {};
     var res = new ResMock();
 
     componentsRouter(req, res);
 
-    assert.ok(res.body.indexOf('<!-- Article "undefined" not found! -->') === 0);
+    assert.ok(res.body.indexOf('<!-- No component name provided! -->') === 0);
   });
 
   it('can handle missing `params` property', function() {
     var req = {
-      item: {
+      article: {
         data: {}
       }
     };
@@ -35,12 +35,12 @@ describe('Components Router', function() {
 
     componentsRouter(req, res);
 
-    assert.ok(res.body.indexOf('<!-- Component "undefined" not found! -->') === 0);
+    assert.ok(res.body.indexOf('<!-- No component name provided! -->') === 0);
   });
 
   it('returns an HTML comment if no data is found', function() {
     var req = {
-      item: {},
+      article: {},
       params: {
         articleId: 100003399
       }
@@ -55,7 +55,7 @@ describe('Components Router', function() {
 
   it('returns an HTML comment including errors if not data is found', function() {
     var req = {
-      item: {
+      article: {
         errors: [
           { detail: 'err_detail' }
         ]
@@ -75,7 +75,7 @@ describe('Components Router', function() {
   it('returns an HTML comment if the component is not found', function() {
     var res = new ResMock();
     var req = {
-      item: {
+      article: {
         data: {
 
         }
@@ -95,7 +95,7 @@ describe('Components Router', function() {
   it('returns a part of the page', function() {
     var res = new ResMock();
     var req = {
-      item: {
+      article: {
         data: {
           catchword: 'catchword',
           source: { title: 'the title'},

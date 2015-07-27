@@ -18,7 +18,6 @@ module.exports = function nodeIncludesRouter(req, res) {
    * Gets an HTML file and renderes it with 'nunjucks'
    */
   var component = req.params.viewname;
-  res.write(renderNunchuck(component));
-  res.end();
+  res.send(renderNunchuck(component));
 };
 

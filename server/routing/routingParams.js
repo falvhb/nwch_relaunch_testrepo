@@ -4,7 +4,7 @@ module.exports = function(app) {
       if (err) {
         next(err);
       } else if (article) {
-        req.item = article;
+        req.article = article;
         next();
       } else {
         next('Article "' + id + '" not found!');
