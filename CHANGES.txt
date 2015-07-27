@@ -5,6 +5,10 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+
+2015/07/27 0.0.1
+================
+
   - use .env vars for Kaltura params
     DEPLOY: need to add Kaltura and STATIC_ASSETS vars to env files
   - now using two .env files - .env and .env.dev
