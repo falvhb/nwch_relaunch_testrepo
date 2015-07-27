@@ -62,9 +62,10 @@ module.exports = function(req, res) {
   var queryParams = {
     'keywords': req.params.topicKeyword,
     'domain': req.headers['x-skin'] || 'aaz',
-    'offset': page * 12,
-    'limit': 12,
+    'offset': page * process.env.PAGINATED,
+    'limit': process.env.PAGINATED,
   };
+
   req.app.models.PublishedNewsArticle.query(
     queryParams,
     function(err, result) {
