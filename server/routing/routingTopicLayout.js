@@ -8,7 +8,8 @@ module.exports = function(req, res) {
   }
 
   function render() {
-    var articles = req.item && req.item.data ? req.item.data : [];
+    var result = req.item || {};
+    var articles = result && result.data ? result.data : [];
     var keyword = req.params.topicKeyword;
 
     var componentName = 'topic-detail';
@@ -19,7 +20,8 @@ module.exports = function(req, res) {
       'articles': articles,
       'page': page + 1,
       'topic': keyword,
-      'variation': componentVariation
+      'variation': componentVariation,
+      'total': result.total || 0
     };
 
     // resolve the component
@@ -58,7 +60,7 @@ module.exports = function(req, res) {
 
   // Do the topic query
   var queryParams = {
-    'keyword': req.params.topicKeyword,
+    'keywords': req.params.topicKeyword,
     'domain': req.headers['x-skin'] || 'aaz',
     'offset': page * 12,
     'limit': 12,
