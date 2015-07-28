@@ -60,6 +60,35 @@ winston.add(winston.transports.Console, { 'timestamp': true });
 app.set('logger', winston);
 
 // -----------------------------------------------------------------------------
+// Styleguide Routing / Json
+// -----------------------------------------------------------------------------
+
+var components = require('./styleguide/components');
+var styleguideRoute = require('./styleguide/routing');
+
+app.get('/styleguide', styleguideRoute);
+app.get('/styleguide/:category/:component', styleguideRoute);
+app.get('/styleguide/:category/:component/preview', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
+app.get('/styleguide/components.json', function(req, res) {
+  res.json(components);
+});
+
+// -----------------------------------------------------------------------------
+// SassDoc
+// -----------------------------------------------------------------------------
+
+// Serve SassDoc assets folder
+app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
+
+// SassDoc route
+app.get('/sassdoc', function(req, res) {
+  res.render('sassdoc/index.html');
+});
+
+
+// -----------------------------------------------------------------------------
 // App Routing
 //
 // NOTE:
@@ -94,35 +123,6 @@ boot(app, __dirname, function(err) {
   if (require.main === module) {
     app.start();
   }
-});
-
-
-// -----------------------------------------------------------------------------
-// Styleguide Routing / Json
-// -----------------------------------------------------------------------------
-
-var components = require('./styleguide/components');
-var styleguideRoute = require('./styleguide/routing');
-
-app.get('/styleguide', styleguideRoute);
-app.get('/styleguide/:category/:component', styleguideRoute);
-app.get('/styleguide/:category/:component/preview', styleguideRoute);
-app.get('/styleguide/:category/:component/:variation', styleguideRoute);
-app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
-app.get('/styleguide/components.json', function(req, res) {
-  res.json(components);
-});
-
-// -----------------------------------------------------------------------------
-// SassDoc
-// -----------------------------------------------------------------------------
-
-// Serve SassDoc assets folder
-app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
-
-// SassDoc route
-app.get('/sassdoc', function(req, res) {
-  res.render('sassdoc/index.html');
 });
 
 
