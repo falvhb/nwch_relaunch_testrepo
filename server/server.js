@@ -62,8 +62,7 @@ app.set('logger', winston);
 // -----------------------------------------------------------------------------
 // App Routing
 //
-// NOTE:
-//   Order matters here!
+// NOTE: Order matters here!
 // -----------------------------------------------------------------------------
 
 var LAYOUT_PREFIX = '/__layout__';
