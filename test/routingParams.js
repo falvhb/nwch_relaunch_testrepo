@@ -59,8 +59,8 @@ describe('Routing Params', function() {
         // define a test route with the 'articleId' param
         testApp.use('/foo/:articleId', function router(req, res) {
 
-          assert.ok(req.item, 'placed requested article on `request.item`');
-          assert.equal(req.item.foundArticle, '123', 'requested article is as expected');
+          assert.ok(req.article, 'placed requested article on `request.article`');
+          assert.equal(req.article.foundArticle, '123', 'requested article is as expected');
 
           res.json({calledTestRoute: true});
           res.end();

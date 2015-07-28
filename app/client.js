@@ -7,6 +7,7 @@ var ArticleDetail = require('components/article-detail');
 var Teaser = require('components/teaser');
 var RelatedVideos = require('components/related-videos');
 var Footer = require('components/footer');
+var TopicDetail = require('components/topic-detail');
 
 var components = {
   articleHeader: ArticleHeader,
@@ -14,7 +15,8 @@ var components = {
   articleDetail: ArticleDetail,
   teaser: Teaser,
   relatedVideos: RelatedVideos,
-  footer: Footer
+  footer: Footer,
+  topicDetail: TopicDetail
 };
 
 iso.hydrate(components);

@@ -26,19 +26,6 @@ module.exports = function() {
     config.watch = true;
   }
 
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: helpers.isProduction()
-          ? JSON.stringify('production')
-          : JSON.stringify('development'),
-        STATIC_ASSETS: helpers.isProduction()
-          ? '"/__node__/__static__/client"'
-          : '"/client"'
-      }
-    })
-  );
-
   return gulp
     .src(helpers.isProduction() ? config.entry.client : config.entry.styleguide)
     .pipe(gulpWebpack(config))

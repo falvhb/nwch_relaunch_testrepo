@@ -5,13 +5,27 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/07/28 0.0.2
+================
+
+  - improved parsing of enrichments. fixes
+    https://github.com/lovelysystems/az-nwch-js/issues/93#issuecomment-124952925
+  - adds ajax results to topic page
+  - improves use of ENV variables
+  - improved fetching of teaser images (those with videos / gallery main assets)
+  - adds topic page and basic pagination, using static links only (no-js)
+
+  - uses .env for pagination count
+    DEPLOY: add PAGINATED=12 to env file
+>>>>>>> develop
 
 2015/07/27 0.0.1
 ================
 
-  - use .env vars for Kaltura params
+  - uses .env vars for Kaltura params
     DEPLOY: need to add Kaltura and STATIC_ASSETS vars to env files
-  - now using two .env files - .env and .env.dev
+
+  - using two .env files - .env and .env.dev
 
  - added __fetchurl__ endpoint to nginx to be able to fetch the azmedien
    footer in local dev environment

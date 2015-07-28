@@ -9,11 +9,12 @@ var winston = require('winston');
 var app = module.exports = loopback();
 
 // -----------------------------------------------------------------------------
-// Helpers
+// Environment
 // -----------------------------------------------------------------------------
 
-var isDevelopment = process.env.NODE_ENV === 'development';
-
+require('dotenv').load({
+  path: '.env'
+});
 
 // -----------------------------------------------------------------------------
 // Configuration
@@ -28,7 +29,6 @@ require('babel/register')({
 
 // Nunjucks
 nunjucks.configure(path.resolve(__dirname, '..'), {
-  watch: isDevelopment,
   autoescape: false
 });
 
@@ -40,6 +40,8 @@ app.use('/client', loopback.static('client'));
 
 // Routing Middleware
 require('./routing/routingParams')(app);
+var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
+var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
@@ -56,25 +58,6 @@ app.start = function() {
 winston.remove(winston.transports.Console);
 winston.add(winston.transports.Console, { 'timestamp': true });
 app.set('logger', winston);
-
-// -----------------------------------------------------------------------------
-// App Routing
-// -----------------------------------------------------------------------------
-
-app.get('/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
-app.get('/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
-
-// Bootstrap the application, configure models, datasources and middleware.
-// Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
-  if (err) { throw err; }
-
-  // start the server if `$ node server.js`
-  if (require.main === module) {
-    app.start();
-  }
-});
-
 
 // -----------------------------------------------------------------------------
 // Styleguide Routing / Json
@@ -102,6 +85,43 @@ app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
 // SassDoc route
 app.get('/sassdoc', function(req, res) {
   res.render('sassdoc/index.html');
+});
+
+
+// -----------------------------------------------------------------------------
+// App Routing
+//
+// NOTE: Order matters here!
+// -----------------------------------------------------------------------------
+
+var LAYOUT_PREFIX = '/__layout__';
+var API_PREFIX = '/__api__';
+var COMPONENT_PREFIX = '';
+
+// fix router configuration hacks below
+app.get([API_PREFIX + '/thema/:topicKeyword',
+         API_PREFIX + '/thema/:topicKeyword/seite/:page'],
+        reactTopicAPIRouter);
+
+app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
+         LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
+        reactTopicLayoutRouter);
+
+app.get(COMPONENT_PREFIX + '/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
+app.get(COMPONENT_PREFIX + '/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
+app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
+app.get(COMPONENT_PREFIX + '/:component/:variation', reactComponentsRouter);
+app.get(COMPONENT_PREFIX + '/*/:component/:variation', reactComponentsRouter);
+
+// Bootstrap the application, configure models, datasources and middleware.
+// Sub-apps like REST API are mounted via boot scripts.
+boot(app, __dirname, function(err) {
+  if (err) { throw err; }
+
+  // start the server if `$ node server.js`
+  if (require.main === module) {
+    app.start();
+  }
 });
 
 
