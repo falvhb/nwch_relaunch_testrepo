@@ -5,8 +5,12 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - improved parsing of enrichments. fixes
+    https://github.com/lovelysystems/az-nwch-js/issues/93#issuecomment-124952925
+  - adds ajax results to topic page
+  - improves use of ENV variables
   - improved fetching of teaser images (those with videos / gallery main assets)
-  - adds topic page and basic pagination, using static links only
+  - adds topic page and basic pagination, using static links only (no-js)
 
   - uses .env for pagination count
     DEPLOY: add PAGINATED=12 to env file

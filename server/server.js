@@ -9,11 +9,12 @@ var winston = require('winston');
 var app = module.exports = loopback();
 
 // -----------------------------------------------------------------------------
-// Helpers
+// Environment
 // -----------------------------------------------------------------------------
 
-var isDevelopment = process.env.NODE_ENV === 'development';
-
+require('dotenv').load({
+  path: '.env'
+});
 
 // -----------------------------------------------------------------------------
 // Configuration
@@ -28,7 +29,6 @@ require('babel/register')({
 
 // Nunjucks
 nunjucks.configure(path.resolve(__dirname, '..'), {
-  watch: isDevelopment,
   autoescape: false
 });
 
@@ -91,8 +91,7 @@ app.get('/sassdoc', function(req, res) {
 // -----------------------------------------------------------------------------
 // App Routing
 //
-// NOTE:
-//   Order matters here!
+// NOTE: Order matters here!
 // -----------------------------------------------------------------------------
 
 var LAYOUT_PREFIX = '/__layout__';
