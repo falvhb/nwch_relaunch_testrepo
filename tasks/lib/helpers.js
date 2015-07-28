@@ -49,5 +49,5 @@ module.exports = {
   buildDir: buildDir,
   isProduction: isProduction,
   isBuild: isBuild,
-  onError: onError,
+  onError: onError
 };

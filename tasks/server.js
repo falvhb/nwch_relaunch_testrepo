@@ -19,7 +19,6 @@ for (var i = 0; i < envVars.length; ++i) {
 module.exports = function() {
   nodemon({
     script: pkg.main,
-    env: envObj,
     watch: ['app/', 'app/node_modules/', 'common/', 'server/'],
     ext: 'jsx js json'
   });

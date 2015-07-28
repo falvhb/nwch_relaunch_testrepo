@@ -9,11 +9,11 @@ var winston = require('winston');
 var app = module.exports = loopback();
 
 // -----------------------------------------------------------------------------
-// Helpers
+// Environment
 // -----------------------------------------------------------------------------
-
-var isDevelopment = process.env.NODE_ENV === 'development';
-
+require('dotenv').load({
+  path: '.env'
+});
 
 // -----------------------------------------------------------------------------
 // Configuration
@@ -28,7 +28,6 @@ require('babel/register')({
 
 // Nunjucks
 nunjucks.configure(path.resolve(__dirname, '..'), {
-  watch: isDevelopment,
   autoescape: false
 });
 
