@@ -65,5 +65,9 @@
   "Domain": {
     "dataSource": "az-api",
     "public": false
+  },
+  "NewsRessort": {
+    "dataSource": "az-api",
+    "public": false
   }
 }

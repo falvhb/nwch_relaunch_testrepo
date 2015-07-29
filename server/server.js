@@ -44,6 +44,7 @@ app.use('/client', loopback.static('client'));
 require('./routing/routingParams')(app);
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
+var reactDossierHeaderRouter = require('./routing/routingDossierHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
@@ -109,6 +110,7 @@ app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
         reactTopicLayoutRouter);
 
+app.get(COMPONENT_PREFIX + '/dossier/:dossier/dossier-header/:variation', reactDossierHeaderRouter);
 app.get(COMPONENT_PREFIX + '/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
