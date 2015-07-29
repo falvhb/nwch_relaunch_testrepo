@@ -2,7 +2,7 @@
 var path = require('path');
 
 var defaults = {
-  folder: './app/node_modules/components/includes'
+  folder: './app/includes'
 };
 
 var nunjucks = require('nunjucks');
