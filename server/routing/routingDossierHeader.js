@@ -1,4 +1,5 @@
-var React = require('react');
+var camelCase = require('camelcase');
+var Iso = require('../../app/node_modules/iso-react');
 
 module.exports = function(req, res) {
 
@@ -17,9 +18,8 @@ module.exports = function(req, res) {
   try {
     component = require('../../app/node_modules/components/' + componentName);
   } catch (e) {
-    //TODO: uncomment these lines when replacing the dummy component with a real component
-    //res.send('<!-- Component "' + componentName + '" not found! -->');
-    //return;
+    res.send('<!-- Component "' + componentName + '" not found! -->');
+    return;
   }
 
   // see if there is a slot function
@@ -31,28 +31,6 @@ module.exports = function(req, res) {
     // not found (is okay, continue)
   }
 
-  // just a dummy component - remove when actual component is ready
-  component = React.createClass({
-    displayName: 'RessortHeaderDummy',
-
-    render: function() {
-      if (!this.props.data.dossier) {
-        return React.createElement('div', {}, 'Dossier not found!');
-      }
-      return React.createElement('div', {},
-        React.createElement('h1', {}, this.props.data.dossier.title),
-        React.createElement('p', {}, this.props.data.dossier.header.lead),
-        React.createElement('div', {}, 'Keywords'),
-        React.createElement('ul', {},
-          this.props.data.dossier.keywords.map(function(keyword) {
-            return React.createElement('li', {}, keyword);
-          })
-        )
-      );
-    }
-  });
-
-
   function render() {
     var result = req.item || {};
     var dossier = result && result.data ? result.data[0] : null;
@@ -62,7 +40,20 @@ module.exports = function(req, res) {
       'variation': componentVariation
     };
 
-    res.send(React.renderToString(React.createElement(component, { data: state })));
+    // wrap component in isomorphic layer
+    // injects data to DOM and attaches component id
+    // component re-rendered client-side via app/client.js
+    var iso = new Iso();
+    var isoWrapped = iso.wrap({
+      component: component,
+      state: slot ? slot(state) : state,
+      meta: {
+        id: camelCase(componentName),
+        variation: componentVariation
+      }
+    });
+
+    res.send(isoWrapped);
   }
 
   // do the dossier query
@@ -81,5 +72,5 @@ module.exports = function(req, res) {
       }
       render();
     }
-    );
+  );
 };
