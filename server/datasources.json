@@ -18,6 +18,31 @@
       {
         "template": {
           "method": "GET",
+          "url": "/news_ressorts/{id}"
+        },
+        "functions": {
+          "getNewsRessort": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/news_ressorts",
+          "query": {
+            "path": "{path}"
+          }
+        },
+        "functions": {
+          "queryNewsRessort": [
+            "path"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
           "url": "/published_news_articles/{id}"
         },
         "functions": {
