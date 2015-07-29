@@ -101,7 +101,6 @@ var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '';
 
-// fix router configuration hacks below
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
         reactTopicAPIRouter);
@@ -111,11 +110,11 @@ app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
         reactTopicLayoutRouter);
 
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/dossier-header/:variation', reactDossierHeaderRouter);
-app.get(COMPONENT_PREFIX + '/:ressort?/:subressort?/:placeholder?/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
-app.get(COMPONENT_PREFIX + '/:viewname(__body_bottom|__head_bottom)$', nodeIncludesRouter);
-app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', reactComponentsRouter);
-app.get(COMPONENT_PREFIX + '/:component/:variation', reactComponentsRouter);
-app.get(COMPONENT_PREFIX + '/*/:component/:variation', reactComponentsRouter);
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
+app.get([COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
+         COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation'
+        ],
+        reactComponentsRouter);
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
