@@ -34,7 +34,13 @@ module.exports = function(req, res) {
     displayName: 'RessortHeaderDummy',
 
     render: function() {
-      return React.createElement('div', {}, this.props.data.dossier.data[0] ? JSON.stringify(this.props.data.dossier.data[0].header) : '');
+      if (!this.props.data.dossier.data[0]) {
+        return React.createElement('div', {}, 'Dossier not found!');
+      }
+      return React.createElement('div', {},
+        React.createElement('h1', {}, this.props.data.dossier.data[0].title),
+        React.createElement('p', {}, this.props.data.dossier.data[0].header.lead)
+      );
     }
   });
 
