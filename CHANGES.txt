@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/07/29 0.0.3
+================
+
+  - moved Nunjucks include folder from `/app/node_modules/components/includes` to `/app/includes`
+
 2015/07/28 0.0.2
 ================
 
