@@ -1,9 +1,10 @@
-// generates a JSON file based on CSV output from
-// https://docs.google.com/spreadsheets/d/1ZmNbq_A75hE9RnaCurP3jqwoUrxONv9DZSf4sF9TWQU/edit?usp=sharing
+// generates a JSON file and HTML includes for the advertising configuration
+// based on CSV export from AdTech
 
 var fs = require('fs');
 var csv = require('ya-csv');
 var _ = require('lodash');
+var nunjucks = require('nunjucks');
 var toSlug = require('to-slug');
 var skins = require('../app/node_modules/config/skins.json');
 var outputPath = '../client/config/advertising/';
@@ -35,6 +36,11 @@ var csvColumnNames = [
   'placementClass'
 ];
 
+// configure nunjucks
+nunjucks.configure('./', {
+  watch: false
+});
+
 var adPlacements = [];
 
 
@@ -42,8 +48,10 @@ var adPlacements = [];
 
 function getSkinFromDomain (domain) {
   var result = _.findKey(skins, function (item) {
+    item = item.replace('www.', '');
     return item === domain;
   });
+
   return result;
 }
 
@@ -121,7 +129,6 @@ var getSlotNameForPlacement = function (placement) {
 
 var parseSiteSlots = function (siteSlots) {
   var siteIds = _.unique(_.pluck(siteSlots, 'siteId'));
-  console.log(siteIds);
 
   // loop through all availble siteId of current site
   var sitePageTypes = _.map(siteIds, function (siteId) {
@@ -141,7 +148,7 @@ var parseSiteSlots = function (siteSlots) {
       placementSlots = _.map(placementSlots, function (placement) {
         var placementConfig = {
           id: placement.placementId,
-          name: placement.placementName,
+          //name: placement.placementName,
           type: placement.placementType
         }
 
@@ -213,10 +220,32 @@ var saveFiles = function (adConfig) {
 
   // save by domain and page type
   _.each(adConfig, function (siteConfig) {
-    var skin = siteConfig.websiteName;
-    var output = JSON.stringify(siteConfig, undefined, 2);
-    //save(outputPath + skin + '.json', output);
+    var domain = siteConfig.websiteDomain;
+    var skin = getSkinFromDomain(domain);
+    if (skin) {
+      // create a config file for each page type per skin
+      _.each(siteConfig.pageTypes, function (pageType) {
+        var siteName = pageType.siteName.toLowerCase();
+        var pageTypeFileName = skin + '_' + siteName + '.html';
+        var data = {
+          adConfig: JSON.stringify(pageType)
+        };
+        // render into template
+        var fileContent = nunjucks.render('ad-config-template.html', data);
+
+        try {
+          save('./ad-includes/' + pageTypeFileName, fileContent);
+        } catch(error) {
+          console.error(error);
+        }
+
+      });
+    } else {
+      throw new Error ('no skin availble for domain "' + domain + '"');
+    }
   });
+  console.log('saved all files');
+
 }
 
 
@@ -244,8 +273,8 @@ var readCSV = function () {
   reader.addListener('end', function() {
     console.log('Processing %s entries', adPlacements.length);
     var adConfig = parseAdPlacements(adPlacements);
-    saveFiles(adConfig);
 
+    saveFiles(adConfig);
   });
 };
 
