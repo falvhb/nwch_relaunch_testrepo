@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/07/29 0.0.4
+================
+
+ - fixed routing problems
+
 2015/07/29 0.0.3
 ================
 
