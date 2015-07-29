@@ -58,7 +58,7 @@ module.exports = function(req, res) {
 
   // do the dossier query
   var queryParams = {
-    'path': 'dossier-container/' + req.params.dossier
+    'path': 'dossier/' + req.params.dossier
   };
 
   req.app.models.NewsRessort.query(
