@@ -1,0 +1,3146 @@
+[
+  {
+    "websiteName": "grenchnertagblatt.ch",
+    "websiteDomain": "grenchnertagblatt.ch",
+    "websiteId": "1179263",
+    "pageTypes": [
+      {
+        "siteName": "Artikel",
+        "siteId": "783710",
+        "slots": [
+          {
+            "name": "layer-interstitial",
+            "placements": [
+              {
+                "id": "5720163",
+                "type": "mobile"
+              },
+              {
+                "id": "5720178",
+                "type": "tablet"
+              },
+              {
+                "id": "5720131",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720165",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720169",
+                "type": "desktop"
+              },
+              {
+                "id": "5720156",
+                "type": "tablet"
+              },
+              {
+                "id": "5720168",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720137",
+                "type": "tablet"
+              },
+              {
+                "id": "5720183",
+                "type": "mobile"
+              },
+              {
+                "id": "5720166",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720138",
+                "type": "tablet"
+              },
+              {
+                "id": "5720167",
+                "type": "mobile"
+              },
+              {
+                "id": "5720160",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720171",
+                "type": "tablet"
+              },
+              {
+                "id": "5720170",
+                "type": "mobile"
+              },
+              {
+                "id": "5720153",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedrelated",
+            "placements": [
+              {
+                "id": "5720130",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedpopular",
+            "placements": [
+              {
+                "id": "5720146",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped1",
+            "placements": [
+              {
+                "id": "5720152",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped2",
+            "placements": [
+              {
+                "id": "5720185",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Static",
+        "siteId": "783708",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720142",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720134",
+                "type": "tablet"
+              },
+              {
+                "id": "5720151",
+                "type": "mobile"
+              },
+              {
+                "id": "5720164",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720155",
+                "type": "tablet"
+              },
+              {
+                "id": "5720186",
+                "type": "mobile"
+              },
+              {
+                "id": "5720147",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720161",
+                "type": "tablet"
+              },
+              {
+                "id": "5720184",
+                "type": "mobile"
+              },
+              {
+                "id": "5720148",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Home",
+        "siteId": "783711",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720154",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720141",
+                "type": "desktop"
+              },
+              {
+                "id": "5720129",
+                "type": "mobile"
+              },
+              {
+                "id": "5720179",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720177",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720132",
+                "type": "tablet"
+              },
+              {
+                "id": "5720157",
+                "type": "mobile"
+              },
+              {
+                "id": "5720136",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720143",
+                "type": "tablet"
+              },
+              {
+                "id": "5720182",
+                "type": "mobile"
+              },
+              {
+                "id": "5720158",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720144",
+                "type": "tablet"
+              },
+              {
+                "id": "5720150",
+                "type": "mobile"
+              },
+              {
+                "id": "5720180",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Ressort",
+        "siteId": "783709",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720175",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720172",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720181",
+                "type": "desktop"
+              },
+              {
+                "id": "5720133",
+                "type": "tablet"
+              },
+              {
+                "id": "5720140",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720135",
+                "type": "tablet"
+              },
+              {
+                "id": "5720145",
+                "type": "mobile"
+              },
+              {
+                "id": "5720176",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720139",
+                "type": "tablet"
+              },
+              {
+                "id": "5720162",
+                "type": "mobile"
+              },
+              {
+                "id": "5720173",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720149",
+                "type": "tablet"
+              },
+              {
+                "id": "5720159",
+                "type": "mobile"
+              },
+              {
+                "id": "5720174",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "websiteName": "bzbasel.ch_2015",
+    "websiteDomain": "bzbasel.ch",
+    "websiteId": "1179264",
+    "pageTypes": [
+      {
+        "siteName": "Artikel",
+        "siteId": "783713",
+        "slots": [
+          {
+            "name": "layer-interstitial",
+            "placements": [
+              {
+                "id": "5720197",
+                "type": "mobile"
+              },
+              {
+                "id": "5720232",
+                "type": "tablet"
+              },
+              {
+                "id": "5720218",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720224",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720213",
+                "type": "desktop"
+              },
+              {
+                "id": "5720227",
+                "type": "mobile"
+              },
+              {
+                "id": "5720238",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720189",
+                "type": "tablet"
+              },
+              {
+                "id": "5720225",
+                "type": "mobile"
+              },
+              {
+                "id": "5720240",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720195",
+                "type": "tablet"
+              },
+              {
+                "id": "5720188",
+                "type": "mobile"
+              },
+              {
+                "id": "5720192",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720241",
+                "type": "tablet"
+              },
+              {
+                "id": "5720231",
+                "type": "mobile"
+              },
+              {
+                "id": "5720200",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedpopular",
+            "placements": [
+              {
+                "id": "5720199",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped1",
+            "placements": [
+              {
+                "id": "5720202",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped2",
+            "placements": [
+              {
+                "id": "5720212",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedrelated",
+            "placements": [
+              {
+                "id": "5720239",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Static",
+        "siteId": "783715",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720194",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720190",
+                "type": "tablet"
+              },
+              {
+                "id": "5720228",
+                "type": "mobile"
+              },
+              {
+                "id": "5720244",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720204",
+                "type": "tablet"
+              },
+              {
+                "id": "5720203",
+                "type": "mobile"
+              },
+              {
+                "id": "5720230",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720214",
+                "type": "tablet"
+              },
+              {
+                "id": "5720234",
+                "type": "mobile"
+              },
+              {
+                "id": "5720198",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Ressort",
+        "siteId": "783714",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720219",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720223",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720233",
+                "type": "desktop"
+              },
+              {
+                "id": "5720226",
+                "type": "tablet"
+              },
+              {
+                "id": "5720229",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720205",
+                "type": "tablet"
+              },
+              {
+                "id": "5720215",
+                "type": "mobile"
+              },
+              {
+                "id": "5720191",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720206",
+                "type": "tablet"
+              },
+              {
+                "id": "5720193",
+                "type": "mobile"
+              },
+              {
+                "id": "5720210",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720216",
+                "type": "tablet"
+              },
+              {
+                "id": "5720221",
+                "type": "mobile"
+              },
+              {
+                "id": "5720217",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Home",
+        "siteId": "783712",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720222",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720209",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720235",
+                "type": "desktop"
+              },
+              {
+                "id": "5720201",
+                "type": "tablet"
+              },
+              {
+                "id": "5720220",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720187",
+                "type": "tablet"
+              },
+              {
+                "id": "5720196",
+                "type": "mobile"
+              },
+              {
+                "id": "5720211",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720207",
+                "type": "tablet"
+              },
+              {
+                "id": "5720237",
+                "type": "mobile"
+              },
+              {
+                "id": "5720243",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720208",
+                "type": "tablet"
+              },
+              {
+                "id": "5720242",
+                "type": "mobile"
+              },
+              {
+                "id": "5720236",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "websiteName": "solothurnerzeitung.ch_2015",
+    "websiteDomain": "solothurnerzeitung.ch",
+    "websiteId": "1179265",
+    "pageTypes": [
+      {
+        "siteName": "Artikel",
+        "siteId": "783719",
+        "slots": [
+          {
+            "name": "layer-interstitial",
+            "placements": [
+              {
+                "id": "5720292",
+                "type": "mobile"
+              },
+              {
+                "id": "5720269",
+                "type": "tablet"
+              },
+              {
+                "id": "5720296",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720300",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720283",
+                "type": "desktop"
+              },
+              {
+                "id": "5720270",
+                "type": "tablet"
+              },
+              {
+                "id": "5720273",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720247",
+                "type": "tablet"
+              },
+              {
+                "id": "5720271",
+                "type": "mobile"
+              },
+              {
+                "id": "5720254",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720253",
+                "type": "tablet"
+              },
+              {
+                "id": "5720278",
+                "type": "mobile"
+              },
+              {
+                "id": "5720255",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720256",
+                "type": "tablet"
+              },
+              {
+                "id": "5720291",
+                "type": "mobile"
+              },
+              {
+                "id": "5720302",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedpopular",
+            "placements": [
+              {
+                "id": "5720261",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped1",
+            "placements": [
+              {
+                "id": "5720286",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped2",
+            "placements": [
+              {
+                "id": "5720289",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedrelated",
+            "placements": [
+              {
+                "id": "5720295",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Ressort",
+        "siteId": "783716",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720248",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720260",
+                "type": "desktop"
+              },
+              {
+                "id": "5720268",
+                "type": "tablet"
+              },
+              {
+                "id": "5720276",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720299",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720245",
+                "type": "tablet"
+              },
+              {
+                "id": "5720293",
+                "type": "mobile"
+              },
+              {
+                "id": "5720297",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720257",
+                "type": "tablet"
+              },
+              {
+                "id": "5720287",
+                "type": "mobile"
+              },
+              {
+                "id": "5720262",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720288",
+                "type": "tablet"
+              },
+              {
+                "id": "5720298",
+                "type": "mobile"
+              },
+              {
+                "id": "5720281",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Home",
+        "siteId": "783717",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720263",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720274",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720280",
+                "type": "desktop"
+              },
+              {
+                "id": "5720246",
+                "type": "tablet"
+              },
+              {
+                "id": "5720275",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720250",
+                "type": "tablet"
+              },
+              {
+                "id": "5720277",
+                "type": "mobile"
+              },
+              {
+                "id": "5720301",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720259",
+                "type": "tablet"
+              },
+              {
+                "id": "5720285",
+                "type": "mobile"
+              },
+              {
+                "id": "5720266",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720294",
+                "type": "tablet"
+              },
+              {
+                "id": "5720258",
+                "type": "mobile"
+              },
+              {
+                "id": "5720267",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Static",
+        "siteId": "783718",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720290",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720251",
+                "type": "tablet"
+              },
+              {
+                "id": "5720284",
+                "type": "mobile"
+              },
+              {
+                "id": "5720282",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720264",
+                "type": "tablet"
+              },
+              {
+                "id": "5720279",
+                "type": "mobile"
+              },
+              {
+                "id": "5720249",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720265",
+                "type": "tablet"
+              },
+              {
+                "id": "5720272",
+                "type": "mobile"
+              },
+              {
+                "id": "5720252",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "websiteName": "basellandschaftlichezeitung.ch_2015",
+    "websiteDomain": "basellandschaftlichezeitung.ch",
+    "websiteId": "1179266",
+    "pageTypes": [
+      {
+        "siteName": "Artikel",
+        "siteId": "783722",
+        "slots": [
+          {
+            "name": "layer-interstitial",
+            "placements": [
+              {
+                "id": "5720320",
+                "type": "mobile"
+              },
+              {
+                "id": "5720348",
+                "type": "tablet"
+              },
+              {
+                "id": "5720357",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720353",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720305",
+                "type": "desktop"
+              },
+              {
+                "id": "5720316",
+                "type": "tablet"
+              },
+              {
+                "id": "5720322",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720313",
+                "type": "tablet"
+              },
+              {
+                "id": "5720344",
+                "type": "mobile"
+              },
+              {
+                "id": "5720303",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720325",
+                "type": "tablet"
+              },
+              {
+                "id": "5720360",
+                "type": "mobile"
+              },
+              {
+                "id": "5720359",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720342",
+                "type": "tablet"
+              },
+              {
+                "id": "5720328",
+                "type": "mobile"
+              },
+              {
+                "id": "5720339",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped1",
+            "placements": [
+              {
+                "id": "5720323",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped2",
+            "placements": [
+              {
+                "id": "5720324",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedpopular",
+            "placements": [
+              {
+                "id": "5720341",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedrelated",
+            "placements": [
+              {
+                "id": "5720349",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Static",
+        "siteId": "783723",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720335",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720321",
+                "type": "tablet"
+              },
+              {
+                "id": "5720326",
+                "type": "mobile"
+              },
+              {
+                "id": "5720304",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720332",
+                "type": "tablet"
+              },
+              {
+                "id": "5720318",
+                "type": "mobile"
+              },
+              {
+                "id": "5720336",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720356",
+                "type": "tablet"
+              },
+              {
+                "id": "5720337",
+                "type": "mobile"
+              },
+              {
+                "id": "5720343",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Home",
+        "siteId": "783720",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720347",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720306",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720330",
+                "type": "desktop"
+              },
+              {
+                "id": "5720346",
+                "type": "mobile"
+              },
+              {
+                "id": "5720355",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720307",
+                "type": "tablet"
+              },
+              {
+                "id": "5720331",
+                "type": "mobile"
+              },
+              {
+                "id": "5720352",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720319",
+                "type": "tablet"
+              },
+              {
+                "id": "5720315",
+                "type": "mobile"
+              },
+              {
+                "id": "5720311",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720351",
+                "type": "tablet"
+              },
+              {
+                "id": "5720314",
+                "type": "mobile"
+              },
+              {
+                "id": "5720310",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Ressort",
+        "siteId": "783721",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720358",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720309",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720333",
+                "type": "desktop"
+              },
+              {
+                "id": "5720312",
+                "type": "mobile"
+              },
+              {
+                "id": "5720345",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720327",
+                "type": "tablet"
+              },
+              {
+                "id": "5720317",
+                "type": "mobile"
+              },
+              {
+                "id": "5720334",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720338",
+                "type": "tablet"
+              },
+              {
+                "id": "5720308",
+                "type": "mobile"
+              },
+              {
+                "id": "5720340",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720350",
+                "type": "tablet"
+              },
+              {
+                "id": "5720354",
+                "type": "mobile"
+              },
+              {
+                "id": "5720329",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "websiteName": "oltnertagblatt.ch_2015",
+    "websiteDomain": "oltnertagblatt.ch",
+    "websiteId": "1179267",
+    "pageTypes": [
+      {
+        "siteName": "Artikel",
+        "siteId": "783727",
+        "slots": [
+          {
+            "name": "layer-interstitial",
+            "placements": [
+              {
+                "id": "5720381",
+                "type": "mobile"
+              },
+              {
+                "id": "5720380",
+                "type": "tablet"
+              },
+              {
+                "id": "5720364",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720410",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720376",
+                "type": "desktop"
+              },
+              {
+                "id": "5720379",
+                "type": "tablet"
+              },
+              {
+                "id": "5720392",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720395",
+                "type": "tablet"
+              },
+              {
+                "id": "5720404",
+                "type": "mobile"
+              },
+              {
+                "id": "5720387",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720401",
+                "type": "tablet"
+              },
+              {
+                "id": "5720372",
+                "type": "mobile"
+              },
+              {
+                "id": "5720415",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720405",
+                "type": "tablet"
+              },
+              {
+                "id": "5720383",
+                "type": "mobile"
+              },
+              {
+                "id": "5720406",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped1",
+            "placements": [
+              {
+                "id": "5720384",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped2",
+            "placements": [
+              {
+                "id": "5720386",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedpopular",
+            "placements": [
+              {
+                "id": "5720399",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedrelated",
+            "placements": [
+              {
+                "id": "5720409",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Static",
+        "siteId": "783726",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720371",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720361",
+                "type": "tablet"
+              },
+              {
+                "id": "5720391",
+                "type": "mobile"
+              },
+              {
+                "id": "5720374",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720363",
+                "type": "tablet"
+              },
+              {
+                "id": "5720370",
+                "type": "mobile"
+              },
+              {
+                "id": "5720378",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720402",
+                "type": "tablet"
+              },
+              {
+                "id": "5720400",
+                "type": "mobile"
+              },
+              {
+                "id": "5720382",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Ressort",
+        "siteId": "783725",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720390",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720375",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720377",
+                "type": "desktop"
+              },
+              {
+                "id": "5720389",
+                "type": "tablet"
+              },
+              {
+                "id": "5720412",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720368",
+                "type": "tablet"
+              },
+              {
+                "id": "5720394",
+                "type": "mobile"
+              },
+              {
+                "id": "5720388",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720414",
+                "type": "tablet"
+              },
+              {
+                "id": "5720365",
+                "type": "mobile"
+              },
+              {
+                "id": "5720373",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720416",
+                "type": "tablet"
+              },
+              {
+                "id": "5720407",
+                "type": "mobile"
+              },
+              {
+                "id": "5720396",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Home",
+        "siteId": "783724",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720393",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720398",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720411",
+                "type": "desktop"
+              },
+              {
+                "id": "5720385",
+                "type": "mobile"
+              },
+              {
+                "id": "5720397",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720362",
+                "type": "tablet"
+              },
+              {
+                "id": "5720417",
+                "type": "mobile"
+              },
+              {
+                "id": "5720413",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720367",
+                "type": "tablet"
+              },
+              {
+                "id": "5720366",
+                "type": "mobile"
+              },
+              {
+                "id": "5720369",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720408",
+                "type": "tablet"
+              },
+              {
+                "id": "5720403",
+                "type": "mobile"
+              },
+              {
+                "id": "5720418",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "websiteName": "aargauerzeitung.ch_2015",
+    "websiteDomain": "aargauerzeitung.ch",
+    "websiteId": "1179268",
+    "pageTypes": [
+      {
+        "siteName": "Artikel",
+        "siteId": "783730",
+        "slots": [
+          {
+            "name": "layer-interstitial",
+            "placements": [
+              {
+                "id": "5720430",
+                "type": "mobile"
+              },
+              {
+                "id": "5720432",
+                "type": "tablet"
+              },
+              {
+                "id": "5720438",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720441",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720467",
+                "type": "desktop"
+              },
+              {
+                "id": "5720428",
+                "type": "mobile"
+              },
+              {
+                "id": "5720459",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720439",
+                "type": "tablet"
+              },
+              {
+                "id": "5720470",
+                "type": "mobile"
+              },
+              {
+                "id": "5720446",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720455",
+                "type": "tablet"
+              },
+              {
+                "id": "5720426",
+                "type": "mobile"
+              },
+              {
+                "id": "5720450",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720468",
+                "type": "tablet"
+              },
+              {
+                "id": "5720454",
+                "type": "mobile"
+              },
+              {
+                "id": "5720440",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedrelated",
+            "placements": [
+              {
+                "id": "5720431",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedpopular",
+            "placements": [
+              {
+                "id": "5720436",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped2",
+            "placements": [
+              {
+                "id": "5720443",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped1",
+            "placements": [
+              {
+                "id": "5720466",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Home",
+        "siteId": "783731",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720420",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720422",
+                "type": "desktop"
+              },
+              {
+                "id": "5720435",
+                "type": "mobile"
+              },
+              {
+                "id": "5720452",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720461",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720442",
+                "type": "tablet"
+              },
+              {
+                "id": "5720444",
+                "type": "mobile"
+              },
+              {
+                "id": "5720423",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720453",
+                "type": "tablet"
+              },
+              {
+                "id": "5720449",
+                "type": "mobile"
+              },
+              {
+                "id": "5720458",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720465",
+                "type": "tablet"
+              },
+              {
+                "id": "5720433",
+                "type": "mobile"
+              },
+              {
+                "id": "5720445",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Ressort",
+        "siteId": "783729",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720425",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720456",
+                "type": "desktop"
+              },
+              {
+                "id": "5720447",
+                "type": "mobile"
+              },
+              {
+                "id": "5720473",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720460",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720419",
+                "type": "tablet"
+              },
+              {
+                "id": "5720434",
+                "type": "mobile"
+              },
+              {
+                "id": "5720471",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720451",
+                "type": "tablet"
+              },
+              {
+                "id": "5720476",
+                "type": "mobile"
+              },
+              {
+                "id": "5720469",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720474",
+                "type": "tablet"
+              },
+              {
+                "id": "5720421",
+                "type": "mobile"
+              },
+              {
+                "id": "5720464",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Static",
+        "siteId": "783728",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720427",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720457",
+                "type": "tablet"
+              },
+              {
+                "id": "5720437",
+                "type": "mobile"
+              },
+              {
+                "id": "5720472",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720462",
+                "type": "tablet"
+              },
+              {
+                "id": "5720448",
+                "type": "mobile"
+              },
+              {
+                "id": "5720463",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720475",
+                "type": "tablet"
+              },
+              {
+                "id": "5720429",
+                "type": "mobile"
+              },
+              {
+                "id": "5720424",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "websiteName": "limmattalerzeitung.ch_2015",
+    "websiteDomain": "limmattalerzeitung.ch",
+    "websiteId": "1179269",
+    "pageTypes": [
+      {
+        "siteName": "Artikel",
+        "siteId": "783733",
+        "slots": [
+          {
+            "name": "layer-interstitial",
+            "placements": [
+              {
+                "id": "5720495",
+                "type": "mobile"
+              },
+              {
+                "id": "5720525",
+                "type": "tablet"
+              },
+              {
+                "id": "5720507",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720523",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720533",
+                "type": "desktop"
+              },
+              {
+                "id": "5720506",
+                "type": "tablet"
+              },
+              {
+                "id": "5720518",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720488",
+                "type": "tablet"
+              },
+              {
+                "id": "5720489",
+                "type": "mobile"
+              },
+              {
+                "id": "5720528",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720501",
+                "type": "tablet"
+              },
+              {
+                "id": "5720530",
+                "type": "mobile"
+              },
+              {
+                "id": "5720480",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720502",
+                "type": "tablet"
+              },
+              {
+                "id": "5720486",
+                "type": "mobile"
+              },
+              {
+                "id": "5720498",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped1",
+            "placements": [
+              {
+                "id": "5720484",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedpopular",
+            "placements": [
+              {
+                "id": "5720504",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped2",
+            "placements": [
+              {
+                "id": "5720511",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedrelated",
+            "placements": [
+              {
+                "id": "5720529",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Home",
+        "siteId": "783732",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720479",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720494",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720524",
+                "type": "desktop"
+              },
+              {
+                "id": "5720483",
+                "type": "mobile"
+              },
+              {
+                "id": "5720517",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720512",
+                "type": "tablet"
+              },
+              {
+                "id": "5720531",
+                "type": "mobile"
+              },
+              {
+                "id": "5720534",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720516",
+                "type": "tablet"
+              },
+              {
+                "id": "5720482",
+                "type": "mobile"
+              },
+              {
+                "id": "5720503",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720519",
+                "type": "tablet"
+              },
+              {
+                "id": "5720532",
+                "type": "mobile"
+              },
+              {
+                "id": "5720497",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Ressort",
+        "siteId": "783734",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720492",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720477",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720526",
+                "type": "desktop"
+              },
+              {
+                "id": "5720508",
+                "type": "mobile"
+              },
+              {
+                "id": "5720509",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720485",
+                "type": "tablet"
+              },
+              {
+                "id": "5720527",
+                "type": "mobile"
+              },
+              {
+                "id": "5720491",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720513",
+                "type": "tablet"
+              },
+              {
+                "id": "5720496",
+                "type": "mobile"
+              },
+              {
+                "id": "5720478",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720522",
+                "type": "tablet"
+              },
+              {
+                "id": "5720490",
+                "type": "mobile"
+              },
+              {
+                "id": "5720520",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Static",
+        "siteId": "783735",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720514",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720500",
+                "type": "tablet"
+              },
+              {
+                "id": "5720505",
+                "type": "mobile"
+              },
+              {
+                "id": "5720481",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720510",
+                "type": "tablet"
+              },
+              {
+                "id": "5720493",
+                "type": "mobile"
+              },
+              {
+                "id": "5720521",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720515",
+                "type": "tablet"
+              },
+              {
+                "id": "5720499",
+                "type": "mobile"
+              },
+              {
+                "id": "5720487",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "websiteName": "badenertagblatt.ch_2015",
+    "websiteDomain": "badenertagblatt.ch",
+    "websiteId": "1179270",
+    "pageTypes": [
+      {
+        "siteName": "Artikel",
+        "siteId": "783737",
+        "slots": [
+          {
+            "name": "layer-interstitial",
+            "placements": [
+              {
+                "id": "5720536",
+                "type": "mobile"
+              },
+              {
+                "id": "5720562",
+                "type": "tablet"
+              },
+              {
+                "id": "5720543",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720539",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720569",
+                "type": "desktop"
+              },
+              {
+                "id": "5720538",
+                "type": "mobile"
+              },
+              {
+                "id": "5720587",
+                "type": "tablet"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720574",
+                "type": "tablet"
+              },
+              {
+                "id": "5720589",
+                "type": "mobile"
+              },
+              {
+                "id": "5720568",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720579",
+                "type": "tablet"
+              },
+              {
+                "id": "5720557",
+                "type": "mobile"
+              },
+              {
+                "id": "5720540",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720580",
+                "type": "tablet"
+              },
+              {
+                "id": "5720575",
+                "type": "mobile"
+              },
+              {
+                "id": "5720555",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped1",
+            "placements": [
+              {
+                "id": "5720542",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedrelated",
+            "placements": [
+              {
+                "id": "5720563",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snippedpopular",
+            "placements": [
+              {
+                "id": "5720571",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "ad-snipped2",
+            "placements": [
+              {
+                "id": "5720572",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Static",
+        "siteId": "783739",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720549",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720541",
+                "type": "tablet"
+              },
+              {
+                "id": "5720585",
+                "type": "mobile"
+              },
+              {
+                "id": "5720583",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720554",
+                "type": "tablet"
+              },
+              {
+                "id": "5720581",
+                "type": "mobile"
+              },
+              {
+                "id": "5720559",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720561",
+                "type": "tablet"
+              },
+              {
+                "id": "5720578",
+                "type": "mobile"
+              },
+              {
+                "id": "5720576",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Ressort",
+        "siteId": "783736",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720551",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720537",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720566",
+                "type": "desktop"
+              },
+              {
+                "id": "5720547",
+                "type": "tablet"
+              },
+              {
+                "id": "5720584",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720552",
+                "type": "tablet"
+              },
+              {
+                "id": "5720564",
+                "type": "mobile"
+              },
+              {
+                "id": "5720590",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720556",
+                "type": "tablet"
+              },
+              {
+                "id": "5720553",
+                "type": "mobile"
+              },
+              {
+                "id": "5720577",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720573",
+                "type": "tablet"
+              },
+              {
+                "id": "5720535",
+                "type": "mobile"
+              },
+              {
+                "id": "5720570",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteName": "Home",
+        "siteId": "783738",
+        "slots": [
+          {
+            "name": "side-ad",
+            "placements": [
+              {
+                "id": "5720558",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "rectangle",
+            "placements": [
+              {
+                "id": "5720546",
+                "type": "desktop"
+              },
+              {
+                "id": "5720560",
+                "type": "tablet"
+              },
+              {
+                "id": "5720591",
+                "type": "mobile"
+              }
+            ]
+          },
+          {
+            "name": "escalator",
+            "placements": [
+              {
+                "id": "5720588",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "top-board",
+            "placements": [
+              {
+                "id": "5720545",
+                "type": "tablet"
+              },
+              {
+                "id": "5720550",
+                "type": "mobile"
+              },
+              {
+                "id": "5720592",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "bottom-board",
+            "placements": [
+              {
+                "id": "5720548",
+                "type": "tablet"
+              },
+              {
+                "id": "5720544",
+                "type": "mobile"
+              },
+              {
+                "id": "5720567",
+                "type": "desktop"
+              }
+            ]
+          },
+          {
+            "name": "content-board",
+            "placements": [
+              {
+                "id": "5720586",
+                "type": "tablet"
+              },
+              {
+                "id": "5720582",
+                "type": "mobile"
+              },
+              {
+                "id": "5720565",
+                "type": "desktop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

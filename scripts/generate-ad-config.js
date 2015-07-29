@@ -7,7 +7,7 @@ var _ = require('lodash');
 var nunjucks = require('nunjucks');
 var toSlug = require('to-slug');
 var skins = require('../app/node_modules/config/skins.json');
-var outputPath = '../client/config/advertising/';
+var outputPath = '../app/assets/includes/advertising/';
 
 var importFile = './az-banners-all-sites.csv';
 var csvColumnNames = [
@@ -216,33 +216,33 @@ function save(fileName, data) {
 var saveFiles = function (adConfig) {
   // save the main config
   var output = JSON.stringify(adConfig, undefined, 2);
-  save('../app/node_modules/advertising/config/ad-config.json', output);
+  save(outputPath + 'ad-config.json', output);
 
   // save by domain and page type
   _.each(adConfig, function (siteConfig) {
     var domain = siteConfig.websiteDomain;
     var skin = getSkinFromDomain(domain);
-    if (skin) {
-      // create a config file for each page type per skin
-      _.each(siteConfig.pageTypes, function (pageType) {
-        var siteName = pageType.siteName.toLowerCase();
-        var pageTypeFileName = skin + '_' + siteName + '.html';
-        var data = {
-          adConfig: JSON.stringify(pageType)
-        };
-        // render into template
-        var fileContent = nunjucks.render('ad-config-template.html', data);
-
-        try {
-          save('./ad-includes/' + pageTypeFileName, fileContent);
-        } catch(error) {
-          console.error(error);
-        }
-
-      });
-    } else {
+    if (!skin) {
       throw new Error ('no skin availble for domain "' + domain + '"');
     }
+
+    // create a config file for each page type per skin
+    _.each(siteConfig.pageTypes, function (pageType) {
+      var siteName = pageType.siteName.toLowerCase();
+      var pageTypeFileName = skin + '_' + siteName + '.html';
+      var data = {
+        adConfig: JSON.stringify(pageType)
+      };
+      // render into template
+      var fileContent = nunjucks.render('ad-config-template.html', data);
+
+      try {
+        save(outputPath + pageTypeFileName, fileContent);
+      } catch(error) {
+        console.error(error);
+      }
+    });
+
   });
   console.log('saved all files');
 

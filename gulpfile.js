@@ -33,6 +33,7 @@ gulp.task('server', require('./tasks/server.js'));
 gulp.task('icons', require('./tasks/icons.js'));
 gulp.task('static-scripts', require('./tasks/static-scripts.js'));
 gulp.task('static-images', require('./tasks/static-images.js'));
+gulp.task('static-includes', require('./tasks/static-includes.js'));
 
 // Tests
 gulp.task('test:react', require('./tasks/tests.js').react);
@@ -54,6 +55,7 @@ gulp.task('assets', sequence('clean', [
   'sass',
   'static-scripts',
   'static-images',
+  'static-includes',
   'icons',
   'fonts'
 ]));
