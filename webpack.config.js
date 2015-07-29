@@ -27,10 +27,18 @@ var config = {
     extensions: ['', '.js', '.jsx', '.json']
   },
   plugins: [
-    new webpack.EnvironmentPlugin(
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+      'STATIC_ASSETS',
+      'PAGINATED',
+      'GOLDBACH_SALT',
       'DISQUS_SHORTNAME',
-      'GOLDBACH_SALT'
-    ),
+      'KALTURA_ACCOUNT_ID',
+      'KALTURA_AUTOPLAY',
+      'KALTURA_PLAYER_ID',
+      'KALTURA_PLAYER_NOADS_ID',
+      'KALTURA_TRACKING_URL'
+    ]),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de/)
   ]
 };

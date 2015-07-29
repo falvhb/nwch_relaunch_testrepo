@@ -19,3 +19,22 @@
 @function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
 }
+
+/// Asset path helpers pased on environment. Uses global $environment variable in utilities/environment.scss
+/// @access public
+/// @return {String}
+@function get-base-path() {
+  @if ($environment == 'prod') {
+    @return '/__node__/__static__/';
+  }
+
+  @return '/';
+}
+
+/// Asset function for background images, based on environment toggle
+/// @access public
+/// @param {String} $path - path to file
+/// @return {url('...')}
+@function asset($path) {
+  @return url(get-base-path() + $path);
+}

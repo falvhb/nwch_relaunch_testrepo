@@ -4,12 +4,12 @@ var Iso = require('../../app/node_modules/iso-react');
 module.exports = function(req, res) {
 
   // get params
-  var articleData = req.item.data;
+  var params = req.params || {};
 
-  if (!articleData) {
+  if (req.article && !req.article.data) {
     // no article found
-    res.write('<!-- Article "' + req.params.articleId + '" not found! -->\n');
-    var errors = req.item.errors;
+    res.write('<!-- Article "' + params.articleId + '" not found! -->\n');
+    var errors = req.article.errors;
     if (errors && errors.length > 0) {
       res.write('<!-- Error detail: ' + errors[0].detail + ' -->\n');
     }
@@ -17,13 +17,26 @@ module.exports = function(req, res) {
     return;
   }
 
-  var componentName = req.params.component;
-  var componentVariation = req.params.variation;
+  var articleData = null;
+  if (req.article) {
+    articleData = req.article.data;
+  }
+
+  var componentName = params.component;
+  if (!componentName) {
+    res.send('<!-- No component name provided! -->');
+    return;
+  }
+  var componentVariation = params.variation;
+  if (!componentName) {
+    res.send('<!-- No variation name provided! -->');
+    return;
+  }
 
   // map our data
   var state = {
-    "article": articleData,
-    "variation": componentVariation
+    'article': articleData,
+    'variation': componentVariation
   };
 
   // resolve the component
@@ -31,8 +44,7 @@ module.exports = function(req, res) {
   try {
     component = require('../../app/node_modules/components/' + componentName);
   } catch (e) {
-    res.write('<!-- Component "' + componentName + '" not found! -->');
-    res.end();
+    res.send('<!-- Component "' + componentName + '" not found! -->');
     return;
   }
 

@@ -2,7 +2,7 @@
 var path = require('path');
 
 var defaults = {
-  folder: './app/node_modules/components/includes'
+  folder: './app/includes'
 };
 
 var nunjucks = require('nunjucks');
@@ -23,6 +23,5 @@ module.exports = function nodeIncludesRouter(req, res) {
   };
   var component = req.params.viewname;
   res.write(renderNunchuck(component, data));
-  res.end();
 };
 

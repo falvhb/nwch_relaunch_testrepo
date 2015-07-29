@@ -5,6 +5,32 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - moved Nunjucks include folder from `/app/node_modules/components/includes` to `/app/includes`
+
+2015/07/28 0.0.2
+================
+
+  - improved parsing of enrichments. fixes
+    https://github.com/lovelysystems/az-nwch-js/issues/93#issuecomment-124952925
+  - adds ajax results to topic page
+  - improves use of ENV variables
+  - improved fetching of teaser images (those with videos / gallery main assets)
+  - adds topic page and basic pagination, using static links only (no-js)
+
+  - uses .env for pagination count
+    DEPLOY: add PAGINATED=12 to env file
+
+2015/07/27 0.0.1
+================
+
+  - uses .env vars for Kaltura params
+    DEPLOY: need to add Kaltura and STATIC_ASSETS vars to env files
+
+  - using two .env files - .env and .env.dev
+
+ - added __fetchurl__ endpoint to nginx to be able to fetch the azmedien
+   footer in local dev environment
+
  - improved image handling over all with 16x9 main asset cropping and letterbox option plus loading failed fallback
  - improved image gallery styling, interactions and image sizing / mobile sizing
  - fixed video enrichments in the production environment
@@ -25,6 +51,15 @@ unreleased
  - allowed gallery and video assets as the main asset
  - implemented related videos panel
    DEPLOY: add node view to staging in CMS
+ - introduced tests for routing
+ - improved routing for components
+ - test runners now actually return an error code greate than 0 if a test failed
+ - introduced error handling: returns status code 200 if not explicitly set
+   otherwise.
+ - introduced 'catch all' route if no other router is found.
+ - introduced logger 'winston'
+ - disabled 'x-powered-by'
+ - removed boot/explorer.js
 
 
 2015/07/14 0.0.0

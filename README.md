@@ -30,7 +30,7 @@ When working with back-end integration, on http://localhost:8801.
 
 
 ```sh
-$ gulp assets
+$ gulp assets --production
 $ gulp --production
 ```
 

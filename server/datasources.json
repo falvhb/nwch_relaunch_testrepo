@@ -18,11 +18,56 @@
       {
         "template": {
           "method": "GET",
+          "url": "/news_ressorts/{id}"
+        },
+        "functions": {
+          "getNewsRessort": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/news_ressorts",
+          "query": {
+            "path": "{path}"
+          }
+        },
+        "functions": {
+          "queryNewsRessort": [
+            "path"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
           "url": "/published_news_articles/{id}"
         },
         "functions": {
           "getPublishedNewsArticle": [
             "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/published_news_articles",
+          "query": {
+            "keywords": "{keywords}",
+            "domain": "{domain=aaz}",
+            "limit": "{limit=10}",
+            "offset": "{offset=0}"
+          }
+        },
+        "functions": {
+          "queryPublishedNewsArticle": [
+            "keywords",
+            "domain",
+            "limit",
+            "offset"
           ]
         }
       },

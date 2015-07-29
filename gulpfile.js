@@ -16,7 +16,8 @@ gulp.task('lint', ['eslint', 'scss-lint']);
 
 // Compile Sass and its documentation
 gulp.task('sass', require('./tasks/sass.js'));
-gulp.task('sassdoc', require('./tasks/sassdoc.js'));
+gulp.task('sass:env', require('./tasks/sass-env.js'));
+gulp.task('sass:docs', require('./tasks/sass-doc.js'));
 
 // Run WebPack
 gulp.task('webpack', require('./tasks/webpack.js'));
@@ -34,7 +35,9 @@ gulp.task('static-scripts', require('./tasks/static-scripts.js'));
 gulp.task('static-images', require('./tasks/static-images.js'));
 
 // Tests
-gulp.task('test', require('./tasks/tests.js'));
+gulp.task('test:react', require('./tasks/tests.js').react);
+gulp.task('test:api', require('./tasks/tests.js').api);
+gulp.task('test', ['test:react', 'test:api']);
 
 // Living Styleguide
 gulp.task('sync-styleguide:typography', require('./tasks/sync-styleguide-typography.js'));
@@ -47,6 +50,7 @@ gulp.task('sync-styleguide', ['sync-styleguide:typography', 'sync-styleguide:col
 
 // Assets compilation
 gulp.task('assets', sequence('clean', [
+  'sass:env',
   'sass',
   'static-scripts',
   'static-images',
@@ -60,7 +64,7 @@ gulp.task('buildtask', function() {
 });
 
 // Production build
-gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'test', 'sync-styleguide', 'sassdoc'));
+gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'test', 'sync-styleguide', 'sass:docs'));
 
 // Development
 gulp.task('dev', sequence('server', 'watch', 'webpack'));

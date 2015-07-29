@@ -7,6 +7,7 @@
 // will be duplicated in each component. Definitely not what you want.
 
 @import 'vendor/include-media';
+@import 'utilities/environment';
 @import 'utilities/variables';
 @import 'utilities/functions';
 @import 'utilities/mixins';
