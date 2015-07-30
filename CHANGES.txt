@@ -5,7 +5,27 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/07/30 0.0.5
+================
+
+  - add axios as a Promise library and use for topic page and styleguide
+  - fixed body parsing error with document stoerers
+  - improved image rendering (remove 1px 'jump')
+  - always show aspect ratio box so again, no jump
+  - fixed title on topic page - just shows keyword as it is
+
+
+2015/07/29 0.0.4
+================
+
+  - fixed routing problems
+
+2015/07/29 0.0.3
+================
+
   - moved Nunjucks include folder from `/app/node_modules/components/includes` to `/app/includes`
+
+  - added route for dossier-header
 
 2015/07/28 0.0.2
 ================
@@ -23,10 +43,10 @@ unreleased
 2015/07/27 0.0.1
 ================
 
-  - uses .env vars for Kaltura params
-    DEPLOY: need to add Kaltura and STATIC_ASSETS vars to env files
+ - uses .env vars for Kaltura params
+   DEPLOY: need to add Kaltura and STATIC_ASSETS vars to env files
 
-  - using two .env files - .env and .env.dev
+ - using two .env files - .env and .env.dev
 
  - added __fetchurl__ endpoint to nginx to be able to fetch the azmedien
    footer in local dev environment

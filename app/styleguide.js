@@ -5,6 +5,7 @@ var _ = require('lodash');
 var path = require('path');
 var objectAssign = require('react/lib/Object.assign');
 var recursiveUnescape = require('recursive-unescape');
+var axios = require('axios');
 
 // -----------------------------------------------------------------------------
 // Helpers
@@ -79,17 +80,12 @@ var renderPage = function(components) {
 // -----------------------------------------------------------------------------
 // Get Json then render
 // -----------------------------------------------------------------------------
+axios.get('/styleguide/components.json')
+  .then(function (response) {
+    renderPage(response.data);
+  })
+  .catch(function (response) {
+    console.log('Error parsing components from JSON!');
+    console.log(response);
+  });
 
-var xhr = new XMLHttpRequest();
-xhr.open('GET', '/styleguide/components.json');
-xhr.responseType = 'json';
-
-xhr.onload = function() {
-  renderPage(xhr.response);
-};
-
-xhr.onerror = function() {
-  console.log('Error parsing components', xhr.response);
-};
-
-xhr.send();
