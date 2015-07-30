@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - add axios as a Promise library and use for topic page and styleguide
   - fixed body parsing error with document stoerers
   - improved image rendering (remove 1px 'jump')
   - always show aspect ratio box so again, no jump
