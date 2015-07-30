@@ -5,10 +5,12 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - fixed body parsing error with document stoerers
+
 2015/07/29 0.0.4
 ================
 
- - fixed routing problems
+  - fixed routing problems
 
 2015/07/29 0.0.3
 ================
@@ -33,10 +35,10 @@ unreleased
 2015/07/27 0.0.1
 ================
 
-  - uses .env vars for Kaltura params
-    DEPLOY: need to add Kaltura and STATIC_ASSETS vars to env files
+ - uses .env vars for Kaltura params
+   DEPLOY: need to add Kaltura and STATIC_ASSETS vars to env files
 
-  - using two .env files - .env and .env.dev
+ - using two .env files - .env and .env.dev
 
  - added __fetchurl__ endpoint to nginx to be able to fetch the azmedien
    footer in local dev environment
