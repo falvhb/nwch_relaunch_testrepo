@@ -5,12 +5,12 @@ var ArticleHeader = require('components/article-header');
 var ArticleIntro = require('components/article-intro');
 var ArticleDetail = require('components/article-detail');
 var Teaser = require('components/teaser');
-var AdTech = require('advertising');
+var Advertising = require('advertising');
 var RelatedVideos = require('components/related-videos');
 var Footer = require('components/footer');
 var TopicDetail = require('components/topic-detail');
 
-adTech = new AdTech('.ad');
+advertising = Advertising.init('.ad');
 
 
 var components = {
