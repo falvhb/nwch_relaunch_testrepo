@@ -6,6 +6,10 @@ unreleased
 ==========
 
   - fixed body parsing error with document stoerers
+  - improved image rendering (remove 1px 'jump')
+  - always show aspect ratio box so again, no jump
+  - fixed title on topic page - just shows keyword as it is
+
 
 2015/07/29 0.0.4
 ================
