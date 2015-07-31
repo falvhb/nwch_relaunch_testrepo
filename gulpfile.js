@@ -18,6 +18,8 @@ gulp.task('lint', ['eslint', 'scss-lint']);
 gulp.task('sass', require('./tasks/sass.js'));
 gulp.task('sass:env', require('./tasks/sass-env.js'));
 gulp.task('sass:docs', require('./tasks/sass-doc.js'));
+gulp.task('sass:wufoo', require('./tasks/wufoo.js'));
+gulp.task('sassdoc', require('./tasks/sassdoc.js'));
 
 // Run WebPack
 gulp.task('webpack', require('./tasks/webpack.js'));
@@ -52,6 +54,7 @@ gulp.task('sync-styleguide', ['sync-styleguide:typography', 'sync-styleguide:col
 gulp.task('assets', sequence('clean', [
   'sass:env',
   'sass',
+  'sass:wufoo',
   'static-scripts',
   'static-images',
   'icons',
