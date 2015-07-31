@@ -15,6 +15,26 @@ function renderNunchuck(component, data) {
 
 module.exports = function nodeIncludesRouter(req, res) {
   var component = req.params.viewname;
-  res.send(renderNunchuck(component));
+  var pageType = 'home';
+  var parts = [];
+  ['a', 'b', 'c', 'd', 'e'].forEach(function(v) {
+    if (req.params[v]) {
+      parts.push(req.params[v]);
+    }
+  });
+  if (parts.length) {
+    var requestPath = path.join.apply(null, parts);
+    if (requestPath.match(/^([^\\/]+?)(?:\/([^\\/]+?))?\/([^\\/]+?)-(\d+)(?:\/(?=$))?$/i)) {
+      pageType = 'artikel';
+    } else if (requestPath.match(/^([^\\/]+?)(?:\/([^\\/]+?))?(?:\/(?=$))?$/i)) {
+      pageType = 'ressort';
+    }
+  }
+  var skin = req.headers ? req.headers['x-skin'] : 'aaz';
+  var data = {
+    "pageType": pageType,
+    "skin": skin
+  };
+  res.send(renderNunchuck(component, data));
 };
 

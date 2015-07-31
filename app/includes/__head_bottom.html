@@ -26,13 +26,4 @@
 <link rel="stylesheet" href="/__node__/__static__/client/styles.css" />
 <script src="http://aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
 
-<script>
-  (function (context) {
-    var az;
-    context.az = context.az || {};
-    az = context.az;
-    az.advertising = az.advertising || {};
-    az.advertising.pageConfig = {"siteName":"Artikel","siteId":"783730","slots":[{"name":"layer-interstitial","placements":[{"id":"5720430","type":"mobile"},{"id":"5720432","type":"tablet"},{"id":"5720438","type":"desktop"}]},{"name":"side-ad","placements":[{"id":"5720441","type":"desktop"}]},{"name":"rectangle","placements":[{"id":"5720467","type":"desktop"},{"id":"5720428","type":"mobile"},{"id":"5720459","type":"tablet"}]},{"name":"bottom-board","placements":[{"id":"5720439","type":"tablet"},{"id":"5720470","type":"mobile"},{"id":"5720446","type":"desktop"}]},{"name":"top-board","placements":[{"id":"5720455","type":"tablet"},{"id":"5720426","type":"mobile"},{"id":"5720450","type":"desktop"}]},{"name":"content-board","placements":[{"id":"5720468","type":"tablet"},{"id":"5720454","type":"mobile"},{"id":"5720440","type":"desktop"}]},{"name":"ad-snippedrelated","placements":[{"id":"5720431","type":"desktop"}]},{"name":"ad-snippedpopular","placements":[{"id":"5720436","type":"desktop"}]},{"name":"ad-snipped2","placements":[{"id":"5720443","type":"desktop"}]},{"name":"ad-snipped1","placements":[{"id":"5720466","type":"desktop"}]}]};
-
-  })(window);
-</script>
+<!--# include virtual="/__node__/__static__/client/includes/advertising/{{ skin }}_{{ pageType }}.html" -->
