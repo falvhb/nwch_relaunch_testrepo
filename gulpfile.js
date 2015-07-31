@@ -19,7 +19,6 @@ gulp.task('sass', require('./tasks/sass.js'));
 gulp.task('sass:env', require('./tasks/sass-env.js'));
 gulp.task('sass:docs', require('./tasks/sass-doc.js'));
 gulp.task('sass:wufoo', require('./tasks/wufoo.js'));
-gulp.task('sassdoc', require('./tasks/sassdoc.js'));
 
 // Run WebPack
 gulp.task('webpack', require('./tasks/webpack.js'));

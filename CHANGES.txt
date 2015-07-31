@@ -6,6 +6,7 @@ unreleased
 ==========
 
   - made dossier routing generic
+  - added user feedback widget
 
 2015/07/30 0.0.5
 ================

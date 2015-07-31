@@ -33,7 +33,7 @@ var config = {
       'PAGINATED',
       'GOLDBACH_SALT',
       'WUFOO_USERNAME',
-      'WUFOO_FEEDBACK_FORM'
+      'WUFOO_FEEDBACK_FORM',
       'DISQUS_SHORTNAME',
       'KALTURA_ACCOUNT_ID',
       'KALTURA_AUTOPLAY',
