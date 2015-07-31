@@ -5,7 +5,11 @@ module.exports = function(req, res) {
 
   var params = req.params;
 
-  var componentName = 'dossier-header';
+  var componentName = params.component;
+  if (!componentName) {
+    res.send('<!-- No component name provided! -->');
+    return;
+  }
 
   var componentVariation = params.variation;
   if (!componentVariation) {

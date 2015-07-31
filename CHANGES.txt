@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - made dossier routing generic
+
 2015/07/30 0.0.5
 ================
 
