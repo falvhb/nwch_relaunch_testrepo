@@ -8,6 +8,7 @@ var Teaser = require('components/teaser');
 var RelatedVideos = require('components/related-videos');
 var Footer = require('components/footer');
 var TopicDetail = require('components/topic-detail');
+var HeaderNav = require('components/header-nav');
 
 var components = {
   articleHeader: ArticleHeader,
@@ -16,7 +17,8 @@ var components = {
   teaser: Teaser,
   relatedVideos: RelatedVideos,
   footer: Footer,
-  topicDetail: TopicDetail
+  topicDetail: TopicDetail,
+  headerNav: HeaderNav
 };
 
 iso.hydrate(components);
