@@ -1,0 +1,465 @@
+website_id,website_name,category_name,category_comment,site_id,site_name,placement_id,placement_name,placement_size,placement_position,placement_type,placement_status,placement_slot_id
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720163,Artikel Layer/Interstitial Mobile,1 x 1,default,default,active,Artikel_LayerInterstitial
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720142,Static Side Ad Desktop,160 x 600,default,default,active,Static_Side_Ad
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720154,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720165,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720175,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720141,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720169,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720172,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720177,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720181,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720132,Home Content Board Tablet,728 x 90,default,default,active,Home_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720134,Static Bottom Board Tablet,728 x 90,default,default,active,Static_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720135,Ressort Top Board Tablet,728 x 90,default,default,active,Ressort_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720137,Artikel Top Board Tablet,728 x 90,default,default,active,Artikel_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720138,Artikel Content Board Tablet,728 x 90,default,default,active,Artikel_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720139,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720143,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720144,Home Bottom Board Tablet,728 x 90,default,default,active,Home_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720149,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720155,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720161,Static Top Board Tablet,728 x 90,default,default,active,Static_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720171,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720129,Home Rectangle Mobile,320 x 250,default,default,active,Home_Rectangle
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720133,Ressort Rectangle Tablet,320 x 250,default,default,active,Ressort_Rectangle
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720140,Ressort Rectangle Mobile,320 x 250,default,default,active,Ressort_Rectangle
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720156,Artikel Rectangle Tablet,320 x 250,default,default,active,Artikel_Rectangle
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720168,Artikel Rectangle Mobile,320 x 250,default,default,active,Artikel_Rectangle
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720179,Home Rectangle Tablet,320 x 250,default,default,active,Home_Rectangle
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720178,Artikel Layer/Interstitial Tablet,1 x 2,default,default,active,Artikel_LayerInterstitial
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720131,Artikel Layer/Interstitial Desktop,1 x 3,default,default,active,Artikel_LayerInterstitial
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720145,Ressort Top Board Mobile,320 x 160,default,default,active,Ressort_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720150,Home Bottom Board Mobile,320 x 160,default,default,active,Home_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720151,Static Bottom Board Mobile,320 x 160,default,default,active,Static_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720157,Home Content Board Mobile,320 x 160,default,default,active,Home_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720159,Ressort Content Board Mobile,320 x 160,default,default,active,Ressort_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720162,Ressort Bottom Board Mobile,320 x 160,default,default,active,Ressort_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720167,Artikel Content Board Mobile,320 x 160,default,default,active,Artikel_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720170,Artikel Bottom Board Mobile,320 x 160,default,default,active,Artikel_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720182,Home Top Board Mobile,320 x 160,default,default,active,Home_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720183,Artikel Top Board Mobile,320 x 160,default,default,active,Artikel_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720184,Static Top Board Mobile,320 x 160,default,default,active,Static_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720186,Static Content Board Mobile,320 x 160,default,default,active,Static_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720136,Home Content Board Desktop,994 x 250,default,default,active,Home_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720147,Static Content Board Desktop,994 x 250,default,default,active,Static_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720148,Static Top Board Desktop,994 x 250,default,default,active,Static_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720153,Artikel Bottom Board Desktop,994 x 250,default,default,active,Artikel_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720158,Home Top Board Desktop,994 x 250,default,default,active,Home_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720160,Artikel Content Board Desktop,994 x 250,default,default,active,Artikel_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783708,Static,5720164,Static Bottom Board Desktop,994 x 250,default,default,active,Static_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720166,Artikel Top Board Desktop,994 x 250,default,default,active,Artikel_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720173,Ressort Bottom Board Desktop,994 x 250,default,default,active,Ressort_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720174,Ressort Content Board Desktop,994 x 250,default,default,active,Ressort_Content_Board
+1179263,grenchnertagblatt.ch_2015,,,783709,Ressort,5720176,Ressort Top Board Desktop,994 x 250,default,default,active,Ressort_Top_Board
+1179263,grenchnertagblatt.ch_2015,,,783711,Home,5720180,Home Bottom Board Desktop,994 x 250,default,default,active,Home_Bottom_Board
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720130,Artikel Ad SnippedRelated Native,210 x 60,default,default,active,Artikel_Ad_SnippedRelated_Native
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720146,Artikel Ad SnippedPopular Native,210 x 60,default,default,active,Artikel_Ad_SnippedPopular_Native
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720152,Artikel Ad Snipped1 Native,210 x 60,default,default,active,Artikel_Ad_Snipped1_Native
+1179263,grenchnertagblatt.ch_2015,,,783710,Artikel,5720185,Artikel Ad Snipped2 Native,210 x 60,default,default,active,Artikel_Ad_Snipped2_Native
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720197,Artikel Layer/Interstitial Mobile,1 x 1,default,default,active,Artikel_LayerInterstitial
+1179264,bzbasel.ch_2015,,,783715,Static,5720194,Static Side Ad Desktop,160 x 600,default,default,active,Static_Side_Ad
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720219,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
+1179264,bzbasel.ch_2015,,,783712,Home,5720222,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720224,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
+1179264,bzbasel.ch_2015,,,783712,Home,5720209,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720213,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720223,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720233,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
+1179264,bzbasel.ch_2015,,,783712,Home,5720235,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
+1179264,bzbasel.ch_2015,,,783712,Home,5720187,Home Bottom Board Tablet,728 x 90,default,default,active,Home_Bottom_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720189,Artikel Content Board Tablet,728 x 90,default,default,active,Artikel_Content_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720190,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720195,Artikel Top Board Tablet,728 x 90,default,default,active,Artikel_Top_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720204,Static Top Board Tablet,728 x 90,default,default,active,Static_Top_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720205,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720206,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720207,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720208,Home Content Board Tablet,728 x 90,default,default,active,Home_Content_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720214,Static Bottom Board Tablet,728 x 90,default,default,active,Static_Bottom_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720216,Ressort Top Board Tablet,728 x 90,default,default,active,Ressort_Top_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720241,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720201,Home Rectangle Tablet,320 x 250,default,default,active,Home_Rectangle
+1179264,bzbasel.ch_2015,,,783712,Home,5720220,Home Rectangle Mobile,320 x 250,default,default,active,Home_Rectangle
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720226,Ressort Rectangle Tablet,320 x 250,default,default,active,Ressort_Rectangle
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720227,Artikel Rectangle Mobile,320 x 250,default,default,active,Artikel_Rectangle
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720229,Ressort Rectangle Mobile,320 x 250,default,default,active,Ressort_Rectangle
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720238,Artikel Rectangle Tablet,320 x 250,default,default,active,Artikel_Rectangle
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720232,Artikel Layer/Interstitial Tablet,1 x 2,default,default,active,Artikel_LayerInterstitial
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720218,Artikel Layer/Interstitial Desktop,1 x 3,default,default,active,Artikel_LayerInterstitial
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720188,Artikel Top Board Mobile,320 x 160,default,default,active,Artikel_Top_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720193,Ressort Content Board Mobile,320 x 160,default,default,active,Ressort_Content_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720196,Home Bottom Board Mobile,320 x 160,default,default,active,Home_Bottom_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720203,Static Top Board Mobile,320 x 160,default,default,active,Static_Top_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720215,Ressort Bottom Board Mobile,320 x 160,default,default,active,Ressort_Bottom_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720221,Ressort Top Board Mobile,320 x 160,default,default,active,Ressort_Top_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720225,Artikel Content Board Mobile,320 x 160,default,default,active,Artikel_Content_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720228,Static Content Board Mobile,320 x 160,default,default,active,Static_Content_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720231,Artikel Bottom Board Mobile,320 x 160,default,default,active,Artikel_Bottom_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720234,Static Bottom Board Mobile,320 x 160,default,default,active,Static_Bottom_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720237,Home Top Board Mobile,320 x 160,default,default,active,Home_Top_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720242,Home Content Board Mobile,320 x 160,default,default,active,Home_Content_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720191,Ressort Bottom Board Desktop,994 x 250,default,default,active,Ressort_Bottom_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720192,Artikel Top Board Desktop,994 x 250,default,default,active,Artikel_Top_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720198,Static Bottom Board Desktop,994 x 250,default,default,active,Static_Bottom_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720200,Artikel Bottom Board Desktop,994 x 250,default,default,active,Artikel_Bottom_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720210,Ressort Content Board Desktop,994 x 250,default,default,active,Ressort_Content_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720211,Home Bottom Board Desktop,994 x 250,default,default,active,Home_Bottom_Board
+1179264,bzbasel.ch_2015,,,783714,Ressort,5720217,Ressort Top Board Desktop,994 x 250,default,default,active,Ressort_Top_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720230,Static Top Board Desktop,994 x 250,default,default,active,Static_Top_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720236,Home Content Board Desktop,994 x 250,default,default,active,Home_Content_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720240,Artikel Content Board Desktop,994 x 250,default,default,active,Artikel_Content_Board
+1179264,bzbasel.ch_2015,,,783712,Home,5720243,Home Top Board Desktop,994 x 250,default,default,active,Home_Top_Board
+1179264,bzbasel.ch_2015,,,783715,Static,5720244,Static Content Board Desktop,994 x 250,default,default,active,Static_Content_Board
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720199,Artikel Ad SnippedPopular Native,210 x 60,default,default,active,Artikel_Ad_SnippedPopular_Native
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720202,Artikel Ad Snipped1 Native,210 x 60,default,default,active,Artikel_Ad_Snipped1_Native
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720212,Artikel Ad Snipped2 Native,210 x 60,default,default,active,Artikel_Ad_Snipped2_Native
+1179264,bzbasel.ch_2015,,,783713,Artikel,5720239,Artikel Ad SnippedRelated Native,210 x 60,default,default,active,Artikel_Ad_SnippedRelated_Native
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720292,Artikel Layer/Interstitial Mobile,1 x 1,default,default,active,Artikel_LayerInterstitial
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720248,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720263,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720290,Static Side Ad Desktop,160 x 600,default,default,active,Static_Side_Ad
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720300,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720260,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720274,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720280,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720283,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720299,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720245,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720247,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720250,Home Bottom Board Tablet,728 x 90,default,default,active,Home_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720251,Static Top Board Tablet,728 x 90,default,default,active,Static_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720253,Artikel Top Board Tablet,728 x 90,default,default,active,Artikel_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720256,Artikel Content Board Tablet,728 x 90,default,default,active,Artikel_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720257,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720259,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720264,Static Bottom Board Tablet,728 x 90,default,default,active,Static_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720265,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720288,Ressort Top Board Tablet,728 x 90,default,default,active,Ressort_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720294,Home Content Board Tablet,728 x 90,default,default,active,Home_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720246,Home Rectangle Tablet,320 x 250,default,default,active,Home_Rectangle
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720268,Ressort Rectangle Tablet,320 x 250,default,default,active,Ressort_Rectangle
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720270,Artikel Rectangle Tablet,320 x 250,default,default,active,Artikel_Rectangle
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720273,Artikel Rectangle Mobile,320 x 250,default,default,active,Artikel_Rectangle
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720275,Home Rectangle Mobile,320 x 250,default,default,active,Home_Rectangle
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720276,Ressort Rectangle Mobile,320 x 250,default,default,active,Ressort_Rectangle
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720269,Artikel Layer/Interstitial Tablet,1 x 2,default,default,active,Artikel_LayerInterstitial
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720296,Artikel Layer/Interstitial Desktop,1 x 3,default,default,active,Artikel_LayerInterstitial
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720258,Home Content Board Mobile,320 x 160,default,default,active,Home_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720271,Artikel Bottom Board Mobile,320 x 160,default,default,active,Artikel_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720272,Static Content Board Mobile,320 x 160,default,default,active,Static_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720277,Home Bottom Board Mobile,320 x 160,default,default,active,Home_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720278,Artikel Top Board Mobile,320 x 160,default,default,active,Artikel_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720279,Static Bottom Board Mobile,320 x 160,default,default,active,Static_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720284,Static Top Board Mobile,320 x 160,default,default,active,Static_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720285,Home Top Board Mobile,320 x 160,default,default,active,Home_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720287,Ressort Content Board Mobile,320 x 160,default,default,active,Ressort_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720291,Artikel Content Board Mobile,320 x 160,default,default,active,Artikel_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720293,Ressort Bottom Board Mobile,320 x 160,default,default,active,Ressort_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720298,Ressort Top Board Mobile,320 x 160,default,default,active,Ressort_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720249,Static Bottom Board Desktop,994 x 250,default,default,active,Static_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720252,Static Content Board Desktop,994 x 250,default,default,active,Static_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720254,Artikel Bottom Board Desktop,994 x 250,default,default,active,Artikel_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720255,Artikel Top Board Desktop,994 x 250,default,default,active,Artikel_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720262,Ressort Content Board Desktop,994 x 250,default,default,active,Ressort_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720266,Home Top Board Desktop,994 x 250,default,default,active,Home_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720267,Home Content Board Desktop,994 x 250,default,default,active,Home_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720281,Ressort Top Board Desktop,994 x 250,default,default,active,Ressort_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783718,Static,5720282,Static Top Board Desktop,994 x 250,default,default,active,Static_Top_Board
+1179265,solothurnerzeitung.ch_2015,,,783716,Ressort,5720297,Ressort Bottom Board Desktop,994 x 250,default,default,active,Ressort_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783717,Home,5720301,Home Bottom Board Desktop,994 x 250,default,default,active,Home_Bottom_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720302,Artikel Content Board Desktop,994 x 250,default,default,active,Artikel_Content_Board
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720261,Artikel Ad SnippedPopular Native,210 x 60,default,default,active,Artikel_Ad_SnippedPopular_Native
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720286,Artikel Ad Snipped1 Native,210 x 60,default,default,active,Artikel_Ad_Snipped1_Native
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720289,Artikel Ad Snipped2 Native,210 x 60,default,default,active,Artikel_Ad_Snipped2_Native
+1179265,solothurnerzeitung.ch_2015,,,783719,Artikel,5720295,Artikel Ad SnippedRelated Native,210 x 60,default,default,active,Artikel_Ad_SnippedRelated_Native
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720320,Artikel Layer/Interstitial Mobile,1 x 1,default,default,active,Artikel_LayerInterstitial
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720335,Static Side Ad Desktop,160 x 600,default,default,active,Static_Side_Ad
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720347,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720353,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720358,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720305,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720306,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720309,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720330,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720333,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720307,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720313,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720319,Home Bottom Board Tablet,728 x 90,default,default,active,Home_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720321,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720325,Artikel Content Board Tablet,728 x 90,default,default,active,Artikel_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720327,Ressort Top Board Tablet,728 x 90,default,default,active,Ressort_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720332,Static Bottom Board Tablet,728 x 90,default,default,active,Static_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720338,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720342,Artikel Top Board Tablet,728 x 90,default,default,active,Artikel_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720350,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720351,Home Content Board Tablet,728 x 90,default,default,active,Home_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720356,Static Top Board Tablet,728 x 90,default,default,active,Static_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720312,Ressort Rectangle Mobile,320 x 250,default,default,active,Ressort_Rectangle
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720316,Artikel Rectangle Tablet,320 x 250,default,default,active,Artikel_Rectangle
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720322,Artikel Rectangle Mobile,320 x 250,default,default,active,Artikel_Rectangle
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720345,Ressort Rectangle Tablet,320 x 250,default,default,active,Ressort_Rectangle
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720346,Home Rectangle Mobile,320 x 250,default,default,active,Home_Rectangle
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720355,Home Rectangle Tablet,320 x 250,default,default,active,Home_Rectangle
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720348,Artikel Layer/Interstitial Tablet,1 x 2,default,default,active,Artikel_LayerInterstitial
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720357,Artikel Layer/Interstitial Desktop,1 x 3,default,default,active,Artikel_LayerInterstitial
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720308,Ressort Bottom Board Mobile,320 x 160,default,default,active,Ressort_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720314,Home Content Board Mobile,320 x 160,default,default,active,Home_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720315,Home Bottom Board Mobile,320 x 160,default,default,active,Home_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720317,Ressort Top Board Mobile,320 x 160,default,default,active,Ressort_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720318,Static Bottom Board Mobile,320 x 160,default,default,active,Static_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720326,Static Content Board Mobile,320 x 160,default,default,active,Static_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720328,Artikel Top Board Mobile,320 x 160,default,default,active,Artikel_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720331,Home Top Board Mobile,320 x 160,default,default,active,Home_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720337,Static Top Board Mobile,320 x 160,default,default,active,Static_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720344,Artikel Bottom Board Mobile,320 x 160,default,default,active,Artikel_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720354,Ressort Content Board Mobile,320 x 160,default,default,active,Ressort_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720360,Artikel Content Board Mobile,320 x 160,default,default,active,Artikel_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720303,Artikel Bottom Board Desktop,994 x 250,default,default,active,Artikel_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720304,Static Content Board Desktop,994 x 250,default,default,active,Static_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720310,Home Content Board Desktop,994 x 250,default,default,active,Home_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720311,Home Bottom Board Desktop,994 x 250,default,default,active,Home_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720329,Ressort Content Board Desktop,994 x 250,default,default,active,Ressort_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720334,Ressort Top Board Desktop,994 x 250,default,default,active,Ressort_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720336,Static Bottom Board Desktop,994 x 250,default,default,active,Static_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720339,Artikel Top Board Desktop,994 x 250,default,default,active,Artikel_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783721,Ressort,5720340,Ressort Bottom Board Desktop,994 x 250,default,default,active,Ressort_Bottom_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783723,Static,5720343,Static Top Board Desktop,994 x 250,default,default,active,Static_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783720,Home,5720352,Home Top Board Desktop,994 x 250,default,default,active,Home_Top_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720359,Artikel Content Board Desktop,994 x 250,default,default,active,Artikel_Content_Board
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720323,Artikel Ad Snipped1 Native,210 x 60,default,default,active,Artikel_Ad_Snipped1_Native
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720324,Artikel Ad Snipped2 Native,210 x 60,default,default,active,Artikel_Ad_Snipped2_Native
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720341,Artikel Ad SnippedPopular Native,210 x 60,default,default,active,Artikel_Ad_SnippedPopular_Native
+1179266,basellandschaftlichezeitung.ch_2015,,,783722,Artikel,5720349,Artikel Ad SnippedRelated Native,210 x 60,default,default,active,Artikel_Ad_SnippedRelated_Native
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720381,Artikel Layer/Interstitial Mobile,1 x 1,default,default,active,Artikel_LayerInterstitial
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720371,Static Side Ad Desktop,160 x 600,default,default,active,Static_Side_Ad
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720390,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720393,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720410,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720375,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720376,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720377,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720398,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720411,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720361,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720362,Home Bottom Board Tablet,728 x 90,default,default,active,Home_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720363,Static Top Board Tablet,728 x 90,default,default,active,Static_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720367,Home Content Board Tablet,728 x 90,default,default,active,Home_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720368,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720395,Artikel Content Board Tablet,728 x 90,default,default,active,Artikel_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720401,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720402,Static Bottom Board Tablet,728 x 90,default,default,active,Static_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720405,Artikel Top Board Tablet,728 x 90,default,default,active,Artikel_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720408,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720414,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720416,Ressort Top Board Tablet,728 x 90,default,default,active,Ressort_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720379,Artikel Rectangle Tablet,320 x 250,default,default,active,Artikel_Rectangle
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720385,Home Rectangle Mobile,320 x 250,default,default,active,Home_Rectangle
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720389,Ressort Rectangle Tablet,320 x 250,default,default,active,Ressort_Rectangle
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720392,Artikel Rectangle Mobile,320 x 250,default,default,active,Artikel_Rectangle
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720397,Home Rectangle Tablet,320 x 250,default,default,active,Home_Rectangle
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720412,Ressort Rectangle Mobile,320 x 250,default,default,active,Ressort_Rectangle
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720380,Artikel Layer/Interstitial Tablet,1 x 2,default,default,active,Artikel_LayerInterstitial
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720364,Artikel Layer/Interstitial Desktop,1 x 3,default,default,active,Artikel_LayerInterstitial
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720365,Ressort Bottom Board Mobile,320 x 160,default,default,active,Ressort_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720366,Home Content Board Mobile,320 x 160,default,default,active,Home_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720370,Static Top Board Mobile,320 x 160,default,default,active,Static_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720372,Artikel Bottom Board Mobile,320 x 160,default,default,active,Artikel_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720383,Artikel Top Board Mobile,320 x 160,default,default,active,Artikel_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720391,Static Content Board Mobile,320 x 160,default,default,active,Static_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720394,Ressort Content Board Mobile,320 x 160,default,default,active,Ressort_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720400,Static Bottom Board Mobile,320 x 160,default,default,active,Static_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720403,Home Top Board Mobile,320 x 160,default,default,active,Home_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720404,Artikel Content Board Mobile,320 x 160,default,default,active,Artikel_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720407,Ressort Top Board Mobile,320 x 160,default,default,active,Ressort_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720417,Home Bottom Board Mobile,320 x 160,default,default,active,Home_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720369,Home Content Board Desktop,994 x 250,default,default,active,Home_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720373,Ressort Bottom Board Desktop,994 x 250,default,default,active,Ressort_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720374,Static Content Board Desktop,994 x 250,default,default,active,Static_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720378,Static Top Board Desktop,994 x 250,default,default,active,Static_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783726,Static,5720382,Static Bottom Board Desktop,994 x 250,default,default,active,Static_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720387,Artikel Content Board Desktop,994 x 250,default,default,active,Artikel_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720388,Ressort Content Board Desktop,994 x 250,default,default,active,Ressort_Content_Board
+1179267,oltnertagblatt.ch_2015,,,783725,Ressort,5720396,Ressort Top Board Desktop,994 x 250,default,default,active,Ressort_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720406,Artikel Top Board Desktop,994 x 250,default,default,active,Artikel_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720413,Home Bottom Board Desktop,994 x 250,default,default,active,Home_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720415,Artikel Bottom Board Desktop,994 x 250,default,default,active,Artikel_Bottom_Board
+1179267,oltnertagblatt.ch_2015,,,783724,Home,5720418,Home Top Board Desktop,994 x 250,default,default,active,Home_Top_Board
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720384,Artikel Ad Snipped1 Native,210 x 60,default,default,active,Artikel_Ad_Snipped1_Native
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720386,Artikel Ad Snipped2 Native,210 x 60,default,default,active,Artikel_Ad_Snipped2_Native
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720399,Artikel Ad SnippedPopular Native,210 x 60,default,default,active,Artikel_Ad_SnippedPopular_Native
+1179267,oltnertagblatt.ch_2015,,,783727,Artikel,5720409,Artikel Ad SnippedRelated Native,210 x 60,default,default,active,Artikel_Ad_SnippedRelated_Native
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720430,Artikel Layer/Interstitial Mobile,1 x 1,default,default,active,Artikel_LayerInterstitial
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720420,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720425,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720427,Static Side Ad Desktop,160 x 600,default,default,active,Static_Side_Ad
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720441,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720422,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720456,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720460,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720461,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720467,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720419,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720439,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720442,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720451,Ressort Top Board Tablet,728 x 90,default,default,active,Ressort_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720453,Home Content Board Tablet,728 x 90,default,default,active,Home_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720455,Artikel Top Board Tablet,728 x 90,default,default,active,Artikel_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720457,Static Top Board Tablet,728 x 90,default,default,active,Static_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720462,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720465,Home Bottom Board Tablet,728 x 90,default,default,active,Home_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720468,Artikel Content Board Tablet,728 x 90,default,default,active,Artikel_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720474,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720475,Static Bottom Board Tablet,728 x 90,default,default,active,Static_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720428,Artikel Rectangle Mobile,320 x 250,default,default,active,Artikel_Rectangle
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720435,Home Rectangle Mobile,320 x 250,default,default,active,Home_Rectangle
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720447,Ressort Rectangle Mobile,320 x 250,default,default,active,Ressort_Rectangle
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720452,Home Rectangle Tablet,320 x 250,default,default,active,Home_Rectangle
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720459,Artikel Rectangle Tablet,320 x 250,default,default,active,Artikel_Rectangle
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720473,Ressort Rectangle Tablet,320 x 250,default,default,active,Ressort_Rectangle
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720432,Artikel Layer/Interstitial Tablet,1 x 2,default,default,active,Artikel_LayerInterstitial
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720438,Artikel Layer/Interstitial Desktop,1 x 3,default,default,active,Artikel_LayerInterstitial
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720421,Ressort Bottom Board Mobile,320 x 160,default,default,active,Ressort_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720426,Artikel Top Board Mobile,320 x 160,default,default,active,Artikel_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720429,Static Bottom Board Mobile,320 x 160,default,default,active,Static_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720433,Home Bottom Board Mobile,320 x 160,default,default,active,Home_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720434,Ressort Content Board Mobile,320 x 160,default,default,active,Ressort_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720437,Static Top Board Mobile,320 x 160,default,default,active,Static_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720444,Home Top Board Mobile,320 x 160,default,default,active,Home_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720448,Static Content Board Mobile,320 x 160,default,default,active,Static_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720449,Home Content Board Mobile,320 x 160,default,default,active,Home_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720454,Artikel Content Board Mobile,320 x 160,default,default,active,Artikel_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720470,Artikel Bottom Board Mobile,320 x 160,default,default,active,Artikel_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720476,Ressort Top Board Mobile,320 x 160,default,default,active,Ressort_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720423,Home Top Board Desktop,994 x 250,default,default,active,Home_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720424,Static Bottom Board Desktop,994 x 250,default,default,active,Static_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720440,Artikel Content Board Desktop,994 x 250,default,default,active,Artikel_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720445,Home Bottom Board Desktop,994 x 250,default,default,active,Home_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720446,Artikel Bottom Board Desktop,994 x 250,default,default,active,Artikel_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720450,Artikel Top Board Desktop,994 x 250,default,default,active,Artikel_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783731,Home,5720458,Home Content Board Desktop,994 x 250,default,default,active,Home_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720463,Static Content Board Desktop,994 x 250,default,default,active,Static_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720464,Ressort Bottom Board Desktop,994 x 250,default,default,active,Ressort_Bottom_Board
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720469,Ressort Top Board Desktop,994 x 250,default,default,active,Ressort_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783729,Ressort,5720471,Ressort Content Board Desktop,994 x 250,default,default,active,Ressort_Content_Board
+1179268,aargauerzeitung.ch_2015,,,783728,Static,5720472,Static Top Board Desktop,994 x 250,default,default,active,Static_Top_Board
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720431,Artikel Ad SnippedRelated Native,210 x 60,default,default,active,Artikel_Ad_SnippedRelated_Native
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720436,Artikel Ad SnippedPopular Native,210 x 60,default,default,active,Artikel_Ad_SnippedPopular_Native
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720443,Artikel Ad Snipped2 Native,210 x 60,default,default,active,Artikel_Ad_Snipped2_Native
+1179268,aargauerzeitung.ch_2015,,,783730,Artikel,5720466,Artikel Ad Snipped1 Native,210 x 60,default,default,active,Artikel_Ad_Snipped1_Native
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720495,Artikel Layer/Interstitial Mobile,1 x 1,default,default,active,Artikel_LayerInterstitial
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720479,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720492,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720514,Static Side Ad Desktop,160 x 600,default,default,active,Static_Side_Ad
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720523,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720477,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720494,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720524,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720526,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720533,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720485,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720488,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720500,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720501,Artikel Content Board Tablet,728 x 90,default,default,active,Artikel_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720502,Artikel Top Board Tablet,728 x 90,default,default,active,Artikel_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720510,Static Bottom Board Tablet,728 x 90,default,default,active,Static_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720512,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720513,Ressort Top Board Tablet,728 x 90,default,default,active,Ressort_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720515,Static Top Board Tablet,728 x 90,default,default,active,Static_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720516,Home Content Board Tablet,728 x 90,default,default,active,Home_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720519,Home Bottom Board Tablet,728 x 90,default,default,active,Home_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720522,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720483,Home Rectangle Mobile,320 x 250,default,default,active,Home_Rectangle
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720506,Artikel Rectangle Tablet,320 x 250,default,default,active,Artikel_Rectangle
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720508,Ressort Rectangle Mobile,320 x 250,default,default,active,Ressort_Rectangle
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720509,Ressort Rectangle Tablet,320 x 250,default,default,active,Ressort_Rectangle
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720517,Home Rectangle Tablet,320 x 250,default,default,active,Home_Rectangle
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720518,Artikel Rectangle Mobile,320 x 250,default,default,active,Artikel_Rectangle
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720525,Artikel Layer/Interstitial Tablet,1 x 2,default,default,active,Artikel_LayerInterstitial
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720507,Artikel Layer/Interstitial Desktop,1 x 3,default,default,active,Artikel_LayerInterstitial
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720482,Home Content Board Mobile,320 x 160,default,default,active,Home_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720486,Artikel Top Board Mobile,320 x 160,default,default,active,Artikel_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720489,Artikel Bottom Board Mobile,320 x 160,default,default,active,Artikel_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720490,Ressort Bottom Board Mobile,320 x 160,default,default,active,Ressort_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720493,Static Bottom Board Mobile,320 x 160,default,default,active,Static_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720496,Ressort Top Board Mobile,320 x 160,default,default,active,Ressort_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720499,Static Top Board Mobile,320 x 160,default,default,active,Static_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720505,Static Content Board Mobile,320 x 160,default,default,active,Static_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720527,Ressort Content Board Mobile,320 x 160,default,default,active,Ressort_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720530,Artikel Content Board Mobile,320 x 160,default,default,active,Artikel_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720531,Home Top Board Mobile,320 x 160,default,default,active,Home_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720532,Home Bottom Board Mobile,320 x 160,default,default,active,Home_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720478,Ressort Top Board Desktop,994 x 250,default,default,active,Ressort_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720480,Artikel Content Board Desktop,994 x 250,default,default,active,Artikel_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720481,Static Content Board Desktop,994 x 250,default,default,active,Static_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720487,Static Top Board Desktop,994 x 250,default,default,active,Static_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720491,Ressort Content Board Desktop,994 x 250,default,default,active,Ressort_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720497,Home Bottom Board Desktop,994 x 250,default,default,active,Home_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720498,Artikel Top Board Desktop,994 x 250,default,default,active,Artikel_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720503,Home Content Board Desktop,994 x 250,default,default,active,Home_Content_Board
+1179269,limmattalerzeitung.ch_2015,,,783734,Ressort,5720520,Ressort Bottom Board Desktop,994 x 250,default,default,active,Ressort_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783735,Static,5720521,Static Bottom Board Desktop,994 x 250,default,default,active,Static_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720528,Artikel Bottom Board Desktop,994 x 250,default,default,active,Artikel_Bottom_Board
+1179269,limmattalerzeitung.ch_2015,,,783732,Home,5720534,Home Top Board Desktop,994 x 250,default,default,active,Home_Top_Board
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720484,Artikel Ad Snipped1 Native,210 x 60,default,default,active,Artikel_Ad_Snipped1_Native
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720504,Artikel Ad SnippedPopular Native,210 x 60,default,default,active,Artikel_Ad_SnippedPopular_Native
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720511,Artikel Ad Snipped2 Native,210 x 60,default,default,active,Artikel_Ad_Snipped2_Native
+1179269,limmattalerzeitung.ch_2015,,,783733,Artikel,5720529,Artikel Ad SnippedRelated Native,210 x 60,default,default,active,Artikel_Ad_SnippedRelated_Native
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720536,Artikel Layer/Interstitial Mobile,1 x 1,default,default,active,Artikel_LayerInterstitial
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720539,Artikel Side Ad Desktop,160 x 600,default,default,active,Artikel_Side_Ad
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720549,Static Side Ad Desktop,160 x 600,default,default,active,Static_Side_Ad
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720551,Ressort Side Ad Desktop,160 x 600,default,default,active,Ressort_Side_Ad
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720558,Home Side Ad Desktop,160 x 600,default,default,active,Home_Side_Ad
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720537,Ressort Escalator Desktop,300 x 250,default,default,active,Ressort_Escalator
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720546,Home Rectangle Desktop,300 x 250,default,default,active,Home_Rectangle
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720566,Ressort Rectangle Desktop,300 x 250,default,default,active,Ressort_Rectangle
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720569,Artikel Rectangle/Halfpage Desktop,300 x 250,default,default,active,Artikel_RectangleHalfpage
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720588,Home Escalator Desktop,300 x 250,default,default,active,Home_Escalator
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720541,Static Content Board Tablet,728 x 90,default,default,active,Static_Content_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720545,Home Top Board Tablet,728 x 90,default,default,active,Home_Top_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720548,Home Bottom Board Tablet,728 x 90,default,default,active,Home_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720552,Ressort Bottom Board Tablet,728 x 90,default,default,active,Ressort_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720554,Static Top Board Tablet,728 x 90,default,default,active,Static_Top_Board
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720556,Ressort Content Board Tablet,728 x 90,default,default,active,Ressort_Content_Board
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720561,Static Bottom Board Tablet,728 x 90,default,default,active,Static_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720573,Ressort Top Board Tablet,728 x 90,default,default,active,Ressort_Top_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720574,Artikel Top Board Tablet,728 x 90,default,default,active,Artikel_Top_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720579,Artikel Bottom Board Tablet,728 x 90,default,default,active,Artikel_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720580,Artikel Content Board Tablet,728 x 90,default,default,active,Artikel_Content_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720586,Home Content Board Tablet,728 x 90,default,default,active,Home_Content_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720538,Artikel Rectangle Mobile,320 x 250,default,default,active,Artikel_Rectangle
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720547,Ressort Rectangle Tablet,320 x 250,default,default,active,Ressort_Rectangle
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720560,Home Rectangle Tablet,320 x 250,default,default,active,Home_Rectangle
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720584,Ressort Rectangle Mobile,320 x 250,default,default,active,Ressort_Rectangle
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720587,Artikel Rectangle Tablet,320 x 250,default,default,active,Artikel_Rectangle
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720591,Home Rectangle Mobile,320 x 250,default,default,active,Home_Rectangle
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720562,Artikel Layer/Interstitial Tablet,1 x 2,default,default,active,Artikel_LayerInterstitial
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720543,Artikel Layer/Interstitial Desktop,1 x 3,default,default,active,Artikel_LayerInterstitial
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720535,Ressort Top Board Mobile,320 x 160,default,default,active,Ressort_Top_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720544,Home Bottom Board Mobile,320 x 160,default,default,active,Home_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720550,Home Top Board Mobile,320 x 160,default,default,active,Home_Top_Board
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720553,Ressort Content Board Mobile,320 x 160,default,default,active,Ressort_Content_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720557,Artikel Bottom Board Mobile,320 x 160,default,default,active,Artikel_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720564,Ressort Bottom Board Mobile,320 x 160,default,default,active,Ressort_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720575,Artikel Content Board Mobile,320 x 160,default,default,active,Artikel_Content_Board
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720578,Static Bottom Board Mobile,320 x 160,default,default,active,Static_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720581,Static Top Board Mobile,320 x 160,default,default,active,Static_Top_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720582,Home Content Board Mobile,320 x 160,default,default,active,Home_Content_Board
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720585,Static Content Board Mobile,320 x 160,default,default,active,Static_Content_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720589,Artikel Top Board Mobile,320 x 160,default,default,active,Artikel_Top_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720540,Artikel Bottom Board Desktop,994 x 250,default,default,active,Artikel_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720555,Artikel Content Board Desktop,994 x 250,default,default,active,Artikel_Content_Board
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720559,Static Top Board Desktop,994 x 250,default,default,active,Static_Top_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720565,Home Content Board Desktop,994 x 250,default,default,active,Home_Content_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720567,Home Bottom Board Desktop,994 x 250,default,default,active,Home_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720568,Artikel Top Board Desktop,994 x 250,default,default,active,Artikel_Top_Board
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720570,Ressort Top Board Desktop,994 x 250,default,default,active,Ressort_Top_Board
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720576,Static Bottom Board Desktop,994 x 250,default,default,active,Static_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720577,Ressort Content Board Desktop,994 x 250,default,default,active,Ressort_Content_Board
+1179270,badenertagblatt.ch_2015,,,783739,Static,5720583,Static Content Board Desktop,994 x 250,default,default,active,Static_Content_Board
+1179270,badenertagblatt.ch_2015,,,783736,Ressort,5720590,Ressort Bottom Board Desktop,994 x 250,default,default,active,Ressort_Bottom_Board
+1179270,badenertagblatt.ch_2015,,,783738,Home,5720592,Home Top Board Desktop,994 x 250,default,default,active,Home_Top_Board
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720542,Artikel Ad Snipped1 Native,210 x 60,default,default,active,Artikel_Ad_Snipped1_Native
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720563,Artikel Ad SnippedRelated Native,210 x 60,default,default,active,Artikel_Ad_SnippedRelated_Native
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720571,Artikel Ad SnippedPopular Native,210 x 60,default,default,active,Artikel_Ad_SnippedPopular_Native
+1179270,badenertagblatt.ch_2015,,,783737,Artikel,5720572,Artikel Ad Snipped2 Native,210 x 60,default,default,active,Artikel_Ad_Snipped2_Native

@@ -40,82 +40,81 @@ $code-font-stack: 'Consolas', 'Monaco', 'Courier New', monospace;
 //     the palette it belongs to in the styleguide. Do not change the format.
 // -----------------------------------------------------------------------------
 
-
 /// AZ blue from primary palette
 /// This colour is used in the logo and as main brand colour.
 /// @group colors
 /// @type Color
-$blue: #1B4D85;
+$blue: #1b4d85;
 
 
 /// Light blue from primary palette
 /// This colour is used to indicate links and interactive elements.
 /// @group colors
 /// @type Color
-$light-blue: #428BDD;
+$light-blue: #428bdd;
 
 
 /// Black from primary palette
 /// This colour is used for all of the text content on the site, instead of black.
 /// @group colors
 /// @type Color
-$black: #0B0B0B;
+$black: #0b0b0b;
 
 
 /// Orange from secondary palette
 /// This colour represents dialogue, opinion and community content.
 /// @group colors
 /// @type Color
-$orange: #FFB64E;
+$orange: #ffb64e;
 
 
 /// Yellow from secondary palette
 /// This colour is used for subtle highlights & drawing attention to certain sections and should be used sparingly.
 /// @group colors
 /// @type Color
-$yellow: #FEEF75;
+$yellow: #feef75;
 
 
 /// Turquoise from secondary palette
 /// This colour is used to represent dossier pages.
 /// @group colors
 /// @type Color
-$turquoise: #2CC4A8;
+$turquoise: #2cc4a8;
 
 
 /// Red from secondary palette
 /// This colour indicates live events and breaking news.
 /// @group colors
 /// @type Color
-$red: #FF5858;
+$red: #ff5858;
 
 
 /// Dark grey from grey palette
 /// This colour is for contextual tags, quotes, captions and other small details.
 /// @group colors
 /// @type Color
-$dark-grey: #666666;
+$dark-grey: #666;
 
 
 /// Medium grey from grey palette
 /// This colour is for backgrounds that need to stand out.
 /// @group colors
 /// @type Color
-$medium-grey: #888888;
+$medium-grey: #888;
 
 
 /// Light grey from grey palette
 /// This colour is used to infer subtle backgrounds on pieces of content.
 /// @group colors
 /// @type Color
-$light-grey: #EDEDED;
+$light-grey: #ededed;
 
 
 /// Very light grey from grey palette
 /// This colour is used to infer subtle backgrounds on pieces of content.
 /// @group colors
 /// @type Color
-$very-light-grey: #F8F8F8;
+$very-light-grey: #f8f8f8;
 
 
 /// Letterbox background colour
@@ -123,7 +122,6 @@ $very-light-grey: #F8F8F8;
 /// @group colors
 /// @type Color
 $letterbox-background: #333;
-
 
 
 // -----------------------------------------------------------------------------

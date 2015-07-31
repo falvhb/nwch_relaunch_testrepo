@@ -22,4 +22,7 @@ __node__
 deploy/.installed.cfg
 deploy/bin/*
 deploy/egs/*
-deploy/etc/supervisord.conf
+deploy/etc/supervisord-dev.conf
+
+# keep seed file for ad config
+!/scripts/az-banners-all-sites.csv
