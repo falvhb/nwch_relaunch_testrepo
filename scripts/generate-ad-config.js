@@ -121,7 +121,9 @@ var getSlotNameForPlacement = function (placement) {
   if (matches && matches.length) {
     var pageType = matches[0];
     var slot = matches[2];
-    return toSlug(slot.replace("/", "_"));
+    slot = toSlug(slot.replace("/", "_"));
+    slot = slot.replace("-", "_");
+    return slot;
   } else {
     throw new Error('Naming of placement is not matching schema', placement);
   }
@@ -140,7 +142,7 @@ var parseSiteSlots = function (siteSlots) {
       var pageTypeRegex = /^(Artikel|Static|Home|Ressort)_/ig;
       var slotName = slotName.replace(pageTypeRegex, '');
       var slot = {
-        name: toSlug(slotName)
+        name: slotName
       };
       var placementSlots = getAdSlotsBySlotName(slots, slotName);
 

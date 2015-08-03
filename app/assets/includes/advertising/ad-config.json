@@ -9,7 +9,7 @@
         "siteId": "783710",
         "slots": [
           {
-            "name": "layer-interstitial",
+            "name": "layer_interstitial",
             "placements": [
               {
                 "id": "5720163",
@@ -26,7 +26,7 @@
             ]
           },
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720165",
@@ -52,7 +52,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720137",
@@ -69,7 +69,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720138",
@@ -86,7 +86,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720171",
@@ -103,7 +103,7 @@
             ]
           },
           {
-            "name": "ad-snippedrelated",
+            "name": "ad_snippedrelated",
             "placements": [
               {
                 "id": "5720130",
@@ -112,7 +112,7 @@
             ]
           },
           {
-            "name": "ad-snippedpopular",
+            "name": "ad_snippedpopular",
             "placements": [
               {
                 "id": "5720146",
@@ -121,7 +121,7 @@
             ]
           },
           {
-            "name": "ad-snipped1",
+            "name": "ad_snipped1",
             "placements": [
               {
                 "id": "5720152",
@@ -130,7 +130,7 @@
             ]
           },
           {
-            "name": "ad-snipped2",
+            "name": "ad_snipped2",
             "placements": [
               {
                 "id": "5720185",
@@ -145,7 +145,7 @@
         "siteId": "783708",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720142",
@@ -154,7 +154,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720134",
@@ -171,7 +171,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720155",
@@ -188,7 +188,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720161",
@@ -211,7 +211,7 @@
         "siteId": "783711",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720154",
@@ -246,7 +246,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720132",
@@ -263,7 +263,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720143",
@@ -280,7 +280,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720144",
@@ -303,7 +303,7 @@
         "siteId": "783709",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720175",
@@ -338,7 +338,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720135",
@@ -355,7 +355,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720139",
@@ -372,7 +372,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720149",
@@ -402,7 +402,7 @@
         "siteId": "783713",
         "slots": [
           {
-            "name": "layer-interstitial",
+            "name": "layer_interstitial",
             "placements": [
               {
                 "id": "5720197",
@@ -419,7 +419,7 @@
             ]
           },
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720224",
@@ -445,7 +445,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720189",
@@ -462,7 +462,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720195",
@@ -479,7 +479,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720241",
@@ -496,7 +496,7 @@
             ]
           },
           {
-            "name": "ad-snippedpopular",
+            "name": "ad_snippedpopular",
             "placements": [
               {
                 "id": "5720199",
@@ -505,7 +505,7 @@
             ]
           },
           {
-            "name": "ad-snipped1",
+            "name": "ad_snipped1",
             "placements": [
               {
                 "id": "5720202",
@@ -514,7 +514,7 @@
             ]
           },
           {
-            "name": "ad-snipped2",
+            "name": "ad_snipped2",
             "placements": [
               {
                 "id": "5720212",
@@ -523,7 +523,7 @@
             ]
           },
           {
-            "name": "ad-snippedrelated",
+            "name": "ad_snippedrelated",
             "placements": [
               {
                 "id": "5720239",
@@ -538,7 +538,7 @@
         "siteId": "783715",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720194",
@@ -547,7 +547,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720190",
@@ -564,7 +564,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720204",
@@ -581,7 +581,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720214",
@@ -604,7 +604,7 @@
         "siteId": "783714",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720219",
@@ -639,7 +639,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720205",
@@ -656,7 +656,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720206",
@@ -673,7 +673,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720216",
@@ -696,7 +696,7 @@
         "siteId": "783712",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720222",
@@ -731,7 +731,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720187",
@@ -748,7 +748,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720207",
@@ -765,7 +765,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720208",
@@ -795,7 +795,7 @@
         "siteId": "783719",
         "slots": [
           {
-            "name": "layer-interstitial",
+            "name": "layer_interstitial",
             "placements": [
               {
                 "id": "5720292",
@@ -812,7 +812,7 @@
             ]
           },
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720300",
@@ -838,7 +838,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720247",
@@ -855,7 +855,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720253",
@@ -872,7 +872,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720256",
@@ -889,7 +889,7 @@
             ]
           },
           {
-            "name": "ad-snippedpopular",
+            "name": "ad_snippedpopular",
             "placements": [
               {
                 "id": "5720261",
@@ -898,7 +898,7 @@
             ]
           },
           {
-            "name": "ad-snipped1",
+            "name": "ad_snipped1",
             "placements": [
               {
                 "id": "5720286",
@@ -907,7 +907,7 @@
             ]
           },
           {
-            "name": "ad-snipped2",
+            "name": "ad_snipped2",
             "placements": [
               {
                 "id": "5720289",
@@ -916,7 +916,7 @@
             ]
           },
           {
-            "name": "ad-snippedrelated",
+            "name": "ad_snippedrelated",
             "placements": [
               {
                 "id": "5720295",
@@ -931,7 +931,7 @@
         "siteId": "783716",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720248",
@@ -966,7 +966,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720245",
@@ -983,7 +983,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720257",
@@ -1000,7 +1000,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720288",
@@ -1023,7 +1023,7 @@
         "siteId": "783717",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720263",
@@ -1058,7 +1058,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720250",
@@ -1075,7 +1075,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720259",
@@ -1092,7 +1092,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720294",
@@ -1115,7 +1115,7 @@
         "siteId": "783718",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720290",
@@ -1124,7 +1124,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720251",
@@ -1141,7 +1141,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720264",
@@ -1158,7 +1158,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720265",
@@ -1188,7 +1188,7 @@
         "siteId": "783722",
         "slots": [
           {
-            "name": "layer-interstitial",
+            "name": "layer_interstitial",
             "placements": [
               {
                 "id": "5720320",
@@ -1205,7 +1205,7 @@
             ]
           },
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720353",
@@ -1231,7 +1231,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720313",
@@ -1248,7 +1248,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720325",
@@ -1265,7 +1265,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720342",
@@ -1282,7 +1282,7 @@
             ]
           },
           {
-            "name": "ad-snipped1",
+            "name": "ad_snipped1",
             "placements": [
               {
                 "id": "5720323",
@@ -1291,7 +1291,7 @@
             ]
           },
           {
-            "name": "ad-snipped2",
+            "name": "ad_snipped2",
             "placements": [
               {
                 "id": "5720324",
@@ -1300,7 +1300,7 @@
             ]
           },
           {
-            "name": "ad-snippedpopular",
+            "name": "ad_snippedpopular",
             "placements": [
               {
                 "id": "5720341",
@@ -1309,7 +1309,7 @@
             ]
           },
           {
-            "name": "ad-snippedrelated",
+            "name": "ad_snippedrelated",
             "placements": [
               {
                 "id": "5720349",
@@ -1324,7 +1324,7 @@
         "siteId": "783723",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720335",
@@ -1333,7 +1333,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720321",
@@ -1350,7 +1350,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720332",
@@ -1367,7 +1367,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720356",
@@ -1390,7 +1390,7 @@
         "siteId": "783720",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720347",
@@ -1425,7 +1425,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720307",
@@ -1442,7 +1442,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720319",
@@ -1459,7 +1459,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720351",
@@ -1482,7 +1482,7 @@
         "siteId": "783721",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720358",
@@ -1517,7 +1517,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720327",
@@ -1534,7 +1534,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720338",
@@ -1551,7 +1551,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720350",
@@ -1581,7 +1581,7 @@
         "siteId": "783727",
         "slots": [
           {
-            "name": "layer-interstitial",
+            "name": "layer_interstitial",
             "placements": [
               {
                 "id": "5720381",
@@ -1598,7 +1598,7 @@
             ]
           },
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720410",
@@ -1624,7 +1624,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720395",
@@ -1641,7 +1641,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720401",
@@ -1658,7 +1658,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720405",
@@ -1675,7 +1675,7 @@
             ]
           },
           {
-            "name": "ad-snipped1",
+            "name": "ad_snipped1",
             "placements": [
               {
                 "id": "5720384",
@@ -1684,7 +1684,7 @@
             ]
           },
           {
-            "name": "ad-snipped2",
+            "name": "ad_snipped2",
             "placements": [
               {
                 "id": "5720386",
@@ -1693,7 +1693,7 @@
             ]
           },
           {
-            "name": "ad-snippedpopular",
+            "name": "ad_snippedpopular",
             "placements": [
               {
                 "id": "5720399",
@@ -1702,7 +1702,7 @@
             ]
           },
           {
-            "name": "ad-snippedrelated",
+            "name": "ad_snippedrelated",
             "placements": [
               {
                 "id": "5720409",
@@ -1717,7 +1717,7 @@
         "siteId": "783726",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720371",
@@ -1726,7 +1726,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720361",
@@ -1743,7 +1743,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720363",
@@ -1760,7 +1760,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720402",
@@ -1783,7 +1783,7 @@
         "siteId": "783725",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720390",
@@ -1818,7 +1818,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720368",
@@ -1835,7 +1835,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720414",
@@ -1852,7 +1852,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720416",
@@ -1875,7 +1875,7 @@
         "siteId": "783724",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720393",
@@ -1910,7 +1910,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720362",
@@ -1927,7 +1927,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720367",
@@ -1944,7 +1944,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720408",
@@ -1974,7 +1974,7 @@
         "siteId": "783730",
         "slots": [
           {
-            "name": "layer-interstitial",
+            "name": "layer_interstitial",
             "placements": [
               {
                 "id": "5720430",
@@ -1991,7 +1991,7 @@
             ]
           },
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720441",
@@ -2017,7 +2017,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720439",
@@ -2034,7 +2034,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720455",
@@ -2051,7 +2051,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720468",
@@ -2068,7 +2068,7 @@
             ]
           },
           {
-            "name": "ad-snippedrelated",
+            "name": "ad_snippedrelated",
             "placements": [
               {
                 "id": "5720431",
@@ -2077,7 +2077,7 @@
             ]
           },
           {
-            "name": "ad-snippedpopular",
+            "name": "ad_snippedpopular",
             "placements": [
               {
                 "id": "5720436",
@@ -2086,7 +2086,7 @@
             ]
           },
           {
-            "name": "ad-snipped2",
+            "name": "ad_snipped2",
             "placements": [
               {
                 "id": "5720443",
@@ -2095,7 +2095,7 @@
             ]
           },
           {
-            "name": "ad-snipped1",
+            "name": "ad_snipped1",
             "placements": [
               {
                 "id": "5720466",
@@ -2110,7 +2110,7 @@
         "siteId": "783731",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720420",
@@ -2145,7 +2145,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720442",
@@ -2162,7 +2162,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720453",
@@ -2179,7 +2179,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720465",
@@ -2202,7 +2202,7 @@
         "siteId": "783729",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720425",
@@ -2237,7 +2237,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720419",
@@ -2254,7 +2254,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720451",
@@ -2271,7 +2271,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720474",
@@ -2294,7 +2294,7 @@
         "siteId": "783728",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720427",
@@ -2303,7 +2303,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720457",
@@ -2320,7 +2320,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720462",
@@ -2337,7 +2337,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720475",
@@ -2367,7 +2367,7 @@
         "siteId": "783733",
         "slots": [
           {
-            "name": "layer-interstitial",
+            "name": "layer_interstitial",
             "placements": [
               {
                 "id": "5720495",
@@ -2384,7 +2384,7 @@
             ]
           },
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720523",
@@ -2410,7 +2410,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720488",
@@ -2427,7 +2427,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720501",
@@ -2444,7 +2444,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720502",
@@ -2461,7 +2461,7 @@
             ]
           },
           {
-            "name": "ad-snipped1",
+            "name": "ad_snipped1",
             "placements": [
               {
                 "id": "5720484",
@@ -2470,7 +2470,7 @@
             ]
           },
           {
-            "name": "ad-snippedpopular",
+            "name": "ad_snippedpopular",
             "placements": [
               {
                 "id": "5720504",
@@ -2479,7 +2479,7 @@
             ]
           },
           {
-            "name": "ad-snipped2",
+            "name": "ad_snipped2",
             "placements": [
               {
                 "id": "5720511",
@@ -2488,7 +2488,7 @@
             ]
           },
           {
-            "name": "ad-snippedrelated",
+            "name": "ad_snippedrelated",
             "placements": [
               {
                 "id": "5720529",
@@ -2503,7 +2503,7 @@
         "siteId": "783732",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720479",
@@ -2538,7 +2538,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720512",
@@ -2555,7 +2555,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720516",
@@ -2572,7 +2572,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720519",
@@ -2595,7 +2595,7 @@
         "siteId": "783734",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720492",
@@ -2630,7 +2630,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720485",
@@ -2647,7 +2647,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720513",
@@ -2664,7 +2664,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720522",
@@ -2687,7 +2687,7 @@
         "siteId": "783735",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720514",
@@ -2696,7 +2696,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720500",
@@ -2713,7 +2713,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720510",
@@ -2730,7 +2730,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720515",
@@ -2760,7 +2760,7 @@
         "siteId": "783737",
         "slots": [
           {
-            "name": "layer-interstitial",
+            "name": "layer_interstitial",
             "placements": [
               {
                 "id": "5720536",
@@ -2777,7 +2777,7 @@
             ]
           },
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720539",
@@ -2803,7 +2803,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720574",
@@ -2820,7 +2820,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720579",
@@ -2837,7 +2837,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720580",
@@ -2854,7 +2854,7 @@
             ]
           },
           {
-            "name": "ad-snipped1",
+            "name": "ad_snipped1",
             "placements": [
               {
                 "id": "5720542",
@@ -2863,7 +2863,7 @@
             ]
           },
           {
-            "name": "ad-snippedrelated",
+            "name": "ad_snippedrelated",
             "placements": [
               {
                 "id": "5720563",
@@ -2872,7 +2872,7 @@
             ]
           },
           {
-            "name": "ad-snippedpopular",
+            "name": "ad_snippedpopular",
             "placements": [
               {
                 "id": "5720571",
@@ -2881,7 +2881,7 @@
             ]
           },
           {
-            "name": "ad-snipped2",
+            "name": "ad_snipped2",
             "placements": [
               {
                 "id": "5720572",
@@ -2896,7 +2896,7 @@
         "siteId": "783739",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720549",
@@ -2905,7 +2905,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720541",
@@ -2922,7 +2922,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720554",
@@ -2939,7 +2939,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720561",
@@ -2962,7 +2962,7 @@
         "siteId": "783736",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720551",
@@ -2997,7 +2997,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720552",
@@ -3014,7 +3014,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720556",
@@ -3031,7 +3031,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720573",
@@ -3054,7 +3054,7 @@
         "siteId": "783738",
         "slots": [
           {
-            "name": "side-ad",
+            "name": "side_ad",
             "placements": [
               {
                 "id": "5720558",
@@ -3089,7 +3089,7 @@
             ]
           },
           {
-            "name": "top-board",
+            "name": "top_board",
             "placements": [
               {
                 "id": "5720545",
@@ -3106,7 +3106,7 @@
             ]
           },
           {
-            "name": "bottom-board",
+            "name": "bottom_board",
             "placements": [
               {
                 "id": "5720548",
@@ -3123,7 +3123,7 @@
             ]
           },
           {
-            "name": "content-board",
+            "name": "content_board",
             "placements": [
               {
                 "id": "5720586",
