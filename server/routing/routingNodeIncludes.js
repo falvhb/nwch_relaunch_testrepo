@@ -34,7 +34,7 @@ module.exports = function nodeIncludesRouter(req, res) {
         pageType = 'ressort';
       }
     }
-  }    
+  }
   var skin = req.headers ? req.headers['x-skin'] : 'aaz';
   var data = {
     "withAds": pageType !== '',
