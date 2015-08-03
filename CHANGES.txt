@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- Advertising integration (still needs verification/testing from ADTECH)
+
 2015/07/31 0.0.7
 ================
 
