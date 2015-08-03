@@ -32,6 +32,8 @@ var config = {
       'STATIC_ASSETS',
       'PAGINATED',
       'GOLDBACH_SALT',
+      'WUFOO_USERNAME',
+      'WUFOO_FEEDBACK_FORM',
       'DISQUS_SHORTNAME',
       'KALTURA_ACCOUNT_ID',
       'KALTURA_AUTOPLAY',
