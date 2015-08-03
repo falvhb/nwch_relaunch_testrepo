@@ -5,7 +5,10 @@ Changes for az-nwch-js
 unreleased
 ==========
 
-  - stabilize article body wrapper
+ - fix wrong rendering of stoerer/empfehlung in article body wrapper if there
+   is more than one "empfehlung" marker.
+
+ - stabilize article body wrapper
 
 2015/07/31 0.0.7
 ================
