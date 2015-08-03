@@ -26,4 +26,6 @@
 <link rel="stylesheet" href="/__node__/__static__/client/styles.css" />
 <script src="http://aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
 
+{% if withAds -%}
 <!--# include virtual="/__node__/__static__/client/includes/advertising/{{ skin }}_{{ pageType }}.html" -->
+{%- endif %}

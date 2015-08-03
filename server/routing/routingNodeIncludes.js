@@ -23,15 +23,21 @@ module.exports = function nodeIncludesRouter(req, res) {
     }
   });
   if (parts.length) {
-    var requestPath = path.join.apply(null, parts);
-    if (requestPath.match(/^([^\\/]+?)(?:\/([^\\/]+?))?\/([^\\/]+?)-(\d+)(?:\/(?=$))?$/i)) {
-      pageType = 'artikel';
-    } else if (requestPath.match(/^([^\\/]+?)(?:\/([^\\/]+?))?(?:\/(?=$))?$/i)) {
-      pageType = 'ressort';
+    if (req.params.b === 'publireportage') {
+      // special case without ads
+      pageType = '';
+    } else {
+      var requestPath = path.join.apply(null, parts);
+      if (requestPath.match(/^([^\\/]+?)(?:\/([^\\/]+?))?\/([^\\/]+?)-(\d+)(?:\/(?=$))?$/i)) {
+        pageType = 'artikel';
+      } else if (requestPath.match(/^([^\\/]+?)(?:\/([^\\/]+?))?(?:\/(?=$))?$/i)) {
+        pageType = 'ressort';
+      }
     }
-  }
+  }    
   var skin = req.headers ? req.headers['x-skin'] : 'aaz';
   var data = {
+    "withAds": pageType !== '',
     "pageType": pageType,
     "skin": skin
   };
