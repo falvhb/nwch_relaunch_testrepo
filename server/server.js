@@ -40,6 +40,13 @@ app.set('view engine', 'html');
 app.engine('html', engines.nunjucks);
 app.use('/client', loopback.static('client'));
 
+// API Middleware
+// Registers an API object on req that should be used for all API calls.
+app.use(require('./routing/api'));
+// middlewares for retrieving data from the REST API
+var loadArticle = require('./routing/loadArticle');
+var loadUser = require('./routing/loadUser');
+
 // Routing Middleware
 require('./routing/routingParams')(app);
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
@@ -104,8 +111,6 @@ app.use(require('cookie-session')({
   name: process.env.SESSION_COOKIE,
   secret: process.env.SESSION_SECRET
 }));
-
-var loadUser = require('./routing/loadUser');
 
 
 // -----------------------------------------------------------------------------
