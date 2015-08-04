@@ -5,6 +5,15 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - added `babel-core` as dependency to be able to shrinkwrap
+  - added `cookie-session` as dependency
+    DEPLOY: npm install
+  - added AZUser model
+  - added middleware `loadUser` to load user data based on session
+  - added `SESSION_COOKIE` and `SESSION_SECRET` to .env
+    DEPLOY: set these variables
+  - disabled global error handler to be able to see errors
+
 2015/08/03 0.0.8
 ================
 

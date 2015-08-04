@@ -69,5 +69,9 @@
   "NewsRessort": {
     "dataSource": "az-api",
     "public": false
+  },
+  "AZUser": {
+    "dataSource": "az-api",
+    "public": false
   }
 }
