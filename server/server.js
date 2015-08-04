@@ -92,6 +92,23 @@ app.get('/sassdoc', function(req, res) {
 
 
 // -----------------------------------------------------------------------------
+// Authentication
+//
+// We use cookie-session to store the user id as a cookie. The cookie-session
+// package allows to sign the cookie (a second cookie <cookie-name>.sig is
+// stored containing a hash of <cookie-name>'s value).
+// The cookie is set from Zope.
+// -----------------------------------------------------------------------------
+
+app.use(require('cookie-session')({
+  name: process.env.SESSION_COOKIE,
+  secret: process.env.SESSION_SECRET
+}));
+
+var loadUser = require('./routing/loadUser');
+
+
+// -----------------------------------------------------------------------------
 // App Routing
 //
 // NOTE: Order matters here!
@@ -139,9 +156,12 @@ app.all('*', function() {
 // identified as an error-handling middleware. Even if you don’t need to use the next
 // object, make sure specify it to maintain the signature, else it will be interpreted as
 // a regular middleware, and fail to handle errors.
-app.use(function(err, req, res, next) {
-  app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
-  res.status(200);
-  res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
-  res.end();
-});
+
+// HINT: commented to be able to see errors. uncomment if needed
+
+// app.use(function(err, req, res, next) {
+//   app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
+//   res.status(200);
+//   res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
+//   res.end();
+// });
