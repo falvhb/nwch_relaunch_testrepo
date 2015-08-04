@@ -139,9 +139,9 @@ app.all('*', function() {
 // identified as an error-handling middleware. Even if you don’t need to use the next
 // object, make sure specify it to maintain the signature, else it will be interpreted as
 // a regular middleware, and fail to handle errors.
-app.use(function(err, req, res, next) {
-  app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
-  res.status(200);
-  res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
-  res.end();
-});
+// app.use(function(err, req, res, next) {
+//   app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
+//   res.status(200);
+//   res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
+//   res.end();
+// });
