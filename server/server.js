@@ -76,7 +76,7 @@ app.get('/styleguide/components.json', function(req, res) {
 // -----------------------------------------------------------------------------
 
 // Serve SassDoc assets folder
-app.use('/sassdoc/assets/', express.static('../app/sassdoc/assets'));
+app.use('/sassdoc/assets/', express.static('app/sassdoc/assets'));
 
 // SassDoc route
 app.get('/sassdoc', function(req, res) {
