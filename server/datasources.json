@@ -169,6 +169,17 @@
             "id"
           ]
         }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "/users/{id}"
+        },
+        "functions": {
+          "getAZUser": [
+            "id"
+          ]
+        }
       }
     ]
   }

@@ -5,10 +5,14 @@ var ArticleHeader = require('components/article-header');
 var ArticleIntro = require('components/article-intro');
 var ArticleDetail = require('components/article-detail');
 var Teaser = require('components/teaser');
+var Advertising = require('advertising');
 var RelatedVideos = require('components/related-videos');
 var Footer = require('components/footer');
 var TopicDetail = require('components/topic-detail');
 var HeaderNav = require('components/header-nav');
+
+advertising = Advertising.init('.ad');
+
 
 var components = {
   articleHeader: ArticleHeader,
