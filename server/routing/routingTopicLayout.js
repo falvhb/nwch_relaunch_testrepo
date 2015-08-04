@@ -8,7 +8,7 @@ module.exports = function(req, res) {
   }
 
   function render() {
-    var result = req.item || {};
+    var result = req.api.get('topic') || {};
     var articles = result && result.data ? result.data : [];
     var keyword = req.params.topicKeyword;
 
@@ -58,26 +58,5 @@ module.exports = function(req, res) {
     res.send(isoWrapped);
   }
 
-  // Do the topic query
-  var queryParams = {
-    'keywords': req.params.topicKeyword,
-    'domain': req.headers['x-skin'] || 'aaz',
-    'offset': page * process.env.PAGINATED,
-    'limit': process.env.PAGINATED,
-  };
-
-  req.app.models.PublishedNewsArticle.query(
-    queryParams,
-    function(err, result) {
-      if (err) {
-        // There was an error calling the API, we will render the page anyway
-        // but without articles.
-        req.item = null;
-      } else {
-        // got a result to render
-        req.item = result;
-      }
-      render();
-    }
-  );
+  req.api.done(render);
 };
