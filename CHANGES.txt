@@ -5,6 +5,12 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/04 0.0.10
+=================
+
+  - adds grid framework for use on the home, dossier and ressort pages
+  - begins ressort, subressort and dossier pages in styleguide
+
 2015/08/04 0.0.9
 ================
 
