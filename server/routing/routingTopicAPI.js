@@ -17,7 +17,7 @@ module.exports = function(req, res) {
   }
 
   function render() {
-    var result = req.item;
+    var result = req.api.get('topic');
     if (!result) {
       result = {"data": [],
                 "total": 0,
@@ -27,25 +27,5 @@ module.exports = function(req, res) {
     res.json(result);
   }
 
-  // Do the topic query
-  var queryParams = {
-    'keywords': req.params.topicKeyword,
-    'domain': req.headers['x-skin'] || 'aaz',
-    'offset': page * 12,
-    'limit': 12,
-  };
-  req.app.models.PublishedNewsArticle.query(
-    queryParams,
-    function(err, result) {
-      if (err) {
-        // There was an error calling the API, we will render the page anyway
-        // but without articles.
-        req.item = null;
-      } else {
-        // got a result to render
-        req.item = result;
-      }
-      render();
-    }
-  );
+  req.api.done(render);
 };

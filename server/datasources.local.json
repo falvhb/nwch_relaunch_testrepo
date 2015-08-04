@@ -1,5 +1,0 @@
-{
-  "az-api": {
-    "baseUrl": "http://localhost:8811/api/v1/content"
-  }
-}
