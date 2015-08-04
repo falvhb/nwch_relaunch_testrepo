@@ -5,11 +5,20 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - added `qs` as dependency to convert querystring <--> object
+  - added `express` as dependency (replaces loopback)
+    DEPLOY: npm install
+  - added asynchronous api connector
+  - uses async api connector for users, articles, topics, dossiers
+  - removed loopback & loopback-* modules
+  - removed `winston` as logger
+
 2015/08/04 0.0.10
 =================
 
   - adds grid framework for use on the home, dossier and ressort pages
   - begins ressort, subressort and dossier pages in styleguide
+
 
 2015/08/04 0.0.9
 ================
