@@ -62,9 +62,7 @@
     "strong-express-metrics": "^1.1.0",
     "webpack": "^1.9.10"
   },
-  "optionalDependencies": {
-    "loopback-explorer": "^1.1.0"
-  },
+  "optionalDependencies": {},
   "devDependencies": {
     "chai": "^3.0.0",
     "escape-html": "^1.0.2",
