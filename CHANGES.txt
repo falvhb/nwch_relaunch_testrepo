@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/04 0.0.9
+================
+
   - added `babel-core` as dependency to be able to shrinkwrap
   - added `cookie-session` as dependency
     DEPLOY: npm install
