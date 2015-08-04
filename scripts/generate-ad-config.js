@@ -66,13 +66,13 @@ function getSkinFromDomain (domain) {
  */
 var processAdPlacementConfig = function (data) {
   var filteredData = _.pick(data, [
-      'websiteId',
-      'websiteName',
-      'siteId',
-      'siteName',
-      'placementId',
-      'placementName',
-      'placement_slot_id'
+    'websiteId',
+    'websiteName',
+    'siteId',
+    'siteName',
+    'placementId',
+    'placementName',
+    'placement_slot_id'
   ]);
 
   var sizeType = getSizeTypeForPlacement(filteredData);
@@ -102,7 +102,6 @@ var getAdSlotsBySlotName = function (collection, placementSlotId) {
 var getSizeTypeForPlacement = function (placement) {
   var typeRegExp = /(Mobile|Tablet|Desktop)$/i;
   var matches = typeRegExp.exec(placement.placementName);
-  var bounds = { id: placement.placementId, min: 729, max: 9999 };
   var sizeType = 'desktop';
 
   if (matches && matches.length) {
@@ -119,9 +118,9 @@ var getSlotNameForPlacement = function (placement) {
   var matches = regex.exec(placement.placementName);
 
   if (matches && matches.length) {
-    var pageType = matches[0];
     var slot = matches[2];
     slot = toSlug(slot.replace("/", "_"));
+    // ADTECH does not allow "-" in slot names
     slot = slot.replace("-", "_");
     return slot;
   } else {
