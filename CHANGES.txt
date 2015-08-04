@@ -5,6 +5,36 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/04 0.0.9
+================
+
+  - added `babel-core` as dependency to be able to shrinkwrap
+  - added `cookie-session` as dependency
+    DEPLOY: npm install
+  - added AZUser model
+  - added middleware `loadUser` to load user data based on session
+  - added `SESSION_COOKIE` and `SESSION_SECRET` to .env
+    DEPLOY: set these variables
+  - disabled global error handler to be able to see errors
+
+2015/08/03 0.0.8
+================
+
+- Advertising integration (still needs verification/testing from ADTECH)
+
+2015/07/31 0.0.7
+================
+
+ - fixed curated recomendations
+
+ - fixed footer
+
+2015/07/31 0.0.6
+================
+
+  - added user feedback widget
+  - made dossier routing generic
+
 2015/07/30 0.0.5
 ================
 

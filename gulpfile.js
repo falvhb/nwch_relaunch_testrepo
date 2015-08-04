@@ -18,6 +18,7 @@ gulp.task('lint', ['eslint', 'scss-lint']);
 gulp.task('sass', require('./tasks/sass.js'));
 gulp.task('sass:env', require('./tasks/sass-env.js'));
 gulp.task('sass:docs', require('./tasks/sass-doc.js'));
+gulp.task('sass:wufoo', require('./tasks/wufoo.js'));
 
 // Run WebPack
 gulp.task('webpack', require('./tasks/webpack.js'));
@@ -33,6 +34,7 @@ gulp.task('server', require('./tasks/server.js'));
 gulp.task('icons', require('./tasks/icons.js'));
 gulp.task('static-scripts', require('./tasks/static-scripts.js'));
 gulp.task('static-images', require('./tasks/static-images.js'));
+gulp.task('static-includes', require('./tasks/static-includes.js'));
 
 // Tests
 gulp.task('test:react', require('./tasks/tests.js').react);
@@ -52,8 +54,10 @@ gulp.task('sync-styleguide', ['sync-styleguide:typography', 'sync-styleguide:col
 gulp.task('assets', sequence('clean', [
   'sass:env',
   'sass',
+  'sass:wufoo',
   'static-scripts',
   'static-images',
+  'static-includes',
   'icons',
   'fonts'
 ]));

@@ -44,7 +44,7 @@ app.use('/client', loopback.static('client'));
 require('./routing/routingParams')(app);
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
-var reactDossierHeaderRouter = require('./routing/routingDossierHeader');
+var reactDossierRouter = require('./routing/routingDossier');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
@@ -92,6 +92,23 @@ app.get('/sassdoc', function(req, res) {
 
 
 // -----------------------------------------------------------------------------
+// Authentication
+//
+// We use cookie-session to store the user id as a cookie. The cookie-session
+// package allows to sign the cookie (a second cookie <cookie-name>.sig is
+// stored containing a hash of <cookie-name>'s value).
+// The cookie is set from Zope.
+// -----------------------------------------------------------------------------
+
+app.use(require('cookie-session')({
+  name: process.env.SESSION_COOKIE,
+  secret: process.env.SESSION_SECRET
+}));
+
+var loadUser = require('./routing/loadUser');
+
+
+// -----------------------------------------------------------------------------
 // App Routing
 //
 // NOTE: Order matters here!
@@ -109,7 +126,7 @@ app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
         reactTopicLayoutRouter);
 
-app.get(COMPONENT_PREFIX + '/dossier/:dossier/dossier-header/:variation', reactDossierHeaderRouter);
+app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation', reactDossierRouter);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
 app.get([COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
          COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation'
@@ -139,6 +156,9 @@ app.all('*', function() {
 // identified as an error-handling middleware. Even if you don’t need to use the next
 // object, make sure specify it to maintain the signature, else it will be interpreted as
 // a regular middleware, and fail to handle errors.
+
+// HINT: commented to be able to see errors. uncomment if needed
+
 // app.use(function(err, req, res, next) {
 //   app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
 //   res.status(200);

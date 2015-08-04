@@ -1,0 +1,223 @@
+/* - - - - - - - - - - - - - - - - - - - - -
+
+ Title : AZ Medien Wufoo Styles
+ Author : Edenspiekermann AG
+ URL : http://aargauerzeitung.ch
+
+ Last Updated : 20/07/2015
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+// scss-lint:disable all
+
+/* Import the Fonts */
+@import 'vendor/include-media';
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+input,
+textarea,
+select {
+  outline: 0;
+  -webkit-appearance: none;
+  font-family: 'Colfax', 'Helvetica', 'Arial', sans-serif !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  -webkit-appearance: none;
+}
+
+#container {
+  margin-bottom: 0 !important;
+}
+
+.form,
+.wufoo {
+  font-family: 'Colfax', 'Helvetica', 'Arial', sans-serif;
+  display: block;
+  padding: 0 0 30px 0 !important;
+  width: 100% !important;
+  max-width: 1000px !important;
+  padding-bottom: 60px;
+}
+
+.form,
+.wufoo li {
+  padding-left: 0;
+  padding-right: 0;
+  clear: none;
+}
+
+.wufoo li.focused,
+form li.focused {
+  background-color: #fff !important;
+}
+
+.form,
+.wufoo li.buttons {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100% !important;
+  clear: both;
+}
+
+.form-row {
+  width: 100%;
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.form-left {
+  @media (min-width: 40em) {
+    float: left;
+  }
+}
+
+.form-right {
+  @media (min-width: 40em) {
+    float: right;
+  }
+}
+
+// overwrite wufoo class
+.noI form li, .altInstruct form li {
+  @media (min-width: 40em) {
+    width: 49% !important;
+  }
+}
+
+.form-row--inner {
+  margin-bottom: 10px;
+}
+
+.form__label,
+.desc {
+  font-family: 'Colfax', 'Helvetica', 'Arial', sans-serif;
+  display: block;
+  font-size: 0.875em !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888888;
+}
+
+.form__label--margin {
+  margin-bottom: 10px;
+}
+
+.form__input,
+.field {
+  font-size: 16px !important;
+  max-width: 380px;
+  border: 1px solid #888888;
+  border-radius: 2px;
+  padding: 0.8em !important;
+  box-shadow: inset rgba(0, 0 , 0, 0.2) 0 2px 2px;
+}
+
+.form__input:focus,
+.field:focus {
+  border-color: #1B4D85;
+  box-shadow: none;
+}
+
+.form__input--textarea {
+  max-width: 380px;
+}
+
+.form__submit,
+.submit {
+  cursor: pointer;
+  font-weight: 400;
+  display: inline-block;
+  background-color: #428BDD;
+  font-family: 'Colfax', 'Helvetica', 'Arial', sans-serif;
+  font-weight: bold;
+  padding: 16px 32px !important;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  color: white;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all ease-in-out 0.07s;
+}
+
+.form input[type="checkbox"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.form input[type="checkbox"] + span {
+  border: 1px solid #888888;
+  border-radius: 2px;
+  box-shadow: inset rgba(0, 0 , 0, 0.2) 0 2px 2px;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  margin: -2px 4px 0 0;
+  vertical-align: middle;
+  background: #fff;
+  cursor: pointer;
+}
+
+.form input[type="checkbox"]:checked + span {
+  background: url('/client/images/icons/check.svg') center center no-repeat;
+}
+
+.form input[type="radio"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.form input[type="radio"] + span {
+  border: 1px solid #888888;
+  border-radius: 50%;
+  box-shadow: inset rgba(0, 0 , 0, 0.2) 0 2px 2px;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  margin: -2px 4px 0 0;
+  vertical-align: middle;
+  background: #fff;
+  cursor: pointer;
+}
+
+.form input[type="radio"]:checked + span {
+  background: #c6c6c6;
+  box-shadow: inset #fff 3px 0 0, inset #fff -3px 0 0, inset #fff 0 3px 0, inset #fff 0 -3px 0;
+}
+
+input.medium, select.medium {
+  @include media('<=450px') {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+.select-box {
+  position: relative;
+  display: inline-block;
+}
+
+.form__select {
+  border: 1px solid #888888;
+  border-radius: 2px;
+  padding: 0.4em 2em 0.3em 0.35em;
+  background: #f8f8f8 url('/client/images/select.png') center right no-repeat;
+  background-size: 28px 20px;
+  padding: 0.4em 0.35em 0.3em;
+  box-shadow: rgba(0, 0 , 0, 0.2) 0 2px 2px, inset #fff 0 2px 0;
+}
+
+// scss-lint:enable all
