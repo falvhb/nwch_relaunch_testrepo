@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/04 0.0.11
+=================
+
   - added `qs` as dependency to convert querystring <--> object
   - added `express` as dependency (replaces loopback)
     DEPLOY: npm install
