@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 var axios = require('axios');
 
-var api = process.env.API_BASE_URL || 'http://localhost:8711/api/v1/content';
+var api = process.env.API_BASE_URL || 'http://localhost:8811/api/v1/content';
 
 
 /**
