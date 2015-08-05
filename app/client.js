@@ -9,9 +9,9 @@ var Advertising = require('advertising');
 var RelatedVideos = require('components/related-videos');
 var Footer = require('components/footer');
 var TopicDetail = require('components/topic-detail');
+var DossierHeader = require('components/dossier-header');
 
-advertising = Advertising.init('.ad');
-
+Advertising.init('.ad');
 
 var components = {
   articleHeader: ArticleHeader,
@@ -20,7 +20,8 @@ var components = {
   teaser: Teaser,
   relatedVideos: RelatedVideos,
   footer: Footer,
-  topicDetail: TopicDetail
+  topicDetail: TopicDetail,
+  dossierHeader: DossierHeader
 };
 
 iso.hydrate(components);
