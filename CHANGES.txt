@@ -16,6 +16,11 @@ unreleased
   - updated app.listen to show the url the server is listening
   - updated api tests
 
+2015/08/06 0.0.12
+=================
+
+ - render ressort-header from subressort configuration
+
 2015/08/04 0.0.11
 =================
 

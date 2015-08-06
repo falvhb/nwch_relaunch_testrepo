@@ -44,6 +44,7 @@ app.use(require('./routing/api'));
 // middlewares for retrieving data from the REST API
 var loadArticle = require('./routing/loadArticle');
 var loadDossier = require('./routing/loadDossier');
+var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
 
@@ -51,6 +52,7 @@ var loadUser = require('./routing/loadUser');
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactDossierRouter = require('./routing/routingDossier');
+var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
@@ -113,16 +115,27 @@ var COMPONENT_PREFIX = '';
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
-        loadTopic, reactTopicAPIRouter);
+        loadTopic,
+        reactTopicAPIRouter);
 
 app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
-        loadTopic, reactTopicLayoutRouter);
+        loadTopic,
+        reactTopicLayoutRouter);
 
-app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation', loadDossier, reactDossierRouter);
-app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
-app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation', loadArticle, reactComponentsRouter);
-app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation', reactComponentsRouter);
+app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
+        loadDossier,
+        reactDossierRouter);
+app.get(COMPONENT_PREFIX + '/:ressort?/ressort-header/:variation?',
+        loadRessortNav,
+        reactRessortHeaderRenderer);
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
+        nodeIncludesRouter);
+app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
+        loadArticle,
+        reactComponentsRouter);
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
+        reactComponentsRouter);
 
 
 // catch-all route, throws an error to invoke error handling
