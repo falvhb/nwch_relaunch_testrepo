@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/06 0.0.12
+=================
+
  - render ressort-header from subressort configuration
 
 2015/08/04 0.0.11
