@@ -20,11 +20,6 @@ module.exports = function(req, res) {
       return;
     }
 
-    var articleData = null;
-    if (req.article) {
-      articleData = req.article.data;
-    }
-
     var componentName = params.component;
     if (!componentName) {
       res.send('<!-- No component name provided! -->');
@@ -33,6 +28,15 @@ module.exports = function(req, res) {
     var componentVariation = params.variation;
     if (!componentName) {
       res.send('<!-- No variation name provided! -->');
+      return;
+    }
+
+    var articleData = null;
+    if (req.article) {
+      articleData = req.article.data;
+    }
+    if (!articleData) {
+      res.send('<!-- Requested data not found! -->');
       return;
     }
 
