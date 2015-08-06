@@ -63,22 +63,6 @@ describe('Components Router', function() {
     assert.ok(res.body.indexOf('<!-- No component name provided! -->') === 0);
   });
 
-  it('returns an HTML comment if no data is found', function() {
-    req.params = {
-      articleId: 100003399,
-      component: 'article-detail'
-    };
-    req.api.get = function(key) {
-      if (key === "article") {
-        return null;
-      }
-    };
-
-    componentsRouter(req, res);
-
-    assert.ok(res.body.indexOf('<!-- Requested data not found! -->') >= 0);
-  });
-
   it('returns an HTML comment including errors if not data is found', function() {
     req.api.get = function(key) {
       if (key === 'article') {

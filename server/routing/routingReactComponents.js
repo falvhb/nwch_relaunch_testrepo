@@ -35,10 +35,6 @@ module.exports = function(req, res) {
     if (req.article) {
       articleData = req.article.data;
     }
-    if (!articleData) {
-      res.send('<!-- Requested data not found! -->');
-      return;
-    }
 
     // map our data
     var state = {
