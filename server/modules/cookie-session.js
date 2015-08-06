@@ -3,6 +3,8 @@
  * Copyright(c) 2013 Jonathan Ong
  * Copyright(c) 2014-2015 Douglas Christopher Wilson
  * MIT Licensed
+ *
+ * https://github.com/expressjs/cookie-session
  */
 
 'use strict'
@@ -13,7 +15,7 @@
  */
 
 var debug = require('debug')('cookie-session');
-var Cookies = require('cookies');
+var Cookies = require('./cookies');
 var onHeaders = require('on-headers');
 
 /**

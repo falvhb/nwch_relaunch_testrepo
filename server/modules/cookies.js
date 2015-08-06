@@ -1,3 +1,14 @@
+/*!
+ * cookies
+ * Copyright (c) 2014 Jed Schmidt, http://jed.is/
+ * MIT Licensed
+ *
+ * https://github.com/pillarjs/cookies
+ *
+ * CHANGES:
+ *  - trim quotes of cookie values
+ */
+
 var Keygrip = require('keygrip')
 var http = require('http')
 var cache = {}
