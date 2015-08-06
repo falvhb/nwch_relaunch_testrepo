@@ -5,6 +5,17 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - moved `cookie-session` to `modules` and applid some changes:
+    if a cookie value starts and ends with double quotes, the quotes are
+    stripped; this is necessary because python adds these double quotes
+    automatically under certain circumstances
+  - added dependencies: keygrip, debug, no-headers
+    DEPLOY: npm install
+  - use patched `cookie-session` package (see above)
+  - updated SESSION_SECRET for local development in `.env`
+  - updated app.listen to show the url the server is listening
+  - updated api tests
+
 2015/08/06 0.0.12
 =================
 
