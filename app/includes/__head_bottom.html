@@ -2,11 +2,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{%- set azSkins = r/^(aaz|bat|gtb|liz|soz)$/ -%}
-{%- set bzSkins = r/^(bzb|blz)$/ -%}
-{%- if azSkins.test(skin) -%}
+{%- if skin.match(r/^(aaz|bat|gtb|liz|soz)$/) -%}
   {% set icon = 'az' %}
-{%- elif bzSkins.test(skin) -%}
+{%- elif skin.match(r/^(bzb|blz)$/) -%}
   {% set icon = 'bz' %}
 {%- else %}
   {% set icon = 'ot' %}
