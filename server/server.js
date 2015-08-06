@@ -93,7 +93,7 @@ app.get('/sassdoc', function(req, res) {
 // The cookie is set from Zope.
 // -----------------------------------------------------------------------------
 
-app.use(require('cookie-session')({
+app.use(require('./modules/cookie-session')({
   name: process.env.SESSION_COOKIE,
   secret: process.env.SESSION_SECRET
 }));
@@ -148,12 +148,7 @@ app.all('*', function(req, res) {
 
 
 // Start our server
-app.start = function() {
-  var port = process.env.PORT || 8000;
-  return app.listen(port, function() {
-    app.emit('started');
-    console.log('Web server listening at: %s', app.get('url'));
-  });
-};
-
-app.start();
+var port = process.env.PORT || 8000;
+var server = app.listen(port, function () {
+  console.log('Web server listening at %s:%s/', server.address().address, server.address().port);
+});
