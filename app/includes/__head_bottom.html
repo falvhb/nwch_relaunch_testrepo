@@ -2,6 +2,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+{%- set azSkins = r/^(aaz|bat|gtb|liz|soz)$/ -%}
+{%- set bzSkins = r/^(bzb|blz)$/ -%}
+{%- if azSkins.test(skin) -%}
+  {% set icon = 'az' %}
+{%- elif bzSkins.test(skin) -%}
+  {% set icon = 'bz' %}
+{%- else %}
+  {% set icon = 'ot' %}
+{%- endif %}      
+
+<link rel="apple-touch-icon" sizes="57x57" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/__node__/__static__/client/images/device-icons/{{ icon }}/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/__node__/__static__/client/images/device-icons/{{ icon }}/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/__node__/__static__/client/images/device-icons/{{ icon }}/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/__node__/__static__/client/images/device-icons/{{ icon }}/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/__node__/__static__/client/images/device-icons/{{ icon }}/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/__node__/__static__/client/images/device-icons/{{ icon }}/{{ skin }}/manifest.json">
+<link rel="shortcut icon" href="/__node__/__static__/client/images/device-icons/{{ icon }}/favicon.ico">
+<meta name="msapplication-TileColor" content="{{ "#e30613" if skin == "ot" else "#1b4d85" }}">
+<meta name="msapplication-TileImage" content="/__node__/__static__/client/images/device-icons/{{ icon }}/mstile-144x144.png">
+<meta name="msapplication-config" content="/__node__/__static__/client/images/device-icons/{{ icon }}/{{ skin }}/browserconfig.xml">
+<meta name="theme-color" content="{{ "#e30613" if skin == "ot" else "#1b4d85" }}">
+
 {# Inline the JavaScript utilities file since it needs to be synchronously
    loaded. Also, it is very lightweight so it should not make any difference. #}
 <script>
