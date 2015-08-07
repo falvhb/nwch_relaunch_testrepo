@@ -11,8 +11,7 @@ var Footer = require('components/footer');
 var TopicDetail = require('components/topic-detail');
 var HeaderNav = require('components/header-nav');
 
-// advertising = Advertising.init('.ad');
-
+advertising = Advertising.init('.ad');
 
 var components = {
   articleHeader: ArticleHeader,
