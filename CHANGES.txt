@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - added static URL versioning
   - moved `cookie-session` to `modules` and applid some changes:
     if a cookie value starts and ends with double quotes, the quotes are
     stripped; this is necessary because python adds these double quotes
