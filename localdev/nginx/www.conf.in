@@ -1,6 +1,6 @@
 map $http_host $skin_name {
     hostnames;
-    default unknown;
+    default aaz;
     include az_skins.map;
 }
 
