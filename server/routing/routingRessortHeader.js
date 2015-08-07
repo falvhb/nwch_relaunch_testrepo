@@ -48,7 +48,7 @@ module.exports = function(req, res) {
       component: component,
       state: slot ? slot(state) : state,
       meta: {
-        id: 'RessortHeader',
+        id: 'ressortHeader',
         variation: componentVariation
       }
     });

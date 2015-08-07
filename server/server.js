@@ -3,6 +3,7 @@
 var express = require('express');
 var nunjucks = require('nunjucks');
 var path = require('path');
+var fs = require('fs');
 var engines = require('consolidate');
 var app = module.exports = express();
 
@@ -13,6 +14,11 @@ var app = module.exports = express();
 require('dotenv').load({
   path: '.env'
 });
+if (fs.existsSync('.env.deploy')) {
+  require('dotenv').load({
+    path: '.env.deploy'
+  });
+}
 var isDevelopment = process.env.NODE_ENV === 'development';
 
 // -----------------------------------------------------------------------------
