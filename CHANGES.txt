@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/07 0.0.13
+=================
+
   - added static URL versioning
   - moved `cookie-session` to `modules` and applid some changes:
     if a cookie value starts and ends with double quotes, the quotes are
