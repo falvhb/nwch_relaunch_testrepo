@@ -31,10 +31,28 @@ For homebrew you also need to add this to your .profile or .bashrc::
 Installation
 ============
 
-Set the current working directory to '/localdev' folder and run the following
-commands::
+Initial Step
+------------
 
+This initial step is only needed the first time after cloning the
+repository::
+
+    $ cd localdev
     $ python bootstrap.py
+
+Building The Proxy
+------------------
+
+This step will do a complete rebuild and restart of the proxy. This step is
+needed initially or after a change was made in the nginx configuration::
+
+    $ ./build.sh
+
+Manual Build
+------------
+
+Note that these steps are not needed if you use the "build.sh" script::
+
     $ bin/buildout -N
 
 Now you have an nginx which can be started under supervisor control::
@@ -95,6 +113,11 @@ Development
 -----------
 
 This is the default and is activated with::
+
+    $ cd localdev
+    $ ./build.sh
+    
+Or manually::
 
     $ cd localdev
     $ rm nginx/www.conf

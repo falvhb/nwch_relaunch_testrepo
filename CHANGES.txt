@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - simplyfied the build process for localdev, see localdev/README.rst section
+   "Building The Proxy"
+
   - localdev uses aaz as the default skin name to be able to use it with ngrok
 
 2015/08/07 0.0.13
