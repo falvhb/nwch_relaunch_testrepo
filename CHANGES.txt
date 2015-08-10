@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/10 0.0.15
+=================
+
   - adds header and navigation for all sites using header-nav component
   - creates primary-nav and header-logo components
   - adds /config folder for easy updating of site-specifics via json
