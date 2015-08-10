@@ -85,3 +85,18 @@ If you want to deploy from a specific/feature branch, use:
 ```sh
 $ git push heroku branchname:master
 ```
+
+## Lovely Systems Deployment
+
+Currently the deployment is made using git checkout from branch "release/0.0".
+
+To prepare the current develop branch for deployement use these commands::
+
+```sh
+$ git checkout develop
+$ git pull
+$ git checkout release/0.0
+$ git merge develop
+$ npm version patch
+$ git push origin
+```
