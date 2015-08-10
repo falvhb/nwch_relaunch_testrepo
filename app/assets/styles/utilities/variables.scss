@@ -134,14 +134,14 @@ $letterbox-background: #333;
 /// @prop {String} key - Name of the breakpoint
 /// @prop {Map} value - Breakpoint value expressed in pixels
 $breakpoints: (
-  'small': 640px,
-  'medium': 900px,
-  'before-large': 1090px,
-  'large': 1150px,
-  'after-large': 1521px,
-  'switch': 1280px,
-  'advertising-medium': 728px,
-  'advertising-large': 1150px,
+  'small': 40em /* 640px */,
+  'medium': 56.25em /* 900px */,
+  'before-large': 68.125em /* 1090px */,
+  'large': 71.875em /* 1150px */,
+  'after-large': 95.063em /* 1521px */,
+  'switch': 80em /* 1280px */,
+  'advertising-medium': 45.5em /* 728px */,
+  'advertising-large': 71.875em /* 1150px */,
 );
 
 
