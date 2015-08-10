@@ -13,7 +13,6 @@ var HeaderNav = require('components/header-nav');
 
 advertising = Advertising.init('.ad');
 
-
 var components = {
   articleHeader: ArticleHeader,
   articleIntro: ArticleIntro,
