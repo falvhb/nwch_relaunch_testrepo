@@ -134,7 +134,7 @@ $letterbox-background: #333;
 /// @prop {String} key - Name of the breakpoint
 /// @prop {Map} value - Breakpoint value expressed in pixels
 $breakpoints: (
-  'small': 40em /* 640px */,
+  'mobile-portrait': 40em /* 640px */,
   'medium': 56.25em /* 900px */,
   'before-large': 68.125em /* 1090px */,
   'large': 71.875em /* 1150px */,
@@ -200,7 +200,7 @@ $component-spacing: 1.5em;
 }
 
 @mixin main-layout {
-  @include media('>small', '<=medium') {
+  @include media('>mobile-portrait', '<=medium') {
     width: 100%;
   }
 

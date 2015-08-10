@@ -44,7 +44,7 @@ code {
 table {
   text-align: left;
 
-  @include media('>small') {
+  @include media('>mobile-portrait') {
     width: 100%;
     table-layout: fixed;
   }

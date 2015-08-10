@@ -13,7 +13,7 @@
   font-weight: 700;
   letter-spacing: 0.2px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 18px;
   }
 }
@@ -27,7 +27,7 @@
   font: 20px / 1.41 $text-font-stack;
   letter-spacing: 0.3px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 18px;
   }
 }
@@ -40,7 +40,7 @@
 @mixin type-copy-alternate {
   font: 16px / 1.5 $supporting-font-stack;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 15px;
   }
 }
@@ -63,7 +63,7 @@
   font: 48px / 1.125 $headline-font-stack;
   letter-spacing: 0.9px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 26px;
   }
 }
@@ -77,7 +77,7 @@
   letter-spacing: 0.6px;
   margin-bottom: 15px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 22px;
   }
 }
@@ -91,7 +91,7 @@
   letter-spacing: 0.6px;
   margin-bottom: 15px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 18px;
   }
 }
@@ -180,14 +180,14 @@
   }
 
   @if $breakpoint == 'both' or $breakpoint == 'mobile' {
-    @include media('<=small') {
+    @include media('<=mobile-portrait') {
       #{$method}-left: $factor * $container-spacing;
       #{$method}-right: $factor * $container-spacing;
     }
   }
 
   @if $breakpoint == 'both' or $breakpoint == 'desktop' {
-    @include media('>small') {
+    @include media('>mobile-portrait') {
       #{$method}-left: $factor * ($container-spacing * 2);
       #{$method}-right: $factor * ($container-spacing * 2);
     }
@@ -224,11 +224,11 @@
     @include island-padding($small-padding);
   } @else {
 
-    @include media('<=small') {
+    @include media('<=mobile-portrait') {
       @include island-padding($small-padding);
     }
 
-    @include media('>small') {
+    @include media('>mobile-portrait') {
       @include island-padding($large-padding);
     }
 
@@ -312,11 +312,11 @@
   text-align: center;
   margin-bottom: 20px;
 
-  @include media('<=small') {
+  @include media('<=mobile-portrait') {
     font-size: $size - ($size/5);
   }
 
-  @include media('>small') {
+  @include media('>mobile-portrait') {
     font-size: $size;
   }
 
