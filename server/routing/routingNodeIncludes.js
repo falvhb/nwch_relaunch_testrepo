@@ -36,10 +36,19 @@ module.exports = function nodeIncludesRouter(req, res) {
     }
   }
   var skin = req.headers ? req.headers['x-skin'] : 'aaz';
+  var iconPath = 'az';
+  if (skin.match(/^(bzb|blz)$/)) {
+    iconPath = 'bz';
+  } else if (skin.match(/^(ot)$/)) {
+    iconPath = 'ot';
+  }
+  var version = process.env.VERSION || '@@VERSION';
   var data = {
-    "withAds": pageType !== '',
-    "pageType": pageType,
-    "skin": skin
+    'withAds': pageType !== '',
+    'pageType': pageType,
+    'skin': skin,
+    'iconPath': iconPath,
+    'staticBasePath': '/__node__/' + version + '/__static__'
   };
   res.send(renderNunchuck(component, data));
 };

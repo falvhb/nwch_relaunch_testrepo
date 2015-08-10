@@ -36,7 +36,7 @@ module.exports = function(req, res) {
   }
 
   function render() {
-    var result = req.item || {};
+    var result = req.api.get('dossier') || {};
     var dossier = result && result.data ? result.data[0] : null;
 
     var state = {
@@ -60,21 +60,5 @@ module.exports = function(req, res) {
     res.send(isoWrapped);
   }
 
-  // do the dossier query
-  var queryParams = {
-    'path': 'dossier/' + req.params.dossier
-  };
-
-  req.app.models.NewsRessort.query(
-    queryParams,
-    function(err, result) {
-      if (err) {
-        req.item = null;
-      } else {
-        // got a result to render
-        req.item = result;
-      }
-      render();
-    }
-  );
+  req.api.done(render);
 };

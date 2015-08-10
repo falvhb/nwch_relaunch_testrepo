@@ -5,6 +5,47 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/10 0.0.14
+=================
+
+ - simplyfied the build process for localdev, see localdev/README.rst section
+   "Building The Proxy"
+
+  - localdev uses aaz as the default skin name to be able to use it with ngrok
+  - added dossier header to dossier page and plugged-in API
+  - removes user feedback widget for MVP
+
+2015/08/07 0.0.13
+=================
+
+  - added static URL versioning
+  - moved `cookie-session` to `modules` and applid some changes:
+    if a cookie value starts and ends with double quotes, the quotes are
+    stripped; this is necessary because python adds these double quotes
+    automatically under certain circumstances
+  - added dependencies: keygrip, debug, no-headers
+    DEPLOY: npm install
+  - use patched `cookie-session` package (see above)
+  - updated SESSION_SECRET for local development in `.env`
+  - updated app.listen to show the url the server is listening
+  - updated api tests
+
+2015/08/06 0.0.12
+=================
+
+ - render ressort-header from subressort configuration
+
+2015/08/04 0.0.11
+=================
+
+  - added `qs` as dependency to convert querystring <--> object
+  - added `express` as dependency (replaces loopback)
+    DEPLOY: npm install
+  - added asynchronous api connector
+  - uses async api connector for users, articles, topics, dossiers
+  - removed loopback & loopback-* modules
+  - removed `winston` as logger
+
 2015/08/04 0.0.10
 =================
 
@@ -22,6 +63,8 @@ unreleased
   - added `SESSION_COOKIE` and `SESSION_SECRET` to .env
     DEPLOY: set these variables
   - disabled global error handler to be able to see errors
+  - added dossier header to dossier page and plugged-in API
+  - removes user feedback widget for MVP
 
 2015/08/03 0.0.8
 ================

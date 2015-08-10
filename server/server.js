@@ -1,17 +1,21 @@
 /*eslint-disable no-console, no-unused-vars */
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
+var express = require('express');
 var nunjucks = require('nunjucks');
 var path = require('path');
+var fs = require('fs');
 var engines = require('consolidate');
-var winston = require('winston');
-var app = module.exports = loopback();
+var app = module.exports = express();
 
 // -----------------------------------------------------------------------------
 // Environment
 // -----------------------------------------------------------------------------
 
+if (fs.existsSync('.env.deploy')) {
+  require('dotenv').load({
+    path: '.env.deploy'
+  });
+}
 require('dotenv').load({
   path: '.env'
 });
@@ -38,29 +42,26 @@ app.set('x-powered-by', false);
 app.set('views', path.resolve(__dirname, '../app'));
 app.set('view engine', 'html');
 app.engine('html', engines.nunjucks);
-app.use('/client', loopback.static('client'));
+app.use('/client', express.static('client'));
+
+// API Middleware
+// Registers an API object on req that should be used for all API calls.
+app.use(require('./routing/api'));
+// middlewares for retrieving data from the REST API
+var loadArticle = require('./routing/loadArticle');
+var loadDossier = require('./routing/loadDossier');
+var loadRessortNav = require('./routing/loadRessortNav');
+var loadTopic = require('./routing/loadTopic');
+var loadUser = require('./routing/loadUser');
 
 // Routing Middleware
-require('./routing/routingParams')(app);
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactDossierRouter = require('./routing/routingDossier');
+var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 
-// Start our server
-app.start = function() {
-  var port = process.env.PORT || 8000;
-  return app.listen(port, function() {
-    app.emit('started');
-    console.log('Web server listening at: %s', app.get('url'));
-  });
-};
-
-// Logging
-winston.remove(winston.transports.Console);
-winston.add(winston.transports.Console, { 'timestamp': true });
-app.set('logger', winston);
 
 // -----------------------------------------------------------------------------
 // Styleguide Routing / Json
@@ -83,7 +84,7 @@ app.get('/styleguide/components.json', function(req, res) {
 // -----------------------------------------------------------------------------
 
 // Serve SassDoc assets folder
-app.use('/sassdoc/assets/', loopback.static('app/sassdoc/assets'));
+app.use('/sassdoc/assets/', express.static('app/sassdoc/assets'));
 
 // SassDoc route
 app.get('/sassdoc', function(req, res) {
@@ -100,12 +101,10 @@ app.get('/sassdoc', function(req, res) {
 // The cookie is set from Zope.
 // -----------------------------------------------------------------------------
 
-app.use(require('cookie-session')({
+app.use(require('./modules/cookie-session')({
   name: process.env.SESSION_COOKIE,
   secret: process.env.SESSION_SECRET
 }));
-
-var loadUser = require('./routing/loadUser');
 
 
 // -----------------------------------------------------------------------------
@@ -114,40 +113,40 @@ var loadUser = require('./routing/loadUser');
 // NOTE: Order matters here!
 // -----------------------------------------------------------------------------
 
+app.get('/favicon.ico', function(req, res) { res.send(''); });
+
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '';
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
+        loadTopic,
         reactTopicAPIRouter);
 
 app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
+        loadTopic,
         reactTopicLayoutRouter);
 
-app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation', reactDossierRouter);
-app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)', nodeIncludesRouter);
-app.get([COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
-         COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation'
-        ],
+app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
+        loadDossier,
+        reactDossierRouter);
+app.get(COMPONENT_PREFIX + '/:ressort?/ressort-header/:variation?',
+        loadRessortNav,
+        reactRessortHeaderRenderer);
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
+        nodeIncludesRouter);
+app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
+        loadArticle,
         reactComponentsRouter);
-
-// Bootstrap the application, configure models, datasources and middleware.
-// Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
-  if (err) { throw err; }
-
-  // start the server if `$ node server.js`
-  if (require.main === module) {
-    app.start();
-  }
-});
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
+        reactComponentsRouter);
 
 
 // catch-all route, throws an error to invoke error handling
-app.all('*', function() {
-  throw new Error('unknown route');
+app.all('*', function(req, res) {
+  throw new Error('unknown route: ' + req.originalUrl);
 });
 
 // error handling
@@ -165,3 +164,10 @@ app.all('*', function() {
 //   res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
 //   res.end();
 // });
+
+
+// Start our server
+var port = process.env.PORT || 8000;
+var server = app.listen(port, function () {
+  console.log('Web server listening at %s:%s/', server.address().address, server.address().port);
+});
