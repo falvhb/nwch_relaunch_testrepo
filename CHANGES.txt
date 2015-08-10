@@ -9,6 +9,8 @@ unreleased
    "Building The Proxy"
 
   - localdev uses aaz as the default skin name to be able to use it with ngrok
+  - added dossier header to dossier page and plugged-in API
+  - removes user feedback widget for MVP
 
 2015/08/07 0.0.13
 =================
