@@ -16,6 +16,8 @@ unreleased
   - added `SESSION_COOKIE` and `SESSION_SECRET` to .env
     DEPLOY: set these variables
   - disabled global error handler to be able to see errors
+  - added dossier header to dossier page and plugged-in API
+  - removes user feedback widget for MVP
 
 2015/08/03 0.0.8
 ================
