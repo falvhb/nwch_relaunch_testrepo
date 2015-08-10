@@ -5,11 +5,11 @@ body {
   color: $black;
   overflow-x: hidden;
 
-  @include media('<=medium') {
+  @include media('<=tablet-portrait') {
     padding-top: 80px;
   }
 
-  @include media('>medium') {
+  @include media('>tablet-portrait') {
     padding-top: 150px;
   }
 }

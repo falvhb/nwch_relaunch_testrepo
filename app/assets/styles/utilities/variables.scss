@@ -135,7 +135,7 @@ $letterbox-background: #333;
 /// @prop {Map} value - Breakpoint value expressed in pixels
 $breakpoints: (
   'mobile-portrait': 40em /* 640px */,
-  'medium': 56.25em /* 900px */,
+  'tablet-portrait': 56.25em /* 900px */,
   'before-large': 68.125em /* 1090px */,
   'large': 71.875em /* 1150px */,
   'after-large': 95.063em /* 1521px */,
@@ -200,11 +200,11 @@ $component-spacing: 1.5em;
 }
 
 @mixin main-layout {
-  @include media('>mobile-portrait', '<=medium') {
+  @include media('>mobile-portrait', '<=tablet-portrait') {
     width: 100%;
   }
 
-  @include media('>medium', '<=large') {
+  @include media('>tablet-portrait', '<=large') {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
