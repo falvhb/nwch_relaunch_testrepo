@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - added ressort-teaser component
+
 2015/08/07 0.0.13
 =================
 
