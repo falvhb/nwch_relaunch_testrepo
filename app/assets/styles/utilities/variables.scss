@@ -167,17 +167,17 @@ $media-expressions: (
 /// The gutters at the side of the page
 /// @type Length
 /// @group container
-$container-spacing: 18px;
+$container-spacing: 1.125em /* 18px */;
 
-/// Container width expressed in pixels
+/// Container width expressed in ems
 /// @type Length
 /// @group container
-$container-width: 1180px;
+$container-width: 73.75em /* 1180px */;
 
-/// Sidebar width expressed in pixels
+/// Sidebar width expressed in ems
 /// @type Length
 /// @group container
-$sidebar-width: 350px;
+$sidebar-width: 21.875em /* 350px */;
 
 /// Component spacing in between components expressed in ems
 $component-spacing: 1.5em;
