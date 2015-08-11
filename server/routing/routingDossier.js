@@ -41,7 +41,9 @@ module.exports = function(req, res) {
 
     var state = {
       'dossier': dossier,
-      'variation': componentVariation
+      'variation': componentVariation,
+      'skin': req.headers['x-skin'],
+      'path': req._parsedUrl.path
     };
 
     // wrap component in isomorphic layer

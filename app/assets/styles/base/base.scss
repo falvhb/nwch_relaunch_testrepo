@@ -3,7 +3,38 @@
 body {
   font: 100% / 1.5 $text-font-stack;
   color: $black;
-  overflow-x: hidden; /* NOTE: Dirty hack to kill horizontal scrollbars (caused by bottom recommendations) on small screens. TODO: Improve ASAP.*/
+  overflow-x: hidden;
+
+  @include media('<=tablet-portrait') {
+    padding-top: 80px;
+  }
+
+  @include media('>tablet-portrait') {
+    padding-top: 150px;
+  }
+}
+
+@include media('<=tablet-portrait') {
+  .is-menu-open {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body::after {
+    content: '';
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 75;
+  }
+
+  .is-menu-open body::after {
+    display: block;
+  }
 }
 
 code {
@@ -13,7 +44,7 @@ code {
 table {
   text-align: left;
 
-  @include media('>small') {
+  @include media('>mobile-portrait') {
     width: 100%;
     table-layout: fixed;
   }
