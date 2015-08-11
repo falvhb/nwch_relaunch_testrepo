@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/11 0.0.17
+=================
+
   - fix image not using cropped version due to missing parentheses (ffs)
   - fix unclickable body on mobile devices
   - rename all mediaqueries so that they make sense
