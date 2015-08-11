@@ -57,7 +57,7 @@ Workaround For Openresty Download Problems
 We are experiencing download problems with openresty using buildout. This
 workaround help to install the local nginx.
 
-First make shure this folder exists::
+First make sure this folder exists::
 
     ~/.buildout/cache
 
