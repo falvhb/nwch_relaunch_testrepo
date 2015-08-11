@@ -136,9 +136,9 @@ $letterbox-background: #333;
 $breakpoints: (
   'mobile-portrait': 40em /* 640px */,
   'tablet-portrait': 56.25em /* 900px */,
-  'before-large': 68.125em /* 1090px */,
-  'large': 71.875em /* 1150px */,
-  'after-large': 95.063em /* 1521px */,
+  'tablet-landscape': 68.125em /* 1090px */,
+  'desktop-laptop': 71.9em /* 1151px */,
+  'center-layout': 95.063em /* 1521px */,
   'switch': 80em /* 1280px */,
   'advertising-medium': 45.5em /* 728px */,
   'advertising-large': 71.875em /* 1150px */,
@@ -188,13 +188,13 @@ $component-spacing: 1.5em;
 // LAYOUT MIXINS
 // -----------------------------------------------------------------------------
 @mixin content-width($method: 'margin') {
-  @include media('>large') {
+  @include media('>desktop-laptop') {
     #{$method}-right: $sidebar-width + $container-spacing;
   }
 }
 
 @mixin article-body-width($method: 'margin') {
-  @include media('>large') {
+  @include media('>desktop-laptop') {
     #{$method}-right: $sidebar-width + (3 * $container-spacing);
   }
 }
@@ -204,13 +204,13 @@ $component-spacing: 1.5em;
     width: 100%;
   }
 
-  @include media('>tablet-portrait', '<=large') {
+  @include media('>tablet-portrait', '<=desktop-laptop') {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @include media('>before-large', '<=after-large') {
+  @include media('>tablet-landscape', '<=center-layout') {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
