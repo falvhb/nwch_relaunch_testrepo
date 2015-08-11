@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/11 0.0.16
+=================
+
   - improved icon, linking and behavior of nav
   - fixed dossier page
 
