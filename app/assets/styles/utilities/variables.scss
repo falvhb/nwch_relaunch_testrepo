@@ -134,13 +134,13 @@ $letterbox-background: #333;
 /// @prop {String} key - Name of the breakpoint
 /// @prop {Map} value - Breakpoint value expressed in pixels
 $breakpoints: (
-  'mobile-portrait': 40em /* 640px */,
-  'tablet-portrait': 56.25em /* 900px */,
-  'tablet-landscape': 68.125em /* 1090px */,
-  'desktop-laptop': 71.9em /* 1151px */,
-  'center-layout': 95.063em /* 1521px */,
-  'advertising-medium': 45.5em /* 728px */,
-  'advertising-large': 80em /* 1280px */,
+  'mobile-portrait': 40em, // 640px
+  'tablet-portrait': 56.25em, // 900px
+  'tablet-landscape': 68.125em, // 1090px
+  'desktop-laptop': 71.9em, // 1151px
+  'center-layout': 95.063em, // 1521px
+  'advertising-medium': 45.5em, // 728px
+  'advertising-large': 80em, // 1280px
   'advertising-iphone5-portrait': 320px,
 );
 
@@ -182,7 +182,6 @@ $sidebar-width: 350px;
 
 /// Component spacing in between components expressed in ems
 $component-spacing: 1.5em;
-
 
 // -----------------------------------------------------------------------------
 // LAYOUT MIXINS
