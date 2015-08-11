@@ -11,6 +11,11 @@ unreleased
   - improved icon, linking and behavior of nav
   - fixed dossier page
 
+  - rename all mediaqueries so that they make sense
+  - use ems for mediaqueries to make the layout zoomable
+  - adjust advertising position and behavior on article page
+  - adjust container behaviour globally
+
 2015/08/10 0.0.15
 =================
 

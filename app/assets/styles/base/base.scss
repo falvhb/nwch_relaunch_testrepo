@@ -5,16 +5,16 @@ body {
   color: $black;
   overflow-x: hidden;
 
-  @include media('<=medium') {
+  @include media('<=tablet-portrait') {
     padding-top: 80px;
   }
 
-  @include media('>medium') {
+  @include media('>tablet-portrait') {
     padding-top: 150px;
   }
 }
 
-@include media('<=medium') {
+@include media('<=tablet-portrait') {
   .is-menu-open {
     height: 100%;
     overflow: hidden;
@@ -44,7 +44,7 @@ code {
 table {
   text-align: left;
 
-  @include media('>small') {
+  @include media('>mobile-portrait') {
     width: 100%;
     table-layout: fixed;
   }
