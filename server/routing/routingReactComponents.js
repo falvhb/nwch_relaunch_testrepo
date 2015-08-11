@@ -26,7 +26,7 @@ module.exports = function(req, res) {
       return;
     }
     var componentVariation = params.variation;
-    if (!componentName) {
+    if (!componentVariation) {
       res.send('<!-- No variation name provided! -->');
       return;
     }
