@@ -5,7 +5,23 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/10 0.0.15
+=================
+
+  - adds header and navigation for all sites using header-nav component
+  - creates primary-nav and header-logo components
+  - adds /config folder for easy updating of site-specifics via json
+  - adds dynamic logo to footer
+
+2015/08/10 0.0.14
+=================
+
+ - simplyfied the build process for localdev, see localdev/README.rst section
+   "Building The Proxy"
+
   - localdev uses aaz as the default skin name to be able to use it with ngrok
+  - added dossier header to dossier page and plugged-in API
+  - removes user feedback widget for MVP
 
 2015/08/07 0.0.13
 =================
@@ -55,6 +71,8 @@ unreleased
   - added `SESSION_COOKIE` and `SESSION_SECRET` to .env
     DEPLOY: set these variables
   - disabled global error handler to be able to see errors
+  - added dossier header to dossier page and plugged-in API
+  - removes user feedback widget for MVP
 
 2015/08/03 0.0.8
 ================

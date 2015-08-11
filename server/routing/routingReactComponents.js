@@ -39,7 +39,9 @@ module.exports = function(req, res) {
     // map our data
     var state = {
       'article': articleData,
-      'variation': componentVariation
+      'variation': componentVariation,
+      'skin': req.headers['x-skin'],
+      'path': req._parsedUrl.path
     };
 
     // resolve the component

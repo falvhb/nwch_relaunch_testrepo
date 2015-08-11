@@ -9,10 +9,11 @@ var Advertising = require('advertising');
 var RelatedVideos = require('components/related-videos');
 var Footer = require('components/footer');
 var TopicDetail = require('components/topic-detail');
+var HeaderNav = require('components/header-nav');
 var RessortHeader = require('components/ressort-header');
+var DossierHeader = require('components/dossier-header');
 
 advertising = Advertising.init('.ad');
-
 
 var components = {
   articleHeader: ArticleHeader,
@@ -22,7 +23,9 @@ var components = {
   relatedVideos: RelatedVideos,
   footer: Footer,
   topicDetail: TopicDetail,
-  ressortHeader: RessortHeader
+  headerNav: HeaderNav,
+  ressortHeader: RessortHeader,
+  dossierHeader: DossierHeader
 };
 
 iso.hydrate(components);
