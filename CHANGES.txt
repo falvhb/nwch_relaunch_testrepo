@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - gzip js files in localdev
+
 2015/08/21 0.0.18
 =================
 
