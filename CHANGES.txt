@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/21 0.0.18
+=================
+
+ - footer injection hotfix
+
 2015/08/11 0.0.17
 =================
 
