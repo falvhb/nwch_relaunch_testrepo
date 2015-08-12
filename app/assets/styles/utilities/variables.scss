@@ -211,7 +211,7 @@ $component-spacing: 1.5em;
     margin-right: auto;
   }
 
-  @include media('>tablet-landscape', '<=center-layout') {
+  @include media('>desktop-laptop', '<=center-layout') {
     width: 100%;
   }
 }
