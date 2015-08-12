@@ -140,8 +140,9 @@ $breakpoints: (
   'desktop-laptop': 71.9em /* 1151px */,
   'center-layout': 95.063em /* 1521px */,
   'advertising-medium': 45.5em /* 728px */,
-  'advertising-large': 80em /* 1280px */,
+  'advertising-large': 1390px,
   'advertising-iphone5-portrait': 320px,
+  'advertising-iphone6-portrait': 414px,
 );
 
 
@@ -173,7 +174,7 @@ $container-spacing: 18px;
 /// Container width expressed in ems
 /// @type Length
 /// @group container
-$container-width: 1180px;
+$container-width: 1080px;
 
 /// Sidebar width expressed in ems
 /// @type Length
@@ -210,10 +211,8 @@ $component-spacing: 1.5em;
     margin-right: auto;
   }
 
-  @include media('>tablet-landscape', '<=center-layout') {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+  @include media('>desktop-laptop', '<=center-layout') {
+    width: 100%;
   }
 }
 
