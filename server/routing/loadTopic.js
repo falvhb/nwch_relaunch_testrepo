@@ -19,13 +19,11 @@ function loadTopic(req, res, next) {
   };
 
   var apiConfig = {
-    endpoint: '/published_news_articles?' + Qs.stringify(queryParams),
+    endpoint: '/content/published_news_articles?' + Qs.stringify(queryParams),
     key: 'topic'
   };
 
-  req.api.retrieve(apiConfig, function(err, topic) {
-    //
-  });
+  req.api.retrieve(apiConfig);
 
   next();
 }
