@@ -48,9 +48,15 @@
 
 .copy p,
 .copy ul,
-.copy ol {
+.copy ol,
+.copy > div,
+.copy > div > div {
   @include type-copy;
-  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.copy > div:first-child {
+  margin-top: 0;
 }
 
 .copy blockquote {
