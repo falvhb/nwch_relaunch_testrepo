@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - EnrichmentSnippet - don't re-render client-side to not interfere with inline <script>s
+
 2015/08/12 0.0.20
 =================
 
