@@ -272,7 +272,7 @@
 }
 
 @mixin next-read-section($background-color) {
-  @include content-width;
+  //@include content-width;
   position: relative;
   background-color: $background-color;
   padding-top: 40px;
