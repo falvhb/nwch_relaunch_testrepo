@@ -6,6 +6,7 @@ unreleased
 ==========
 
   - DossierHeader: lowercase before uniq to ensure duplicate tags are caught
+  - ImageGallery: revert to basic image enrichment if gallery only contains one image
 
 2015/08/12 0.0.19
 =================
