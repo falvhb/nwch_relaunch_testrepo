@@ -5,6 +5,10 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - provide related keywords in dossier header
+
+ - limit number of keywords shown in dossier header to 6
+
  - gzip js files in localdev
 
 2015/08/21 0.0.18

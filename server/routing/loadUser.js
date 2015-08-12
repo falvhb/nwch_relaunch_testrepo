@@ -6,13 +6,11 @@
  */
 function loadUser(req, res, next) {
   var apiConfig = {
-    endpoint: '/users/' + req.session.id,
+    endpoint: '/content/users/' + req.session.id,
     key: 'user'
   };
 
-  req.api.retrieve(apiConfig, function(err, user) {
-    //
-  });
+  req.api.retrieve(apiConfig);
 
   next();
 }
