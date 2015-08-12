@@ -5,6 +5,19 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - DossierHeader: lowercase before uniq to ensure duplicate tags are caught
+  - ImageGallery: revert to basic image enrichment if gallery only contains one image
+  - EnrichmentSnippet - these don't need captions unless there's a source
+  - Caption - improve styling and display logic
+  - Improves and (hopefully... :-/) fixes parsing of body content
+  - fix general layout bugs
+  - fix footer alignment (Impediment #335)
+  - fix whitespace issue (Impediment #334)
+  - move social icons to the bottom of article
+  - center-align ad-slots
+  - smooth layout transitions between tablet and desktop
+  - align next-reads and rec. videos with article content
+
 2015/08/12 0.0.19
 =================
 
