@@ -52,6 +52,17 @@
 .copy > div,
 .copy > div > div {
   @include type-copy;
+}
+
+.copy p,
+.copy ul,
+.copy ol,
+.copy h2,
+.copy h3,
+.copy h4,
+.copy table,
+.copy > div,
+.copy > div > div {
   margin-top: 20px;
 }
 
