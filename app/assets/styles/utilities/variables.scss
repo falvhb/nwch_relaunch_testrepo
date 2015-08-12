@@ -140,7 +140,7 @@ $breakpoints: (
   'desktop-laptop': 71.9em /* 1151px */,
   'center-layout': 95.063em /* 1521px */,
   'advertising-medium': 45.5em /* 728px */,
-  'advertising-large': 1186px,
+  'advertising-large': 1390px,
   'advertising-iphone5-portrait': 320px,
 );
 
@@ -206,6 +206,8 @@ $component-spacing: 1.5em;
 
   @include media('>tablet-portrait', '<=desktop-laptop') {
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @include media('>tablet-landscape', '<=center-layout') {
