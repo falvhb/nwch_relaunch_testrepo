@@ -40,6 +40,7 @@
     "del": "^1.2.0",
     "dotenv": "^1.2.0",
     "errorhandler": "^1.1.1",
+    "es6-promise": "^3.0.2",
     "express": "^4.13.3",
     "get-query-param": "^1.0.0",
     "gulp-mocha": "^2.1.2",
