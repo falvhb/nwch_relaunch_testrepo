@@ -5,6 +5,14 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - fix general layout bugs
+  - fix footer alignment (Impediment #335)
+  - fix whitespace issue (Impediment #334)
+  - move social icons to the bottom of article
+  - center-align ad-slots
+  - smooth layout transitions between tablet and desktop
+  - align next-reads and rec. videos with article content
+
 2015/08/11 0.0.16
 =================
 
