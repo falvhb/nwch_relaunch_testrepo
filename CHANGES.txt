@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+  - DossierHeader: lowercase before uniq to ensure duplicate tags are caught
+
 2015/08/12 0.0.19
 =================
 
