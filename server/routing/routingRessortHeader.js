@@ -1,3 +1,4 @@
+var wrappedRenderer = require('./wrappedRenderer');
 var Iso = require('../../app/node_modules/iso-react');
 
 module.exports = function(req, res) {
@@ -29,8 +30,14 @@ module.exports = function(req, res) {
   }
 
   function render() {
-    var result = req.api.get('ressortnav') || {};
-    var data = result ? result : {};
+    var result = req.api.get('ressortnav');
+
+    var data = result || {
+      ressort: {
+        title: req.params.ressort
+      }
+    };
+
     var ressort = data.ressort;
     var subressorts = data.subressorts;
 
@@ -57,5 +64,5 @@ module.exports = function(req, res) {
   }
 
   // wait for the API calls to finish
-  req.api.done(render);
+  req.api.done(wrappedRenderer(res, render));
 };

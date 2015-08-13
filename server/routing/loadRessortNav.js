@@ -11,7 +11,7 @@ var Qs = require('qs');
 function loadRessortNav(req, res, next) {
   var domain = req.headers['x-skin'] || 'aaz';
   var apiConfig = {
-    endpoint: '/news_ressorts/' + req.params.ressort + '/subressorts?domain=' + domain,
+    endpoint: '/content/news_ressorts/' + req.params.ressort + '/subressorts?domain=' + domain,
     key: 'ressortnav'
   };
   req.api.retrieve(apiConfig);

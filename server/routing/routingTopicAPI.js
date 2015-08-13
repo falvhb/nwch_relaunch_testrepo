@@ -1,3 +1,5 @@
+var wrappedRenderer = require('./wrappedRenderer');
+
 module.exports = function(req, res) {
   /* Provide the topic data as json object
    *
@@ -27,5 +29,5 @@ module.exports = function(req, res) {
     res.json(result);
   }
 
-  req.api.done(render);
+  req.api.done(wrappedRenderer(res, render));
 };
