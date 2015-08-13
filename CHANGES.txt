@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/13 0.0.22
+=================
+
+ - added missing file
+
 2015/08/13 0.0.21
 =================
 
