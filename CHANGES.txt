@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/13 0.0.24
+=================
+
  - request subressorts of subressorts to be able to show the ressort header
    navigation with the ressort title
 
