@@ -6,10 +6,10 @@ module.exports = function wrappedRenderer(res, renderer) {
    * This makes sure an exception is not blocking a request.
    *
    * Usage with async api::
-   *   def render() {
-   *     throw Error('An error');
+   *   function render() {
+   *     throw new Error('An error');
    *   }
-   *   req.api.don(wrappedRenderer(res, renderer));
+   *   req.api.done(wrappedRenderer(res, renderer));
    */
   function ready() {
     try {
