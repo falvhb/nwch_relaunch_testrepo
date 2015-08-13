@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- CuratedRecommendations: slice curated teasers to max 3
  - fixed detection of subressorts
 
  - fixed API URL for the subressort request
