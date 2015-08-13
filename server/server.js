@@ -158,12 +158,12 @@ app.all('*', function(req, res) {
 
 // HINT: commented to be able to see errors. uncomment if needed
 
-app.use(function(err, req, res, next) {
-  app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
-  res.status(200);
-  res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
-  res.end();
-});
+// app.use(function(err, req, res, next) {
+//   app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
+//   res.status(200);
+//   res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
+//   res.end();
+// });
 
 
 // Start our server
