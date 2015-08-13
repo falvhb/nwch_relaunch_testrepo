@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - ResponsiveImage: adds fitToBox for removing edges around images
+ - Footer: use JSONified links in footer for now with static API data
+   TODO: API call on the server passing sections as props
+ - HeaderNav: stop touch scrolling when nav is open
+
  - HeaderNav: redesign scroll behaviour and fix in IE11/10
  - added a wrapper for async rendering to have a better exception experience
 
