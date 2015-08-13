@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - CuratedRecommendations / ImageGallery: make these play nicely together and improve on-load rendering
  - ResponsiveImage: adds fitToBox for removing edges around images
  - Footer: use JSONified links in footer for now with static API data
    TODO: API call on the server passing sections as props
