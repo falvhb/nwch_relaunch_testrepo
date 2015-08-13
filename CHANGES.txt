@@ -5,6 +5,10 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - fixed detection of subressorts
+
+ - fixed API URL for the subressort request
+
 2015/08/13 0.0.21
 =================
 
