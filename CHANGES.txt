@@ -5,6 +5,18 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added a wrapper for async rendering to have a better exception experience
+
+2015/08/13 0.0.22
+=================
+
+ - CuratedRecommendations: slice curated teasers to max 3
+
+ - fixed API URL for the subressort request
+
+2015/08/13 0.0.21
+=================
+
   - EnrichmentSnippet - don't re-render client-side to not interfere with inline <script>s
 
 2015/08/12 0.0.20

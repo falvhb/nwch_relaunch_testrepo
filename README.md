@@ -13,6 +13,11 @@ $ gem install scss_lint
 $ npm install
 ```
 
+If you get errors when running any tasks (Error: Syntax error: Invalid US-ASCII character "\xC3" or similar) then try to set the default encoding in your environment vars:
+```
+export LC_CTYPE="en_US.UTF-8"
+```
+
 ## Development
 
 ### Styleguide
