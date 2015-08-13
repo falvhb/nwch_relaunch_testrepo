@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/13 0.0.23
+=================
+
  - HeaderNav: redesign scroll behaviour and fix in IE11/10
  - added a wrapper for async rendering to have a better exception experience
 
