@@ -15,7 +15,8 @@ body {
 }
 
 @include media('<=tablet-portrait') {
-  .is-menu-open {
+  .is-menu-open,
+  .is-menu-open body {
     height: 100%;
     overflow: hidden;
   }
