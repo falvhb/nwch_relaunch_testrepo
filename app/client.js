@@ -14,6 +14,12 @@ var RessortHeader = require('components/ressort-header');
 var DossierHeader = require('components/dossier-header');
 
 Advertising.init('.ad');
+Advertising.stickAd({
+  element: '.ad--skyscraper',
+  stopSticky: '#bottom_board',
+  offset: 30,
+  breakpoint: 1390
+});
 
 var components = {
   articleHeader: ArticleHeader,
