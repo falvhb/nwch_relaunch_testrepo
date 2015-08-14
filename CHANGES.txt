@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/14 0.0.25
+=================
+
  - Improved image handling on teasers and dossier
  - Improved advertising spacing and alignment
  - Article body now accepts h2s!
