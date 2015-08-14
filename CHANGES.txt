@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - Improved image handling on teasers and dossier
  - Improved advertising spacing and alignment
  - Article body now accepts h2s!
  - CuratedRecommendations / ImageGallery: make these play nicely together and improve on-load rendering
