@@ -132,7 +132,7 @@ app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         loadDossier,
         reactDossierRouter);
-app.get(COMPONENT_PREFIX + '/:ressort?/ressort-header/:variation?',
+app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadRessortNav,
         reactRessortHeaderRenderer);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',

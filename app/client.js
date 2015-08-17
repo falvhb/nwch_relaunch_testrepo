@@ -13,7 +13,7 @@ var HeaderNav = require('components/header-nav');
 var RessortHeader = require('components/ressort-header');
 var DossierHeader = require('components/dossier-header');
 
-advertising = Advertising.init('.ad');
+Advertising.init('.ad');
 
 var components = {
   articleHeader: ArticleHeader,
@@ -33,3 +33,5 @@ iso.hydrate(components);
 var RecommendationsTop = require('clientside/recommendations-top');
 var recommendationsTop = new RecommendationsTop();
 recommendationsTop.init();
+
+

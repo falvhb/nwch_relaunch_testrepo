@@ -1,4 +1,5 @@
 var camelCase = require('camelcase');
+var wrappedRenderer = require('./wrappedRenderer');
 var Iso = require('../../app/node_modules/iso-react');
 
 module.exports = function(req, res) {
@@ -40,7 +41,7 @@ module.exports = function(req, res) {
     var state = {
       'article': articleData,
       'variation': componentVariation,
-      'skin': req.headers['x-skin'],
+      'skin': req.headers['x-skin'] || 'aaz',
       'path': req._parsedUrl.path
     };
 
@@ -76,5 +77,5 @@ module.exports = function(req, res) {
     res.send(isoWrapped);
   }
 
-  req.api.done(render);
+  req.api.done(wrappedRenderer(res, render));
 };

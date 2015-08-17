@@ -124,7 +124,7 @@ var getSlotNameForPlacement = function (placement) {
     slot = slot.replace("-", "_");
     return slot;
   } else {
-    throw new Error('Naming of placement is not matching schema', placement);
+    throw new Error('Naming of placement is not matching schema: ' + placement.placementName);
   }
 }
 

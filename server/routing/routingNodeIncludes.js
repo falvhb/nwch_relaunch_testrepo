@@ -23,7 +23,7 @@ module.exports = function nodeIncludesRouter(req, res) {
     }
   });
   if (parts.length) {
-    if (req.params.b === 'publireportage') {
+    if ((req.params.a === 'publireportage') || (req.params.b === 'publireportage')) {
       // special case without ads
       pageType = '';
     } else {

@@ -11,6 +11,10 @@
  * 1. Remove default underline to have a better one with a gradient
  * 2. Fake the underline with a gradient to have control over position and size
  */
+.copy {
+  margin-bottom: 20px;
+}
+
 .copy a {
   color: $light-blue;
   text-decoration: none; /* 1 */
@@ -46,16 +50,48 @@
   @include type-h4;
 }
 
-.copy p,
-.copy ul,
-.copy ol {
-  @include type-copy;
-  margin-bottom: 20px;
-}
-
 .copy blockquote {
   @include type-blockquote;
 }
+
+.copy p,
+.copy ul,
+.copy ol,
+.copy > div,
+.copy > div > div {
+  @include type-copy;
+}
+
+.copy p,
+.copy ul,
+.copy ol,
+.copy h2,
+.copy h3,
+.copy h4,
+.copy table,
+.copy > div,
+.copy > div > div,
+.copy strong + br {
+  margin-top: 20px;
+}
+
+.copy > div:first-child {
+  margin-top: 0;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+}
+
+/**
+ * Catch common CMS content patterns
+ */
+.copy strong + br {
+  display: block;
+  content: '';
+}
+
+
 
 // scss-lint:disable ImportantRule
 

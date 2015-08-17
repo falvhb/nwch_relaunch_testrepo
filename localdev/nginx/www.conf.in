@@ -24,7 +24,7 @@ server {
 
     # compression
     gzip on;
-    gzip_types text/plain text/xml text/css application/x-javascript text/javascript;
+    gzip_types text/plain text/xml text/css application/x-javascript text/javascript application/javascript;
 
     location ~ '^/\+\+ckey\+\+ssi/__node__/' {
         rewrite ^/\+\+ckey\+\+ssi/__node__/(.*) /$1;
