@@ -56,6 +56,22 @@ We use the [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflow
 
 When working, create feature branches off `develop` in the form `feature/8-story-name` where `8` is the user story number and `story-name` is the name of the user story (both from ScrumDo).
 
+### Update the release notes when finishing feature branches
+
+When a feature branch is closed and merged into `develop` add the changes/new features in `/CHANGES.txt` under the the `unreleased` block. This gives a clear overview what will go into the next release and has to be tested.
+
+```
+======================
+Changes for az-nwch-js
+======================
+
+unreleased
+==========
+
+- add your changes here
+
+```
+
 ## Code Quality
 
 Before committing, code will be linted using `eslint` (JS/JSX) and `scss-lint` (Scss). You will not be able to commit unless your code passes linting. To make life easier, use plugins for your text editor to highlight any errors as you go e.g.
