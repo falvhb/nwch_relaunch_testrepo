@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- Fixes unproportional scaling of images in image gallery
+
 2015/08/14 0.0.26
 =================
 
