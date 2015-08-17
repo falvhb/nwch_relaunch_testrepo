@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- fix API tests by extending Request mock object
+
 2015/08/17 0.0.27
 =================
 
