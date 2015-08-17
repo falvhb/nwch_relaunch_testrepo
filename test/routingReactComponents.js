@@ -22,8 +22,14 @@ describe('Components Router', function() {
       retrieve: function() {},
       done: function(cb) { cb(); },
       get: function() {}
-    }
-  };
+    };
+    this._parsedUrl = {
+      path: ''
+    };
+    this.headers = {
+      'x-skin': 'aaz'
+    };
+  }
 
   var res = null;
   var req = null;
@@ -70,7 +76,7 @@ describe('Components Router', function() {
           errors: [
             { detail: 'err_detail' }
           ]
-        }
+        };
       }
     };
     req.params = {
@@ -92,12 +98,11 @@ describe('Components Router', function() {
       if (key === 'article') {
         return {
           data: sampleArticle
-        }
+        };
       }
     };
 
     componentsRouter(req, res);
-
     assert.ok(res.body.indexOf('<!-- Component "non-existent-component" not found! -->') >= 0);
   });
 
@@ -106,14 +111,14 @@ describe('Components Router', function() {
       if (key === 'article') {
         return {
           data: sampleArticle
-        }
+        };
       }
     };
     req.params = {
       articleId: 100003399,
       component: 'article-header',
       variation: 'dontknow'
-    }
+    };
 
     componentsRouter(req, res);
 
