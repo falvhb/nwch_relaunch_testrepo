@@ -127,3 +127,15 @@ $ git merge develop
 $ npm version patch
 $ git push origin
 ```
+
+## Test
+
+### Troubleshooting
+
+If you get the error `WARN [preprocess]: Can not load "webpack"`
+
+Remove the `karma-webpack` in the `node_modules`folder and install `karma-webpack version 1.5.1`.
+
+```sh
+$ npm i karma-webpack@1.5.1
+```
