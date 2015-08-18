@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/18 0.0.28
+=================
+
 - fix API tests by extending Request mock object
 - add AZ Medien logo to footer
 - make Ads work without iFrame
