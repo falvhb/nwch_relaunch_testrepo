@@ -85,9 +85,15 @@ You might also find the following useful for this project:
 - [babel-sublime](https://github.com/babel/babel-sublime)
 
 
-## Deployment
+## Living Styleguide Deployment
 
-Check you have access to the Heroku app (ask Moritz) then add a Heroku remote to your repository.
+The styleguide is hosted on [Heroku](http://az-nwch.herokuapp.com/styleguide).
+
+Before you can deploy please check that you have a working Heroku setup on your machine:
+- Create a Heroku account if necessary
+- Install the [Heroku toolbelt](https://toolbelt.heroku.com/) and follow the instructions
+
+Check that you have access to the Heroku app (ask Phillip or Dennis) then add a Heroku remote to your repository.
 
 ```sh
 $ git remote add heroku git@heroku.com:az-nwch.git
@@ -95,10 +101,10 @@ $ git remote add heroku git@heroku.com:az-nwch.git
 
 For reference, we are using [this buildpack](https://github.com/robgraeber/heroku-buildpack-nodejs-bower-gulp) for Node / Gulp configuration.
 
-To deploy, the following command will deploy from the `master` branch
+To deploy, the following command will deploy from the `develop` branch
 
 ```sh
-$ git push heroku master
+$ git push heroku develop:master
 ```
 
 If you want to deploy from a specific/feature branch, use:
