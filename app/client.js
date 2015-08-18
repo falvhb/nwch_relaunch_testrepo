@@ -16,8 +16,8 @@ var DossierHeader = require('components/dossier-header');
 Advertising.init('.ad');
 Advertising.stickAd({
   element: '.ad--skyscraper',
-  stopSticky: '#bottom_board',
-  offset: 30,
+  stopper: '#content_board',
+  offset: 10,
   breakpoint: 1390
 });
 
