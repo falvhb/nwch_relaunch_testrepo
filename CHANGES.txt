@@ -6,6 +6,8 @@ unreleased
 ==========
 
 - fix API tests by extending Request mock object
+- add AZ Medien logo to footer
+- make Ads work without iFrame
 
 2015/08/17 0.0.27
 =================
