@@ -5,7 +5,12 @@ Changes for az-nwch-js
 unreleased
 ==========
 
-  - added ressort-teaser component
+- fix API tests by extending Request mock object
+
+2015/08/17 0.0.27
+=================
+
+- Fixes unproportional scaling of images in image gallery
 
 2015/08/14 0.0.26
 =================

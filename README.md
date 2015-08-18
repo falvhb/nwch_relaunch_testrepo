@@ -56,6 +56,22 @@ We use the [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflow
 
 When working, create feature branches off `develop` in the form `feature/8-story-name` where `8` is the user story number and `story-name` is the name of the user story (both from ScrumDo).
 
+### Update the release notes when finishing feature branches
+
+When a feature branch is closed and merged into `develop` add the changes/new features in `/CHANGES.txt` under the the `unreleased` block. This gives a clear overview what will go into the next release and has to be tested.
+
+```
+======================
+Changes for az-nwch-js
+======================
+
+unreleased
+==========
+
+- add your changes here
+
+```
+
 ## Code Quality
 
 Before committing, code will be linted using `eslint` (JS/JSX) and `scss-lint` (Scss). You will not be able to commit unless your code passes linting. To make life easier, use plugins for your text editor to highlight any errors as you go e.g.
@@ -69,9 +85,15 @@ You might also find the following useful for this project:
 - [babel-sublime](https://github.com/babel/babel-sublime)
 
 
-## Deployment
+## Living Styleguide Deployment
 
-Check you have access to the Heroku app (ask Moritz) then add a Heroku remote to your repository.
+The styleguide is hosted on [Heroku](http://az-nwch.herokuapp.com/styleguide).
+
+Before you can deploy please check that you have a working Heroku setup on your machine:
+- Create a Heroku account if necessary
+- Install the [Heroku toolbelt](https://toolbelt.heroku.com/) and follow the instructions
+
+Check that you have access to the Heroku app (ask Phillip or Dennis) then add a Heroku remote to your repository.
 
 ```sh
 $ git remote add heroku git@heroku.com:az-nwch.git
@@ -79,10 +101,10 @@ $ git remote add heroku git@heroku.com:az-nwch.git
 
 For reference, we are using [this buildpack](https://github.com/robgraeber/heroku-buildpack-nodejs-bower-gulp) for Node / Gulp configuration.
 
-To deploy, the following command will deploy from the `master` branch
+To deploy, the following command will deploy from the `develop` branch
 
 ```sh
-$ git push heroku master
+$ git push heroku develop:master
 ```
 
 If you want to deploy from a specific/feature branch, use:
