@@ -6,6 +6,8 @@ unreleased
 ==========
 
 - fix API tests by extending Request mock object
+- RessortTeaser: new component for displaying sections on the homepage
+- RessortTeaserBuilder: higher-order component for building list of items for RessortTeaser
 
 2015/08/17 0.0.27
 =================
