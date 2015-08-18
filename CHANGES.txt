@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- fix API tests by extending Request mock object
+- implement sticky skyscraper advertising
+
 2015/08/18 0.0.28
 =================
 
