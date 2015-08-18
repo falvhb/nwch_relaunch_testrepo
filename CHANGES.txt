@@ -5,7 +5,14 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/18 0.0.28
+=================
+
 - fix API tests by extending Request mock object
+- add AZ Medien logo to footer
+- make Ads work without iFrame
+- RessortTeaser: new component for displaying sections on the homepage
+- RessortTeaserBuilder: higher-order component for building list of items for RessortTeaser
 
 2015/08/17 0.0.27
 =================
