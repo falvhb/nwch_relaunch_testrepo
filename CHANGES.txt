@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- fix API tests by extending Request mock object
+- implement sticky skyscraper advertising
+- Icon: enable parent components to style SVG
+- RessortTeaser: CTA now uses an SVG icon instead of incorrect ASCII arrow
+
 2015/08/18 0.0.28
 =================
 
