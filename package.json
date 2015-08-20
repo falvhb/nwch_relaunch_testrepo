@@ -62,7 +62,8 @@
     "slugify": "^0.1.1",
     "sprintf-js": "^1.0.2",
     "strong-express-metrics": "^1.1.0",
-    "webpack": "^1.9.10"
+    "webpack": "^1.9.10",
+    "xmldom": "^0.1.19"
   },
   "optionalDependencies": {},
   "devDependencies": {
