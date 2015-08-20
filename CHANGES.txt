@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- improve layout and config of advertising
+- hide comments if disabled in the CMS
+- clean up title and alt attr logic on images
+- parse line breaks in emails from social share buttons
+- fix navigation and teaser flickering in Safari
 - fix API tests by extending Request mock object
 - implement sticky skyscraper advertising
 
