@@ -6,6 +6,7 @@ var ArticleIntro = require('components/article-intro');
 var ArticleDetail = require('components/article-detail');
 var Teaser = require('components/teaser');
 var Advertising = require('advertising');
+var StickyNode = require('advertising/sticky-node');
 var RelatedVideos = require('components/related-videos');
 var Footer = require('components/footer');
 var TopicDetail = require('components/topic-detail');
@@ -14,12 +15,17 @@ var RessortHeader = require('components/ressort-header');
 var DossierHeader = require('components/dossier-header');
 
 Advertising.init('.ad');
-Advertising.stickAd({
-  element: '.ad--skyscraper',
-  stopper: '#content_board',
-  offset: 10,
-  breakpoint: 1390
-});
+
+var load = function() {
+  StickyNode.init({
+    element: '.ad--skyscraper',
+    stopper: '#content_board',
+    offset: 155,
+    breakpoint: 1390
+  });
+};
+
+window.addEventListener('load', load, false);
 
 var components = {
   articleHeader: ArticleHeader,
