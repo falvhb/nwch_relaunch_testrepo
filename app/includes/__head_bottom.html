@@ -42,6 +42,15 @@
     );
   })(window);
 </script>
+<script>
+  var az = az || {};
+  az.globals = {
+    'kaltura_frontend_video_player_id': {{kaltura_frontend_video_player_id}},
+    'kaltura_frontend_adless_video_player_id': {{kaltura_frontend_adless_video_player_id}},
+    'kaltura_mediathek_video_player_id': {{kaltura_mediathek_video_player_id}},
+    'kaltura_mediathek_category_id': {{kaltura_mediathek_category_id}}
+  };
+</script>
 
 <link rel="stylesheet" href="{{ staticBasePath }}/client/styles.css" />
 <script src="http://aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
