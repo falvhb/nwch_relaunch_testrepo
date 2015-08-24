@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/24 0.0.29
+=================
+
 - changed the way how environment settings are loaded
 - fixed 'replace' exception
 - bug fixes and improves sticky skyscraper
