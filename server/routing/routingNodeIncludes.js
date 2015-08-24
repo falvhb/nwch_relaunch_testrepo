@@ -45,7 +45,6 @@ module.exports = function nodeIncludesRouter(req, res) {
       iconPath = 'ot';
     }
 
-    console.log(req.api.get('domain'));
     var domain = req.api.get('domain');
     var env = process.env;
 
@@ -62,7 +61,7 @@ module.exports = function nodeIncludesRouter(req, res) {
       'kaltura_mediathek_category_id': domain.kaltura_mediathek_category_id || 'null'
     };
     res.send(renderNunchuck(component, data));
-  };
+  }
 
   // wait for the API calls to finish
   req.api.done(wrappedRenderer(res, render));
