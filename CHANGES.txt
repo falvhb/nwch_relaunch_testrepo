@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- fixed 'replace' exception
 - bug fixes and improves sticky skyscraper
 - improve layout and config of advertising
 - hide comments if disabled in the CMS
