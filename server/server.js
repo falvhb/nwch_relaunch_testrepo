@@ -11,11 +11,6 @@ var app = module.exports = express();
 // Environment
 // -----------------------------------------------------------------------------
 
-if (fs.existsSync('.env.deploy')) {
-  require('dotenv').load({
-    path: '.env.deploy'
-  });
-}
 require('dotenv').load({
   path: '.env'
 });
