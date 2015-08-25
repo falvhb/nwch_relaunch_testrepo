@@ -36,6 +36,9 @@ gulp.task('static-scripts', require('./tasks/static-scripts.js'));
 gulp.task('static-images', require('./tasks/static-images.js'));
 gulp.task('static-includes', require('./tasks/static-includes.js'));
 
+// Critical CSS
+gulp.task('critical-css', require('./tasks/critical-css.js'));
+
 // Tests
 gulp.task('test:react', require('./tasks/tests.js').react);
 gulp.task('test:api', require('./tasks/tests.js').api);
