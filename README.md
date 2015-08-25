@@ -34,7 +34,7 @@ $ gulp
 
 #### jQuery
 
-We are aiming towards a jQuery independent architecture and *jQuery should never be used in React components*. Note that [Lodash](https://lodash.com/docs) is included as a utility library which is much smaller and can be used to replace a lot of common jQuery functions. Be aware below IE9 is not supported which also removes a lot of the need for jQuery.
+We are aiming towards a jQuery independent architecture and **jQuery should never be used in React components**. Note that [Lodash](https://lodash.com/docs) is included as a utility library which is much smaller and can be used to replace a lot of common jQuery functions. Be aware below IE9 is not supported which also removes the need for jQuery even further.
 
 ##### Current exceptions
 
