@@ -20,7 +20,7 @@ var load = function() {
   StickyNode.init({
     element: '.ad--skyscraper',
     stopper: '#content_board',
-    offset: 155,
+    offset: 170,
     breakpoint: 1390
   });
 };
