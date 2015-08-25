@@ -23,7 +23,6 @@ deploy/.installed.cfg
 deploy/bin/*
 deploy/egs/*
 deploy/etc/supervisord-dev.conf
-.env.deploy
 
 # keep seed file for ad config
 !/scripts/az-banners-all-sites.csv
