@@ -4,6 +4,10 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+
+2015/08/25 0.0.31
+=================
+
 - changed landing page grid from 4-wide to 3-wide
 - ResponsiveImage: improved image handling via config/images.jsx
 - HeaderNav: finalised including login and search
