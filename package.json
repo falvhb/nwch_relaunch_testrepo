@@ -49,6 +49,7 @@
     "moment": "^2.10.3",
     "nunjucks": "^1.3.4",
     "on-headers": "^1.0.0",
+    "polyfill-function-prototype-bind": "0.0.1",
     "qs": "^4.0.0",
     "react": "^0.13.3",
     "react-bem-helper": "^1.0.0",
