@@ -4,11 +4,30 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+- changed landing page grid from 4-wide to 3-wide
 
+2015/08/25 0.0.30
+=================
+
+- provide kaltura ids in "az.globals" for client use
+
+2015/08/24 0.0.29
+=================
+
+- changed the way how environment settings are loaded
+- fixed 'replace' exception
+- bug fixes and improves sticky skyscraper
+- improve layout and config of advertising
+- hide comments if disabled in the CMS
+- clean up title and alt attr logic on images
+- parse line breaks in emails from social share buttons
+- fix navigation and teaser flickering in Safari
 - fix API tests by extending Request mock object
 - implement sticky skyscraper advertising
 - Icon: enable parent components to style SVG
 - RessortTeaser: CTA now uses an SVG icon instead of incorrect ASCII arrow
+- make Youtube and Vimeo HTML snippets responsive
+- style HTML snippet captions
 
 2015/08/18 0.0.28
 =================

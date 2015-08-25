@@ -11,11 +11,6 @@ var app = module.exports = express();
 // Environment
 // -----------------------------------------------------------------------------
 
-if (fs.existsSync('.env.deploy')) {
-  require('dotenv').load({
-    path: '.env.deploy'
-  });
-}
 require('dotenv').load({
   path: '.env'
 });
@@ -49,6 +44,7 @@ app.use('/client', express.static('client'));
 app.use(require('./routing/api'));
 // middlewares for retrieving data from the REST API
 var loadArticle = require('./routing/loadArticle');
+var loadDomain = require('./routing/loadDomain');
 var loadDossier = require('./routing/loadDossier');
 var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
@@ -136,6 +132,7 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadRessortNav,
         reactRessortHeaderRenderer);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
+        loadDomain,
         nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
         loadArticle,
