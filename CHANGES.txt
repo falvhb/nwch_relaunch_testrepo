@@ -4,6 +4,15 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+- changed landing page grid from 4-wide to 3-wide
+
+2015/08/25 0.0.30
+=================
+
+- provide kaltura ids in "az.globals" for client use
+
+2015/08/24 0.0.29
+=================
 
 - changed the way how environment settings are loaded
 - fixed 'replace' exception
