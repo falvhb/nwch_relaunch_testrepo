@@ -28,6 +28,22 @@ When working in the styleguide, on http://localhost:8000
 $ gulp assets
 $ gulp
 ```
+---------------------------
+
+### Components
+
+#### jQuery
+
+We are aiming towards a jQuery independent architecture and *jQuery should never be used in React components*. Note that [Lodash](https://lodash.com/docs) is included as a utility library which is much smaller and can be used to replace a lot of common jQuery functions. Be aware below IE9 is not supported which also removes a lot of the need for jQuery.
+
+##### Current exceptions
+
+- jQuery is included in the `ArticleBody` component (on the article page) served via request from Google CDN. It's placed before any enrichments are loaded which ensures all legacy HTML snippets will work (e.g. Watson content box) on all articles. Eventually, snippets of this kind from older articles should aim to be phased out.
+- The [Flickity](http://flickity.metafizzy.co/) library which is used for the `ImageGallery` component and `Slider` mixin has a jQuery dependency. We will look at removing this dependency in the future.
+- The `Video` module also uses some jQuery functions which we will also look to remove in the future.
+
+
+---------------------------
 
 ### Back-end
 

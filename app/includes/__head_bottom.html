@@ -34,20 +34,19 @@
     then store it in localStorage for future visits. #}
 <script>
   (function (global) {
+
+    // Check for defined globals
+    global.az = global.az || {};
+
+    // Load fonts to LocalStorage
     global.loadFont(
-      // Font storage name
       'az-fonts',
-      // WOFF URL
       '{{ staticBasePath }}/client/fonts/data-woff.css',
-      // WOFF2 URL
       '{{ staticBasePath }}/client/fonts/data-woff2.css'
     );
-  })(window);
-</script>
-<script>
-  (function (global) {
+
+    // Set AZ globals based on skin
     var az;
-    global.az = global.az || {};
     az = global.az;
     az.globals = {
       'kaltura_frontend_video_player_id': {{kaltura_frontend_video_player_id}},
@@ -55,6 +54,7 @@
       'kaltura_mediathek_video_player_id': {{kaltura_mediathek_video_player_id}},
       'kaltura_mediathek_category_id': {{kaltura_mediathek_category_id}}
     };
+
   })(window);
 </script>
 

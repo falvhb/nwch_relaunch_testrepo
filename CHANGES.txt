@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- Article: add jQuery to page and document
+
 2015/08/25 0.0.32
 =================
 
