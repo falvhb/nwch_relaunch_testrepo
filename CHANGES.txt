@@ -4,6 +4,7 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+- changed landing page grid from 4-wide to 3-wide
 
 2015/08/25 0.0.30
 =================
