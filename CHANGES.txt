@@ -5,14 +5,17 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/08/25 0.0.33
+=================
+
 - Article: add jQuery to page and document
+- Video: use az.globals for Kaltura ID so videos work on all skins
 
 2015/08/25 0.0.32
 =================
 
 - fixed microdata markup for articles and article teasers
 - RessortTeaser: moving location of container in styleguide markup
-- Video: use az.globals for Kaltura ID so videos work on all skins
 
 2015/08/25 0.0.31
 =================
