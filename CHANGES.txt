@@ -4,6 +4,7 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+- fixed microdata markup for articles and article teasers
 
 2015/08/25 0.0.31
 =================
