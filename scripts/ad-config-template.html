@@ -1,10 +1,9 @@
 <script>
-  (function (context) {
+  (function (global) {
     var az;
-    context.az = context.az || {};
-    az = context.az;
+    global.az = global.az || {};
+    az = global.az;
     az.advertising = az.advertising || {};
     az.advertising.pageConfig = {{ adConfig }};
-
   })(window);
 </script>
