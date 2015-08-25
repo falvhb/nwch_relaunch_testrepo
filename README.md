@@ -38,7 +38,7 @@ We are aiming towards a jQuery independent architecture and **jQuery should neve
 
 ##### Current exceptions
 
-- jQuery is included in the `ArticleBody` component (on the article page) served via request from Google CDN. It's placed before any enrichments are loaded which ensures all legacy HTML snippets will work (e.g. Watson content box) on all articles. Eventually, snippets of this kind from older articles should aim to be phased out.
+- jQuery is included in the `ArticleBody` component (on the article page) served via request from Google CDN. It's placed before any enrichments are loaded which ensures all legacy HTML snippets placed withing articles will work (e.g. Watson content box). Eventually, snippets of this kind from older articles should aim to be phased out.
 - The [Flickity](http://flickity.metafizzy.co/) library which is used for the `ImageGallery` component and `Slider` mixin has a jQuery dependency. We will look at removing this dependency in the future.
 - The `Video` module also uses some jQuery functions which we will also look to remove in the future.
 
