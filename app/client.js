@@ -46,4 +46,6 @@ var RecommendationsTop = require('clientside/recommendations-top');
 var recommendationsTop = new RecommendationsTop();
 recommendationsTop.init();
 
-
+var ClearEmptyCells = require('clientside/clear-empty-cells');
+var clearEmptyCells = new ClearEmptyCells();
+clearEmptyCells.init();
