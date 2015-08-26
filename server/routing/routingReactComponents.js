@@ -1,5 +1,4 @@
-var camelCase = require('camelcase');
-var Iso = require('../../app/node_modules/iso-react');
+var renderComponent = require('../helpers/renderComponent');
 
 module.exports = function(req, res) {
 
@@ -50,7 +49,6 @@ module.exports = function(req, res) {
       return;
     }
 
-    // map our data
     var state = {
       'article': req.article ? req.article.data : null,
       'variation': componentVariation,
@@ -58,20 +56,15 @@ module.exports = function(req, res) {
       'path': req._parsedUrl.path
     };
 
-    // wrap component in isomorphic layer
-    // injects data to DOM and attaches component id
-    // component re-rendered client-side via app/client.js
-    var iso = new Iso();
-    var isoWrapped = iso.wrap({
+    var output = renderComponent({
       component: component,
-      state: (slot && typeof(slot.data) === 'function') ? slot.data(state) : state,
-      meta: {
-        id: camelCase(componentName),
-        variation: componentVariation
-      }
+      componentName: componentName,
+      componentVariation: componentVariation,
+      state: state,
+      slot: slot
     });
 
-    res.send(isoWrapped);
+    res.send(output);
   }
 
   render();

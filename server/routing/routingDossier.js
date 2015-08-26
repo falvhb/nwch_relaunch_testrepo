@@ -1,5 +1,4 @@
-var camelCase = require('camelcase');
-var Iso = require('../../app/node_modules/iso-react');
+var renderComponent = require('../helpers/renderComponent');
 
 module.exports = function(req, res) {
 
@@ -40,36 +39,32 @@ module.exports = function(req, res) {
     var result = req.api.get('dossier') || {};
 
     var dossier = result && result.data ? result.data[0] : null;
-    var kwresult = req.api.get('related_keywords') || {};
 
+    var kwresult = req.api.get('related_keywords') || {};
     var keywords = kwresult && kwresult.data ? kwresult.data : null;
-    var kws = [];
+    var keywordsArray = [];
+
     keywords.forEach(function(v) {
-      kws.push(v[0]);
+      keywordsArray.push(v[0]);
     });
 
     var state = {
       'dossier': dossier,
-      'keywords': kws,
+      'keywords': keywordsArray,
       'variation': componentVariation,
       'skin': req.headers['x-skin'] || 'aaz',
       'path': req._parsedUrl.path
     };
 
-    // wrap component in isomorphic layer
-    // injects data to DOM and attaches component id
-    // component re-rendered client-side via app/client.js
-    var iso = new Iso();
-    var isoWrapped = iso.wrap({
+    var output = renderComponent({
       component: component,
-      state: (slot && typeof(slot.data) === 'function') ? slot.data(state) : state,
-      meta: {
-        id: camelCase(componentName),
-        variation: componentVariation
-      }
+      componentName: componentName,
+      componentVariation: componentVariation,
+      state: state,
+      slot: slot
     });
 
-    res.send(isoWrapped);
+    res.send(output);
   }
 
   render();

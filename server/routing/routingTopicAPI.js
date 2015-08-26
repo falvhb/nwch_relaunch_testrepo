@@ -1,4 +1,3 @@
-
 module.exports = function(req, res) {
   /* Provide the topic data as json object
    *
