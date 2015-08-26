@@ -13,6 +13,7 @@ function loadDomain(req, res, next) {
   };
 
   req.api.retrieve(apiConfig);
+
   next();
 }
 

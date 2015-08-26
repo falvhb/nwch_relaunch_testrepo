@@ -1,10 +1,18 @@
+var camelCase = require('camelcase');
 var Iso = require('../../app/node_modules/iso-react');
 
 module.exports = function(req, res) {
 
-  var params = req.params;
+  var params = req.params || {};
 
-  var componentVariation = params.variation;
+  var componentName = 'ressort-header';
+  var componentVariation = params.variation || 'default';
+
+  if (!componentName) {
+    res.send('<!-- No component name provided! -->');
+    return;
+  }
+
   if (!componentVariation) {
     res.send('<!-- No variation name provided! -->');
     return;
@@ -13,23 +21,23 @@ module.exports = function(req, res) {
   // resolve the component
   var component;
   try {
-    component = require('../../app/node_modules/components/ressort-header');
+    component = require('../../app/node_modules/components/' + componentName);
   } catch (e) {
-    res.send('<!-- Component "ressort-header" not found! -->');
+    res.send('<!-- Component "' + componentName + '" not found! -->');
     return;
   }
 
   // see if there is a slot function
-  // this typically maps data from the full API response -> only the data a component needs
+  // this maps data from the full API response -> only the data a component needs
   var slot;
   try {
-    slot = require('../../app/node_modules/components/ressort-header/slot');
+    slot = require('../../app/node_modules/components/' + componentName + '/slot');
   } catch (e) {
     // not found (is okay, continue)
   }
 
   function render() {
-    var result = req.api.get('ressortnav');
+    var result = req.api.get('ressortnav') || {};
 
     var data = result || {
       ressort: {
@@ -54,7 +62,7 @@ module.exports = function(req, res) {
       component: component,
       state: (slot && typeof(slot.data) === 'function') ? slot.data(state) : state,
       meta: {
-        id: 'ressortHeader',
+        id: camelCase(componentName),
         variation: componentVariation
       }
     });
