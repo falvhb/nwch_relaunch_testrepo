@@ -1,15 +1,15 @@
 var Iso = require('iso-react');
 
+var ArticleDetail = require('components/article-detail');
 var ArticleHeader = require('components/article-header');
 var ArticleIntro = require('components/article-intro');
-var ArticleDetail = require('components/article-detail');
-var Teaser = require('components/teaser');
-var RelatedVideos = require('components/related-videos');
-var Footer = require('components/footer');
-var TopicDetail = require('components/topic-detail');
-var HeaderNav = require('components/header-nav');
-var RessortHeader = require('components/ressort-header');
 var DossierHeader = require('components/dossier-header');
+var Footer = require('components/footer');
+var HeaderNav = require('components/header-nav');
+var RelatedVideos = require('components/related-videos');
+var RessortHeader = require('components/ressort-header');
+var Teaser = require('components/teaser');
+var TopicDetail = require('components/topic-detail');
 
 // Map ids to required components
 var components = {

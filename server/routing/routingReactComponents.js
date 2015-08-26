@@ -66,10 +66,11 @@ module.exports = function(req, res) {
     // wrap component in isomorphic layer
     // injects data to DOM and attaches component id
     // component re-rendered client-side via app/client.js
+
     var iso = new Iso();
     var isoWrapped = iso.wrap({
       component: component,
-      state: slot ? slot(state).data : state,
+      state: slot ? slot.data(state) : state,
       meta: { id: camelCase(componentName), variation: componentVariation }
     });
 
