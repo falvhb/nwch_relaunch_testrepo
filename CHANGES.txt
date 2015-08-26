@@ -4,6 +4,9 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+- adds missing video microdata
+- adds microdata meta tags where visible content is not available
+- simplifies image microdata
 
 2015/08/25 0.0.33
 =================
