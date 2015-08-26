@@ -15,7 +15,11 @@ var config = {
       {
         test: /\.json$/,
         loaders: ['json'],
-      }
+      },
+      // {
+      //   test: require.resolve('flickity'),
+      //   loader: 'imports?define=>false'
+      // }
     ]
   },
   output: {
