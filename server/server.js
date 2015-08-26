@@ -6,6 +6,7 @@ var path = require('path');
 var fs = require('fs');
 var engines = require('consolidate');
 var app = module.exports = express();
+var waitAPI = require('./routing/api').waitAPI;
 
 // -----------------------------------------------------------------------------
 // Environment
@@ -118,24 +119,30 @@ var COMPONENT_PREFIX = '';
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
         loadTopic,
+        waitAPI,
         reactTopicAPIRouter);
 
 app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
         loadTopic,
+        waitAPI,
         reactTopicLayoutRouter);
 
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         loadDossier,
+        waitAPI,
         reactDossierRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadRessortNav,
+        waitAPI,
         reactRessortHeaderRenderer);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
         loadDomain,
+        waitAPI,
         nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
         loadArticle,
+        waitAPI,
         reactComponentsRouter);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         reactComponentsRouter);

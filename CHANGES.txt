@@ -4,6 +4,8 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+
+- better exception handling while rendering components
 - adds missing video microdata
 - adds microdata meta tags where visible content is not available
 - simplifies image microdata
