@@ -9,7 +9,8 @@
 /// @example markup - Introduction paragraph
 ///   <p class='type-intro'>Vier Tage lang haben drei Schneeschuhwanderer aus Tschechien im Salzburger Pinzgau im Winterraum einer Hütte in 2100 Metern Seehöhe ausgeharrt, weil sie nach einem massiven Wetterumschwung nicht mehr absteigen konnten.</p>
 @mixin type-intro {
-  font: 22px / 1.41 $supporting-font-stack;
+  @include supporting-font;
+  font: 22px / 1.41;
   font-weight: 700;
   letter-spacing: 0.2px;
 
@@ -38,7 +39,8 @@
 /// @example markup - Alternate copy text
 ///  <p class='type-copy-alternate'>Die Redaktion sucht nach Augenzeugen, die am vergangenen Dienstag den Unfall am Marktplatz in Aarau beobachet haben. Ein schwarzer Mercedes war an einen Poller geprallt und hatte sich überschlagen, 2 Passanten wurden leicht verletzt.</p>
 @mixin type-copy-alternate {
-  font: 16px / 1.5 $supporting-font-stack;
+  @include supporting-font;
+  font: 16px / 1.5;
 
   @include media('≤mobile-portrait') {
     font-size: 15px;
@@ -50,7 +52,8 @@
 /// @example markup - Alternate copy text
 ///  <h2 class='type-headline-alternate'>Die Redaktion sucht nach Augenzeugen, die am vergangenen Dienstag den Unfall am Marktplatz in Aarau beobachet haben. Ein schwarzer Mercedes war an einen Poller geprallt und hatte sich überschlagen, 2 Passanten wurden leicht verletzt.</h2>
 @mixin type-headline-alternate {
-  font: 18px / 1.333 $supporting-font-stack;
+  @include supporting-font;
+  font: 18px / 1.333;
   font-weight: 700;
 }
 
@@ -120,7 +123,8 @@
 /// @example markep - Caption
 ///  <p class='type-caption'>Zunzger Kinder im Fasnachtsfieber</p>
 @mixin type-caption {
-  font: 16px / 1.375 $supporting-font-stack;
+  @include supporting-font;
+  font: 16px / 1.375;
   letter-spacing: 0.2px;
   color: $medium-grey;
 
@@ -133,7 +137,8 @@
 /// @example markup - Detail information
 ///  <p class='type-detail'>Abonnieren</p>
 @mixin type-detail {
-  font: 14px / 1.3333 $supporting-font-stack;
+  @include supporting-font;
+  font: 14px / 1.3333;
   letter-spacing: 0.1px;
   color: $medium-grey;
 
@@ -147,7 +152,8 @@
 /// @example markup - Catchword
 ///  <p class='type-catchword'>DEUTSCHLAND</p>
 @mixin type-catchword {
-  font: 13px / 1.23 $supporting-font-stack;
+  @include supporting-font;
+  font: 13px / 1.23;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1.8px;
