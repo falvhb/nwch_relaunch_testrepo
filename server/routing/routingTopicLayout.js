@@ -1,5 +1,4 @@
-var camelCase = require('camelcase');
-var Iso = require('../../app/node_modules/iso-react');
+var renderComponent = require('../helpers/renderComponent');
 
 module.exports = function(req, res) {
 
@@ -45,7 +44,6 @@ module.exports = function(req, res) {
     var page = parseInt(req.params.page, 10) - 1 || 0;
     if (page < 0) page = 0;
 
-    // map our data
     var state = {
       'articles': articles,
       'page': page + 1,
@@ -54,20 +52,15 @@ module.exports = function(req, res) {
       'total': result.total || 0
     };
 
-    // wrap component in isomorphic layer
-    // injects data to DOM and attaches component id
-    // component re-rendered client-side via app/client.js
-    var iso = new Iso();
-    var isoWrapped = iso.wrap({
+    var output = renderComponent({
       component: component,
-      state: (slot && typeof(slot.data) === 'function') ? slot.data(state) : state,
-      meta: {
-        id: camelCase(componentName),
-        variation: componentVariation
-      }
+      componentName: componentName,
+      componentVariation: componentVariation,
+      state: state,
+      slot: slot
     });
 
-    res.send(isoWrapped);
+    res.send(output);
   }
 
   render();
