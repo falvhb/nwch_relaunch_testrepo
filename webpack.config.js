@@ -45,7 +45,7 @@ var config = {
       'KALTURA_PLAYER_NOADS_ID',
       'KALTURA_TRACKING_URL'
     ]),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de/)
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de$/)
   ]
 };
 
