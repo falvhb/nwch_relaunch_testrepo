@@ -48,7 +48,7 @@ module.exports = function(req, res) {
     var iso = new Iso();
     var isoWrapped = iso.wrap({
       component: component,
-      state: slot ? slot(state) : state,
+      state: (slot && typeof(slot.data) === 'function') ? slot.data(state) : state,
       meta: {
         id: camelCase(componentName),
         variation: componentVariation
