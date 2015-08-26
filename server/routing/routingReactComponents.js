@@ -57,7 +57,7 @@ module.exports = function(req, res) {
     };
 
     var output = renderComponent({
-      component: component,
+      componentElement: component,
       componentName: componentName,
       componentVariation: componentVariation,
       state: state,

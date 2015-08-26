@@ -1,28 +1,24 @@
 var Iso = require('iso-react');
 
 var ArticleDetail = require('components/article-detail');
-var ArticleHeader = require('components/article-header');
 var ArticleIntro = require('components/article-intro');
 var DossierHeader = require('components/dossier-header');
 var Footer = require('components/footer');
 var HeaderNav = require('components/header-nav');
 var RelatedVideos = require('components/related-videos');
-var RessortHeader = require('components/ressort-header');
 var Teaser = require('components/teaser');
 var TopicDetail = require('components/topic-detail');
 
 // Map ids to required components
 var components = {
-  articleHeader: ArticleHeader,
-  articleIntro: ArticleIntro,
   articleDetail: ArticleDetail,
-  teaser: Teaser,
-  relatedVideos: RelatedVideos,
+  articleIntro: ArticleIntro,
+  dossierHeader: DossierHeader,
   footer: Footer,
-  topicDetail: TopicDetail,
   headerNav: HeaderNav,
-  ressortHeader: RessortHeader,
-  dossierHeader: DossierHeader
+  relatedVideos: RelatedVideos,
+  teaser: Teaser,
+  topicDetail: TopicDetail
 };
 
 // Hydrate all components client-side
