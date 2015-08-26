@@ -7,6 +7,7 @@ var Qs = require('qs');
  */
 function loadDossier(req, res, next) {
   var page = parseInt(req.params.page, 10) - 1 || 0;
+
   if (page <= 0) {
     page = 0;
   }
