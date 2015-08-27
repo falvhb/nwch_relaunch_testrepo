@@ -20,10 +20,18 @@ function checkData(apiData) {
   return apiData.data;
 }
 
-function feedTitle(domainInfo, ressortInfo) {
+function feedTitle(domainInfo, ressortInfo, rsPath) {
   var fTitle = domainInfo.properties.portal_title_seo || '';
-  if (fTitle && ressortInfo) {
-    fTitle += ' : ' + ressortInfo.title;
+  if (fTitle && ressortInfo && rsPath) {
+    var ressortTitle;
+    if (rsPath.split('/').length === 1) {
+      // main ressort
+      ressortTitle = ressortInfo.parent && ressortInfo.parent.title || '';
+    } else {
+      // sub ressort
+      ressortTitle = ressortInfo.title;
+    }
+    fTitle += ' : ' + ressortTitle;
   }
   return fTitle;
 }
@@ -73,7 +81,7 @@ module.exports = function routingRss2(req, res) {
     feedUrl += (isFull) ? 'rss2full.xml' : 'rss2.xml';
 
     var feedData = {
-      title: feedTitle(domainInfo, ressortInfo),
+      title: feedTitle(domainInfo, ressortInfo, rsPath),
       site_url: siteUrl,
       feed_url: feedUrl,
       description: domainInfo.properties.portal_description_seo || '',

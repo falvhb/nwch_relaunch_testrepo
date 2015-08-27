@@ -1,5 +1,6 @@
 function ResMock() {
   this.body = '';
+  this.headers = {};
   this.write = function(chunk) {
     this.body += chunk;
   };
@@ -10,6 +11,9 @@ function ResMock() {
   this.end = function() {
     // dummy
   };
+  this.set = function(key, value) {
+    this.headers[key] = value;
+  }
 }
 
 function ReqMock() {
