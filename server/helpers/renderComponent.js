@@ -4,35 +4,31 @@ var camelCase = require('camelcase');
 var disabledIsosByVariation = require('./disabledIsosByVariation');
 var Iso = require('../../app/node_modules/iso-react');
 
-module.exports = function renderComponent(options) {
+module.exports = function renderComponent(params) {
 
-  var componentElement = options.element;
-  var componentName = camelCase(options.name);
-  var componentVariation = options.variation;
-  var state = options.state;
-  var slot = options.slot;
+  var output, component = params || {};
 
-  var componentData = (slot && typeof(slot.data) === 'function')
-    ? slot.data(state)
-    : state;
+  component.name = camelCase(params.name);
+  component.data = (component.slot && typeof(component.slot.data) === 'function')
+    ? component.slot.data(component.state)
+    : component.state;
 
-  var output;
+  if (_.get(component.slot, 'iso') && !_.includes(disabledIsosByVariation[component.name], component.variation)) {
 
-  if (_.get(slot, 'iso') && !_.includes(disabledIsosByVariation[componentName], componentVariation)) {
     var iso = new Iso();
 
     output = iso.wrap({
-      component: componentElement,
-      state: componentData,
+      component: component.element,
+      state: component.data,
       meta: {
-        id: componentName,
-        variation: componentVariation
+        id: component.name,
+        variation: component.variation
       }
     });
 
   } else {
-    var el = React.createElement(componentElement, componentData);
-    output = React.renderToString(el, componentData);
+    var el = React.createElement(component.element, component.data);
+    output = React.renderToString(el, component.data);
   }
 
   return output;
