@@ -5,6 +5,24 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- better exception handling while rendering components
+- adds missing video microdata
+- adds microdata meta tags where visible content is not available
+- simplifies image microdata
+- updating regex for HTML snippet captions
+
+2015/08/25 0.0.33
+=================
+
+- Article: add jQuery to page and document
+- Video: use az.globals for Kaltura ID so videos work on all skins
+
+2015/08/25 0.0.32
+=================
+
+- fixed microdata markup for articles and article teasers
+- RessortTeaser: moving location of container in styleguide markup
+
 2015/08/25 0.0.31
 =================
 

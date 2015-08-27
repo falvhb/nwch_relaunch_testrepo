@@ -11,9 +11,22 @@ describe('Node Includes', function() {
   var response = null;
 
   // test cases and their requests
+  var req = {};
+  require('../server/routing/api.js')(req, {}, function() {});
+  req.api._data.domain = {};
   var testRequests = [
-    { name: 'Body Bottom', request: {params: {viewname: '__body_bottom'}}},
-    { name: 'Head Bottom', request: {params: {viewname: '__head_bottom'}}},
+    { name: 'Body Bottom',
+      request: {
+        params: {viewname: '__body_bottom'},
+        api: req.api
+      }
+    },
+    { name: 'Head Bottom',
+      request: {
+        params: {viewname: '__head_bottom'},
+        api: req.api
+      }
+    },
   ];
 
   testRequests.forEach(function(testCase) {

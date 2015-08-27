@@ -34,24 +34,28 @@
     then store it in localStorage for future visits. #}
 <script>
   (function (global) {
+
+    // Check for defined globals
+    global.az = global.az || {};
+
+    // Load fonts to LocalStorage
     global.loadFont(
-      // Font storage name
       'az-fonts',
-      // WOFF URL
       '{{ staticBasePath }}/client/fonts/data-woff.css',
-      // WOFF2 URL
       '{{ staticBasePath }}/client/fonts/data-woff2.css'
     );
+
+    // Set AZ globals based on skin
+    var az;
+    az = global.az;
+    az.globals = {
+      'kaltura_frontend_video_player_id': {{kaltura_frontend_video_player_id}},
+      'kaltura_frontend_adless_video_player_id': {{kaltura_frontend_adless_video_player_id}},
+      'kaltura_mediathek_video_player_id': {{kaltura_mediathek_video_player_id}},
+      'kaltura_mediathek_category_id': {{kaltura_mediathek_category_id}}
+    };
+
   })(window);
-</script>
-<script>
-  var az = az || {};
-  az.globals = {
-    'kaltura_frontend_video_player_id': {{kaltura_frontend_video_player_id}},
-    'kaltura_frontend_adless_video_player_id': {{kaltura_frontend_adless_video_player_id}},
-    'kaltura_mediathek_video_player_id': {{kaltura_mediathek_video_player_id}},
-    'kaltura_mediathek_category_id': {{kaltura_mediathek_category_id}}
-  };
 </script>
 
 <script src="http://aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
