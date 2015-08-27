@@ -18,7 +18,7 @@
   "scripts": {
     "watch": "gulp",
     "lint": "gulp lint",
-    "mocha": "mocha --recursive --colors",
+    "mocha": "mocha --recursive --colors --require test/setup",
     "test": "gulp test",
     "start": "node server/server.js"
   },
