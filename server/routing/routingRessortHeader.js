@@ -4,33 +4,33 @@ module.exports = function(req, res) {
 
   var params = req.params || {};
 
-  var componentName = 'ressort-header';
-  var componentVariation = params.variation || 'default';
+  var component = {};
 
-  if (!componentName) {
+  component.name = 'ressort-header';
+  component.variation = params.variation || 'default';
+
+  if (!component.name) {
     res.send('<!-- No component name provided! -->');
     return;
   }
 
-  if (!componentVariation) {
+  if (!component.variation) {
     res.send('<!-- No variation name provided! -->');
     return;
   }
 
   // resolve the component
-  var component;
   try {
-    component = require('../../app/node_modules/components/' + componentName);
+    component.element = require('../../app/node_modules/components/' + component.name);
   } catch (e) {
-    res.send('<!-- Component "' + componentName + '" not found! -->');
+    res.send('<!-- Component "' + component.name + '" not found! -->');
     return;
   }
 
   // see if there is a slot function
   // this maps data from the full API response -> only the data a component needs
-  var slot;
   try {
-    slot = require('../../app/node_modules/components/' + componentName + '/slot');
+    component.slot = require('../../app/node_modules/components/' + component.name + '/slot');
   } catch (e) {
     // not found (is okay, continue)
   }
@@ -44,24 +44,13 @@ module.exports = function(req, res) {
       }
     };
 
-    var ressort = data.ressort;
-    var subressorts = data.subressorts;
-
-    var state = {
-      'ressort': ressort,
-      'subressorts': subressorts,
-      'variation': componentVariation
+    component.state = {
+      'ressort': data.ressort,
+      'subressorts': data.subressorts,
+      'variation': component.variation
     };
 
-    var output = renderComponent({
-      componentElement: component,
-      componentName: componentName,
-      componentVariation: componentVariation,
-      state: state,
-      slot: slot
-    });
-
-    res.send(output);
+    res.send(renderComponent(component));
   }
 
   render();

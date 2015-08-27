@@ -4,33 +4,33 @@ module.exports = function(req, res) {
 
   var params = req.params || {};
 
-  var componentName = params.component;
-  var componentVariation = params.variation;
+  var component = {};
 
-  if (!componentName) {
+  component.name = params.component;
+  component.variation = params.variation;
+
+  if (!component.name) {
     res.send('<!-- No component name provided! -->');
     return;
   }
 
-  if (!componentVariation) {
+  if (!component.variation) {
     res.send('<!-- No variation name provided! -->');
     return;
   }
 
   // resolve the component
-  var component;
   try {
-    component = require('../../app/node_modules/components/' + componentName);
+    component.element = require('../../app/node_modules/components/' + component.name);
   } catch (e) {
-    res.send('<!-- Component "' + componentName + '" not found! -->');
+    res.send('<!-- Component "' + component.name + '" not found! -->');
     return;
   }
 
   // see if there is a slot function
   // this maps data from the full API response -> only the data a component needs
-  var slot;
   try {
-    slot = require('../../app/node_modules/components/' + componentName + '/slot');
+    component.slot = require('../../app/node_modules/components/' + component.name + '/slot');
   } catch (e) {
     // not found (is okay, continue)
   }
@@ -49,22 +49,14 @@ module.exports = function(req, res) {
       return;
     }
 
-    var state = {
+    component.state = {
       'article': req.article ? req.article.data : null,
-      'variation': componentVariation,
+      'variation': component.variation,
       'skin': req.headers['x-skin'] || 'aaz',
       'path': req._parsedUrl.path
     };
 
-    var output = renderComponent({
-      componentElement: component,
-      componentName: componentName,
-      componentVariation: componentVariation,
-      state: state,
-      slot: slot
-    });
-
-    res.send(output);
+    res.send(renderComponent(component));
   }
 
   render();

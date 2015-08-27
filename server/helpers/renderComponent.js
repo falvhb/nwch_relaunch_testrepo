@@ -6,9 +6,9 @@ var Iso = require('../../app/node_modules/iso-react');
 
 module.exports = function renderComponent(options) {
 
-  var componentElement = options.componentElement;
-  var componentName = camelCase(options.componentName);
-  var componentVariation = options.componentVariation;
+  var componentElement = options.element;
+  var componentName = camelCase(options.name);
+  var componentVariation = options.variation;
   var state = options.state;
   var slot = options.slot;
 

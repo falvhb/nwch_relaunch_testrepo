@@ -4,33 +4,33 @@ module.exports = function(req, res) {
 
   var params = req.params || {};
 
-  var componentName = 'topic-detail';
-  var componentVariation = params.variation || 'default';
+  var component = {};
 
-  if (!componentName) {
+  component.name = 'topic-detail';
+  component.variation = params.variation || 'default';
+
+  if (!component.name) {
     res.send('<!-- No component name provided! -->');
     return;
   }
 
-  if (!componentVariation) {
+  if (!component.variation) {
     res.send('<!-- No variation name provided! -->');
     return;
   }
 
   // resolve the component
-  var component;
   try {
-    component = require('../../app/node_modules/components/' + componentName);
+    component.element = require('../../app/node_modules/components/' + component.name);
   } catch (e) {
-    res.send('<!-- Component "' + componentName + '" not found! -->');
+    res.send('<!-- Component "' + component.name + '" not found! -->');
     return;
   }
 
   // see if there is a slot function
   // this maps data from the full API response -> only the data a component needs
-  var slot;
   try {
-    slot = require('../../app/node_modules/components/' + componentName + '/slot');
+    component.slot = require('../../app/node_modules/components/' + component.name + '/slot');
   } catch (e) {
     // not found (is okay, continue)
   }
@@ -44,23 +44,15 @@ module.exports = function(req, res) {
     var page = parseInt(req.params.page, 10) - 1 || 0;
     if (page < 0) page = 0;
 
-    var state = {
+    component.state = {
       'articles': articles,
       'page': page + 1,
       'topic': keyword,
-      'variation': componentVariation,
+      'variation': component.variation,
       'total': result.total || 0
     };
 
-    var output = renderComponent({
-      componentElement: component,
-      componentName: componentName,
-      componentVariation: componentVariation,
-      state: state,
-      slot: slot
-    });
-
-    res.send(output);
+    res.send(renderComponent(component));
   }
 
   render();
