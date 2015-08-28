@@ -1,6 +1,5 @@
 /*eslint-disable no-warning-comments*/
 var path = require('path');
-var wrappedRenderer = require('./wrappedRenderer');
 
 var defaults = {
   folder: './app/includes'
@@ -51,6 +50,7 @@ module.exports = function nodeIncludesRouter(req, res) {
     var version = process.env.VERSION || '@@VERSION';
     var data = {
       'withAds': pageType !== '',
+      'withBugMuncher': env.BUG_MUNCHER === 'true',
       'pageType': pageType,
       'skin': skin,
       'iconPath': iconPath,
@@ -63,6 +63,5 @@ module.exports = function nodeIncludesRouter(req, res) {
     res.send(renderNunchuck(component, data));
   }
 
-  // wait for the API calls to finish
-  req.api.done(wrappedRenderer(res, render));
+  render();
 };

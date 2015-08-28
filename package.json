@@ -1,6 +1,6 @@
 {
   "name": "az-nwch-js",
-  "version": "0.0.31",
+  "version": "0.0.35",
   "engines": {
     "node": "0.12.x"
   },
@@ -89,7 +89,7 @@
     "is-retina": "^1.0.3",
     "jquery": "^2.1.4",
     "json-loader": "^0.5.2",
-    "karma": "^0.12.36",
+    "karma": "^0.13.9",
     "karma-chai": "^0.1.0",
     "karma-chai-plugins": "^0.6.0",
     "karma-cli": "0.0.4",
@@ -97,7 +97,7 @@
     "karma-mocha-reporter": "^1.0.2",
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-sourcemap-loader": "^0.3.5",
-    "karma-webpack": "^1.5.1",
+    "karma-webpack": "^1.7.0",
     "mocha": "^2.2.5",
     "nock": "^2.7.0",
     "phantomjs-polyfill": "0.0.1",
