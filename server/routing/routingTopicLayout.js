@@ -1,5 +1,4 @@
 var camelCase = require('camelcase');
-var wrappedRenderer = require('./wrappedRenderer');
 var Iso = require('../../app/node_modules/iso-react');
 
 module.exports = function(req, res) {
@@ -59,5 +58,5 @@ module.exports = function(req, res) {
     res.send(isoWrapped);
   }
 
-  req.api.done(wrappedRenderer(res, render));
+  render();
 };

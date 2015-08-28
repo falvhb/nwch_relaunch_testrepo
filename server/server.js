@@ -6,16 +6,12 @@ var path = require('path');
 var fs = require('fs');
 var engines = require('consolidate');
 var app = module.exports = express();
+var waitAPI = require('./routing/api').waitAPI;
 
 // -----------------------------------------------------------------------------
 // Environment
 // -----------------------------------------------------------------------------
 
-if (fs.existsSync('.env.deploy')) {
-  require('dotenv').load({
-    path: '.env.deploy'
-  });
-}
 require('dotenv').load({
   path: '.env'
 });
@@ -49,6 +45,7 @@ app.use('/client', express.static('client'));
 app.use(require('./routing/api'));
 // middlewares for retrieving data from the REST API
 var loadArticle = require('./routing/loadArticle');
+var loadDomain = require('./routing/loadDomain');
 var loadDossier = require('./routing/loadDossier');
 var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
@@ -122,23 +119,30 @@ var COMPONENT_PREFIX = '';
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
         loadTopic,
+        waitAPI,
         reactTopicAPIRouter);
 
 app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
         loadTopic,
+        waitAPI,
         reactTopicLayoutRouter);
 
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         loadDossier,
+        waitAPI,
         reactDossierRouter);
-app.get(COMPONENT_PREFIX + '/:ressort?/ressort-header/:variation?',
+app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadRessortNav,
+        waitAPI,
         reactRessortHeaderRenderer);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
+        loadDomain,
+        waitAPI,
         nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
         loadArticle,
+        waitAPI,
         reactComponentsRouter);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         reactComponentsRouter);
@@ -158,12 +162,12 @@ app.all('*', function(req, res) {
 
 // HINT: commented to be able to see errors. uncomment if needed
 
-app.use(function(err, req, res, next) {
-  app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
-  res.status(200);
-  res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
-  res.end();
-});
+// app.use(function(err, req, res, next) {
+//   app.get('logger').error(err.message + ' (' + req.originalUrl + ')');
+//   res.status(200);
+//   res.write('<!-- Error while processing "' + req.originalUrl + '" -->\n');
+//   res.end();
+// });
 
 
 // Start our server

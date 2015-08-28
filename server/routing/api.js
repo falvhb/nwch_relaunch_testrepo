@@ -107,3 +107,9 @@ module.exports = function(req, res, next) {
   req.api = new Api();
   next();
 };
+
+module.exports.waitAPI = function(req, res, next) {
+  req.api.done(function() {
+    next();
+  });
+};
