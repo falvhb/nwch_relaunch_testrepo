@@ -4,6 +4,8 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+- fixes HeaderNav behaviour on pages with advertising
+- implements a simpler IE9 fix for HeaderNav
 
 2015/08/28 0.0.34
 =================
