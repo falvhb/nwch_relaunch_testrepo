@@ -50,6 +50,7 @@ module.exports = function nodeIncludesRouter(req, res) {
     var version = process.env.VERSION || '@@VERSION';
     var data = {
       'withAds': pageType !== '',
+      'withBugMuncher': env.BUG_MUNCHER === 'true',
       'pageType': pageType,
       'skin': skin,
       'iconPath': iconPath,
