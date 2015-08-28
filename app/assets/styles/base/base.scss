@@ -3,7 +3,6 @@
 body {
   font: 100% / 1.5 $text-font-stack;
   color: $black;
-  overflow-x: hidden;
 
   @include media('<=tablet-portrait') {
     padding-top: 100px;
@@ -12,6 +11,13 @@ body {
   @include media('>tablet-portrait') {
     padding-top: 200px;
   }
+}
+
+/**
+ * The padding is not required on <= IE9
+ */
+.lte-ie9 body {
+  padding-top: 0;
 }
 
 @include media('<=tablet-portrait') {
