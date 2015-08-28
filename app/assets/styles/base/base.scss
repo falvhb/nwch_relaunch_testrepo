@@ -3,12 +3,7 @@
 body {
   font: 100% / 1.5 $text-font-stack;
   color: $black;
-}
 
-/**
- * Give the absolutely-positioned navigation some room
- */
-html:not(.lte-ie9) body {
   @include media('<=tablet-portrait') {
     padding-top: 100px;
   }
@@ -16,6 +11,13 @@ html:not(.lte-ie9) body {
   @include media('>tablet-portrait') {
     padding-top: 200px;
   }
+}
+
+/**
+ * The padding is not required on <= IE9
+ */
+.lte-ie9 body {
+  padding-top: 0;
 }
 
 @include media('<=tablet-portrait') {
