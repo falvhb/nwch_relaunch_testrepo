@@ -1,1 +1,18 @@
 <script src="{{ staticBasePath }}/client/client.bundled.js"></script>
+{% if withBugMuncher -%}
+<script type="text/javascript">
+	var bugmuncher_options = {
+		language: "de",
+		position: "right",
+		require_email: true,
+		http_auth: "preview:nwch2015",
+		api_key: "fc446c9dc5d1ed64cacc2faf7bca241eaa080fbc"
+	};
+	(function(){ 
+		var node = document.createElement("script"); 
+		node.setAttribute("type", "text/javascript"); 
+		node.setAttribute("src", "//app.bugmuncher.com/js/bugMuncher.min.js"); 
+		document.getElementsByTagName("head")[0].appendChild(node); 
+	})();
+</script>
+{%- endif %}

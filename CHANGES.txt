@@ -4,6 +4,13 @@ Changes for az-nwch-js
 
 unreleased
 ==========
+
+2015/08/28 0.0.35
+=================
+
+- added bugmuncher script to the __body_bottom include
+  DEPLOY:
+   set BUG_MUNCHER=true in .env.deploy for staging
 - fixes HeaderNav behaviour on pages with advertising
 - implements a simpler IE9 fix for HeaderNav
 
