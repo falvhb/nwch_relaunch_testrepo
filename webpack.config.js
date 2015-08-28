@@ -9,8 +9,9 @@ var config = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.jsx?/,
         loaders: ['babel'],
+        include: /\/app|server|tasks|test\//
       },
       {
         test: /\.json$/,
