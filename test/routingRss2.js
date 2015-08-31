@@ -189,4 +189,34 @@ describe('RSS2 Feed Router', function() {
 
     done();
   });
+
+  it("should get 'rss2full.xml' if requested", function(done) {
+    mockApiGet(req, sampleFeed);
+
+    req.originalUrl = 'http://www.domain.com/mainRessortPath/rss2full.xml';
+    req.params.ressort = 'mainRessortPath';
+
+    // process the request
+    rssRouter(req, res);
+
+    // parse the XML and check the basic structure
+    var xml = xmljs.parseXml(res.body);
+
+    assert.equal(xml.get('/rss/channel/title').text(), 'Aargauer Zeitung SEO Title : The MainRessort Title');
+    assert.equal(xml.get('/rss/channel/link').text(), 'http://www.domain.com/mainRessortPath');
+    var items = xml.find('/rss/channel/item');
+    assert.equal(items.length, 1);
+    assert.equal(items[0].get('./title').text(), '1st news article');
+    assert.equal(items[0].get('./description').text(), 'Anriss 1');
+    assert.equal(items[0].get('./link').text(), 'http://www.domain.com/mainRessortPath/subRessortPath/1st-news-article-122333');
+    assert.equal(items[0].get('./guid').text(), '122333');
+    assert.equal(items[0].get('./guid').attr('isPermaLink').value(), 'false');
+
+    // 'content:encoded'
+    var nodes = items[0].childNodes();
+    assert.equal(nodes[nodes.length - 1].namespace().prefix(), 'content');
+    assert.equal(nodes[nodes.length - 1].text(), 'The actual text of 1st news article');
+
+    done();
+  });
 });
