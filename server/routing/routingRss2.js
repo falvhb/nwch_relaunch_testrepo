@@ -6,6 +6,8 @@ var staticDomainCSSPath = require('../modules/cdn');
 var ressortPath = require('../modules/ressortPath');
 var formCanonicalUrlPath = require('../../app/node_modules/helpers/get-article-url').formCanonicalUrlPath;
 var getMainAsset = require('../../app/node_modules/helpers/get-main-asset');
+var image = require('../../common/image');
+var urlTools = require('../../common/urltools');
 
 var LOGO_PNG_PATH = '/img/pageLogo.png';
 var COPYRIGHT = "Copyright (c): a-z.ch, AZ Crossmedia AG, " +
@@ -46,16 +48,6 @@ function feedTitle(domainInfo, ressortInfo, rsPath) {
   return fTitle;
 }
 
-function domainUrl(domainInfo) {
-  var url = domainInfo.properties.domain_name || '';
-  if (!url.startsWith('http')) {
-    url = 'http://' + url;
-  }
-  if (!url.endsWith('/')) {
-    url += '/';
-  }
-  return url;
-}
 
 function isFullRss(req) {
   return (
@@ -63,6 +55,7 @@ function isFullRss(req) {
   ) ? true
     : false;
 }
+
 
 module.exports = function routingRss2(req, res) {
 
@@ -85,12 +78,12 @@ module.exports = function routingRss2(req, res) {
     var ressortInfo = null;
     var items = rssData.items;
 
-    var domain = domainUrl(domainInfo);
+    var domain = urlTools.absoluteURL(req, '/');
     var siteUrl = domain;
     var rsPath = ressortPath(req);
     if (rsPath) {
       siteUrl += rsPath;
-      // If a ressort filter is requested, the title changes accoringly. Hence,
+      // If a ressort filter is requested, the title changes accordingly. Hence,
       // we need the (sub)ressort.
       // If no ressort filter is requested, the portal info can be used.
       ressortInfo = rssData.ressort;
@@ -126,12 +119,23 @@ module.exports = function routingRss2(req, res) {
       // calculate the asset image URL
       var mainAsset = getMainAsset(item.assets);
       if (mainAsset && mainAsset.image_url) {
+        var width, height;
+        if (isFull) {
+          width = 1400;
+          height = 1400;
+        } else {
+          width = 600;
+          height = 600;
+        }
         customFields.push({
           'media:content': {
             _attr: {
               medium: 'image',
               isDefault: true,
-              url: mainAsset.image_url,
+              url: image.createImageSrc(mainAsset.image_url,
+                                        width,
+                                        height,
+                                        false),
               type: 'image/jpg',
             }
           }
@@ -143,7 +147,6 @@ module.exports = function routingRss2(req, res) {
             _cdata: item.text || ''
           }
         });
-        // TODO: different image url (variation) for full rss.
       }
       feed.item({
         title: item.title || '',
