@@ -6,6 +6,12 @@ unreleased
 ==========
 
 - removes copyright symbol from article byline
+- adds heart and watch icons
+- cleans up general styleguide styles
+- updates many .data.json/.variations.json files
+- updates many READMEs
+- fixes console error for unknown global in Video
+- updates Download Stoerer enrichment
 
 2015/08/28 0.0.35
 =================
