@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- hotfix side ad so it’s not cut off
 - removes copyright symbol from article byline
 - adds heart and watch icons
 - cleans up general styleguide styles
