@@ -30,7 +30,7 @@ module.exports = function(config) {
       module: {
         loaders: [
           {
-            include: /\/app\/node_modules\/components\/related-videos/,
+            include: /\/app\/node_modules\/components\/header-nav/,
             loader: 'babel',
             test: /.jsx?$/
           },
