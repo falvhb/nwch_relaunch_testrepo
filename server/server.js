@@ -116,7 +116,6 @@ app.get('/favicon.ico', function(req, res) { res.send(''); });
 
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
-var FEEDS_PREFIX = '/__feed__';
 var COMPONENT_PREFIX = '';
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
@@ -131,8 +130,8 @@ app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
         waitAPI,
         reactTopicLayoutRouter);
 
-app.get([FEEDS_PREFIX + '/:ressort?/:subressort?/rss2.xml',
-         FEEDS_PREFIX + '/:ressort?/:subressort?/rss2full.xml'],
+app.get(['/:ressort?/:subressort?/rss2.xml',
+         '/:ressort?/:subressort?/rss2full.xml'],
         loadRss2,
         rss2Router);
 
