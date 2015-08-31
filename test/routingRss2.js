@@ -74,6 +74,10 @@ describe('RSS2 Feed Router', function() {
   var sampleFeed = null;
   beforeEach(function() {
     req = new ReqMock();
+    req.headers = {
+      'x-forwarded-proto': 'http',
+      host: 'www.domain.com',
+    }
     res = new ResMock();
 
     sampleFeed = {
