@@ -13,9 +13,19 @@ var COPYRIGHT = "Copyright (c): a-z.ch, AZ Crossmedia AG, " +
 var FEED_LANGUAGE = 'de-ch';
 
 
-function checkData(apiData) {
+function ServiceUnavailable() {}
+ServiceUnavailable.prototype = new Error();
+
+function NotFound() {}
+NotFound.prototype = new Error();
+
+
+function checkData(apiData, req) {
   if (!apiData || apiData && !apiData.data) {
-    throw Error('Could not retrieve all data for the requested RSS2 feed');
+    throw new ServiceUnavailable();
+  }
+  if (ressortPath(req) !== null && !apiData.data.ressort) {
+    throw new NotFound();
   }
   return apiData.data;
 }
@@ -59,7 +69,18 @@ module.exports = function routingRss2(req, res) {
   function render() {
     var isFull = isFullRss(req);
     var domainName = req.headers['x-skin'] || 'aaz';
-    var rssData = checkData(req.api.get('rss2'));
+    var rssData = null;
+    try {
+      rssData = checkData(req.api.get('rss2'), req);
+    } catch (e) {
+      if (e instanceof ServiceUnavailable) {
+        return res.status(503).send('Service Unavailable');
+      }
+      if (e instanceof NotFound) {
+        return res.status(404).send('Not Found');
+      }
+      return res.status(501).send('Internal Server Error');
+    }
     var domainInfo = rssData.domain;
     var ressortInfo = null;
     var items = rssData.items;

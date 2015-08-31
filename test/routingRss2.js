@@ -9,49 +9,53 @@ var ReqMock = requestMock.ReqMock;
 var ResMock = requestMock.ResMock;
 
 
-function mockApiGet(request, sampleFeed) {
+function mockApiGet(request, sampleFeed, omit) {
   request.api.get = function(key) {
     if (key === 'rss2') {
-      sampleFeed.items = [
-        {
-          title: '1st news article',
-          lead: 'Anriss 1',
-          id: 122333,
-          dc: {
-            effective: '2009-02-25T05:08:22+01:00',
-          },
-          text: 'The actual text of 1st news article',
-          assets: [
-            {
-              asset: {
-                content_type: 'asset_image',
-                image_url: 'http://ip-proxy.com/someImage.jpg',
+      if (!omit || omit && !omit.items) {
+        sampleFeed.items = [
+          {
+            title: '1st news article',
+            lead: 'Anriss 1',
+            id: 122333,
+            dc: {
+              effective: '2009-02-25T05:08:22+01:00',
+            },
+            text: 'The actual text of 1st news article',
+            assets: [
+              {
+                asset: {
+                  content_type: 'asset_image',
+                  image_url: 'http://ip-proxy.com/someImage.jpg',
+                }
               }
-            }
-          ],
-          ressorts: [
-            {
-              parent: {
+            ],
+            ressorts: [
+              {
+                parent: {
+                  ignore_for_canonical: false,
+                  urlpart: 'mainRessortPath',
+                  title: 'The MainRessort Title',
+                },
                 ignore_for_canonical: false,
-                urlpart: 'mainRessortPath',
-                title: 'The MainRessort Title',
-              },
-              ignore_for_canonical: false,
-              urlpart: 'subRessortPath',
-              title: 'The SubRessort Title',
-            }
-          ]
-        }
-      ]
-      sampleFeed.ressort = {
-        parent: {
+                urlpart: 'subRessortPath',
+                title: 'The SubRessort Title',
+              }
+            ]
+          }
+        ]
+      }
+      if (!omit || omit && !omit.ressort) {
+        sampleFeed.ressort = {
+          parent: {
+            ignore_for_canonical: false,
+            urlpart: 'mainRessortPath',
+            title: 'The MainRessort Title',
+          },
           ignore_for_canonical: false,
-          urlpart: 'mainRessortPath',
-          title: 'The MainRessort Title',
-        },
-        ignore_for_canonical: false,
-        urlpart: 'subRessortPath',
-        title: 'The SubRessort Title',
+          urlpart: 'subRessortPath',
+          title: 'The SubRessort Title',
+        }
       }
       return {
         data: sampleFeed,
@@ -216,6 +220,63 @@ describe('RSS2 Feed Router', function() {
     var nodes = items[0].childNodes();
     assert.equal(nodes[nodes.length - 1].namespace().prefix(), 'content');
     assert.equal(nodes[nodes.length - 1].text(), 'The actual text of 1st news article');
+
+    done();
+  });
+
+  it('be ok if not ressort is requested, and no ressort is returned', function(done) {
+    mockApiGet(req, sampleFeed, /*omit*/ {ressort: true});
+
+    // process the request
+    rssRouter(req, res);
+
+    // parse the XML and check the basic structure
+    var xml = xmljs.parseXml(res.body);
+    assert.isDefined(xml);
+    assert.isNotNull(xml);
+
+    done();
+  });
+
+  it('should return an error if a ressort is requested but not returned', function(done) {
+    mockApiGet(req, sampleFeed, /*omit*/ {ressort: true});
+
+    req.params.ressort = 'mainRessortPath';
+
+    // process the request
+    rssRouter(req, res);
+
+    assert.equal(res.code, 404);
+
+    done();
+  });
+
+  it('should return an error if a ressort/subressort is requested but not returned', function(done) {
+    mockApiGet(req, sampleFeed, /*omit*/ {ressort: true});
+
+    req.params.ressort = 'mainRessortPath';
+    req.params.subRessort = 'subRessortPath';
+
+    // process the request
+    rssRouter(req, res);
+
+    assert.equal(res.code, 404);
+
+    done();
+  });
+
+  it("should return an error if no data is returned.", function(done) {
+    req.api.get = function(key) {
+      if (key === 'rss2') {
+        return {};
+      }
+    }
+
+    // process the request
+    rssRouter(req, res);
+
+    assert.equal(res.code, 503);
+    assert.equal(res.body, 'Service Unavailable');
 
     done();
   });

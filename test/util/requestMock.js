@@ -13,6 +13,11 @@ function ResMock() {
   };
   this.set = function(key, value) {
     this.headers[key] = value;
+    return this;
+  }
+  this.status = function(code) {
+    this.code = code;
+    return this;
   }
 }
 
