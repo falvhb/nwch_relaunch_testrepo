@@ -78,6 +78,7 @@ describe('RSS2 Feed Router', function() {
       'x-forwarded-proto': 'http',
       host: 'www.domain.com',
     }
+    req.originalUrl = 'rss2.xml'
     res = new ResMock();
 
     sampleFeed = {
@@ -260,6 +261,18 @@ describe('RSS2 Feed Router', function() {
 
     req.params.ressort = 'mainRessortPath';
     req.params.subRessort = 'subRessortPath';
+
+    // process the request
+    rssRouter(req, res);
+
+    assert.equal(res.code, 404);
+
+    done();
+  });
+
+  it('return an error if no domain data is returned', function(done) {
+    sampleFeed.domain = {}
+    mockApiGet(req, sampleFeed);
 
     // process the request
     rssRouter(req, res);

@@ -1,5 +1,5 @@
 /* eslint-disable no-warning-comments */
-
+var _ = require('lodash');
 var RSS = require('rss');
 var staticDomainCSSPath = require('../modules/cdn');
 var ressortPath = require('../modules/ressortPath');
@@ -14,51 +14,44 @@ var COPYRIGHT = "Copyright (c): a-z.ch, AZ Crossmedia AG, " +
 var FEED_LANGUAGE = 'de-ch';
 
 
-function ServiceUnavailable() {}
-ServiceUnavailable.prototype = new Error();
-
-function NotFound() {}
-NotFound.prototype = new Error();
-
-
-function checkData(apiData, req) {
-  if (!apiData || apiData && !apiData.data) {
-    throw new ServiceUnavailable();
-  }
-  if (ressortPath(req) !== null && !apiData.data.ressort) {
-    throw new NotFound();
-  }
-  return apiData.data;
-}
-
-function feedTitle(domainInfo, ressortInfo, rsPath) {
-  var fTitle = domainInfo.properties.portal_title_seo || '';
-  if (fTitle && ressortInfo && rsPath) {
-    var ressortTitle;
-    if (rsPath.split('/').length === 1) {
-      // main ressort
-      ressortTitle = ressortInfo.parent && ressortInfo.parent.title || '';
-    } else {
-      // sub ressort
-      ressortTitle = ressortInfo.title;
-    }
-    fTitle += ' : ' + ressortTitle;
-  }
-  return fTitle;
-}
-
-
-function isFullRss(req) {
-  return (
-    req.originalUrl && req.originalUrl.endsWith('rss2full.xml')
-  ) ? true
-    : false;
-}
-
-
 module.exports = function routingRss2(req, res) {
 
-  var isFull = isFullRss(req);
+  function ServiceUnavailable() {}
+  ServiceUnavailable.prototype = new Error();
+
+  function NotFound() {}
+  NotFound.prototype = new Error();
+
+  function checkData(apiData, req) {
+    if (!apiData || apiData && _.isEmpty(apiData.data)) {
+      throw new ServiceUnavailable();
+    }
+    if (ressortPath(req) !== null && _.isEmpty(apiData.data.ressort)) {
+      throw new NotFound();
+    }
+    if (_.isEmpty(apiData.data.domain)) {
+      throw new NotFound();
+    }
+    return apiData.data;
+  }
+
+  function feedTitle() {
+    var fTitle = domainInfo.properties.portal_title_seo || '';
+    if (fTitle && ressortInfo && rsPath) {
+      var ressortTitle;
+      if (rsPath.split('/').length === 1) {
+        // main ressort
+        ressortTitle = ressortInfo.parent && ressortInfo.parent.title || '';
+      } else {
+        // sub ressort
+        ressortTitle = ressortInfo.title;
+      }
+      fTitle += ' : ' + ressortTitle;
+    }
+    return fTitle;
+  }
+
+  var isFull = req.originalUrl.endsWith('rss2full.xml') ? true : false;
   var domainName = req.headers['x-skin'] || 'aaz';
   var rssData = null;
   try {
@@ -93,7 +86,7 @@ module.exports = function routingRss2(req, res) {
   feedUrl += (isFull) ? 'rss2full.xml' : 'rss2.xml';
 
   var feedData = {
-    title: feedTitle(domainInfo, ressortInfo, rsPath),
+    title: feedTitle(),
     site_url: siteUrl,
     feed_url: feedUrl,
     description: domainInfo.properties.portal_description_seo || '',
