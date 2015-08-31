@@ -133,6 +133,7 @@ app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
 app.get(['/:ressort?/:subressort?/rss2.xml',
          '/:ressort?/:subressort?/rss2full.xml'],
         loadRss2,
+        waitAPI,
         rss2Router);
 
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
