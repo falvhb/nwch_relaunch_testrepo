@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/01 0.0.41
+=================
+
 - added a demo to show how mails can be sent
 - added a common mail module
 - organisation is now derived from the skin ID in FooterCopyright
