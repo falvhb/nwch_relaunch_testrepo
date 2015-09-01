@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/01 0.0.36
+=================
+
 - hotfix side ad so it’s not cut off
 - removes copyright symbol from article byline
 - adds heart and watch icons
