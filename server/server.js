@@ -193,10 +193,6 @@ app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         loadComponentRequirements(),
         reactComponentsRouter);
 
-app.post(COMPONENT_PREFIX + '/__form__/:component/:variation',
-        loadComponentRequirements(),
-        reactPostComponents);
-
 
 // catch-all route, throws an error to invoke error handling
 app.all('*', function(req, res) {
