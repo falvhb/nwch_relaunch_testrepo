@@ -3,15 +3,22 @@
 body {
   font: 100% / 1.5 $text-font-stack;
   color: $black;
-  overflow-x: hidden;
+  min-width: 280px;
 
   @include media('<=tablet-portrait') {
     padding-top: 100px;
   }
 
   @include media('>tablet-portrait') {
-    padding-top: 180px;
+    padding-top: 200px;
   }
+}
+
+/**
+ * The padding is not required on <= IE9
+ */
+.lte-ie9 body {
+  padding-top: 0;
 }
 
 @include media('<=tablet-portrait') {
@@ -29,7 +36,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: $light-grey;
     z-index: 75;
   }
 
