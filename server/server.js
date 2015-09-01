@@ -1,6 +1,7 @@
 /*eslint-disable no-console, no-unused-vars */
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var fs = require('fs');
@@ -52,6 +53,8 @@ var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
 var loadRss2 = require('./routing/loadRss2');
 
+var reCaptcha = require('./routing/reCaptcha');
+
 // Routing Middleware
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
@@ -61,6 +64,7 @@ var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 var rss2Router = require('./routing/routingRss2');
 var loadComponentRequirements = require('./routing/loadComponentRequirements');
+var reactPostComponents = require('./routing/postComponents');
 
 
 // -----------------------------------------------------------------------------
@@ -119,6 +123,38 @@ var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '';
 
+//-------------------------------------------------------------------------------
+// START dummy testcode for form post with recaptcha
+//
+// Remove this after presentation!
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+app.post([API_PREFIX + '/form/test'],
+          loadDomain,
+          waitAPI,
+          urlencodedParser,
+          reCaptcha.middleware,
+          function (req, res) {
+            res.json({"status": req.recaptcha.status});
+            res.end();
+          });
+
+app.get([API_PREFIX + '/form/test'],
+        loadDomain,
+        waitAPI,
+        function (req, res) {
+          res.send('<form method="POST" enctype="application/x-www-form-urlencoded">' +
+                  '  <input name="test"/>' +
+                  reCaptcha.form(req) +
+                  '  <input type="submit"/>' +
+                  '  <script src="https://www.google.com/recaptcha/api.js"></script>' +
+                  '</form>');
+        });
+
+// END dummy testcode for form post with recaptcha
+//-------------------------------------------------------------------------------
+
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
         loadTopic,
@@ -156,6 +192,10 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         loadComponentRequirements(),
         reactComponentsRouter);
+
+app.post(COMPONENT_PREFIX + '/__form__/:component/:variation',
+        loadComponentRequirements(),
+        reactPostComponents);
 
 
 // catch-all route, throws an error to invoke error handling
