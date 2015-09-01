@@ -1,4 +1,9 @@
 module.exports = function(req) {
+  /**
+   * Trigger the API call to load data for the ressort navigation header.
+   *
+   * Uses req.api to activate the request.
+   */
   var domain = req.headers['x-skin'] || 'aaz';
   var ressortName = req.params.ressort;
   if (req.params.subressort) {
