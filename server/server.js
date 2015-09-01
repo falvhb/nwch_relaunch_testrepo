@@ -60,6 +60,7 @@ var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 var rss2Router = require('./routing/routingRss2');
+var loadComponentRequirements = require('./routing/loadComponentRequirements');
 
 
 // -----------------------------------------------------------------------------
@@ -138,11 +139,11 @@ app.get(['/:ressort?/:subressort?/rss2.xml',
 
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         loadDossier,
+        loadComponentRequirements(),
         waitAPI,
         reactDossierRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
-        loadRessortNav,
-        waitAPI,
+        loadComponentRequirements('ressort-header'),
         reactRessortHeaderRenderer);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
         loadDomain,
@@ -153,6 +154,7 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         waitAPI,
         reactComponentsRouter);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
+        loadComponentRequirements(),
         reactComponentsRouter);
 
 

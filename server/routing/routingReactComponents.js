@@ -1,80 +1,58 @@
 var camelCase = require('camelcase');
 var Iso = require('../../app/node_modules/iso-react');
+var Components = require('../modules/components');
 
 module.exports = function(req, res) {
 
-  function render() {
-    // get params
-    var params = req.params || {};
+  // get params
+  var params = req.params || {};
 
-    req.article = req.api.get('article');
-
-    if (req.article && !req.article.data) {
-      // no article found
-      res.write('<!-- Article "' + params.articleId + '" not found! -->\n');
-      var errors = req.article.errors;
-      if (errors && errors.length > 0) {
-        res.write('<!-- Error detail: ' + errors[0].detail + ' -->\n');
-      }
-      res.end();
-      return;
+  // check if this is a request with an article involved
+  req.article = req.api.get('article');
+  if (req.article && !req.article.data) {
+    // if there is an article property but it contains no data then the
+    // article could not be requested from the API.
+    res.write('<!-- Article "' + params.articleId + '" not found! -->\n');
+    var errors = req.article.errors;
+    if (errors && errors.length > 0) {
+      // the API reported an error
+      res.write('<!-- Error detail: ' + errors[0].detail + ' -->\n');
     }
+    res.end();
+    return;
+  }
+  var c = new Components(req);
+  var component = c.getComponent(res);
+  if (!component) {
+    return;
+  }
+  if (!c.variationName) {
+    return;
+  }
+  var slot = c.slot();
 
-    var componentName = params.component;
-    if (!componentName) {
-      res.send('<!-- No component name provided! -->');
-      return;
-    }
-    var componentVariation = params.variation;
-    if (!componentVariation) {
-      res.send('<!-- No variation name provided! -->');
-      return;
-    }
-
-    var articleData = null;
-    if (req.article) {
-      articleData = req.article.data;
-    }
-
-    // map our data
-    var state = {
-      'article': articleData,
-      'variation': componentVariation,
-      'skin': req.headers['x-skin'] || 'aaz',
-      'path': req._parsedUrl.path
-    };
-
-    // resolve the component
-    var component;
-    try {
-      component = require('../../app/node_modules/components/' + componentName);
-    } catch (e) {
-      res.send('<!-- Component "' + componentName + '" not found! -->');
-      return;
-    }
-
-    // see if there is a slot function
-    // this typically maps data from the full API response -> only the data a component needs
-    var slot;
-
-    try {
-      slot = require('../../app/node_modules/components/' + componentName + '/slot');
-    } catch (e) {
-      // not found (is okay, continue)
-    }
-
-    // wrap component in isomorphic layer
-    // injects data to DOM and attaches component id
-    // component re-rendered client-side via app/client.js
-    var iso = new Iso();
-    var isoWrapped = iso.wrap({
-      component: component,
-      state: slot ? slot(state) : state,
-      meta: { id: camelCase(componentName), variation: componentVariation }
-    });
-
-    res.send(isoWrapped);
+  var articleData = null;
+  if (req.article) {
+    articleData = req.article.data;
   }
 
-  render();
+  // map our data to pass it to the slot or the component
+  var state = {
+    'article': articleData,
+    'variation': c.variationName,
+    'skin': req.headers['x-skin'] || 'aaz',
+    'path': req._parsedUrl.path
+  };
+
+  // wrap component in isomorphic layer
+  // injects data to DOM and attaches component id
+  // component re-rendered client-side via app/client.js
+  var iso = new Iso();
+  var isoWrapped = iso.wrap({
+    component: component,
+    state: slot ? slot(state) : state,
+    meta: {id: camelCase(c.componentName), variation: c.variationName}
+  });
+
+  res.send(isoWrapped);
 };
