@@ -1,6 +1,6 @@
 {
   "name": "az-nwch-js",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "engines": {
     "node": "0.12.x"
   },
