@@ -5,7 +5,13 @@ Changes for az-nwch-js
 unreleased
 ==========
 
- - added recaptcha2 middleware
+- added recaptcha2 middleware
+- organisation is now derived from the skin ID in FooterCopyright
+- button is namespaced under FooterSections rather than Footer, so it is correctly styled in styleguide
+- tidies up wrapper for RessortTeaser
+- use fitToBox in ResponsiveImageMixin instead of fill as a flag for scaling the image, as fill is already used
+- pull the CTA from RessortTeaser into its own component (CMS markup to be updated)
+- use existing Grid component for RecommendationsBottom (CMS markup to be updated)
 
 2015/09/01 0.0.39
 =================
