@@ -5,6 +5,24 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/01 0.0.39
+=================
+
+- Fix video player
+
+2015/09/01 0.0.38
+=================
+
+- Fix: fix Icons
+- RSS: fix wrong feedTitle.
+- localdev nginx: only render news domains RSS feeds on the Node layer.
+- getScript helper is now Promise-based. Instead of passing a callback it returns a Promise object
+
+2015/09/01 0.0.37
+=================
+
+ - added rss2 page endpoints
+
 2015/09/01 0.0.36
 =================
 
