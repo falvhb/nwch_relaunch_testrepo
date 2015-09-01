@@ -68,6 +68,7 @@
   "optionalDependencies": {},
   "devDependencies": {
     "chai": "^3.0.0",
+    "es6-promise": "^3.0.2",
     "escape-html": "^1.0.2",
     "eslint": "^0.22.1",
     "eslint-plugin-react": "^2.4.0",
