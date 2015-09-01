@@ -38,15 +38,10 @@ module.exports = function routingRss2(req, res) {
   function feedTitle() {
     var fTitle = domainInfo.properties.portal_title_seo || '';
     if (fTitle && ressortInfo && rsPath) {
-      var ressortTitle;
-      if (rsPath.split('/').length === 1) {
-        // main ressort
-        ressortTitle = ressortInfo.parent && ressortInfo.parent.title || '';
-      } else {
-        // sub ressort
-        ressortTitle = ressortInfo.title;
+      var ressortTitle = ressortInfo.title || '';
+      if (ressortTitle) {
+        fTitle += ' : ' + ressortTitle;
       }
-      fTitle += ' : ' + ressortTitle;
     }
     return fTitle;
   }

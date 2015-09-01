@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- RSS: fix wrong feedTitle.
 - localdev nginx: only render news domains RSS feeds on the Node layer.
 - getScript helper is now Promise-based. Instead of passing a callback it returns a Promise object
 
