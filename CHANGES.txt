@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- Fix video player
+
 2015/09/01 0.0.38
 =================
 
