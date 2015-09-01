@@ -38,10 +38,19 @@ module.exports = function(req, res) {
   function render() {
     var result = req.api.get('dossier') || {};
     var dossier = result && result.data ? result.data[0] : null;
+    var kwresult = req.api.get('related_keywords') || {};
+    var keywords = kwresult && kwresult.data ? kwresult.data : null;
+    var kws = [];
+    keywords.forEach(function(v) {
+      kws.push(v[0]);
+    });
 
     var state = {
       'dossier': dossier,
-      'variation': componentVariation
+      'keywords': kws,
+      'variation': componentVariation,
+      'skin': req.headers['x-skin'] || 'aaz',
+      'path': req._parsedUrl.path
     };
 
     // wrap component in isomorphic layer
@@ -60,5 +69,5 @@ module.exports = function(req, res) {
     res.send(isoWrapped);
   }
 
-  req.api.done(render);
+  render();
 };

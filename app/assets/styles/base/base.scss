@@ -3,7 +3,46 @@
 body {
   font: 100% / 1.5 $text-font-stack;
   color: $black;
-  overflow-x: hidden; /* NOTE: Dirty hack to kill horizontal scrollbars (caused by bottom recommendations) on small screens. TODO: Improve ASAP.*/
+  min-width: 280px;
+
+  @include media('<=tablet-portrait') {
+    padding-top: 100px;
+  }
+
+  @include media('>tablet-portrait') {
+    padding-top: 200px;
+  }
+}
+
+/**
+ * The padding is not required on <= IE9
+ */
+.lte-ie9 body {
+  padding-top: 0;
+}
+
+@include media('<=tablet-portrait') {
+  .is-menu-open,
+  .is-menu-open body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body::after {
+    content: '';
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $light-grey;
+    z-index: 75;
+  }
+
+  .is-menu-open body::after {
+    display: block;
+  }
 }
 
 code {
@@ -13,7 +52,7 @@ code {
 table {
   text-align: left;
 
-  @include media('>small') {
+  @include media('>mobile-portrait') {
     width: 100%;
     table-layout: fixed;
   }
@@ -29,6 +68,10 @@ th {
 
 td, th {
   padding: 5px 20px 5px 0;
+}
+
+iframe {
+  display: block;
 }
 
 /**

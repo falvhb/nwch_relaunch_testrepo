@@ -2,7 +2,7 @@
 
 ## Structure
 
-This folder (`/assets/stylesheets/`) only contains application-wide styles and utilities. 
+This folder (`/assets/stylesheets/`) only contains application-wide styles and utilities.
 
 The `utilities/` folder contains application-wide configuration and helpers:
 
@@ -48,7 +48,7 @@ All variables, mixins, functions and placeholders should be documented with [Sas
 
 ## Code quality
 
-There is a pre-commit hook running [SCSS-lint](https://github.com/brigade/scss-lint) on the codebase to make sure everything stays clean and consistent. Please, respect the linter and fix your code rather than changing the linter's rules. 
+There is a pre-commit hook running [SCSS-lint](https://github.com/brigade/scss-lint) on the codebase to make sure everything stays clean and consistent. Please, respect the linter and fix your code rather than changing the linter's rules.
 
 ## Responsive breakpoints
 
@@ -56,11 +56,11 @@ We use the [include-media](https://github.com/eduardoboucas/include-media) Sass 
 
 ```scss
 .my-component {
-  @include media('>small') {
+  @include media('>mobile-portrait') {
     color: red;
   }
 
-  @include media('>small', 'retina') {
+  @include media('>mobile-portrait', 'retina') {
     color: blue;
   }
 }

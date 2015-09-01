@@ -58,5 +58,5 @@ module.exports = function(req, res) {
     res.send(isoWrapped);
   }
 
-  req.api.done(render);
+  render();
 };

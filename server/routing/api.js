@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 var axios = require('axios');
 
-var api = process.env.API_BASE_URL || 'http://localhost:8811/api/v1/content';
+var api = process.env.API_BASE_URL || 'http://localhost:8811/api/v1';
 
 
 /**
@@ -106,4 +106,10 @@ Api.prototype.get = function(key) {
 module.exports = function(req, res, next) {
   req.api = new Api();
   next();
+};
+
+module.exports.waitAPI = function(req, res, next) {
+  req.api.done(function() {
+    next();
+  });
 };

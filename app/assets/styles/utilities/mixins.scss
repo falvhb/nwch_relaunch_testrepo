@@ -9,11 +9,13 @@
 /// @example markup - Introduction paragraph
 ///   <p class='type-intro'>Vier Tage lang haben drei Schneeschuhwanderer aus Tschechien im Salzburger Pinzgau im Winterraum einer Hütte in 2100 Metern Seehöhe ausgeharrt, weil sie nach einem massiven Wetterumschwung nicht mehr absteigen konnten.</p>
 @mixin type-intro {
-  font: 22px / 1.41 $supporting-font-stack;
+  @include supporting-font;
+  font-size: 22px;
+  line-height: 1.41;
   font-weight: 700;
   letter-spacing: 0.2px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 18px;
   }
 }
@@ -27,7 +29,7 @@
   font: 20px / 1.41 $text-font-stack;
   letter-spacing: 0.3px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 18px;
   }
 }
@@ -38,9 +40,11 @@
 /// @example markup - Alternate copy text
 ///  <p class='type-copy-alternate'>Die Redaktion sucht nach Augenzeugen, die am vergangenen Dienstag den Unfall am Marktplatz in Aarau beobachet haben. Ein schwarzer Mercedes war an einen Poller geprallt und hatte sich überschlagen, 2 Passanten wurden leicht verletzt.</p>
 @mixin type-copy-alternate {
-  font: 16px / 1.5 $supporting-font-stack;
+  @include supporting-font;
+  font-size: 16px;
+  line-height: 1.5;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 15px;
   }
 }
@@ -50,7 +54,9 @@
 /// @example markup - Alternate copy text
 ///  <h2 class='type-headline-alternate'>Die Redaktion sucht nach Augenzeugen, die am vergangenen Dienstag den Unfall am Marktplatz in Aarau beobachet haben. Ein schwarzer Mercedes war an einen Poller geprallt und hatte sich überschlagen, 2 Passanten wurden leicht verletzt.</h2>
 @mixin type-headline-alternate {
-  font: 18px / 1.333 $supporting-font-stack;
+  @include supporting-font;
+  font-size: 18px;
+  line-height: 1.333;
   font-weight: 700;
 }
 
@@ -63,7 +69,7 @@
   font: 48px / 1.125 $headline-font-stack;
   letter-spacing: 0.9px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 26px;
   }
 }
@@ -77,7 +83,7 @@
   letter-spacing: 0.6px;
   margin-bottom: 15px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 22px;
   }
 }
@@ -91,7 +97,7 @@
   letter-spacing: 0.6px;
   margin-bottom: 15px;
 
-  @include media('≤small') {
+  @include media('≤mobile-portrait') {
     font-size: 18px;
   }
 }
@@ -120,9 +126,13 @@
 /// @example markep - Caption
 ///  <p class='type-caption'>Zunzger Kinder im Fasnachtsfieber</p>
 @mixin type-caption {
-  font: 16px / 1.375 $supporting-font-stack;
+  @include supporting-font;
+  font-size: 16px;
+  line-height: 1.375;
   letter-spacing: 0.2px;
   color: $medium-grey;
+
+
 }
 
 
@@ -131,9 +141,13 @@
 /// @example markup - Detail information
 ///  <p class='type-detail'>Abonnieren</p>
 @mixin type-detail {
-  font: 14px / 1.3333 $supporting-font-stack;
+  @include supporting-font;
+  font-size: 14px;
+  line-height: 1.3333;
   letter-spacing: 0.1px;
   color: $medium-grey;
+
+
 }
 
 
@@ -143,11 +157,15 @@
 /// @example markup - Catchword
 ///  <p class='type-catchword'>DEUTSCHLAND</p>
 @mixin type-catchword {
-  font: 13px / 1.23 $supporting-font-stack;
+  @include supporting-font;
+  font-size: 13px;
+  line-height: 1.23;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1.8px;
   color: $medium-grey;
+
+
 }
 
 
@@ -171,7 +189,7 @@
 }
 
 /// Mixin used to pull or push and element in at the edges, in-line with the container padding
-@mixin edges($direction: 'pull', $breakpoint: 'both') {
+@mixin edges($direction: 'pull', $breakpoint: 'both', $method: 'margin') {
 
   @if $direction == 'pull' {
     $factor: -1;
@@ -180,16 +198,16 @@
   }
 
   @if $breakpoint == 'both' or $breakpoint == 'mobile' {
-    @include media('<=small') {
-      margin-left: $factor * $container-spacing;
-      margin-right: $factor * $container-spacing;
+    @include media('<=mobile-portrait') {
+      #{$method}-left: $factor * $container-spacing;
+      #{$method}-right: $factor * $container-spacing;
     }
   }
 
   @if $breakpoint == 'both' or $breakpoint == 'desktop' {
-    @include media('>small') {
-      margin-left: $factor * ($container-spacing * 2);
-      margin-right: $factor * ($container-spacing * 2);
+    @include media('>mobile-portrait') {
+      #{$method}-left: $factor * ($container-spacing * 2);
+      #{$method}-right: $factor * ($container-spacing * 2);
     }
   }
 
@@ -224,11 +242,11 @@
     @include island-padding($small-padding);
   } @else {
 
-    @include media('<=small') {
+    @include media('<=mobile-portrait') {
       @include island-padding($small-padding);
     }
 
-    @include media('>small') {
+    @include media('>mobile-portrait') {
       @include island-padding($large-padding);
     }
 
@@ -272,7 +290,6 @@
 }
 
 @mixin next-read-section($background-color) {
-  @include content-width;
   position: relative;
   background-color: $background-color;
   padding-top: 40px;
@@ -307,16 +324,18 @@
 
 @mixin next-read-title($color: false, $size: 1.5em) {
   @include font-smoothing;
-  font-family: $supporting-font-stack;
+  @include supporting-font;
   font-weight: 700;
   text-align: center;
   margin-bottom: 20px;
 
-  @include media('<=small') {
+
+
+  @include media('<=mobile-portrait') {
     font-size: $size - ($size/5);
   }
 
-  @include media('>small') {
+  @include media('>mobile-portrait') {
     font-size: $size;
   }
 
@@ -395,6 +414,16 @@ $image-loader-size: 30px;
   .is-slider-loading .#{$inner},
   .is-slider-resizing .#{$inner} {
     opacity: 0;
+  }
+}
+
+// IE9 Supporting font replacement
+
+@mixin supporting-font {
+  font-family: $supporting-font-stack;
+
+  .lte-ie9 & {
+    font-family: 'Helvetica', Arial, sans-serif;
   }
 }
 

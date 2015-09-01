@@ -15,7 +15,7 @@ var config = {
       {
         test: /\.json$/,
         loaders: ['json'],
-      },
+      }
     ]
   },
   output: {

@@ -29,8 +29,14 @@ module.exports = function(req, res) {
   }
 
   function render() {
-    var result = req.api.get('ressortnav') || {};
-    var data = result ? result : {};
+    var result = req.api.get('ressortnav');
+
+    var data = result || {
+      ressort: {
+        title: req.params.ressort
+      }
+    };
+
     var ressort = data.ressort;
     var subressorts = data.subressorts;
 
@@ -56,6 +62,5 @@ module.exports = function(req, res) {
     res.send(isoWrapped);
   }
 
-  // wait for the API calls to finish
-  req.api.done(render);
+  render();
 };

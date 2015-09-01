@@ -2,6 +2,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" href="{{ staticBasePath }}/client/styles.css" />
+
 <link rel="apple-touch-icon" sizes="57x57" href="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/apple-touch-icon-72x72.png">
@@ -32,18 +34,30 @@
     then store it in localStorage for future visits. #}
 <script>
   (function (global) {
+
+    // Check for defined globals
+    global.az = global.az || {};
+
+    // Load fonts to LocalStorage
     global.loadFont(
-      // Font storage name
       'az-fonts',
-      // WOFF URL
       '{{ staticBasePath }}/client/fonts/data-woff.css',
-      // WOFF2 URL
       '{{ staticBasePath }}/client/fonts/data-woff2.css'
     );
+
+    // Set AZ globals based on skin
+    var az;
+    az = global.az;
+    az.globals = {
+      'kaltura_frontend_video_player_id': {{kaltura_frontend_video_player_id}},
+      'kaltura_frontend_adless_video_player_id': {{kaltura_frontend_adless_video_player_id}},
+      'kaltura_mediathek_video_player_id': {{kaltura_mediathek_video_player_id}},
+      'kaltura_mediathek_category_id': {{kaltura_mediathek_category_id}}
+    };
+
   })(window);
 </script>
 
-<link rel="stylesheet" href="{{ staticBasePath }}/client/styles.css" />
 <script src="http://aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
 
 {% if withAds -%}

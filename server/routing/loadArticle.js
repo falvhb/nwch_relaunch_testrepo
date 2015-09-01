@@ -5,13 +5,11 @@
  */
 function loadArticle(req, res, next) {
   var apiConfig = {
-    endpoint: '/published_news_articles/' + req.params.articleId,
+    endpoint: '/content/published_news_articles/' + req.params.articleId,
     key: 'article'
   };
 
-  req.api.retrieve(apiConfig, function(err, article) {
-    //
-  });
+  req.api.retrieve(apiConfig);
 
   next();
 }

@@ -134,14 +134,15 @@ $letterbox-background: #333;
 /// @prop {String} key - Name of the breakpoint
 /// @prop {Map} value - Breakpoint value expressed in pixels
 $breakpoints: (
-  'small': 640px,
-  'medium': 900px,
-  'before-large': 1090px,
-  'large': 1150px,
-  'after-large': 1521px,
-  'switch': 1280px,
-  'advertising-medium': 728px,
-  'advertising-large': 1150px,
+  'mobile-portrait': 40em, // 640px
+  'tablet-portrait': 56.25em, // 900px
+  'tablet-landscape': 68.125em, // 1090px
+  'desktop-laptop': 71.9em, // 1151px
+  'center-layout': 95.063em, // 1521px
+  'advertising-medium': 45.5em, // 728px
+  'advertising-large': 1390px,
+  'advertising-iphone5-portrait': 320px,
+  'advertising-iphone6-portrait': 414px,
 );
 
 
@@ -170,47 +171,47 @@ $media-expressions: (
 /// @group container
 $container-spacing: 18px;
 
-/// Container width expressed in pixels
+/// Container width expressed in ems
 /// @type Length
 /// @group container
-$container-width: 1180px;
+$container-width: 1080px;
 
-/// Sidebar width expressed in pixels
+/// Sidebar width expressed in ems
 /// @type Length
 /// @group container
 $sidebar-width: 350px;
 
+/// Component spacing in between components expressed in ems
+$component-spacing: 1.5em;
 
 // -----------------------------------------------------------------------------
 // LAYOUT MIXINS
 // -----------------------------------------------------------------------------
 @mixin content-width($method: 'margin') {
-  @include media('>large') {
+  @include media('>desktop-laptop') {
     #{$method}-right: $sidebar-width + $container-spacing;
   }
 }
 
 @mixin article-body-width($method: 'margin') {
-  @include media('>large') {
+  @include media('>desktop-laptop') {
     #{$method}-right: $sidebar-width + (3 * $container-spacing);
   }
 }
 
 @mixin main-layout {
-  @include media('>small', '<=medium') {
+  @include media('>mobile-portrait', '<=tablet-portrait') {
     width: 100%;
   }
 
-  @include media('>medium', '<=large') {
+  @include media('>tablet-portrait', '<=desktop-laptop') {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @include media('>before-large', '<=after-large') {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+  @include media('>desktop-laptop', '<=center-layout') {
+    width: 100%;
   }
 }
 

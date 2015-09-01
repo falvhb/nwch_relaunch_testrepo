@@ -26,7 +26,7 @@ module.exports = function(req, res) {
       return;
     }
     var componentVariation = params.variation;
-    if (!componentName) {
+    if (!componentVariation) {
       res.send('<!-- No variation name provided! -->');
       return;
     }
@@ -39,7 +39,9 @@ module.exports = function(req, res) {
     // map our data
     var state = {
       'article': articleData,
-      'variation': componentVariation
+      'variation': componentVariation,
+      'skin': req.headers['x-skin'] || 'aaz',
+      'path': req._parsedUrl.path
     };
 
     // resolve the component
@@ -74,5 +76,5 @@ module.exports = function(req, res) {
     res.send(isoWrapped);
   }
 
-  req.api.done(render);
+  render();
 };
