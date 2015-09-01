@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/01 0.0.40
+=================
+
  - added recaptcha2 middleware
 
 2015/09/01 0.0.39
