@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added rss2 page endpoints
+
 2015/09/01 0.0.36
 =================
 

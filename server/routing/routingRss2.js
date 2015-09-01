@@ -22,7 +22,7 @@ module.exports = function routingRss2(req, res) {
   function NotFound() {}
   NotFound.prototype = new Error();
 
-  function checkData(apiData, req) {
+  function checkData(apiData) {
     if (!apiData || apiData && _.isEmpty(apiData.data)) {
       throw new ServiceUnavailable();
     }
@@ -55,7 +55,7 @@ module.exports = function routingRss2(req, res) {
   var domainName = req.headers['x-skin'] || 'aaz';
   var rssData = null;
   try {
-    rssData = checkData(req.api.get('rss2'), req);
+    rssData = checkData(req.api.get('rss2'));
   } catch (e) {
     if (e instanceof ServiceUnavailable) {
       return res.status(503).send('Service Unavailable');
