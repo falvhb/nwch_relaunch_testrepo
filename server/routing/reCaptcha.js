@@ -20,7 +20,7 @@ module.exports = {
                 domain.data.properties &&
                 domain.data.properties.recaptcha_priv_key || null;
       if (key) {
-        recaptcha(req.body["g-recaptcha-response"],
+        recaptcha(captchaResponse,
                   domain.data.properties.recaptcha_priv_key,
                   function (success) {
             req.recaptcha = {status: success};
