@@ -50,6 +50,7 @@ var loadDossier = require('./routing/loadDossier');
 var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
+var loadRss2 = require('./routing/loadRss2');
 
 // Routing Middleware
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
@@ -58,6 +59,8 @@ var reactDossierRouter = require('./routing/routingDossier');
 var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
+var rss2Router = require('./routing/routingRss2');
+var loadComponentRequirements = require('./routing/loadComponentRequirements');
 
 
 // -----------------------------------------------------------------------------
@@ -128,13 +131,19 @@ app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
         waitAPI,
         reactTopicLayoutRouter);
 
+app.get(['/:ressort?/:subressort?/rss2.xml',
+         '/:ressort?/:subressort?/rss2full.xml'],
+        loadRss2,
+        waitAPI,
+        rss2Router);
+
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         loadDossier,
+        loadComponentRequirements(),
         waitAPI,
         reactDossierRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
-        loadRessortNav,
-        waitAPI,
+        loadComponentRequirements('ressort-header'),
         reactRessortHeaderRenderer);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
         loadDomain,
@@ -145,6 +154,7 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         waitAPI,
         reactComponentsRouter);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
+        loadComponentRequirements(),
         reactComponentsRouter);
 
 

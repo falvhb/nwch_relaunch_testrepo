@@ -5,6 +5,36 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/01 0.0.39
+=================
+
+- Fix video player
+
+2015/09/01 0.0.38
+=================
+
+- Fix: fix Icons
+- RSS: fix wrong feedTitle.
+- localdev nginx: only render news domains RSS feeds on the Node layer.
+- getScript helper is now Promise-based. Instead of passing a callback it returns a Promise object
+
+2015/09/01 0.0.37
+=================
+
+ - added rss2 page endpoints
+
+2015/09/01 0.0.36
+=================
+
+- hotfix side ad so it’s not cut off
+- removes copyright symbol from article byline
+- adds heart and watch icons
+- cleans up general styleguide styles
+- updates many .data.json/.variations.json files
+- updates many READMEs
+- fixes console error for unknown global in Video
+- updates Download Stoerer enrichment
+
 2015/08/28 0.0.35
 =================
 

@@ -1,8 +1,28 @@
+var requestMock = require('./util/requestMock');
 var sinon = require('sinon');
 var assert = require('chai').assert;
 
 var nodeIncludesRouter = require('../server/routing/routingNodeIncludes.js');
 
+
+var ReqMock = requestMock.ReqMock;
+var ResMock = requestMock.ResMock;
+
+function testRequest(viewname) {
+  var reqMock = new ReqMock();
+  reqMock.params.viewname = viewname;
+  reqMock.api.get = function(key) {
+    if (key === 'domain') {
+      return {
+        kaltura_frontend_video_player_id: '1234',
+        kaltura_frontend_adless_video_player_id: '5678',
+        kaltura_mediathek_video_player_id: '8765',
+        kaltura_mediathek_category_id: '4321',
+      }
+    }
+  }
+  return reqMock;
+}
 
 describe('Node Includes', function() {
 
@@ -11,22 +31,9 @@ describe('Node Includes', function() {
   var response = null;
 
   // test cases and their requests
-  var req = {};
-  require('../server/routing/api.js')(req, {}, function() {});
-  req.api._data.domain = {};
   var testRequests = [
-    { name: 'Body Bottom',
-      request: {
-        params: {viewname: '__body_bottom'},
-        api: req.api
-      }
-    },
-    { name: 'Head Bottom',
-      request: {
-        params: {viewname: '__head_bottom'},
-        api: req.api
-      }
-    },
+    { name: 'Body Bottom', request: testRequest('__body_bottom')},
+    { name: 'Head Bottom', request: testRequest('__head_bottom')},
   ];
 
   testRequests.forEach(function(testCase) {
