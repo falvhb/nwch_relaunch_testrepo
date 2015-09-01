@@ -139,6 +139,7 @@ app.get(['/:ressort?/:subressort?/rss2.xml',
 
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         loadDossier,
+        loadComponentRequirements(),
         waitAPI,
         reactDossierRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',

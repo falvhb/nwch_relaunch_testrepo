@@ -1,4 +1,4 @@
-module.exports = function(req) {
+module.exports = function(req, componentName) {
     /**
      * Load components based on a request.
      *
@@ -6,7 +6,11 @@ module.exports = function(req) {
      * component name as req.params.component.
      */
   this.req = req;
-  this.componentName = this._componentName();
+  if (componentName) {
+    this.componentName = componentName;
+  } else {
+    this.componentName = this._componentName();
+  }
   this.variationName = this._variationName();
 };
 
@@ -17,12 +21,15 @@ module.exports.prototype.getComponent = function(res) {
    * If res is provided res.send is called sending an HTML comment if the
    * component could not be found.
    */
+  if (!this.getComponentName(res)) {
+    return;
+  }
   var component;
   if (this.componentName) {
     component = this.resolveModule(this.componentName, '');
   }
   if (!component && res) {
-    this.res.send('<!-- Component "' + this.componentName + '" not found! -->');
+    res.send('<!-- Component "' + this.componentName + '" not found! -->');
   }
   return component;
 };

@@ -51,7 +51,7 @@ module.exports = function(req, res) {
   var isoWrapped = iso.wrap({
     component: component,
     state: slot ? slot(state) : state,
-    meta: { id: camelCase(c.componentName), variation: c.variationName }
+    meta: {id: camelCase(c.componentName), variation: c.variationName}
   });
 
   res.send(isoWrapped);
