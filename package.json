@@ -41,6 +41,7 @@
     "dotenv": "^1.2.0",
     "errorhandler": "^1.1.1",
     "express": "^4.13.3",
+    "body-parser": "^1.13.3",
     "get-query-param": "^1.0.0",
     "gulp-mocha": "^2.1.2",
     "hmacsha1": "^1.0.0",
@@ -63,7 +64,8 @@
     "slugify": "^0.1.1",
     "sprintf-js": "^1.0.2",
     "strong-express-metrics": "^1.1.0",
-    "webpack": "^1.9.10"
+    "webpack": "^1.9.10",
+    "nodejs-nocaptcha-recaptcha": "^1.0.0"
   },
   "optionalDependencies": {},
   "devDependencies": {
