@@ -128,6 +128,7 @@ var COMPONENT_PREFIX = '';
 //
 // Remove this after presentation!
 
+var mail = require('../common/mail');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.post([API_PREFIX + '/form/test'],
@@ -136,7 +137,20 @@ app.post([API_PREFIX + '/form/test'],
           urlencodedParser,
           reCaptcha.middleware,
           function (req, res) {
-            res.json({"status": req.recaptcha.status});
+            var result = {status: req.recaptcha.status};
+            if (req.recaptcha.status === true) {
+              if (req.body.email) {
+                // send an email
+                mail.sendMail({
+                    from: 'noreply@' + req.hostname,
+                    to: req.body.email,
+                    subject: 'Hello from node mail',
+                    text: 'It works!'
+                });
+                result.mail = 'sent';
+              }
+            }
+            res.json(result);
             res.end();
           });
 
@@ -145,7 +159,7 @@ app.get([API_PREFIX + '/form/test'],
         waitAPI,
         function (req, res) {
           res.send('<form method="POST" enctype="application/x-www-form-urlencoded">' +
-                  '  <input name="test"/>' +
+                  '  Your email: <input name="email"/>' +
                   reCaptcha.form(req) +
                   '  <input type="submit"/>' +
                   '  <script src="https://www.google.com/recaptcha/api.js"></script>' +

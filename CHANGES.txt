@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added a demo to show how mails can be sent
+ - added a common mail module
+
 2015/09/01 0.0.40
 =================
 
