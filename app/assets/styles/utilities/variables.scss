@@ -184,6 +184,11 @@ $sidebar-width: 350px;
 /// Component spacing in between components expressed in ems
 $component-spacing: 1.5em;
 
+/// Default radius in pixels
+/// @type Length
+/// @group container
+$default-radius: 3px;
+
 // -----------------------------------------------------------------------------
 // LAYOUT MIXINS
 // -----------------------------------------------------------------------------
