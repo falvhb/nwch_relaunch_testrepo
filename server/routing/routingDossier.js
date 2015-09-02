@@ -1,63 +1,44 @@
-var renderComponent = require('../helpers/renderComponent');
+var camelCase = require('camelcase');
+var Iso = require('../../app/node_modules/iso-react');
+var Components = require('../modules/components');
 
 module.exports = function(req, res) {
 
-  var params = req.params || {};
-
-  var component = {};
-
-  component.name = params.component;
-  component.variation = params.variation || 'default';
-
-  if (!component.name) {
-    res.send('<!-- No component name provided! -->');
+  var c = new Components(req);
+  if (!c.getVariationName(res)) {
     return;
   }
-
-  if (!component.variation) {
-    res.send('<!-- No variation name provided! -->');
+  var component = c.getComponent(res);
+  if (!component) {
     return;
   }
+  var slot = c.slot();
+  var result = req.api.get('dossier') || {};
+  var dossier = result && result.data ? result.data[0] : null;
+  var kwresult = req.api.get('related_keywords') || {};
+  var keywords = kwresult && kwresult.data ? kwresult.data : [];
+  var kws = [];
+  keywords.forEach(function(v) {
+    kws.push(v[0]);
+  });
 
-  // resolve the component
-  try {
-    component.element = require('../../app/node_modules/components/' + component.name);
-  } catch (e) {
-    res.send('<!-- Component "' + component.name + '" not found! -->');
-    return;
-  }
+  var state = {
+    'dossier': dossier,
+    'keywords': kws,
+    'variation': c.variationName,
+    'skin': req.headers['x-skin'] || 'aaz',
+    'path': req._parsedUrl.path
+  };
 
-  // see if there is a slot function
-  // this maps data from the full API response -> only the data a component needs
-  try {
-    component.slot = require('../../app/node_modules/components/' + component.name + '/slot');
-  } catch (e) {
-    // not found (is okay, continue)
-  }
+  // wrap component in isomorphic layer
+  // injects data to DOM and attaches component id
+  // component re-rendered client-side via app/client.js
+  var iso = new Iso();
+  var isoWrapped = iso.wrap({
+    component: component,
+    state: slot ? slot(state) : state,
+    meta: {id: camelCase(c.componentName), variation: c.variationName}
+  });
 
-  function render() {
-    var result = req.api.get('dossier') || {};
-
-    var dossier = result && result.data ? result.data[0] : null;
-
-    var kwresult = req.api.get('related_keywords') || {};
-    var keywords = kwresult && kwresult.data ? kwresult.data : null;
-    var keywordsArray = [];
-
-    keywords.forEach(function(v) {
-      keywordsArray.push(v[0]);
-    });
-
-    component.state = {
-      'dossier': dossier,
-      'keywords': keywordsArray,
-      'variation': component.variation,
-      'skin': req.headers['x-skin'] || 'aaz',
-      'path': req._parsedUrl.path
-    };
-
-    res.send(renderComponent(component));
-  }
-
-  render();
+  res.send(isoWrapped);
 };

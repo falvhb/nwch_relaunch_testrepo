@@ -1,57 +1,42 @@
-var renderComponent = require('../helpers/renderComponent');
+var Iso = require('../../app/node_modules/iso-react');
+var Components = require('../modules/components');
 
 module.exports = function(req, res) {
 
-  var params = req.params || {};
-
-  var component = {};
-
-  component.name = 'ressort-header';
-  component.variation = params.variation || 'default';
-
-  if (!component.name) {
-    res.send('<!-- No component name provided! -->');
+  var c = new Components(req, 'ressort-header');
+  if (!c.getVariationName(res)) {
     return;
   }
-
-  if (!component.variation) {
-    res.send('<!-- No variation name provided! -->');
+  var component = c.getComponent(res);
+  if (!component) {
     return;
   }
+  var slot = c.slot();
 
-  // resolve the component
-  try {
-    component.element = require('../../app/node_modules/components/' + component.name);
-  } catch (e) {
-    res.send('<!-- Component "' + component.name + '" not found! -->');
-    return;
-  }
+  var result = req.api.get('ressortnav');
+  var data = result || {
+    ressort: {
+      title: req.params.ressort
+    }
+  };
+  var ressort = data.ressort;
+  var subressorts = data.subressorts;
 
-  // see if there is a slot function
-  // this maps data from the full API response -> only the data a component needs
-  try {
-    component.slot = require('../../app/node_modules/components/' + component.name + '/slot');
-  } catch (e) {
-    // not found (is okay, continue)
-  }
+  var state = {
+    'ressort': ressort,
+    'subressorts': subressorts,
+    'variation': c.variationName
+  };
 
-  function render() {
-    var result = req.api.get('ressortnav') || {};
+  // wrap component in isomorphic layer
+  // injects data to DOM and attaches component id
+  // component re-rendered client-side via app/client.js
+  var iso = new Iso();
+  var isoWrapped = iso.wrap({
+    component: component,
+    state: slot ? slot(state) : state,
+    meta: {id: 'ressortHeader', variation: c.variationName}
+  });
 
-    var data = result || {
-      ressort: {
-        title: req.params.ressort
-      }
-    };
-
-    component.state = {
-      'ressort': data.ressort,
-      'subressorts': data.subressorts,
-      'variation': component.variation
-    };
-
-    res.send(renderComponent(component));
-  }
-
-  render();
+  res.send(isoWrapped);
 };

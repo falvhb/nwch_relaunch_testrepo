@@ -1,6 +1,7 @@
 /*eslint-disable no-console, no-unused-vars */
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var fs = require('fs');
@@ -50,6 +51,9 @@ var loadDossier = require('./routing/loadDossier');
 var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
+var loadRss2 = require('./routing/loadRss2');
+
+var reCaptcha = require('./routing/reCaptcha');
 
 // Routing Middleware
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
@@ -58,6 +62,9 @@ var reactDossierRouter = require('./routing/routingDossier');
 var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
+var rss2Router = require('./routing/routingRss2');
+var loadComponentRequirements = require('./routing/loadComponentRequirements');
+var reactPostComponents = require('./routing/postComponents');
 
 
 // -----------------------------------------------------------------------------
@@ -116,6 +123,52 @@ var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '';
 
+//-------------------------------------------------------------------------------
+// START dummy testcode for form post with recaptcha
+//
+// Remove this after presentation!
+
+var mail = require('../common/mail');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+app.post([API_PREFIX + '/form/test'],
+          loadDomain,
+          waitAPI,
+          urlencodedParser,
+          reCaptcha.middleware,
+          function (req, res) {
+            var result = {status: req.recaptcha.status};
+            if (req.recaptcha.status === true) {
+              if (req.body.email) {
+                // send an email
+                mail.sendMail({
+                    from: 'noreply@' + req.hostname,
+                    to: req.body.email,
+                    subject: 'Hello from node mail',
+                    text: 'It works!'
+                });
+                result.mail = 'sent';
+              }
+            }
+            res.json(result);
+            res.end();
+          });
+
+app.get([API_PREFIX + '/form/test'],
+        loadDomain,
+        waitAPI,
+        function (req, res) {
+          res.send('<form method="POST" enctype="application/x-www-form-urlencoded">' +
+                  '  Your email: <input name="email"/>' +
+                  reCaptcha.form(req) +
+                  '  <input type="submit"/>' +
+                  '  <script src="https://www.google.com/recaptcha/api.js"></script>' +
+                  '</form>');
+        });
+
+// END dummy testcode for form post with recaptcha
+//-------------------------------------------------------------------------------
+
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
         loadTopic,
@@ -128,13 +181,19 @@ app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
         waitAPI,
         reactTopicLayoutRouter);
 
+app.get(['/:ressort?/:subressort?/rss2.xml',
+         '/:ressort?/:subressort?/rss2full.xml'],
+        loadRss2,
+        waitAPI,
+        rss2Router);
+
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         loadDossier,
+        loadComponentRequirements(),
         waitAPI,
         reactDossierRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
-        loadRessortNav,
-        waitAPI,
+        loadComponentRequirements('ressort-header'),
         reactRessortHeaderRenderer);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
         loadDomain,
@@ -145,6 +204,7 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         waitAPI,
         reactComponentsRouter);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
+        loadComponentRequirements(),
         reactComponentsRouter);
 
 

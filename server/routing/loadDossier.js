@@ -1,48 +1,13 @@
-/* eslint-disable no-unused-vars */
-
-var Qs = require('qs');
+var loadDossier = require('../api/loadDossier');
 
 /**
- * Loads a dossier.
+ * A middleware to load the the dossier data.
+ *
+ * req.params.dossier: dossier name
  */
-function loadDossier(req, res, next) {
-  var page = parseInt(req.params.page, 10) - 1 || 0;
+module.exports = function(req, res, next) {
+  loadDossier(req, res);
 
-  if (page <= 0) {
-    page = 0;
-  }
-
-  var queryParams = {
-    'path': 'dossier/' + req.params.dossier
-  };
-
-  var apiConfig = {
-    endpoint: '/content/news_ressorts?' + Qs.stringify(queryParams),
-    key: 'dossier'
-  };
-
-  req.api.retrieve(apiConfig, function(err, dossier) {
-    // retrieve the related keywords
-    if (err) {
-      return;
-    }
-    var keywords = dossier.data[0].keywords;
-    if (!keywords) {
-      return;
-    }
-    queryParams = {
-      'keywords': keywords.join(','),
-      'domain': req.headers['x-skin'] || 'aaz'
-    };
-    apiConfig = {
-      endpoint: '/keywords/related?' + Qs.stringify(queryParams),
-      key: 'related_keywords'
-    };
-    req.api.retrieve(apiConfig);
-  });
-
+  // signal that we need to wait for the API to finish the request
   next();
-}
-
-
-module.exports = loadDossier;
+};
