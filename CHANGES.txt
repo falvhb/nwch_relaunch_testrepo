@@ -10,6 +10,7 @@ unreleased
 - conditional ISO rendering
 - removes jQuery from Flickity
 - DossierHeader: fixes image size/ratio
+- Article: fix stoerer position and article alignment
 
 2015/09/01 0.0.41
 =================
