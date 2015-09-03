@@ -1,5 +1,5 @@
 var Components = require('../modules/components');
-var renderComponent = require('../helpers/renderComponent');
+var renderComponent = require('../modules/renderComponent');
 
 module.exports = function(req, res) {
 
@@ -33,13 +33,5 @@ module.exports = function(req, res) {
   };
 
   // send component render
-  var send = {
-    element: c.element,
-    name: c.componentName,
-    variation: c.variationName,
-    state: c.state,
-    slot: c.slot
-  };
-
-  res.send(renderComponent(send));
+  res.send(renderComponent(c));
 };

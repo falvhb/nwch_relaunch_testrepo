@@ -8,5 +8,7 @@ var loadRessortNav = require('../api/loadRessortNav');
  */
 module.exports = function(req, res, next) {
   loadRessortNav(req, res);
+
+  // signal that we need to wait for the API to finish the request
   next();
 };

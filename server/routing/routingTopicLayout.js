@@ -1,5 +1,5 @@
 var Components = require('../modules/components');
-var renderComponent = require('../helpers/renderComponent');
+var renderComponent = require('../modules/renderComponent');
 
 module.exports = function(req, res) {
 
@@ -12,9 +12,7 @@ module.exports = function(req, res) {
 
   // get data
   var page = parseInt(req.params.page, 10) - 1 || 0;
-  if (page < 0) {
-    page = 0;
-  }
+  if (page < 0) page = 0;
 
   var result = req.api.get('topic') || {};
   var articles = result && result.data ? result.data : [];
@@ -28,13 +26,6 @@ module.exports = function(req, res) {
     'total': result.total || 0
   };
 
-  var send = {
-    element: c.element,
-    name: c.componentName,
-    variation: c.variationName,
-    state: c.state,
-    slot: c.slot
-  };
-
-  res.send(renderComponent(send));
+  // send component render
+  res.send(renderComponent(c));
 };
