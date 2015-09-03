@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- adds specs for slots and helpers
+- merges react optimization story
+- conditional ISO rendering
+- removes jQuery from Flickity
+
 2015/09/01 0.0.41
 =================
 
