@@ -9,6 +9,7 @@ unreleased
 - merges react optimization story
 - conditional ISO rendering
 - removes jQuery from Flickity
+- DossierHeader: fixes image size/ratio
 
 2015/09/01 0.0.41
 =================
