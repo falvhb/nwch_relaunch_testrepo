@@ -1,44 +1,45 @@
-var camelCase = require('camelcase');
-var Iso = require('../../app/node_modules/iso-react');
 var Components = require('../modules/components');
+var renderComponent = require('../helpers/renderComponent');
 
 module.exports = function(req, res) {
 
+  // require elements
   var c = new Components(req);
-  if (!c.getVariationName(res)) {
+  c.element = c.getComponent(res);
+  c.slot = c.getSlot();
+
+  if (!c.element || !c.getVariationName(res)) {
     return;
   }
-  var component = c.getComponent(res);
-  if (!component) {
-    return;
-  }
-  var slot = c.slot();
+
+  // get data
   var result = req.api.get('dossier') || {};
   var dossier = result && result.data ? result.data[0] : null;
-  var kwresult = req.api.get('related_keywords') || {};
-  var keywords = kwresult && kwresult.data ? kwresult.data : [];
-  var kws = [];
+
+  var keywordsResult = req.api.get('related_keywords') || {};
+  var keywords = keywordsResult && keywordsResult.data ? keywordsResult.data : [];
+  var keywordsArray = [];
   keywords.forEach(function(v) {
-    kws.push(v[0]);
+    keywordsArray.push(v[0]);
   });
 
-  var state = {
+  // map our data
+  c.state = {
     'dossier': dossier,
-    'keywords': kws,
+    'keywords': keywordsArray,
     'variation': c.variationName,
     'skin': req.headers['x-skin'] || 'aaz',
     'path': req._parsedUrl.path
   };
 
-  // wrap component in isomorphic layer
-  // injects data to DOM and attaches component id
-  // component re-rendered client-side via app/client.js
-  var iso = new Iso();
-  var isoWrapped = iso.wrap({
-    component: component,
-    state: slot ? slot(state) : state,
-    meta: {id: camelCase(c.componentName), variation: c.variationName}
-  });
+  // send component render
+  var send = {
+    element: c.element,
+    name: c.componentName,
+    variation: c.variationName,
+    state: c.state,
+    slot: c.slot
+  };
 
-  res.send(isoWrapped);
+  res.send(renderComponent(send));
 };

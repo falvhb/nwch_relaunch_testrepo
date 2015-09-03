@@ -1,42 +1,42 @@
-var Iso = require('../../app/node_modules/iso-react');
 var Components = require('../modules/components');
+var renderComponent = require('../helpers/renderComponent');
 
 module.exports = function(req, res) {
 
+  // require elements
   var c = new Components(req, 'ressort-header');
-  if (!c.getVariationName(res)) {
-    return;
-  }
-  var component = c.getComponent(res);
-  if (!component) {
-    return;
-  }
-  var slot = c.slot();
+  c.element = c.getComponent(res);
+  c.slot = c.getSlot();
 
-  var result = req.api.get('ressortnav');
-  var data = result || {
+  if (!c.element || !c.getVariationName(res)) {
+    return;
+  }
+
+  // get data
+  var fallback = {
     ressort: {
       title: req.params.ressort
-    }
+    },
+    subressorts: {}
   };
-  var ressort = data.ressort;
-  var subressorts = data.subressorts;
 
-  var state = {
-    'ressort': ressort,
-    'subressorts': subressorts,
+  var data = req.api.get('ressortnav') || fallback;
+
+  // map our data
+  c.state = {
+    'ressort': data.ressort,
+    'subressorts': data.subressorts,
     'variation': c.variationName
   };
 
-  // wrap component in isomorphic layer
-  // injects data to DOM and attaches component id
-  // component re-rendered client-side via app/client.js
-  var iso = new Iso();
-  var isoWrapped = iso.wrap({
-    component: component,
-    state: slot ? slot(state) : state,
-    meta: {id: 'ressortHeader', variation: c.variationName}
-  });
+  // send component render
+  var send = {
+    element: c.element,
+    name: c.componentName,
+    variation: c.variationName,
+    state: c.state,
+    slot: c.slot
+  };
 
-  res.send(isoWrapped);
+  res.send(renderComponent(send));
 };
