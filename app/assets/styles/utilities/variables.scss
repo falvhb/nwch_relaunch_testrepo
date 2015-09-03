@@ -140,9 +140,10 @@ $breakpoints: (
   'desktop-laptop': 71.9em, // 1151px
   'center-layout': 95.063em, // 1521px
   'advertising-medium': 45.5em, // 728px
-  'advertising-large': 1390px,
   'advertising-iphone5-portrait': 320px,
   'advertising-iphone6-portrait': 414px,
+  'advertising-skyscraper': 1400px,
+  'full-screen-space': 1700px,
 );
 
 
@@ -159,7 +160,6 @@ $media-expressions: (
     '(min-resolution: 192dpi)'
   )
 );
-
 
 
 // -----------------------------------------------------------------------------
@@ -181,7 +181,14 @@ $container-width: 1080px;
 /// @group container
 $sidebar-width: 350px;
 
-/// Component spacing in between components expressed in ems
+/// Offset for the largest skyscraper ad
+/// @type Length
+/// @group container
+$skyscraper-offset: 310px;
+
+/// Generic spacing between components
+/// @type Length
+/// @group components
 $component-spacing: 1.5em;
 
 // -----------------------------------------------------------------------------
@@ -197,6 +204,17 @@ $component-spacing: 1.5em;
   @include media('>desktop-laptop') {
     #{$method}-right: $sidebar-width + (3 * $container-spacing);
   }
+}
+
+@mixin container-gutters($size: 'small') {
+  @if ($size: 'small') {
+    $gutter: $container-spacing;
+  } @else {
+    $gutter: $container-spacing * 2;
+  }
+
+  padding-left: $gutter;
+  padding-right: $gutter;
 }
 
 @mixin main-layout {

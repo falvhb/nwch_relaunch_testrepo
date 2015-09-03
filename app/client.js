@@ -48,7 +48,7 @@ var load = function() {
     element: '.ad--skyscraper',
     stopper: '#content_board',
     offset: 170,
-    breakpoint: 1390
+    breakpoint: 1400
   });
 };
 
