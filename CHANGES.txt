@@ -11,6 +11,7 @@ unreleased
 - removes jQuery from Flickity
 - DossierHeader: fixes image size/ratio
 - Article: fix stoerer position and article alignment
+- tweaks large teaser variation on small screen sizes
 
 2015/09/01 0.0.41
 =================
