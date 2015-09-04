@@ -1,8 +1,13 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="{{ staticBasePath }}/client/styles.css" />
+<script id="load-css">
+  {% include "client/scripts/loadCSS.js" %}
+  loadCSS("{{ staticBasePath }}/client/styles.css");
+</script>
+<noscript>
+  <link rel="stylesheet" href="{{ staticBasePath }}/client/styles.css" />
+</noscript>
 
 <link rel="apple-touch-icon" sizes="57x57" href="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/apple-touch-icon-60x60.png">
