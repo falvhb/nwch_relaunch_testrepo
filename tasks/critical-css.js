@@ -1,7 +1,7 @@
 var helpers = require('./lib/helpers.js');
 var path = require( 'path' );
 var criticalcss = require('criticalcss');
-
+var fs = require('fs');
 var cssPath = path.join( helpers.BUILD_DIR, 'styles.css' );
 var pageUrl = 'http://localhost:8000/styleguide/pages/article/preview';
 
@@ -28,6 +28,7 @@ module.exports = function () {
           throw new Error(err);
         } else {
           console.log(output);
+          fs.writeFileSync(helpers.assetDir('/includes/css/article-critical.css'), output);
         }
       });
     }
