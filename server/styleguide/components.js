@@ -16,15 +16,7 @@ var defaults = {
             'helpers',
             'higher-order',
             'iso-react',
-            'client',
-            'components/expandable',
-            'components/expander',
-            'components/video-teaser',
-            'components/video-library-list',
-            'components/video-library-filter',
-            'components/video-library-header',
-            'components/video-library-search',
-            'components/video-library-viewer'
+            'client'
   ],
   config: '.config.json',
   data: '.data.json',
@@ -38,16 +30,16 @@ var Components = (function(opts) {
     return string.replace(/\/$/, '');
   };
 
-  /*var stripSlashes = function(string) {
+  var stripSlashes = function(string) {
     return string.replace('/', '');
-  };*/
+  };
 
   var include = options.extensions.map(function(extension) {
     return options.folder + '/*/*/*' + extension;
   });
 
   var exclude = options.ignore.map(function(folder) {
-    return '!' + options.folder + '/' + folder + '/**';
+    return '!' + options.folder + '/' + stripSlashes(folder) + '/**';
   });
 
   var pattern = include.concat(exclude);
