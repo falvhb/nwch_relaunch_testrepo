@@ -207,7 +207,7 @@ $component-spacing: 1.5em;
 }
 
 @mixin container-gutters($size: 'small') {
-  @if ($size: 'small') {
+  @if ($size == 'small') {
     $gutter: $container-spacing;
   } @else {
     $gutter: $container-spacing * 2;
@@ -218,17 +218,18 @@ $component-spacing: 1.5em;
 }
 
 @mixin main-layout {
-  @include media('>mobile-portrait', '<=tablet-portrait') {
-    width: 100%;
+  width: 100%;
+
+  @include media('<=tablet-portrait') {
+    max-width: 650px;
   }
 
   @include media('>tablet-portrait', '<=desktop-laptop') {
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  @include media('>desktop-laptop', '<=center-layout') {
-    width: 100%;
+  @include media('<=desktop-laptop') {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
