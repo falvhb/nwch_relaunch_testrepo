@@ -1,0 +1,77 @@
+@import 'globals';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: $sidebar-width;
+  background: red;
+  display: none;
+
+  @include media('>desktop-laptop') {
+    display: block;
+  }
+}
+
+.main {
+  @include main-layout;
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+
+.article-intro,
+.article-detail {
+  @include article-body-width;
+}
+
+
+/**
+ * We use FlexBox to change the order of the elements in the article.
+ * 1. Flexbox needs width
+ */
+
+// scss-lint:disable SelectorFormat
+
+.az-iso--articleIntro,
+.az-iso--articleDetail,
+.az-iso--relatedVideos {
+  width: 100%; /* 1 */
+}
+
+.az-iso--articleIntro {
+  order: 1;
+}
+
+.recommendations-top {
+  order: 2;
+}
+
+.az-iso--articleDetail {
+  order: 3;
+}
+
+.recommendations-bottom {
+  order: 4;
+}
+
+.main .ad {
+  @include media('<=desktop-laptop') {
+    order: 4;
+  }
+
+  @include media('>desktop-laptop') {
+    order: 3;
+  }
+}
+
+.az-iso--relatedVideos {
+  order: 5;
+}
+
+// scss-lint:enable SelectorFormat
