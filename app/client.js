@@ -45,8 +45,9 @@ Advertising.init('.ad');
 
 var load = function() {
   StickyNode.init({
-    element: '.ad--skyscraper',
-    stopper: '#content_board',
+    element: '#side_ad',
+    parent: '.ad--skyscraper',
+    container: '#sticky-wrapper',
     offset: 170,
     breakpoint: 1400
   });
