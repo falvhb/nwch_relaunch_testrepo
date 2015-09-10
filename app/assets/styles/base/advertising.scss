@@ -117,11 +117,8 @@
 
   @include media('>float-enrichments') {
     float: right;
-    margin-left: 27px;
-  }
-
-  @include media('>tablet-landscape') {
-    margin-right: -2 * $container-spacing;
+    margin-left: 30px;
+    margin-right: 0;
   }
 }
 
