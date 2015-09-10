@@ -35,11 +35,19 @@
             ]
           },
           {
-            "name": "rectangle_halfpage",
+            "name": "rectangle",
             "placements": [
               {
                 "id": "5720169",
                 "type": "desktop"
+              },
+              {
+                "id": "5720156",
+                "type": "tablet"
+              },
+              {
+                "id": "5720168",
+                "type": "mobile"
               }
             ]
           },
@@ -91,19 +99,6 @@
               {
                 "id": "5720153",
                 "type": "desktop"
-              }
-            ]
-          },
-          {
-            "name": "rectangle",
-            "placements": [
-              {
-                "id": "5720156",
-                "type": "tablet"
-              },
-              {
-                "id": "5720168",
-                "type": "mobile"
               }
             ]
           },
@@ -433,11 +428,19 @@
             ]
           },
           {
-            "name": "rectangle_halfpage",
+            "name": "rectangle",
             "placements": [
               {
                 "id": "5720213",
                 "type": "desktop"
+              },
+              {
+                "id": "5720227",
+                "type": "mobile"
+              },
+              {
+                "id": "5720238",
+                "type": "tablet"
               }
             ]
           },
@@ -489,19 +492,6 @@
               {
                 "id": "5720200",
                 "type": "desktop"
-              }
-            ]
-          },
-          {
-            "name": "rectangle",
-            "placements": [
-              {
-                "id": "5720227",
-                "type": "mobile"
-              },
-              {
-                "id": "5720238",
-                "type": "tablet"
               }
             ]
           },
@@ -831,11 +821,19 @@
             ]
           },
           {
-            "name": "rectangle_halfpage",
+            "name": "rectangle",
             "placements": [
               {
                 "id": "5720283",
                 "type": "desktop"
+              },
+              {
+                "id": "5720270",
+                "type": "tablet"
+              },
+              {
+                "id": "5720273",
+                "type": "mobile"
               }
             ]
           },
@@ -887,19 +885,6 @@
               {
                 "id": "5720302",
                 "type": "desktop"
-              }
-            ]
-          },
-          {
-            "name": "rectangle",
-            "placements": [
-              {
-                "id": "5720270",
-                "type": "tablet"
-              },
-              {
-                "id": "5720273",
-                "type": "mobile"
               }
             ]
           },
@@ -1229,11 +1214,19 @@
             ]
           },
           {
-            "name": "rectangle_halfpage",
+            "name": "rectangle",
             "placements": [
               {
                 "id": "5720305",
                 "type": "desktop"
+              },
+              {
+                "id": "5720316",
+                "type": "tablet"
+              },
+              {
+                "id": "5720322",
+                "type": "mobile"
               }
             ]
           },
@@ -1285,19 +1278,6 @@
               {
                 "id": "5720339",
                 "type": "desktop"
-              }
-            ]
-          },
-          {
-            "name": "rectangle",
-            "placements": [
-              {
-                "id": "5720316",
-                "type": "tablet"
-              },
-              {
-                "id": "5720322",
-                "type": "mobile"
               }
             ]
           },
@@ -1627,11 +1607,19 @@
             ]
           },
           {
-            "name": "rectangle_halfpage",
+            "name": "rectangle",
             "placements": [
               {
                 "id": "5720376",
                 "type": "desktop"
+              },
+              {
+                "id": "5720379",
+                "type": "tablet"
+              },
+              {
+                "id": "5720392",
+                "type": "mobile"
               }
             ]
           },
@@ -1683,19 +1671,6 @@
               {
                 "id": "5720406",
                 "type": "desktop"
-              }
-            ]
-          },
-          {
-            "name": "rectangle",
-            "placements": [
-              {
-                "id": "5720379",
-                "type": "tablet"
-              },
-              {
-                "id": "5720392",
-                "type": "mobile"
               }
             ]
           },
@@ -2025,11 +2000,19 @@
             ]
           },
           {
-            "name": "rectangle_halfpage",
+            "name": "rectangle",
             "placements": [
               {
                 "id": "5720467",
                 "type": "desktop"
+              },
+              {
+                "id": "5720428",
+                "type": "mobile"
+              },
+              {
+                "id": "5720459",
+                "type": "tablet"
               }
             ]
           },
@@ -2081,19 +2064,6 @@
               {
                 "id": "5720440",
                 "type": "desktop"
-              }
-            ]
-          },
-          {
-            "name": "rectangle",
-            "placements": [
-              {
-                "id": "5720428",
-                "type": "mobile"
-              },
-              {
-                "id": "5720459",
-                "type": "tablet"
               }
             ]
           },
@@ -2423,11 +2393,19 @@
             ]
           },
           {
-            "name": "rectangle_halfpage",
+            "name": "rectangle",
             "placements": [
               {
                 "id": "5720533",
                 "type": "desktop"
+              },
+              {
+                "id": "5720506",
+                "type": "tablet"
+              },
+              {
+                "id": "5720518",
+                "type": "mobile"
               }
             ]
           },
@@ -2479,19 +2457,6 @@
               {
                 "id": "5720498",
                 "type": "desktop"
-              }
-            ]
-          },
-          {
-            "name": "rectangle",
-            "placements": [
-              {
-                "id": "5720506",
-                "type": "tablet"
-              },
-              {
-                "id": "5720518",
-                "type": "mobile"
               }
             ]
           },
@@ -2821,11 +2786,19 @@
             ]
           },
           {
-            "name": "rectangle_halfpage",
+            "name": "rectangle",
             "placements": [
               {
                 "id": "5720569",
                 "type": "desktop"
+              },
+              {
+                "id": "5720538",
+                "type": "mobile"
+              },
+              {
+                "id": "5720587",
+                "type": "tablet"
               }
             ]
           },
@@ -2877,19 +2850,6 @@
               {
                 "id": "5720555",
                 "type": "desktop"
-              }
-            ]
-          },
-          {
-            "name": "rectangle",
-            "placements": [
-              {
-                "id": "5720538",
-                "type": "mobile"
-              },
-              {
-                "id": "5720587",
-                "type": "tablet"
               }
             ]
           },

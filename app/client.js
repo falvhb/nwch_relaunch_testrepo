@@ -39,9 +39,17 @@ clearEmptyCells.init({ selector: '.recommendations-bottom__cell' });
 
 // Advertising
 var Advertising = require('advertising');
-var StickyNode = require('advertising/sticky-node');
+
+Advertising.injectAd({
+  id: 'rectangle',
+  content: '.article-body .copy',
+  beforeParagraph: 2
+});
 
 Advertising.init('.ad');
+
+// Stickiness
+var StickyNode = require('advertising/sticky-node');
 
 var load = function() {
   StickyNode.init({
