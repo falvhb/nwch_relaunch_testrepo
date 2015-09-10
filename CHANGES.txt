@@ -14,6 +14,7 @@ unreleased
 - tweaks large teaser variation on small screen sizes
 - Teaser: adds basic-listed variation and data-switching between viewports
 - Teaser: improves spacing on overview pages
+- Advertising: fix sticky behaviour of skyscraper
 
 2015/09/01 0.0.41
 =================
