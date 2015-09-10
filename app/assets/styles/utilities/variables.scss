@@ -135,11 +135,12 @@ $letterbox-background: #333;
 /// @prop {Map} value - Breakpoint value expressed in pixels
 $breakpoints: (
   'mobile-portrait': 40em, // 640px
+  'float-enrichments': 46.25em, // 740px
   'tablet-portrait': 56.25em, // 900px
   'tablet-landscape': 68.125em, // 1090px
   'desktop-laptop': 71.9em, // 1151px
   'center-layout': 95.063em, // 1521px
-  'advertising-medium': 45.5em, // 728px
+  'advertising-medium': 728px,
   'advertising-iphone5-portrait': 320px,
   'advertising-iphone6-portrait': 414px,
   'advertising-skyscraper': 1400px,

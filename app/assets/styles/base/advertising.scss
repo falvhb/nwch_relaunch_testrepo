@@ -1,5 +1,9 @@
 @import 'globals';
 
+/**
+ * AdTech ad content
+ * Note: Added inside <div>s with by ad script
+ */
 .ad * {
   box-sizing: content-box;
 }
@@ -16,43 +20,69 @@
   }
 }
 
+/**
+ * Skyscraper Ad sidebar
+ * 1. Hidden until there is space for it
+ * 2. Fixed to the right-hand-side
+ */
 .ad--skyscraper {
   @include media('<=advertising-skyscraper') {
-    display: none;
+    display: none; /* 1 */
   }
 
   @include media('>advertising-skyscraper') {
-    position: absolute;
-    height: 600px;
+    position: absolute; /* 2 */
     width: 300px;
-    right: 10px;
     top: auto;
+    right: 10px;
   }
 }
 
 // scss-lint:disable SelectorFormat, IdSelector
 
+/**
+ * Advertising slots
+ * 1. Center all content
+ */
+#rectangle,
 #content_board,
 #top_board,
 #bottom_board {
   @include edges('pull');
+
+  text-align: center; /* 1 */
 
   @include media('>tablet-landscape') {
     margin-left: 0;
     margin-right: 0;
   }
 
-  @include media('<=desktop-laptop') {
-    text-align: center;
-
-    > div,
-    > a {
-      margin-left: auto;
-      margin-right: auto;
-    }
+  > div,
+  > a,
+  > img,
+  > object {
+    display: inline-block; /* 1 */
+    text-align: left;
   }
 }
 
+/**
+ * Content Board advert
+ * 1. Explicit width required as flexbox also applied in layout.scss
+ */
+#content_board {
+  @include media('<=mobile-portrait') {
+    width: calc(100% + #{(2 * $container-spacing)}); /* 1 */
+  }
+
+  @include media('>mobile-portrait') {
+    width: calc(100% + #{(4 * $container-spacing)}); /* 1 */
+  }
+}
+
+/**
+ * Top Board advert
+ */
 #top_board {
   @include media('<=mobile-portrait') {
     margin-bottom: 30px;
@@ -63,16 +93,10 @@
   }
 }
 
-#content_board {
-  @include media('<=mobile-portrait') {
-    width: calc(100% + #{(2 * $container-spacing)});
-  }
-
-  @include media('>mobile-portrait') {
-    width: calc(100% + #{(4 * $container-spacing)});
-  }
-}
-
+/**
+ * Bottom Board advert
+ * Note: Never add bottom margin due to sticky skyscraper
+ */
 #bottom_board {
   @include media('<=mobile-portrait') {
     margin-top: 30px;
@@ -83,37 +107,45 @@
   }
 }
 
+/**
+ * Rectangle Advert
+ * Note: Inserted with JS into article body
+ */
 #rectangle {
-  width: 320px;
-  height: 250px;
-  background-color: #f90;
-  margin-bottom: 27px;
+  margin-bottom: 30px;
 
-  @include media('<=mobile-portrait') {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @include media('>mobile-portrait') {
-    margin-top: 20px;
-    margin-left: 27px;
+  @include media('>float-enrichments') {
     float: right;
+    margin-left: 27px;
   }
 
-  &:first-child {
-    margin-top: 0;
+  @include media('>tablet-landscape') {
+    margin-right: -2 * $container-spacing;
   }
+}
 
-  &:last-child {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
+/**
+ * Rectangle Adverts first in article
+ */
+#rectangle:first-child {
+  margin-top: 0;
+}
 
-  &.is-below-sidebar {
-    @include media('>desktop-laptop') {
-      margin-right: -220px;
-    }
+/**
+ * Rectangle Adverts last in article
+ */
+#rectangle:last-child {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Rectangle Adverts that appear lower than the sidebar
+ */
+#rectangle.is-below-sidebar:not(:last-child) {
+  @include media('>desktop-laptop') {
+    margin-right: -200px;
   }
 }
 
@@ -121,31 +153,13 @@
  * Hacking layout for when a rectangle ad immediately follows a floated enrichment
  */
 .enrichment--aside + div #rectangle:first-child {
-  margin-top: 6px;
-  margin-bottom: 35px;
-
-  @include media('>mobile-portrait') {
+  @include media('>float-enrichments') {
     float: none;
+    text-align: left;
     position: relative;
     top: 6px;
-    left: 300px;
-  }
-
-  @include media('>mobile-portrait', '<=desktop-laptop') {
-    margin-right: -$container-spacing * 2;
-  }
-
-  @include media('>mobile-portrait', '<=700px') {
     margin-left: 0;
-    left: 270px;
-  }
-
-  @include media('>900px', '<=1150px') {
-    left: 200px;
-  }
-
-  @include media('>1275px') {
-    left: 200px;
+    margin-right: -50px;
   }
 }
 
