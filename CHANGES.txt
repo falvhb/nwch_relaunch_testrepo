@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/10 0.0.42
+=================
+
 - adds specs for slots and helpers
 - merges react optimization story
 - adds conditional ISO rendering
