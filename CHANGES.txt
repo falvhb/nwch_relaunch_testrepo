@@ -7,14 +7,15 @@ unreleased
 
 - adds specs for slots and helpers
 - merges react optimization story
-- conditional ISO rendering
+- adds conditional ISO rendering
 - removes jQuery from Flickity
 - DossierHeader: fixes image size/ratio
 - Article: fix stoerer position and article alignment
-- tweaks large teaser variation on small screen sizes
+- Teaser: tweaks large variation on small screen sizes
 - Teaser: adds basic-listed variation and data-switching between viewports
 - Teaser: improves spacing on overview pages
 - Advertising: fix sticky behaviour of skyscraper
+- Advertising: adds in-article Rectangle ad
 
 2015/09/01 0.0.41
 =================
