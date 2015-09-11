@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var Components = require('../modules/components');
 var renderComponent = require('../modules/renderComponent');
 
@@ -22,10 +23,15 @@ module.exports = function(req, res) {
 
   var data = req.api.get('ressortnav') || fallback;
 
+  var subressortData = _.find(data.subressorts, function(chr) {
+    return chr.urlpart === req.params.subressort;
+  });
+
   // map our data
   c.state = {
     'ressort': data.ressort,
-    'subressorts': data.subressorts,
+    'subressort': subressortData,
+    'navigation': data.subressorts,
     'variation': c.variationName
   };
 
