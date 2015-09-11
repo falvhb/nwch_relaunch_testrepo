@@ -51,6 +51,7 @@ var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
 var loadRss2 = require('./routing/loadRss2');
+var loadVideos = require('./routing/loadVideos');
 
 // Routing Middleware
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
@@ -118,6 +119,9 @@ app.get('/favicon.ico', function(req, res) { res.send(''); });
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '';
+
+app.get(COMPONENT_PREFIX + '/mediathek/videos/:component/:variation',
+        loadVideos);
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
