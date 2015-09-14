@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- Re-designs subressort navigation
+- Makes secondary-nav its own component and cleans up data passed from nav slots
+
 2015/09/10 0.0.42
 =================
 
