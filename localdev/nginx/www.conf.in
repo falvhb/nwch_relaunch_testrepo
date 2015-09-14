@@ -3,6 +3,11 @@ map $http_host $skin_name {
     default aaz;
     include az_skins.map;
 }
+map $http_host $domain_prefix {
+    hostnames;
+    default aaz;
+    include domain_prefix.map;
+}
 
 # Google DNS
 resolver 8.8.8.8;
