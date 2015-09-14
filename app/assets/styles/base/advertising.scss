@@ -52,19 +52,22 @@
 #bottom_board {
   @include edges('pull');
 
-  text-align: center; /* 1 */
+  @include media('<=tablet-landscape') {
+    text-align: center; /* 1 */
+
+    > div,
+    > a,
+    > img,
+    > object {
+      display: inline-block; /* 1 */
+      text-align: left;
+    }
+
+  }
 
   @include media('>tablet-landscape') {
     margin-left: 0;
     margin-right: 0;
-  }
-
-  > div,
-  > a,
-  > img,
-  > object {
-    display: inline-block; /* 1 */
-    text-align: left;
   }
 }
 
