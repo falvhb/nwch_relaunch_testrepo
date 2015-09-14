@@ -4,4 +4,4 @@ module.exports = function staticDomainCSSPath(domainUrl, domainName) {
     path += '/';
   }
   return path + 'static/az/style/' + domainName;
-}
+};

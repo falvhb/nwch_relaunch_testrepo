@@ -7,6 +7,7 @@ var formCanonicalUrlPath = require('../../app/node_modules/helpers/get-article-u
 var getMainAsset = require('../../app/node_modules/helpers/get-main-asset');
 var image = require('../../common/image');
 var urlTools = require('../../common/urltools');
+var getSkinName = require('../modules/skin');
 
 var LOGO_PNG_PATH = '/img/pageLogo.png';
 var COPYRIGHT = "Copyright (c): a-z.ch, AZ Crossmedia AG, " +
@@ -47,7 +48,7 @@ module.exports = function routingRss2(req, res) {
   }
 
   var isFull = req.originalUrl.endsWith('rss2full.xml') ? true : false;
-  var domainName = req.headers['x-skin'] || 'aaz';
+  var domainName = getSkinName(req);
   var rssData = null;
   try {
     rssData = checkData(req.api.get('rss2'));

@@ -5,6 +5,10 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- skin name normalization due to additional skin names
+  The additional skin names are used to be able to run the backend for the old
+  and the new skins at the same time.
+- centralized skin name lookup
 - Re-designs subressort navigation
 - Makes secondary-nav its own component and cleans up data passed from nav slots
 

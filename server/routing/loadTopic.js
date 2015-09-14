@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 var Qs = require('qs');
+var getSkinName = require('../modules/skin');
 
 /**
  * Loads articles based on their keywords.
@@ -13,7 +14,7 @@ function loadTopic(req, res, next) {
 
   var queryParams = {
     'keywords': req.params.topicKeyword,
-    'domain': req.headers['x-skin'] || 'aaz',
+    'domain': getSkinName(req),
     'offset': page * process.env.PAGINATED,
     'limit': process.env.PAGINATED,
   };
