@@ -3,7 +3,10 @@ webpackConfig.devtool = 'inline-source-map';
 
 module.exports = function(config) {
   config.set({
-    browsers: [ 'PhantomJS' ],
+    client: {
+      captureConsole: true
+    },
+    browsers: [ 'PhantomJS'],
     // karma only needs to know about the test bundle
     files: [
       'node_modules/phantomjs-polyfill/bind-polyfill.js',
