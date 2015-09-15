@@ -36,7 +36,7 @@
  * 1. Flexbox needs width
  */
 
-// scss-lint:disable SelectorFormat
+// scss-lint:disable SelectorFormat, IdSelector
 
 .az-iso--articleIntro,
 .az-iso--articleDetail,
@@ -56,4 +56,9 @@
   order: 3;
 }
 
-// scss-lint:enable SelectorFormat
+#content_board {
+  order: 4;
+}
+
+// scss-lint:enable SelectorFormat, IdSelector
+
