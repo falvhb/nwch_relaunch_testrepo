@@ -40,7 +40,7 @@
 
 .az-iso--articleIntro,
 .az-iso--articleDetail,
-.az-iso--relatedVideos {
+.recommendations-top {
   width: 100%; /* 1 */
 }
 
@@ -54,24 +54,6 @@
 
 .az-iso--articleDetail {
   order: 3;
-}
-
-.recommendations-bottom {
-  order: 4;
-}
-
-.main .ad {
-  @include media('<=desktop-laptop') {
-    order: 4;
-  }
-
-  @include media('>desktop-laptop') {
-    order: 3;
-  }
-}
-
-.az-iso--relatedVideos {
-  order: 5;
 }
 
 // scss-lint:enable SelectorFormat

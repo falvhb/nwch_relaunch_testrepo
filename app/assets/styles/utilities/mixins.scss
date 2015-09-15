@@ -294,29 +294,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin next-read-title($color: false, $size: 1.5em) {
-  @include font-smoothing;
-  @include supporting-font;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;
-
-
-
-  @include media('<=mobile-portrait') {
-    font-size: $size - ($size / 5);
-  }
-
-  @include media('>mobile-portrait') {
-    font-size: $size;
-  }
-
-  @if $color {
-    color: $color;
-  }
-
-}
-
 @mixin teaser-float-aside {
   float: left;
   width: 25%;
@@ -397,6 +374,14 @@ $image-loader-size: 30px;
 // -----------------------------------------------------------------------------
 // LAYOUT MIXINS
 // -----------------------------------------------------------------------------
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
 @mixin content-width($method: 'margin') {
   @include media('>desktop-laptop') {
     #{$method}-right: $sidebar-width + $container-spacing;
