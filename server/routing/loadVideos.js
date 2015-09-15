@@ -1,15 +1,18 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, no-console */
 var React = require('react');
-// var camelCase = require('camelcase');
-// var Iso = require('../../app/node_modules/iso-react');
 var Components = require('../modules/components');
 var KalturaAPI = require('../../app/node_modules/helpers/kaltura-api');
+
+// TEMP
+var axios = require('axios');
 
 
 /**
  * A middleware to load the videos.
  */
-function loadVideos(req, res) {
+function loadVideos(req, res, next) {
+
+  res.video = {};
 
   // get component from request
   var c = new Components(req);
@@ -22,19 +25,48 @@ function loadVideos(req, res) {
   }
   var slot = c.slot();
 
+  res.video.component = component;
+
+
   // get data from request
-  var videoData = null;
+  var videoData;
+  var videoCount;
   var kalturaAPI = new KalturaAPI({
-
+    ssl: false,
+    domain: 'www.aargauerzeitung.ch',
+    path: '/__kaltura_api_proxy__',
+    service: 'baseEntry',
+    action: 'list',
+    format: 1,
+    orderByKey: 'createdAt',
+    orderDescending: true,
+    freeText: '',
+    mediaTypeEqual: 1,
+    categoriesIdsMatchAnd: '23690341',
+    pageIndex: 0,
+    pageSize: 12
   });
-  // if (req.video) {
-  //   videoData = req.video.data;
-  // }
 
-  var el = React.createElement(component, {});
-  var output = React.renderToString(el, {}, {});
+  // @TODO:@Richard: I get a 502 bad gateway - how can I get kalturaAPI to work?
+  // kalturaAPI.getVideos().then(function(response) {
+  //   res.video.videoData = response.data.objects;
+  //   res.video.videoCount = response.data.totalCount;
+  //   next();
+  // }).catch((error) => {
+  //   console.log(error.message);
+  // });
 
-  res.send('<div id="myTarget">'+output+'</div>');
+  // load video data
+  // using axios directly works
+  var videoDataURL = kalturaAPI.getURL();
+  axios.get(videoDataURL).then(function(response) {
+    res.video.videoData = response.data.objects;
+    res.video.videoCount = response.data.totalCount;
+    next();
+  }).catch(function(response) {
+    console.log('error getting videos', response.message);
+  });
+
 }
 
 module.exports = loadVideos;

@@ -54,6 +54,7 @@ var loadRss2 = require('./routing/loadRss2');
 var loadVideos = require('./routing/loadVideos');
 
 // Routing Middleware
+var reactVideoRouter = require('./routing/routingVideos');
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactDossierRouter = require('./routing/routingDossier');
@@ -121,7 +122,8 @@ var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '';
 
 app.get(COMPONENT_PREFIX + '/mediathek/videos/:component/:variation',
-        loadVideos);
+        loadVideos,
+        reactVideoRouter);
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
