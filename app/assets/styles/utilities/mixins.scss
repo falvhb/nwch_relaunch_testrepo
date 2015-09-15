@@ -332,7 +332,7 @@
 
 
   @include media('<=mobile-portrait') {
-    font-size: $size - ($size/5);
+    font-size: $size - ($size / 5);
   }
 
   @include media('>mobile-portrait') {
