@@ -47,24 +47,13 @@ function loadVideos(req, res, next) {
     pageSize: 12
   });
 
-  // @TODO:@Richard: I get a 502 bad gateway - how can I get kalturaAPI to work?
-  // kalturaAPI.getVideos().then(function(response) {
-  //   res.video.videoData = response.data.objects;
-  //   res.video.videoCount = response.data.totalCount;
-  //   next();
-  // }).catch((error) => {
-  //   console.log(error.message);
-  // });
-
   // load video data
-  // using axios directly works
-  var videoDataURL = kalturaAPI.getURL();
-  axios.get(videoDataURL).then(function(response) {
+  kalturaAPI.getVideos().then(function(response) {
     res.video.videoData = response.data.objects;
     res.video.videoCount = response.data.totalCount;
     next();
-  }).catch(function(response) {
-    console.log('error getting videos', response.message);
+  }).catch(function(error) {
+    console.log(error.message);
   });
 
 }
