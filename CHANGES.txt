@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- Abstract Section and SectionHeader components and re-use across the site
+- Fix horizontal scrolling
+  DEPLOY (STAGING): update all CMS node-layouts with DEV version
 - Re-designs subressort navigation
 - Makes secondary-nav its own component and cleans up data passed from nav slots
 
