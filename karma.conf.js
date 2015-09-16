@@ -43,9 +43,8 @@ module.exports = function(config) {
           }
         ],
       },
-      resolve: {
-        extensions: ['', '.js', '.jsx', '.json']
-      }
+      resolve: webpackConfig.resolve,
+      plugins: webpackConfig.plugins
     },
     webpackMiddleware: {
       noInfo: true,
