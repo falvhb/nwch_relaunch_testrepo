@@ -122,6 +122,7 @@ app.get('/favicon.ico', function(req, res) { res.send(''); });
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '/__component__';
+var LEGACY_PREFIX = '/__legacy__';
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
@@ -159,6 +160,14 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         reactComponentsRouter);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         loadComponentRequirements(),
+        reactComponentsRouter);
+app.get(LEGACY_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component',
+        function(req, res, next) {
+          req.params.variation = "foo";
+          next();
+        },
+        loadArticle,
+        waitAPI,
         reactComponentsRouter);
 
 
