@@ -1,5 +1,7 @@
 @import 'globals';
 
+// scss-lint:disable all
+
 /**
  * AdTech ad content
  * Note: Added inside <div>s with by ad script
@@ -9,9 +11,9 @@
 }
 
 .ad a {
-  display: block;
-  // scss-lint:disable ImportantRule
+  display: inline-block;
   margin-bottom: 0 !important;
+  background: none !important;
 }
 
 .ad img,
@@ -40,15 +42,13 @@
   }
 }
 
-// scss-lint:disable SelectorFormat, IdSelector
-
 /**
  * Advertising slots
  * 1. Center all content
  */
+#top_board,
 #rectangle,
 #content_board,
-#top_board,
 #bottom_board {
   @include edges('pull');
 
@@ -164,4 +164,4 @@
   }
 }
 
-// scss-lint:enable SelectorFormat, IdSelector
+// scss-lint:enable all
