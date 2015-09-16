@@ -356,12 +356,6 @@
     transform: rotate(1turn);
   }
 }
-/**
- * Loading spinner
- * 1. Absolute centering of the loader
- * 2. Displayed
- * 3. On top of content
- */
 
 /// Transition duration for fade in
 /// @type Duration
@@ -373,6 +367,12 @@ $image-transition: 0.25s;
 /// @group images
 $image-loader-size: 30px;
 
+/**
+ * Loading spinner
+ * 1. Absolute centering of the loader
+ * 2. Displayed
+ * 3. On top of content
+ */
 @mixin loading-spinner {
   &::after {
     content: '';
