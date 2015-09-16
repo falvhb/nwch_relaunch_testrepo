@@ -65,7 +65,7 @@ var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 var rss2Router = require('./routing/routingRss2');
 var loadComponentRequirements = require('./routing/loadComponentRequirements');
 var reactPostComponents = require('./routing/postComponents');
-
+var legacyReactComponentsRouter = require('./routing/routingLegacyComponents');
 
 // -----------------------------------------------------------------------------
 // Styleguide Routing / Json
@@ -162,13 +162,9 @@ app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         loadComponentRequirements(),
         reactComponentsRouter);
 app.get(LEGACY_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component',
-        function(req, res, next) {
-          req.params.variation = "foo";
-          next();
-        },
         loadArticle,
         waitAPI,
-        reactComponentsRouter);
+        legacyReactComponentsRouter);
 
 
 // catch-all route, throws an error to invoke error handling
