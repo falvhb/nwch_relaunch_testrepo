@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/16 0.0.43
+=================
+
 - skin name normalization due to additional skin names
   The additional skin names are used to be able to run the backend for the old
   and the new skins at the same time.
