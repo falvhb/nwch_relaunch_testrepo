@@ -121,53 +121,7 @@ app.get('/favicon.ico', function(req, res) { res.send(''); });
 
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
-var COMPONENT_PREFIX = '';
-
-//-------------------------------------------------------------------------------
-// START dummy testcode for form post with recaptcha
-//
-// Remove this after presentation!
-
-var mail = require('../common/mail');
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
-app.post([API_PREFIX + '/form/test'],
-          loadDomain,
-          waitAPI,
-          urlencodedParser,
-          reCaptcha.middleware,
-          function (req, res) {
-            var result = {status: req.recaptcha.status};
-            if (req.recaptcha.status === true) {
-              if (req.body.email) {
-                // send an email
-                mail.sendMail({
-                    from: 'noreply@' + req.hostname,
-                    to: req.body.email,
-                    subject: 'Hello from node mail',
-                    text: 'It works!'
-                });
-                result.mail = 'sent';
-              }
-            }
-            res.json(result);
-            res.end();
-          });
-
-app.get([API_PREFIX + '/form/test'],
-        loadDomain,
-        waitAPI,
-        function (req, res) {
-          res.send('<form method="POST" enctype="application/x-www-form-urlencoded">' +
-                  '  Your email: <input name="email"/>' +
-                  reCaptcha.form(req) +
-                  '  <input type="submit"/>' +
-                  '  <script src="https://www.google.com/recaptcha/api.js"></script>' +
-                  '</form>');
-        });
-
-// END dummy testcode for form post with recaptcha
-//-------------------------------------------------------------------------------
+var COMPONENT_PREFIX = '/__component__';
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],

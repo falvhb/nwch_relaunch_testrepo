@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 var Qs = require('qs');
+var getSkinName = require('../modules/skin');
 
 /**
  * Loads a dossier.
@@ -31,7 +32,7 @@ module.exports = function loadDossier(req, res) {
     }
     queryParams = {
       'keywords': keywords.join(','),
-      'domain': req.headers['x-skin'] || 'aaz'
+      'domain': getSkinName(req)
     };
     apiConfig = {
       endpoint: '/keywords/related?' + Qs.stringify(queryParams),

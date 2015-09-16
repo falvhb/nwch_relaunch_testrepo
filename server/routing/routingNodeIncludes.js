@@ -1,5 +1,6 @@
 /*eslint-disable no-warning-comments*/
 var path = require('path');
+var getSkinName = require('../modules/skin');
 
 var defaults = {
   folder: './app/includes'
@@ -36,7 +37,7 @@ module.exports = function nodeIncludesRouter(req, res) {
         }
       }
     }
-    var skin = req.headers ? req.headers['x-skin'] : 'aaz';
+    var skin = getSkinName(req);
     var iconPath = 'az';
     if (skin.match(/^(bzb|blz)$/)) {
       iconPath = 'bz';
@@ -44,7 +45,7 @@ module.exports = function nodeIncludesRouter(req, res) {
       iconPath = 'ot';
     }
 
-    var domain = req.api.get('domain');
+    var domain = req.api.get('domain') || {};
     var env = process.env;
 
     var version = process.env.VERSION || '@@VERSION';

@@ -1,5 +1,6 @@
 var Components = require('../modules/components');
 var renderComponent = require('../modules/renderComponent');
+var getSkinName = require('../modules/skin');
 
 module.exports = function(req, res) {
 
@@ -28,7 +29,7 @@ module.exports = function(req, res) {
     'dossier': dossier,
     'keywords': keywordsArray,
     'variation': c.variationName,
-    'skin': req.headers['x-skin'] || 'aaz',
+    'skin': getSkinName(req),
     'path': req._parsedUrl.path
   };
 
