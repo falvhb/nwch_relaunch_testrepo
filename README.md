@@ -27,6 +27,8 @@ When working in the styleguide, on http://localhost:8000
 ```sh
 $ gulp assets
 $ gulp
+OR
+$ gulp assets && gulp
 ```
 ---------------------------
 
@@ -39,9 +41,7 @@ We are aiming towards a jQuery independent architecture and **jQuery should neve
 ##### Current exceptions
 
 - jQuery is included in the `ArticleBody` component (on the article page) served via request from Google CDN. It's placed before any enrichments are loaded which ensures all legacy HTML snippets placed withing articles will work (e.g. Watson content box). Eventually, snippets of this kind from older articles should aim to be phased out.
-- The [Flickity](http://flickity.metafizzy.co/) library which is used for the `ImageGallery` component and `Slider` mixin has a jQuery dependency. We will look at removing this dependency in the future.
-- The `Video` module also uses some jQuery functions which we will also look to remove in the future.
-
+- The `Video` component also uses some jQuery functions which we will also look to remove in the future.
 
 ---------------------------
 
@@ -53,6 +53,8 @@ When working with back-end integration, on http://localhost:8801.
 ```sh
 $ gulp assets --production
 $ gulp --production
+OR
+$ gulp assets --prod && gulp --prod
 ```
 
 For full documentation of setting up this local development environment please see [localdev](localdev).
@@ -120,6 +122,9 @@ For reference, we are using [this buildpack](https://github.com/robgraeber/herok
 To deploy, the following command will deploy from the `develop` branch
 
 ```sh
+$ heroku login
+$ (Email) *****
+$ (Password) *****
 $ git push heroku develop:master
 ```
 
@@ -133,7 +138,7 @@ $ git push heroku branchname:master
 
 Currently the deployment is made using git checkout from branch "release/0.0".
 
-To prepare the current develop branch for deployement use these commands::
+To prepare the current develop branch for deployement use these commands:
 
 ```sh
 $ git checkout develop
@@ -150,7 +155,7 @@ $ git push origin
 
 If you get the error `WARN [preprocess]: Can not load "webpack"`
 
-Remove the `karma-webpack` in the `node_modules`folder and install `karma-webpack version 1.5.1`.
+Remove the `karma-webpack` in the `node_modules` folder and install `karma-webpack version 1.5.1`.
 
 ```sh
 $ npm i karma-webpack@1.5.1

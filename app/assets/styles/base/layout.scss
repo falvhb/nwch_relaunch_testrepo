@@ -36,11 +36,11 @@
  * 1. Flexbox needs width
  */
 
-// scss-lint:disable SelectorFormat
+// scss-lint:disable SelectorFormat, IdSelector
 
 .az-iso--articleIntro,
 .az-iso--articleDetail,
-.az-iso--relatedVideos {
+.recommendations-top {
   width: 100%; /* 1 */
 }
 
@@ -56,22 +56,9 @@
   order: 3;
 }
 
-.recommendations-bottom {
+#content_board {
   order: 4;
 }
 
-.main .ad {
-  @include media('<=desktop-laptop') {
-    order: 4;
-  }
+// scss-lint:enable SelectorFormat, IdSelector
 
-  @include media('>desktop-laptop') {
-    order: 3;
-  }
-}
-
-.az-iso--relatedVideos {
-  order: 5;
-}
-
-// scss-lint:enable SelectorFormat
