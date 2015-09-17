@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/17 0.0.44
+=================
+
 - Implement MegaTeaser component
 - Make skyscraper align right side and fix spacing on Dossier
 - Center all ads
