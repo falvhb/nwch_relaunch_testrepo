@@ -263,6 +263,7 @@
   @return mix(white, $color, $percentage);
 }
 
+
 /// Slightly darken a color
 /// @access public
 /// @param {Color} $color - color to shade
@@ -273,89 +274,11 @@
 }
 
 
-/// Activate a grid layout
-/// @access public
-/// @param {Length} $spacing - distance between grid cells
-@mixin grid-wrap($spacing: $container-spacing) {
-  overflow: hidden;
-  margin-left: -$spacing;
-}
-
-/// Activate a grid cell
-/// @access public
-/// @param {Length} $spacing - distance between grid cells
-@mixin grid-cell($spacing: $container-spacing) {
-  float: left;
-  padding-left: $spacing;
-}
-
-@mixin next-read-section($background-color) {
-  position: relative;
-  background-color: $background-color;
-  padding-top: 40px;
-  padding-bottom: 40px;
-
-  /**
-   * Dirty hack the full width background
-   */
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background: inherit;
-    width: $container-width;
-  }
-
-  &::before {
-    right: 100%;
-  }
-
-  &::after {
-    left: 100%;
-  }
-}
-
 @mixin font-smoothing {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin next-read-title($color: false, $size: 1.5em) {
-  @include font-smoothing;
-  @include supporting-font;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;
-
-
-
-  @include media('<=mobile-portrait') {
-    font-size: $size - ($size / 5);
-  }
-
-  @include media('>mobile-portrait') {
-    font-size: $size;
-  }
-
-  @if $color {
-    color: $color;
-  }
-
-}
-
-@mixin teaser-float-aside {
-  float: left;
-  width: 25%;
-  margin-right: 20px;
-}
-
-@keyframes responsive-image-loader {
-  to {
-    transform: rotate(1turn);
-  }
-}
 
 /// Transition duration for fade in
 /// @type Duration
@@ -418,7 +341,6 @@ $image-loader-size: 30px;
 }
 
 // IE9 Supporting font replacement
-
 @mixin supporting-font {
   font-family: $supporting-font-stack;
 
@@ -427,3 +349,69 @@ $image-loader-size: 30px;
   }
 }
 
+// -----------------------------------------------------------------------------
+// LAYOUT MIXINS
+// -----------------------------------------------------------------------------
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin content-width($method: 'margin') {
+  @include media('>desktop-laptop') {
+    #{$method}-right: $sidebar-width + $container-spacing;
+  }
+}
+
+@mixin article-body-width($method: 'margin') {
+  @include media('>desktop-laptop') {
+    #{$method}-right: $sidebar-width + (3 * $container-spacing);
+  }
+}
+
+@mixin container-gutters($size: 'small') {
+  @if ($size == 'small') {
+    $gutter: $container-spacing;
+  } @else {
+    $gutter: $container-spacing * 2;
+  }
+
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@mixin main-layout {
+  width: 100%;
+
+  @include media('<=tablet-portrait') {
+    max-width: 650px;
+  }
+
+  @include media('>tablet-portrait', '<=desktop-laptop') {
+    width: 80%;
+  }
+
+  @include media('<=desktop-laptop') {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/// Activate a grid layout
+/// @access public
+/// @param {Length} $spacing - distance between grid cells
+@mixin grid-wrap($spacing: $container-spacing) {
+  overflow: hidden;
+  margin-left: -$spacing;
+}
+
+/// Activate a grid cell
+/// @access public
+/// @param {Length} $spacing - distance between grid cells
+@mixin grid-cell($spacing: $container-spacing) {
+  float: left;
+  padding-left: $spacing;
+}

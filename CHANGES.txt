@@ -5,6 +5,52 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/16 0.0.43
+=================
+
+- skin name normalization due to additional skin names
+  The additional skin names are used to be able to run the backend for the old
+  and the new skins at the same time.
+- centralized skin name lookup
+
+- Abstract Section and SectionHeader components and re-use across the site
+- Fix horizontal scrolling
+  DEPLOY (STAGING): update all CMS node-layouts with DEV version
+- Re-designs subressort navigation
+- Makes secondary-nav its own component and cleans up data passed from nav slots
+
+2015/09/10 0.0.42
+=================
+
+- adds specs for slots and helpers
+- merges react optimization story
+- adds conditional ISO rendering
+- removes jQuery from Flickity
+- DossierHeader: fixes image size/ratio
+- Article: fix stoerer position and article alignment
+- Teaser: tweaks large variation on small screen sizes
+- Teaser: adds basic-listed variation and data-switching between viewports
+- Teaser: improves spacing on overview pages
+- Advertising: fix sticky behaviour of skyscraper
+- Advertising: adds in-article Rectangle ad
+
+2015/09/01 0.0.41
+=================
+
+- added a demo to show how mails can be sent
+- added a common mail module
+- organisation is now derived from the skin ID in FooterCopyright
+- button is namespaced under FooterSections rather than Footer, so it is correctly styled in styleguide
+- tidies up wrapper for RessortTeaser
+- use fitToBox in ResponsiveImageMixin instead of fill as a flag for scaling the image, as fill is already used
+- pull the CTA from RessortTeaser into its own component (CMS markup to be updated)
+- use existing Grid component for RecommendationsBottom (CMS markup to be updated)
+
+2015/09/01 0.0.40
+=================
+
+- added recaptcha2 middleware
+
 2015/09/01 0.0.39
 =================
 

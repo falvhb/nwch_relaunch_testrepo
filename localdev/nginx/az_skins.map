@@ -1,5 +1,5 @@
-*.local:8801 aaz;
-*.local:8804 aaz;
+*.local:8801 aaz2016;
+*.local:8804 aaz2016;
 *.local:8805 blz;
 *.local:8806 liz;
 *.local:8807 soz;
@@ -18,9 +18,9 @@
 *.local:8830 bat;
 *.local:8185 image;
 
-localhost:8801 aaz;
+localhost:8801 aaz2016;
 localhost:8803 marktplatz;
-localhost:8804 aaz;
+localhost:8804 aaz2016;
 localhost:8805 blz;
 localhost:8806 liz;
 localhost:8807 soz;
@@ -39,9 +39,9 @@ localhost:8819 azpreview;
 localhost:8830 bat;
 localhost:8185 image;
 
-azbox:8801 aaz;
+azbox:8801 aaz2016;
 azbox:8803 marktplatz;
-azbox:8804 aaz;
+azbox:8804 aaz2016;
 azbox:8805 blz;
 azbox:8806 liz;
 azbox:8807 soz;
@@ -61,8 +61,8 @@ azbox:8830 bat;
 azbox:8185 image;
 
 newsbox:8803 marktplatz;
-newsbox:8801 aaz;
-newsbox:8804 aaz;
+newsbox:8801 aaz2016;
+newsbox:8804 aaz2016;
 newsbox:8805 blz;
 newsbox:8806 liz;
 newsbox:8807 soz;

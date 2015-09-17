@@ -1,3 +1,2 @@
-require('svg4everybody/svg4everybody');
-var Flickity = require('flickity/dist/flickity.pkgd.js');
+var Flickity = require('flickity');
 window.Flickity = Flickity;

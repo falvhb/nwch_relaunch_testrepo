@@ -69,7 +69,7 @@ describe('Components Router', function() {
     assert.ok(res.body.indexOf('<!-- No component name provided! -->') === 0);
   });
 
-  it('returns an HTML comment including errors if not data is found', function() {
+  it('returns an HTML comment including errors if no data is found', function() {
     req.api.get = function(key) {
       if (key === 'article') {
         return {
@@ -80,7 +80,9 @@ describe('Components Router', function() {
       }
     };
     req.params = {
-      articleId: 100003399
+      articleId: 100003399,
+      component: 'teaser',
+      variation: 'dontknow'
     };
 
     componentsRouter(req, res);
@@ -122,6 +124,6 @@ describe('Components Router', function() {
 
     componentsRouter(req, res);
 
-    assert.ok(res.body.indexOf('<div class="az-iso') >= 0);
+    assert.ok(res.body.indexOf('<header class="article-header"') >= 0);
   });
 });

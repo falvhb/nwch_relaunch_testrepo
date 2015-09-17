@@ -1,10 +1,10 @@
 module.exports = function(req, componentName) {
-    /**
-     * Load components based on a request.
-     *
-     * The module must be initialized with a request containing at least the
-     * component name as req.params.component.
-     */
+  /**
+   * Load components based on a request.
+   *
+   * The module must be initialized with a request containing at least the
+   * component name as req.params.component.
+   */
   this.req = req;
   if (componentName) {
     this.componentName = componentName;
@@ -34,7 +34,7 @@ module.exports.prototype.getComponent = function(res) {
   return component;
 };
 
-module.exports.prototype.slot = function() {
+module.exports.prototype.getSlot = function() {
   /**
    * Provides the slot module of a component.
    */

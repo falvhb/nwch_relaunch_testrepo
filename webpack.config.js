@@ -9,12 +9,17 @@ var config = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.jsx?/,
         loaders: ['babel'],
+        include: /\/app|server|tasks|test\//
       },
       {
         test: /\.json$/,
         loaders: ['json'],
+      },
+      {
+        test: /flickity/,
+        loader: 'imports?define=>false&this=>window'
       }
     ]
   },
@@ -41,7 +46,7 @@ var config = {
       'KALTURA_PLAYER_NOADS_ID',
       'KALTURA_TRACKING_URL'
     ]),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de/)
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de$/)
   ]
 };
 

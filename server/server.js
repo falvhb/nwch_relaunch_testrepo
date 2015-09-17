@@ -1,6 +1,7 @@
 /*eslint-disable no-console, no-unused-vars */
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
 var path = require('path');
 var fs = require('fs');
@@ -52,6 +53,8 @@ var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
 var loadRss2 = require('./routing/loadRss2');
 
+var reCaptcha = require('./routing/reCaptcha');
+
 // Routing Middleware
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
@@ -61,6 +64,7 @@ var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
 var rss2Router = require('./routing/routingRss2');
 var loadComponentRequirements = require('./routing/loadComponentRequirements');
+var reactPostComponents = require('./routing/postComponents');
 
 
 // -----------------------------------------------------------------------------
@@ -117,7 +121,7 @@ app.get('/favicon.ico', function(req, res) { res.send(''); });
 
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
-var COMPONENT_PREFIX = '';
+var COMPONENT_PREFIX = '/__component__';
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],

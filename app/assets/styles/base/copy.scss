@@ -57,8 +57,7 @@
 .copy p,
 .copy ul,
 .copy ol,
-.copy > div,
-.copy > div > div {
+.copy > div {
   @include type-copy;
 }
 
@@ -70,17 +69,12 @@
 .copy h4,
 .copy table,
 .copy > div,
-.copy > div > div,
 .copy strong + br {
   margin-top: 20px;
 }
 
-.copy > div:first-child {
+.copy *:first-child {
   margin-top: 0;
-
-  > *:first-child {
-    margin-top: 0;
-  }
 }
 
 /**
@@ -90,8 +84,6 @@
   display: block;
   content: '';
 }
-
-
 
 // scss-lint:disable ImportantRule
 

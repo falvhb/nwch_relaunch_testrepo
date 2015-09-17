@@ -135,14 +135,16 @@ $letterbox-background: #333;
 /// @prop {Map} value - Breakpoint value expressed in pixels
 $breakpoints: (
   'mobile-portrait': 40em, // 640px
+  'float-enrichments': 46.25em, // 740px
   'tablet-portrait': 56.25em, // 900px
   'tablet-landscape': 68.125em, // 1090px
   'desktop-laptop': 71.9em, // 1151px
   'center-layout': 95.063em, // 1521px
-  'advertising-medium': 45.5em, // 728px
-  'advertising-large': 1390px,
+  'advertising-medium': 728px,
   'advertising-iphone5-portrait': 320px,
   'advertising-iphone6-portrait': 414px,
+  'advertising-skyscraper': 1400px,
+  'full-screen-space': 1700px,
 );
 
 
@@ -159,7 +161,6 @@ $media-expressions: (
     '(min-resolution: 192dpi)'
   )
 );
-
 
 
 // -----------------------------------------------------------------------------
@@ -181,42 +182,17 @@ $container-width: 1080px;
 /// @group container
 $sidebar-width: 350px;
 
-/// Component spacing in between components expressed in ems
-$component-spacing: 1.5em;
+/// Offset for the largest skyscraper ad
+/// @type Length
+/// @group container
+$skyscraper-offset: 310px;
 
 /// Default radius in pixels
 /// @type Length
 /// @group container
 $default-radius: 3px;
 
-// -----------------------------------------------------------------------------
-// LAYOUT MIXINS
-// -----------------------------------------------------------------------------
-@mixin content-width($method: 'margin') {
-  @include media('>desktop-laptop') {
-    #{$method}-right: $sidebar-width + $container-spacing;
-  }
-}
-
-@mixin article-body-width($method: 'margin') {
-  @include media('>desktop-laptop') {
-    #{$method}-right: $sidebar-width + (3 * $container-spacing);
-  }
-}
-
-@mixin main-layout {
-  @include media('>mobile-portrait', '<=tablet-portrait') {
-    width: 100%;
-  }
-
-  @include media('>tablet-portrait', '<=desktop-laptop') {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @include media('>desktop-laptop', '<=center-layout') {
-    width: 100%;
-  }
-}
-
+/// Generic spacing between components
+/// @type Length
+/// @group components
+$component-spacing: 1.5em;

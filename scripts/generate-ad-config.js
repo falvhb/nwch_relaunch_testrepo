@@ -6,7 +6,7 @@ var csv = require('ya-csv');
 var _ = require('lodash');
 var nunjucks = require('nunjucks');
 var toSlug = require('to-slug');
-var skins = require('../app/node_modules/config/skins.json');
+var getSkinFromDomain = require('../app/node_modules/helpers/get-skin-from-domain');
 var outputPath = '../app/assets/includes/advertising/';
 
 var importFile = './az-banners-all-sites.csv';
@@ -42,19 +42,6 @@ nunjucks.configure('./', {
 });
 
 var adPlacements = [];
-
-
-// skin helpers
-
-function getSkinFromDomain (domain) {
-  var result = _.findKey(skins, function (item) {
-    item = item.replace('www.', '');
-    return item === domain;
-  });
-
-  return result;
-}
-
 
 
 /**

@@ -2,6 +2,7 @@
 
 var Qs = require('qs');
 var ressortPath = require('../modules/ressortPath');
+var getSkinName = require('../modules/skin');
 
 var DAYS_NON_RESSORT = 90;
 
@@ -10,7 +11,7 @@ var DAYS_NON_RESSORT = 90;
  * A middleware to load data for an RSS Feed.
  */
 function loadRss(req, res, next) {
-  var domain = req.headers['x-skin'] || 'aaz';
+  var domain = getSkinName(req);
   var queryParams = {
     'domain': domain,
     sort: 'newest'
