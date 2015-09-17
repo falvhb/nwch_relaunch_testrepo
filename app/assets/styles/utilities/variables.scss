@@ -187,12 +187,15 @@ $sidebar-width: 350px;
 /// @group container
 $skyscraper-offset: 310px;
 
-/// Default radius in pixels
-/// @type Length
-/// @group container
-$default-radius: 3px;
-
 /// Generic spacing between components
 /// @type Length
 /// @group components
 $component-spacing: 1.5em;
+
+/// Default border radius in pixels
+/// @type Length
+$default-radius: 3px;
+
+/// Overlay Gradient for images for a better contrast to the text on the image
+/// @type Length
+$image-gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 65%, #000 100%);
