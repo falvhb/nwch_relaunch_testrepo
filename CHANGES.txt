@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- Implement MegaTeaser component
+- Make skyscraper align right side and fix spacing on Dossier
+- Center all ads
+- Update ReadMes
+
 2015/09/16 0.0.43
 =================
 
@@ -12,7 +17,6 @@ unreleased
   The additional skin names are used to be able to run the backend for the old
   and the new skins at the same time.
 - centralized skin name lookup
-
 - Abstract Section and SectionHeader components and re-use across the site
 - Fix horizontal scrolling
   DEPLOY (STAGING): update all CMS node-layouts with DEV version
