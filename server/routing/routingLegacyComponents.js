@@ -66,7 +66,7 @@ function renderComponent(params) {
 
   if (component.slot && typeof(component.slot.data) === 'function') {
     component.data = component.slot.data(component.state);
-  } else if (component.slot.data == null) {
+  } else {
     component.data = component.state;
   }
 
