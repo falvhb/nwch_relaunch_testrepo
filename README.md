@@ -149,6 +149,11 @@ $ npm version patch
 $ git push origin
 ```
 
+## Lovely Systems Continuous Integration
+
+A push of the branch ``deploydev`` will trigger a deployment of the
+``deploydev`` branch's current state.
+
 ## Test
 
 ### Troubleshooting
