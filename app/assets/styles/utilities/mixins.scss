@@ -271,12 +271,11 @@
   @return mix(black, $color, $percentage);
 }
 
-
+/// Helper for thinner text, only supported by -moz-osx and -webkit
 @mixin font-smoothing {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 /**
  * Loading spinner
@@ -295,6 +294,8 @@ $image-transition: 0.25s;
 /// @group images
 $image-loader-size: 30px;
 
+/// CSS based loading Spinner for loading animations
+/// @access public
 @mixin loading-spinner {
   &::after {
     content: '';
@@ -414,4 +415,3 @@ $image-loader-size: 30px;
   float: left;
   padding-left: $spacing;
 }
-
