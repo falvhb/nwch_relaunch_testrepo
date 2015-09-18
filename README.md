@@ -151,8 +151,30 @@ $ git push origin
 
 ## Lovely Systems Continuous Integration
 
-A push of the branch ``deploydev`` will trigger a deployment of the
-``deploydev`` branch's current state.
+**TL;DR**: Push a new commit to ``deploydev`` to trigger a CI run for the
+``dev`` environment.
+
+A little more detailed:
+
+A push with a new commit to the branch ``deploydev`` will trigger a deployment
+of the ``deploydev`` branch's current state. Deployment is done for the ``dev``
+(http://aaz-azdev.lovelysystems.com/) environment.
+
+ - A GitHub Webhook is installed for the ``push``-event.
+ - If that push-event happens for branch ``deploydev``, a Jenkins Job at
+   Lovely Systems is triggered.
+ - The Jenkins Job:
+    - fetches the current state of branch ``deploydev``
+    - installs all dependencies
+    - runs the test suites
+    - builds & restarts the application
+    - sends 2 messages to a Slack channel, indicating the start and end of a
+      build process.
+
+Note: Only new commits will trigger GitHub to execute the Webhook. Hence, a
+*force push* of the latest, already pushed commit will not trigger GitHub to
+execute the Webhook.
+
 
 ## Test
 
