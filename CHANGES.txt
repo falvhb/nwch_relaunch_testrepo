@@ -6,6 +6,7 @@ unreleased
 ==========
 
 - implementation of Video Library component in Style Guide
+- Teaser: add labelling and formats
 
 2015/09/17 0.0.44
 =================
