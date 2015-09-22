@@ -27,7 +27,7 @@
 {# Inline the JavaScript utilities file since it needs to be synchronously
    loaded. Also, it is very lightweight so it should not make any difference. #}
 <script>
-  {% include "client/scripts/webfont-loading.js" %}
+  {% include "{{ staticBasePath }}/client/scripts/webfont-loading.js" %}
 </script>
 
 {# Asynchronously request the font-face stylesheet based on the WOFF support,
@@ -58,9 +58,9 @@
   })(window);
 </script>
 
-<script src="http://aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
-
 {% if withAds -%}
 <!--# include virtual="{{ staticBasePath }}/client/includes/advertising/{{ skin }}_{{ pageType }}.html" -->
 {%- endif %}
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script src="//aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
+<script src="//www.google.com/recaptcha/api.js" async defer></script>
