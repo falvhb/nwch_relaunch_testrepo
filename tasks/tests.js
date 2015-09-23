@@ -33,7 +33,7 @@ function apiTests(done) {
 // React tests
 var karmaOptions = {
   configFile: path.join(__dirname, '../karma.conf.js'),
-  singleRun: true
+  singleRun: false
 };
 
 function reactTests(done) {
