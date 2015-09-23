@@ -1,3 +1,7 @@
+var HtmlClasses = require('clientside/hmtl-support-classes');
+var htmlClasses = new HtmlClasses();
+htmlClasses.init();
+
 var Iso = require('iso-react');
 
 var ArticleDetail = require('components/article-detail');
@@ -9,7 +13,7 @@ var RelatedVideos = require('components/related-videos');
 var Teaser = require('components/teaser');
 var TopicDetail = require('components/topic-detail');
 
-// Map ids to required components
+// Map IDs to required components
 var components = {
   articleDetail: ArticleDetail,
   articleIntro: ArticleIntro,
