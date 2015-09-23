@@ -6,7 +6,8 @@ module.exports = function(config) {
     client: {
       captureConsole: true
     },
-    browsers: [ 'PhantomJS'],
+    autoWatch: true,
+    browsers: [ 'PhantomJS'/*, 'Chrome'*/ ],
     // karma only needs to know about the test bundle
     files: [
       'node_modules/phantomjs-polyfill/bind-polyfill.js',
@@ -15,7 +16,9 @@ module.exports = function(config) {
     frameworks: [ 'chai', 'mocha' ],
     plugins: [
       'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-chai',
+      /*'karma-chai-sinon',*/
       'karma-mocha',
       'karma-sourcemap-loader',
       'karma-webpack',
