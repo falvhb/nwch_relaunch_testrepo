@@ -28,10 +28,7 @@ var surveyRelObj = require("./data/100003420.asset_survey.json").data.assets[0];
 var quizRelObj        = require("./data/100003395.asset_quiz.json").data.assets[1];
 var quizRelObjReverse = require("./data/100003395.asset_quiz_reverse.js").data.assets[0];
 
-
-
 describe('registry', function() {
-
 
   describe("getRelationFor", function(){
 

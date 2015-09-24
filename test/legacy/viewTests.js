@@ -162,9 +162,9 @@ describe('view', function() {
   */
 
   describe("anriss", function() {
-    var articleWithAnriss = { lead: "newsarticle" }
-    var articleWithEmptyAnriss = { lead: "" }
-    var articleNoAnrissKeyword = { foo: "" }
+    var articleWithAnriss = { lead: "newsarticle" };
+    var articleWithEmptyAnriss = { lead: "" };
+    var articleNoAnrissKeyword = { foo: "" };
 
     it('returns true if article contains a non empty anriss string', function() {
       var view = new View(articleWithAnriss);
