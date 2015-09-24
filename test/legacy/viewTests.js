@@ -1,18 +1,18 @@
-
+// unit testing the View class using the registry class
 var assert = require('chai').assert;
 
 var View = require("../../app/node_modules/legacy/helpers/views.jsx");
-
 var registry = require("../../app/node_modules/legacy/helpers/registry.jsx");
+
 // shortcuts for cleaner code ...
 var registerContentType = registry.registerContentType;
 var getImplementation = registry.getImplementation;
 var getRelationFor = registry.getRelationFor;
 var clearAll = registry.clearAll;
 
-// move to real data in the unit tests
+// providing real data for the unit tests
 var articleImage = require("./data/100003483.asset_image.json").data;
-var articleImageCommentCount = require("./data/100003483.asset_image.comment_countjson").data;
+var articleImageCommentCount = require("./data/100003483.asset_image.comment_count.json").data;
 var articleImageSubRessort = require("./data/100004203.asset_image.with_sub_ressort.json").data;
 var articleImageGallery = require("./data/100004228.asset_image_gallery.json").data;
 var articleVideo = require("./data/100003338.asset_video.json").data;
@@ -21,18 +21,14 @@ var articleHtmlSnippet = require("./data/100003284.asset_htmlsnippet.json").data
 var articleSurvey = require("./data/100003420.asset_survey.json").data;
 var articleQuiz = require("./data/100003395.asset_quiz.json").data;
 var articleQuizReverse = require("./data/100003395.asset_quiz_reverse.js").data;
-
-// console.log(articleImage);
+var articleQuizWithTeaserInFirstAsset = require("./data/100003395.asset_quiz.first_asset_has_teaser.json").data;
 
 const UGC_RESSORT_NAME = 'leserbeitrag';
 const UGC_CLUB_RESSORT_NAME = 'vereinsmeldung';
 
 describe('view', function() {
 
-
-
   describe("mainTeaserAssetUrl", function() {
-
 
     it('create a view using an article with images, register and see if we get the right url', function() {
       var view = new View(articleImage);
@@ -71,9 +67,13 @@ describe('view', function() {
 
     it('create a view using an article that holds a quiz reverse, register and see if we get the right url', function() {
       var view = new View(articleQuizReverse);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach?");
+      assert.equal(view.mainTeaserAssetUrl, undefined);
     });
 
+    it('create a view using an article that holds a quiz with teaser image in first asset, register and see if we get the right url', function() {
+      var view = new View(articleQuizWithTeaserInFirstAsset);
+      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/KeHsAFJPLrOwbSGomSlTvsoD3lw/ab06e1860c98d5d47d915c447d3ae3f6a4074819/teaser-goldbach?");
+    });
   });
 
 /*
@@ -86,7 +86,7 @@ describe('view', function() {
     var ugcArticle = { content_type: "ugcnewsarticle"  }
     var article = { content_type: "newsarticle"  }
 
-    it('returns true for a UGC article', function() {
+    it('a UGC article', function() {
       var view = new View(ugcArticle);
       assert.isTrue(view.isUgcArticle);
     });
@@ -109,23 +109,21 @@ describe('view', function() {
     var articleNoTagsInLeadAfterwards = { lead: "this is a text that contains some tags, but not for long" }
 
     // real article
-    it('returns true if text is the same afterwards, i.e. no tags were replaced', function() {
+    it('text is the same afterwards, i.e. no tags were replaced', function() {
       var view = new View(articleImage);
       assert.equal(view.clearHtml(articleNoTagsInLead.lead), articleNoTagsInLead.lead);
     });
 
-    it('returns true if text is the same afterwards, i.e. no tags were replaced', function() {
+    it('text is the same afterwards, i.e. no tags were replaced', function() {
       var view = new View(articleNoTagsInLead);
       assert.equal(view.clearHtml(articleNoTagsInLead.lead), articleNoTagsInLead.lead);
     });
 
-    it('returns true if the text containing tags was changed into a text without tags', function() {
+    it('text containing tags was changed into a text without tags', function() {
       var view = new View(articleWithTagsInLead);
       assert.equal(view.clearHtml(articleWithTagsInLead.lead), articleNoTagsInLeadAfterwards.lead);
     });
-
   });
-
 
 /*
   get text() {
@@ -138,17 +136,17 @@ describe('view', function() {
     var articleWithEmptyText = { text: "" }
     var articleNoTextKeyword = { foo: "" }
 
-    it('returns true if article contains a non empty text string', function() {
+    it('article contains a non empty text string', function() {
       var view = new View(articleWithText);
       assert.equal(view.text, articleWithText.text);
     });
 
-    it('returns true if article contains an empty text string', function() {
+    it('article contains an empty text string', function() {
       var view = new View(articleWithEmptyText);
       assert.equal(view.text, articleWithEmptyText.text);
     });
 
-    it('returns true if article contains no text string', function() {
+    it('article contains no text string', function() {
       var view = new View(articleNoTextKeyword);
       assert.equal(view.text, undefined);
     });
@@ -166,17 +164,17 @@ describe('view', function() {
     var articleWithEmptyAnriss = { lead: "" };
     var articleNoAnrissKeyword = { foo: "" };
 
-    it('returns true if article contains a non empty anriss string', function() {
+    it('article contains a non empty anriss string', function() {
       var view = new View(articleWithAnriss);
       assert.equal(view.anriss, articleWithAnriss.lead);
     });
 
-    it('returns true if article contains an empty anriss string', function() {
+    it('article contains an empty anriss string', function() {
       var view = new View(articleWithEmptyAnriss);
       assert.equal(view.anriss, articleWithEmptyAnriss.lead);
     });
 
-    it('returns true if article contains no lead(was anriss) string', function() {
+    it('article contains no lead(was anriss) string', function() {
       var view = new View(articleNoAnrissKeyword);
       assert.equal(view.anriss, '');
     });
@@ -198,7 +196,7 @@ describe('view', function() {
     var letterboxF = false;
     var letterboxT = true;
 
-    it('returns true if getTeaserUrl returns with the expected suffix(letterbox=false)', function() {
+    it('getTeaserUrl returns with the expected suffix(letterbox=false)', function() {
       var view = new View(articleImage);
       var temp_url = view.getTeaserUrl(width, height, letterboxF);
 
@@ -209,7 +207,7 @@ describe('view', function() {
       assert.equal(match, expected);
     });
 
-    it('returns true if getTeaserUrl returns with the expected suffix(letterbox=true)', function() {
+    it('getTeaserUrl returns with the expected suffix(letterbox=true)', function() {
       var view = new View(articleImage);
       var temp_url = view.getTeaserUrl(width, height, letterboxT);
 
@@ -219,7 +217,6 @@ describe('view', function() {
 
       assert.equal(match, expected);
     });
-
   });
 
   /*
@@ -233,37 +230,33 @@ describe('view', function() {
     var articleNoTitle = { id: "" }
     var articleNoId = { title: "" }
 
-    //var articleNoAnrissKeyword = { foo: "" }
-
-    it('returns true if article neither contains a title nor an id', function() {
+    it('article neither contains a title nor an id', function() {
       var view = new View(articleEmpty);
       assert.equal(view.getAbsoluteUrl(), null);
     });
 
-    it('returns true if article contains an id but no title', function() {
+    it('article contains an id but no title', function() {
       var view = new View(articleNoId);
       assert.equal(view.getAbsoluteUrl(), null);
     });
 
-    it('returns true if article contains a title but not an id', function() {
+    it('article contains a title but not an id', function() {
       var view = new View(articleNoTitle);
       assert.equal(view.getAbsoluteUrl(), null);
     });
 
     // real article
-    it('returns true if article returns expected url, main ressort only', function() {
+    it('article returns expected url, main ressort only', function() {
       var view = new View(articleImage);
       assert.equal(view.getAbsoluteUrl(), "/sport/digitalausgabe-limmattaler-zeitung-100003483");
     });
 
     // real article
-    it('returns true if article returns expected url, main ressort AND sub ressort', function() {
+    it('article returns expected url, main ressort AND sub ressort', function() {
       var view = new View(articleImageSubRessort);
       assert.equal(view.getAbsoluteUrl(), "/beitrag/leserbeitrag/bericht10-100004203");
     });
-
   });
-
 
   /*
   get title() {
@@ -276,17 +269,17 @@ describe('view', function() {
     var articleWithTitle = { title: "Alles wunderbar" }
     var articleWithEmptyTitle = { title: "" }
 
-    it('returns true if article contains no title key', function() {
+    it('article contains no title key', function() {
       var view = new View(articleNoTitle);
       assert.equal(view.title, "");
     });
 
-    it('returns true if article contains a non empty title', function() {
+    it('article contains a non empty title', function() {
       var view = new View(articleWithTitle);
       assert.equal(view.title, articleWithTitle.title);
     });
 
-    it('returns true if article contains an empty title', function() {
+    it('article contains an empty title', function() {
       var view = new View(articleWithEmptyTitle);
       assert.equal(view.title, "");
     });
@@ -301,23 +294,22 @@ describe('view', function() {
   */
 
   describe("ressort", function(){
-
     var articleNoRessorts = { content_type: "newsarticle"  }
     var articleWithRessortsButEmpty = { ressorts: []  }
     var articleWithRessortsSingle = { ressorts: [ { title: 'ressort1'} ]  }
     var articleWithRessortsMultiple = { ressorts: [ { title: 'ressort1'}, { foo: 'ressort2'} ]  }
 
-    it('returns true for an article with no ressorts', function() {
+    it('an article with no ressorts', function() {
       var view = new View(articleNoRessorts);
       assert.isUndefined(view.ressort);
     });
 
-    it('returns true for an article with an empty ressort list', function() {
+    it('an article with an empty ressort list', function() {
       var view = new View(articleWithRessortsButEmpty);
       assert.isUndefined(view.ressort);
     });
 
-    it('returns the ressort for an article with a single ressort', function() {
+    it('ressort for an article with a single ressort', function() {
       var view = new View(articleWithRessortsSingle);
       assert.deepEqual(view.ressort, articleWithRessortsSingle.ressorts[0]);
     });
@@ -326,7 +318,6 @@ describe('view', function() {
       var view = new View(articleWithRessortsMultiple);
       assert.deepEqual(view.ressort, articleWithRessortsSingle.ressorts[0]);
     });
-
   });
 
  /*
@@ -341,26 +332,25 @@ describe('view', function() {
     var articleCommentableFalse = { commentable: false }
     var articleCommentableFoo = { commentable: "foo" }
 
-    it('returns true if article contains no commentable key', function() {
+    it('article contains no commentable key', function() {
       var view = new View(articleNoCommentable);
       assert.equal(view.commentable, undefined);
     });
 
-    it('returns true if article is commentable', function() {
+    it('article is commentable', function() {
       var view = new View(articleCommentableTrue);
       assert.equal(view.commentable, true);
     });
 
-    it('returns true if article is not commentable', function() {
+    it('article is not commentable', function() {
       var view = new View(articleCommentableFalse);
       assert.equal(view.commentable, false);
     });
 
-    it('returns true if article holds a string', function() {
+    it('article holds a string', function() {
       var view = new View(articleCommentableFoo);
       assert.equal(view.commentable, articleCommentableFoo.commentable);
     });
-
   });
 
 /*
@@ -377,18 +367,21 @@ describe('view', function() {
     var articleNoCommentCount = { }
 
     // real
-    /*
-    it('returns true if article contains comment_count: 0', function() {
+    it('article contains comment_count: 0', function() {
       var view = new View(articleImage);
       assert.equal(view.commentCount, "Kommentare");
     });
 
-    it('returns true if article contains no comment_count keyword', function() {
+    // real
+    it('article contains comment_count: 50', function() {
+      var view = new View(articleImageCommentCount);
+      assert.equal(view.commentCount, "Kommentare 50");
+    });
+
+    it('article contains no comment_count keyword', function() {
       var view = new View(articleNoCommentCount);
       assert.equal(view.commentCount, "Kommentare");
     });
-    */
-
   });
 
 /*
@@ -439,47 +432,46 @@ const UGC_CLUB_RESSORT_NAME = 'vereinsmeldung';
     }
 
     // real
-    it('returns true for an article with UGC_RESSORT_NAME (aka leserbeitrag)', function() {
+    it('an article with UGC_RESSORT_NAME (aka leserbeitrag)', function() {
       var view = new View(articleImageSubRessort);
       assert.equal(view.mainAssetLabelImg, 'assetLabelIcon labelIconReader');
     });
 
     // real
-    it('returns true for an article with UGC_CLUB_RESSORT_NAME (aka vereinsmeldung)', function() {
+    it('an article with UGC_CLUB_RESSORT_NAME (aka vereinsmeldung)', function() {
       var view = new View(articleImageGallery);
       assert.equal(view.mainAssetLabelImg, 'assetLabelIcon labelIconClub');
     });
 
-    it('returns true for an article with no ressorts', function() {
+    it('an article with no ressorts', function() {
       var view = new View(articleNoRessorts);
       assert.equal(view.mainAssetLabelImg, false);
     });
 
-    it('returns true for an article with an empty ressort list', function() {
+    it('an article with an empty ressort list', function() {
       var view = new View(articleWithRessortsButEmpty);
       assert.equal(view.mainAssetLabelImg, false);
     });
 
-    it('returns the strings for an article when first ressort is a UGC_RESSORT_NAME (aka leserbeitrag)', function() {
+    it('an article when first ressort is a UGC_RESSORT_NAME (aka leserbeitrag)', function() {
       var view = new View(articleWithRessortsAndFirstIsUgcRessortName);
       assert.equal(view.mainAssetLabelImg, "assetLabelIcon labelIconReader");
     });
 
-    it('returns the strings for an article when first ressort is a UGC_CLUB_RESSORT_NAME (aka vereinsmeldung)', function() {
+    it('an article when first ressort is a UGC_CLUB_RESSORT_NAME (aka vereinsmeldung)', function() {
       var view = new View(articleWithRessortsAndFirstIsUgcClubRessortName);
       assert.equal(view.mainAssetLabelImg, "assetLabelIcon labelIconClub");
     });
 
-    it('returns the strings for an article when first ressort is not a UGC_RESSORT_NAME but is present in the list of ressorts', function() {
+    it('an article when first ressort is not a UGC_RESSORT_NAME but is present in the list of ressorts', function() {
       var view = new View(articleWithRessortsAndFirstIsNotUgcRessortName);
       assert.equal(view.mainAssetLabelImg, false);
     });
 
-    it('returns the strings for an article when first ressort is a UGC_CLUB_RESSORT_NAME but is present in the list of ressorts', function() {
+    it('an article when first ressort is a UGC_CLUB_RESSORT_NAME but is present in the list of ressorts', function() {
       var view = new View(articleWithRessortsAndFirstIsNotUgcClubRessortName);
       assert.equal(view.mainAssetLabelImg, false);
     });
-
   });
 
 /*
@@ -489,7 +481,30 @@ const UGC_CLUB_RESSORT_NAME = 'vereinsmeldung';
     }
     return "";
   }
+  */
 
+  describe("mainKeyword", function() {
+    var articleNoKeyword = { };
+    var articleNoKeywords = { keywords: [] };
+
+    // real
+    it('an article with keywords', function() {
+      var view = new View(articleImage);
+      assert.equal(view.mainKeyword, "Piraten");
+    });
+
+    it('an article without keyword keywords', function() {
+      var view = new View(articleNoKeyword);
+      assert.equal(view.mainKeyword, "");
+    });
+
+    it('an article without keywords', function() {
+      var view = new View(articleNoKeywords);
+      assert.equal(view.mainKeyword, "");
+    });
+  });
+
+/*
   get articleCity() {
     if (this.article.cities && this.article.cities.length > 0) {
       return this.article.cities[0];
@@ -506,7 +521,7 @@ const UGC_CLUB_RESSORT_NAME = 'vereinsmeldung';
   }
   */
 
-  describe("city", function(){ // spitzmarke is now context_label ...
+  describe("city", function() {
     var articleNoCitiesKeyword = {  }
     var articleNoCities = { cities: [] }
     // real
@@ -535,17 +550,13 @@ const UGC_CLUB_RESSORT_NAME = 'vereinsmeldung';
 */
 
   describe("spitzmarke", function(){ // spitzmarke is now context_label ...
-
     var articleNoSpitzmarkeNoKeywordNoCity = { }
-
     var articleNoSpitzmarkeNoKeywordCity = { cities: [ { id: 1, name: "Wengi", zips: [ "3251" ]  } ] }
     var articleNoSpitzmarkeKeywordCity = { keywords: [ "foo", "bar" ], cities: [ { id: 1, name: "Wengi", zips: [ "3251" ]  } ] }
     var articleSpitzmarkeKeywordCity = { context_label: "foo bar", keywords: [ "foo", "bar" ], cities: [ { id: 1, name: "Wengi", zips: [ "3251" ]  } ] }
     var articleSpitzmarkeKeywordNoCity = articleImage;
     var articleNoSpitzmarkeKeywordEmptyCity = { keywords: [ "foo", "bar" ], cities: [ ] }
     var articleNoSpitzmarkeEmptyKeywordCity = { keywords: [ ], cities: [ { id: 1, name: "Wengi", zips: [ "3251" ]  } ] }
-
-    // and more variations possible ...
 
     it('returns true for an article with neither spitzmarke nor keyword nor city', function() {
       var view = new View(articleNoSpitzmarkeNoKeywordNoCity);
@@ -577,7 +588,6 @@ const UGC_CLUB_RESSORT_NAME = 'vereinsmeldung';
       var view = new View(articleNoSpitzmarkeEmptyKeywordCity);
       assert.equal(view.spitzmarke, articleNoSpitzmarkeEmptyKeywordCity.cities[0].name);
     });
-
   });
 
 });

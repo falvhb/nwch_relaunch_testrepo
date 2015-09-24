@@ -1,4 +1,4 @@
-
+// unit testing the relation and asset classes
 var assert = require('chai').assert;
 
 var registry = require("../../app/node_modules/legacy/helpers/registry.jsx");
@@ -8,23 +8,17 @@ var getImplementation = registry.getImplementation;
 var getRelationFor = registry.getRelationFor;
 var clearAll = registry.clearAll;
 var printAll = registry.printAll;
-// these should be tested with 'real' data instead!
 
 var imageRelObj = require("./data/100003483.asset_image.json").data.assets[0];
 var imageObj = require("./data/100003483.asset_image.json").data.assets[0].asset;
-
 var imageGalleryRelObj = require("./data/100004228.asset_image_gallery.json").data.assets[0];
 var imageGalleryObj = require("./data/100004228.asset_image_gallery.json").data.assets[0].asset;
-
 var videoRelObj = require("./data/100003338.asset_video.json").data.assets[0];
 var videoObj = require("./data/100003338.asset_video.json").data.assets[0].asset;
-
 var audioRelObj = require("./data/100003343.asset_audio.json").data.assets[0];
-
+var audioObj = require("./data/100003343.asset_audio.json").data.assets[0];
 var htmlSnippetRelObj = require("./data/100003284.asset_htmlsnippet.json").data.assets[1];
-
 var surveyRelObj = require("./data/100003420.asset_survey.json").data.assets[0];
-
 var quizRelObj        = require("./data/100003395.asset_quiz.json").data.assets[1];
 var quizRelObjReverse = require("./data/100003395.asset_quiz_reverse.js").data.assets[0];
 
@@ -109,14 +103,11 @@ describe('registry', function() {
 
   });
 
-
-
   describe("getImplementation", function(){
 
     beforeEach(function () {
       clearAll();
     });
-
 
     it('returns null for an unregistered content_type', function() {
       assert.isNull(getImplementation(imageRelObj.asset));
@@ -159,7 +150,6 @@ describe('registry', function() {
       assert.isTrue(getImplementation(imageObj) instanceof imgCls);
       assert.isTrue(getImplementation(videoObj) instanceof vidCls);
     });
-
   });
 
 });
