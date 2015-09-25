@@ -12,6 +12,7 @@ var clearAll = registry.clearAll;
 
 // providing real data for the unit tests
 var articleImage = require("./data/100003483.asset_image.json").data;
+var articleImageWithLabel = require("./data/100003483.asset_image.with_label.json").data;
 var articleImageCommentCount = require("./data/100003483.asset_image.comment_count.json").data;
 var articleImageSubRessort = require("./data/100004203.asset_image.with_sub_ressort.json").data;
 var articleImageGallery = require("./data/100004228.asset_image_gallery.json").data;
@@ -73,6 +74,108 @@ describe('view', function() {
     it('create a view using an article that holds a quiz with teaser image in first asset, register and see if we get the right url', function() {
       var view = new View(articleQuizWithTeaserInFirstAsset);
       assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/KeHsAFJPLrOwbSGomSlTvsoD3lw/ab06e1860c98d5d47d915c447d3ae3f6a4074819/teaser-goldbach?");
+    });
+  });
+
+/*
+  get mainAssetLabel() {
+    const { article } = this;
+    if (article.label) {
+      return article.label;
+    }
+    if (this.isUgcArticle) {
+      if (article.ressorts && article.ressorts.length > 0) {
+        return article.ressorts[0].title;
+      }
+    }
+    return ASSET_LABELS[this.mainAssetType];
+  }
+  */
+
+  describe("mainAssetLabel", function(){
+    var articleDummyNoLabel = {};
+    // real
+    it('get the article\'s label', function() {
+      var view = new View(articleImage);
+      assert.equal(view.mainAssetLabel, undefined);
+    });
+    // real
+    it('get the article\'s label', function() {
+      var view = new View(articleImageWithLabel);
+      assert.equal(view.mainAssetLabel, "dummyLabel");
+    });
+    it('get the article\'s label', function() {
+      var view = new View(articleDummyNoLabel);
+      assert.equal(view.mainAssetLabel, undefined);
+    });
+  });
+
+
+/*
+  get mainAssetType() {
+    let asset = this.mainAsset;
+
+    if (!asset) {
+      return "";
+    } else if (asset.asset.content_type === "asset_image_gallery") {
+      if (asset.asset.images.length <= 1) {
+        return "";
+      }
+    }
+    return asset.asset.content_type;
+  }
+  */
+
+  describe("mainAssetType", function(){
+    var articleDummy = {};
+    it('get the article\'s type', function() {
+      var view = new View(articleDummy);
+      assert.equal(view.mainAssetType, '');
+    });
+    // real
+    it('get the article\'s type', function() {
+      var view = new View(articleImage);
+      assert.equal(view.mainAssetType, "asset_image");
+    });
+    // real
+    it('get the article\'s type', function() {
+      var view = new View(articleImageGallery);
+      assert.equal(view.mainAssetType, "asset_image_gallery");
+    });
+  });
+
+/*
+  get mainAsset() {
+    return getMainAsset(this.article.assets);
+  }
+  */
+
+  describe("mainAsset", function() {
+    it('get the article\'s main asset of an image', function() {
+      var view = new View(articleImage);
+      assert.deepEqual(view.mainAsset, articleImage.assets[0]);
+    });
+    it('get the article\'s main asset of an image gallery', function() {
+      var view = new View(articleImageGallery);
+      assert.deepEqual(view.mainAsset, articleImageGallery.assets[0]);
+    });
+    /* order of the assets does matter ...
+    it('get the article\'s main asset of a video', function() {
+      var view = new View(articleVideo);
+      assert.deepEqual(view.mainAsset, articleVideo.assets[0]);
+    });
+    it('get the article\'s main asset of an audio', function() {
+      var view = new View(articleAudio);
+      assert.deepEqual(view.mainAsset, articleAudio.assets[0]);
+    });
+    it('get the article\'s main asset of a survey', function() {
+      var view = new View(articleSurvey);
+      assert.deepEqual(view.mainAsset, articleSurvey.assets[0]);
+    });
+    */
+    it('get the article\'s main asset of a quiz', function() {
+      var view = new View(articleQuiz);
+      assert.deepEqual(view.mainAsset, articleQuiz.assets[0]);
     });
   });
 
@@ -196,6 +299,7 @@ describe('view', function() {
     var letterboxF = false;
     var letterboxT = true;
 
+    // real
     it('getTeaserUrl returns with the expected suffix(letterbox=false)', function() {
       var view = new View(articleImage);
       var temp_url = view.getTeaserUrl(width, height, letterboxF);
@@ -206,7 +310,7 @@ describe('view', function() {
 
       assert.equal(match, expected);
     });
-
+    // real
     it('getTeaserUrl returns with the expected suffix(letterbox=true)', function() {
       var view = new View(articleImage);
       var temp_url = view.getTeaserUrl(width, height, letterboxT);
