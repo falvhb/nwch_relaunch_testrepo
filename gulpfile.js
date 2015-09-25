@@ -38,6 +38,7 @@ gulp.task('static-includes', require('./tasks/static-includes.js'));
 
 // Tests
 gulp.task('test:react', require('./tasks/tests.js').react);
+gulp.task('test:react-local-watch', require('./tasks/tests.js').reactLocalWatch);
 gulp.task('test:api', require('./tasks/tests.js').api);
 gulp.task('test', ['test:react', 'test:api']);
 
