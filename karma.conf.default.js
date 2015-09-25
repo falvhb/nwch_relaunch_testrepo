@@ -2,9 +2,6 @@ var webpackConfig = require('./webpack.config');
 webpackConfig.devtool = 'inline-source-map';
 
 module.exports = {
-  client: {
-    captureConsole: true
-  },
   browsers: ['PhantomJS'],
   // karma only needs to know about the test bundle
   files: [

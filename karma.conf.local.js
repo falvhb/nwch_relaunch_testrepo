@@ -2,6 +2,9 @@ var _ = require('lodash');
 var karmaConfigDefault = require('./karma.conf.default');
 
 var karmaConfig = _.assign({}, karmaConfigDefault, {
+  client: {
+    captureConsole: true
+  },
   autoWatch: true,
   browsers: [ 'Chrome' ],
   singleRun: false,
