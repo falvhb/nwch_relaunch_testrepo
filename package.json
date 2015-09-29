@@ -1,6 +1,6 @@
 {
   "name": "az-nwch-js",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "engines": {
     "node": "0.12.x"
   },
@@ -19,6 +19,7 @@
     "watch": "gulp",
     "lint": "gulp lint",
     "mocha": "mocha --recursive --colors --require test/setup",
+    "build_client": "gulp assets --production",
     "test": "gulp test",
     "start": "node server/server.js"
   },
