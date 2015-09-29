@@ -17,7 +17,7 @@ var videoRelObj = require("./data/100003338.asset_video.json").data.assets[0];
 var videoObj = require("./data/100003338.asset_video.json").data.assets[0].asset;
 var audioRelObj = require("./data/100003343.asset_audio.json").data.assets[0];
 var audioObj = require("./data/100003343.asset_audio.json").data.assets[0];
-var htmlSnippetRelObj = require("./data/100003284.asset_htmlsnippet.json").data.assets[1];
+var htmlSnippetRelObj = require("./data/100004968.asset_htmlsnippet.first_asset_has_teaser.json").data.assets[0];
 var surveyRelObj = require("./data/100003420.asset_survey.json").data.assets[0];
 var quizRelObj        = require("./data/100003395.asset_quiz.json").data.assets[1];
 var quizRelObjReverse = require("./data/100003395.asset_quiz_reverse.js").data.assets[0];
@@ -66,16 +66,13 @@ describe('registry', function() {
       assert.isTrue(getRelationFor(audioRelObj.asset, audioRelObj) instanceof audioRelCls);
     });
 
-/*
-    it('returns an object of the registered class, asset_htmlsnippet_relation', function() {
+    it('returns an object of registered class, asset_htmlsnippet_relation', function() {
       var htmlSnippetRelCls = function(htmlSnippetRelObj) {
         this.htmlSnippetRelObj = htmlSnippetRelObj;
       }
-      registerContentType(htmlSnippetRelCls, 'asset_htmlsnippet_relation')
-      console.log("getRelationFor(htmlSnippetRelObj.asset)=", getRelationFor(htmlSnippetRelObj.asset));
+      registerContentType(htmlSnippetRelCls, 'asset_htmlsnippet_relation');
       assert.isTrue(getRelationFor(htmlSnippetRelObj.asset, htmlSnippetRelObj) instanceof htmlSnippetRelCls);
     });
-    */
 
     it('returns an object of the registered class, asset_survey_relation', function() {
       var surveyRelCls = function(surveyRelObj) {
