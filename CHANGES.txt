@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- added tests for video library components
 - trimmed title of video teaser
 - added displaying of source in video library
 
