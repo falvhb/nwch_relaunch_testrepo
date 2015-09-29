@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- added displaying of source in video library
+
 2015/09/29 0.0.45
 =================
 
