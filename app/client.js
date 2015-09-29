@@ -1,4 +1,4 @@
-var HtmlClasses = require('clientside/hmtl-support-classes');
+var HtmlClasses = require('clientside/html-support-classes');
 var htmlClasses = new HtmlClasses();
 htmlClasses.init();
 
