@@ -33,7 +33,7 @@ function apiTests(done) {
 // React tests
 var karmaOptions = {
   configFile: path.join(__dirname, '../karma.conf.js'),
-  singleRun: false
+  singleRun: true
 };
 
 var karmaOptionsLocalWatch = _.assign({}, karmaOptions, {
