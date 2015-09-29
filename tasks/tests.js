@@ -36,8 +36,20 @@ var karmaOptions = {
   singleRun: true
 };
 
+var karmaOptionsLocalWatch = _.assign({}, karmaOptions, {
+  configFile: path.join(__dirname, '../karma.conf.local.js'),
+  singleRun: false
+});
+
 function reactTests(done) {
   karma.start(karmaOptions, function ensureExitCode(exitCode) {
+    exitCodes.react = exitCode;
+    done();
+  });
+}
+
+function reactTestsLocalWatch(done) {
+  karma.start(karmaOptionsLocalWatch, function ensureExitCode(exitCode) {
     exitCodes.react = exitCode;
     done();
   });
@@ -46,5 +58,6 @@ function reactTests(done) {
 
 module.exports = {
   api: apiTests,
-  react: reactTests
+  react: reactTests,
+  reactLocalWatch: reactTestsLocalWatch
 };
