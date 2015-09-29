@@ -19,6 +19,7 @@
     "watch": "gulp",
     "lint": "gulp lint",
     "mocha": "mocha --recursive --colors --require test/setup",
+    "build_client": "gulp assets --production",
     "test": "gulp test",
     "start": "node server/server.js"
   },
