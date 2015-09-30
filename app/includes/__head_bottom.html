@@ -27,7 +27,7 @@
 {# Inline the JavaScript utilities file since it needs to be synchronously
    loaded. Also, it is very lightweight so it should not make any difference. #}
 <script>
-  {% include "{{ staticBasePath }}/client/scripts/webfont-loading.js" %}
+  {% include staticBasePath + "/client/scripts/webfont-loading.js" %}
 </script>
 
 {# Asynchronously request the font-face stylesheet based on the WOFF support,
