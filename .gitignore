@@ -21,8 +21,9 @@ client
 __node__
 deploy/.installed.cfg
 deploy/bin/*
-deploy/egs/*
+deploy/eggs/*
 deploy/etc/supervisord-dev.conf
+deploy/etc/supervisord.conf
 
 # keep seed file for ad config
 !/scripts/az-banners-all-sites.csv
