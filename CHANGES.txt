@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/09/30 0.0.46
+=================
+
 - server is now reading an additional configuration file if
   process.env.DEPLOYED is set. This is needed to be able to deploy multiple
   versions at the same time.
