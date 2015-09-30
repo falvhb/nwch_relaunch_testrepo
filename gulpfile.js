@@ -71,6 +71,9 @@ gulp.task('buildtask', function() {
 // Production build
 gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'test', 'sync-styleguide', 'sass:docs'));
 
+// build the static files for production use without running tests
+gulp.task('build_client', sequence('buildtask', 'assets', 'webpack'));
+
 // Development
 gulp.task('dev', sequence('server', 'watch', 'webpack'));
 
