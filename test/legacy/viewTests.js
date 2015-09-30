@@ -12,7 +12,6 @@ var assets = require("../../app/node_modules/legacy/helpers/assets.jsx");
 var registerContentType = registry.registerContentType;
 var getImplementation = registry.getImplementation;
 var getRelationFor = registry.getRelationFor;
-var clearAll = registry.clearAll;
 
 // providing real data for the unit tests
 var articleImage = require("./data/100003483.asset_image.json").data;
@@ -58,6 +57,7 @@ var articleImageGallery = require("./data/100004228.asset_image_gallery.json").d
 var articleVideo = require("./data/100003338.asset_video.json").data;
 var articleVideoKaltura = require("./data/100003338.asset_video.with_kaltura_id_and_asset.json").data;
 var articleVideoKalturaNoStillImage = require("./data/100003338.asset_video.with_kaltura_id_no_still_image.json").data;
+var articleVideoTitleGetAbsoluteUrl = require("./data/100004965.asset_video.title_get_absolute_url.json").data;
 var articleAudio = require("./data/100003343.asset_audio.json").data;
 var articleAudioWithStillImage = require("./data/100003343.asset_audio_with_still_image.json").data;
 var articleHtmlSnippet = require("./data/100004968.asset_htmlsnippet.first_asset_has_teaser.json").data;
@@ -68,17 +68,7 @@ var articleQuiz = require("./data/100003395.asset_quiz.json").data;
 var articleQuizReverse = require("./data/100003395.asset_quiz_reverse.js").data;
 var articleQuizWithTeaserInFirstAsset = require("./data/100003395.asset_quiz.first_asset_has_teaser.json").data;
 
-const UGC_RESSORT_NAME = 'leserbeitrag';
-const UGC_CLUB_RESSORT_NAME = 'vereinsmeldung';
-
 describe('view', function() {
-
-  /*
-  get mainTeaserAssetUrl() {
-    const mainAssetRelation = this.mainAssetRelation;
-    return mainAssetRelation ? mainAssetRelation.getImageUrl(this._teaserSize) : null;
-  }
-  */
 
   describe("mainTeaserAssetUrl", function() {
 
@@ -142,19 +132,6 @@ describe('view', function() {
     });
   });
 
-  /*
-  get mainAssetLabel() {
-    const { article } = this;
-    if (article.label) {
-      return article.label;
-    }
-    if (this.isUgcArticle && this.ressort) {
-      return this.ressort.title;
-    }
-    return ASSET_LABELS[this.mainAssetType];
-  }
-  */
-
   describe("mainAssetLabel", function(){
     it('get the article\'s label', function() {
       var view = new View(articleImage);
@@ -166,20 +143,6 @@ describe('view', function() {
     });
   });
 
-  /*
-  get mainAssetType() {
-    let asset = this.mainAsset;
-    if (!asset) {
-      return "";
-    } else if (asset instanceof ImageGallery) {
-      if (asset.imageCount <= 1) {
-        return "";
-      }
-    }
-    return asset.contentType;
-  }
-  */
-
   describe("mainAssetType", function(){
     it('get the article\'s type', function() {
       var view = new View(articleImage);
@@ -190,14 +153,6 @@ describe('view', function() {
       assert.equal(view.mainAssetType, "asset_image_gallery");
     });
   });
-
-  /*
-  get mainAsset() {
-    const mainAssetRelation = this.mainAssetRelation;
-
-    return mainAssetRelation ? mainAssetRelation.asset : null;
-  }
-  */
 
   describe("mainAsset", function() {
     it('get the article\'s main asset of an image', function() {
@@ -214,12 +169,6 @@ describe('view', function() {
     });
   });
 
-  /*
-  get isUgcArticle() {
-    return this.article.content_type === "ugcnewsarticle";
-  }
-  */
-
   describe("isUgcArticle", function(){
     it('a UGC article', function() {
       var view = new View(articleImageIsUgc);
@@ -230,12 +179,6 @@ describe('view', function() {
       assert.isFalse(view.isUgcArticle);
     });
   });
-
-  /*
-  clearHtml(text) {
-    return text.replace(/<[^>]+>/ig, '');
-  }
-  */
 
   describe("clearHtml", function(){
     it('text is the same afterwards, i.e. no tags were replaced', function() {
@@ -252,12 +195,6 @@ describe('view', function() {
     });
   });
 
-  /*
-  get text() {
-    return this.article.text; // most likely not used, @jukart???
-  }
-  */
-
   describe("text", function() {
     it('article contains a non empty text string', function() {
       var view = new View(articleImage);
@@ -272,12 +209,6 @@ describe('view', function() {
       assert.equal(view.text, undefined);
     });
   });
-
-  /*
-  get anriss() {
-    return this.article.lead || ""; // anriss is now lead ...
-  }
-  */
 
   describe("anriss", function() {
     var articleWithAnriss = { lead: "newsarticle" };
@@ -300,16 +231,6 @@ describe('view', function() {
     });
   });
 
-  /*
-  getTeaserUrl(letterbox = false) {
-    let mainTeaserAssetUrl = this.mainTeaserAssetUrl;
-    if (mainTeaserAssetUrl) {
-      return createImageSrc(mainTeaserAssetUrl, this._teaserSize.width, this._teaserSize.height, letterbox);
-    }
-    return "";
-  }
-  */
-
   describe("getTeaserUrl", function() {
     var width = 360;
     var height = 240;
@@ -327,15 +248,6 @@ describe('view', function() {
       assert.isTrue(view.getTeaserUrl(letterboxT).endsWith(width + 'x' + height + ',fill'))
     });
   });
-
-  /*
-  getAbsoluteUrl(leadingSlash = true) {
-    let temp_path = formCanonicalUrlPath(this.article, leadingSlash);
-    if (temp_path) {
-      return temp_path.replace(/["']/g, '');
-    }
-  }
-  */
 
   describe("getAbsoluteUrl", function(){
     it('article neither contains a title nor an id', function() {
@@ -358,13 +270,12 @@ describe('view', function() {
       var view = new View(articleImageSubRessort);
       assert.equal(view.getAbsoluteUrl(), "/beitrag/leserbeitrag/bericht10-100004203");
     });
-  });
+    it('article returns expected url', function() {
+      var view = new View(articleVideoTitleGetAbsoluteUrl);
+      assert.equal(view.getAbsoluteUrl(), "/sport/b-in-oeszterreich-aepfel-ueber-ueber-oesterhase-100004965");
+    });
 
-  /*
-  get title() {
-    return this.article.title || "";
-  }
-  */
+  });
 
   describe("title", function(){
     it('article contains a non empty title', function() {
@@ -380,14 +291,6 @@ describe('view', function() {
       assert.equal(view.title, "");
     });
   });
-
-  /*
-  get ressort() {
-    if (this.article.ressorts && this.article.ressorts.length > 0) {
-      return this.article.ressorts[0];
-    }
-  }
-  */
 
   describe("ressort", function(){
     it('an article with no ressorts', function() {
@@ -408,12 +311,6 @@ describe('view', function() {
     });
   });
 
- /*
- get commentable() {
-    return this.article.commentable;
-  }
- */
-
   describe("commentable", function(){
     it('article contains no commentable key', function() {
       var view = new View(articleImageNoCommentableKeyword);
@@ -433,16 +330,6 @@ describe('view', function() {
     });
   });
 
-  /*
-  get commentCount() {
-    let cc = this.article.comment_count;
-    if (cc > 0) {
-      return `Kommentare ${cc}`;
-    }
-    return "Kommentare";
-  }
-  */
-
   describe("commentCount", function(){
     it('article contains comment_count: 0', function() {
       var view = new View(articleImage);
@@ -457,25 +344,6 @@ describe('view', function() {
       assert.equal(view.commentCount, "Kommentare");
     });
   });
-
-/*
-  const UGC_RESSORT_NAME = 'leserbeitrag';
-  const UGC_CLUB_RESSORT_NAME = 'vereinsmeldung';
-
-  get mainAssetLabelImg() {
-    let ressort = this.ressort;
-
-    if (ressort) {
-      if (ressort.urlpart.toLowerCase() === UGC_RESSORT_NAME) {
-        return "assetLabelIcon labelIconReader";
-      } else if (ressort.urlpart.toLowerCase() === UGC_CLUB_RESSORT_NAME) {
-        return "assetLabelIcon labelIconClub";
-      }
-    }
-
-    return false;
-  }
-  */
 
   describe("mainAssetLabelImg", function(){
     it('an article with UGC_RESSORT_NAME (aka leserbeitrag)', function() {
@@ -512,15 +380,6 @@ describe('view', function() {
     });
   });
 
-  /*
-  get mainKeyword() {
-    if (this.article.keywords && this.article.keywords.length > 0) {
-      return this.article.keywords[0];
-    }
-    return '';
-  }
-  */
-
   describe("mainKeyword", function() {
     it('an article with keywords', function() {
       var view = new View(articleImage);
@@ -536,23 +395,6 @@ describe('view', function() {
     });
   });
 
-/*
-  get articleCity() {
-    if (this.article.cities && this.article.cities.length > 0) {
-      return this.article.cities[0];
-    }
-    return null;
-  }
-
-  get city() {
-    let city = this.articleCity;
-    if (city) {
-      return city.name;
-    }
-    return "";
-  }
-  */
-
   describe("city", function() {
     it('returns true for an article with city', function() {
       var view = new View(articleImage);
@@ -567,14 +409,6 @@ describe('view', function() {
       assert.equal(view.city, "");
     });
   });
-
-  /*
-  get spitzmarke() { // spitzmarke is now context_label
-    return this.article.context_label ||
-    this.mainKeyword ||
-    this.city;
-  }
-  */
 
   describe("spitzmarke", function(){ // spitzmarke is now context_label ...
     it('returns true for an article with neither spitzmarke nor keyword nor city', function() {
