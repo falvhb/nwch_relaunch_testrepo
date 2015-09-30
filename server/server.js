@@ -8,14 +8,21 @@ var fs = require('fs');
 var engines = require('consolidate');
 var app = module.exports = express();
 var waitAPI = require('./routing/api').waitAPI;
+var dotenv = require('dotenv');
 
 // -----------------------------------------------------------------------------
 // Environment
 // -----------------------------------------------------------------------------
 
-require('dotenv').load({
-  path: '.env'
-});
+dotenv.load({path: '.env'});
+
+// For the deployment we load an additional file which will hold settings
+// specific for the deployment.
+var isDeployed = process.env.DEPLOYED;
+if (isDeployed) {
+  dotenv.load({path: '.env.deploy'});
+}
+
 var isDevelopment = process.env.NODE_ENV === 'development';
 
 // -----------------------------------------------------------------------------

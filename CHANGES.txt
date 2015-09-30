@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- server is now reading an additional configuration file if
+  process.env.DEPLOYED is set. This is needed to be able to deploy multiple
+  versions at the same time.
 - added tests for video library components
 - trimmed title of video teaser
 - added displaying of source in video library
