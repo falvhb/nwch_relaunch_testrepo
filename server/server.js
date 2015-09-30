@@ -1,19 +1,10 @@
 /*eslint-disable no-console, no-unused-vars */
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var nunjucks = require('nunjucks');
-var path = require('path');
-var fs = require('fs');
-var engines = require('consolidate');
-var app = module.exports = express();
-var waitAPI = require('./routing/api').waitAPI;
-var dotenv = require('dotenv');
-
 // -----------------------------------------------------------------------------
 // Environment
 // -----------------------------------------------------------------------------
 
+var dotenv = require('dotenv');
 dotenv.load({path: '.env'});
 
 // For the deployment we load an additional file which will hold settings
@@ -22,6 +13,16 @@ var isDeployed = process.env.DEPLOYED;
 if (isDeployed) {
   dotenv.load({path: '.env.deploy'});
 }
+
+
+var express = require('express');
+var bodyParser = require('body-parser');
+var nunjucks = require('nunjucks');
+var path = require('path');
+var fs = require('fs');
+var engines = require('consolidate');
+var app = module.exports = express();
+var waitAPI = require('./routing/api').waitAPI;
 
 var isDevelopment = process.env.NODE_ENV === 'development';
 
