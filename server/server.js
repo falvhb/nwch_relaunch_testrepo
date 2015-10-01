@@ -127,6 +127,13 @@ app.use(require('./modules/cookie-session')({
 
 app.get('/favicon.ico', function(req, res) { res.send(''); });
 
+// The probe_status endpoint is used by haproxy to check if the instance is
+// alive.
+app.get('/probe_status',
+        function(req, res) {
+          res.send('OK');
+        });
+
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '/__component__';
