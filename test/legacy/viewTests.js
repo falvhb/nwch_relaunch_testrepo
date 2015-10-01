@@ -82,7 +82,7 @@ describe('view', function() {
     });
     it('create a view using an article that holds a video, register and see if we get the right url - in this case, still_image is null but kaltura_id is set', function() {
       var view = new View(articleVideo);
-      assert.equal(view.mainTeaserAssetUrl, "http://cdnbakmi.kaltura.com/p/1289881/sp/128988100/thumbnail/entry_id/1_7zywfjdn/width/220/height/130/type/3");
+      assert.equal(view.mainTeaserAssetUrl, "https://cdnapisec.kaltura.com/p/1289881/thumbnail/entry_id/1_7zywfjdn/quality/30/width/220/height/130/type/3");
     });
     it('create a view using an article that holds a video with kaltura id and a still_image, register and see if we get the right url - the one from still_image is expected', function() {
       var view = new View(articleVideoKaltura);
@@ -91,7 +91,7 @@ describe('view', function() {
 
     it('create a view using an article that holds a video with kaltura id, register and see if we get the right url', function() {
       var view = new View(articleVideoKalturaNoStillImage);
-      assert.equal(view.mainTeaserAssetUrl, "http://cdnbakmi.kaltura.com/p/1289881/sp/128988100/thumbnail/entry_id/1_7zywfjdn/width/220/height/130/type/3");
+      assert.equal(view.mainTeaserAssetUrl, "https://cdnapisec.kaltura.com/p/1289881/thumbnail/entry_id/1_7zywfjdn/quality/30/width/220/height/130/type/3");
     });
 
     it('create a view using an article that holds an audio, register and see if we get the right url - none in this case, since there is no still image present', function() {
