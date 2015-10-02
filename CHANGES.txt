@@ -5,6 +5,13 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/10/02 0.0.47
+=================
+
+ - fixed setup for deployment
+
+ - added /probe_status endpoint for haproxy
+
 2015/09/30 0.0.46
 =================
 
