@@ -162,10 +162,9 @@ $breakpoints: (
 ///   - list is used for *or* conditions (e.g. retina)
 $media-expressions: (
   'print': 'print',
-  'retina': (
-    '(-webkit-min-device-pixel-ratio: 2)',
-    '(min-resolution: 192dpi)'
-  )
+  'retina':
+  ('(-webkit-min-device-pixel-ratio: 2)',
+    '(min-resolution: 192dpi)')
 );
 
 
