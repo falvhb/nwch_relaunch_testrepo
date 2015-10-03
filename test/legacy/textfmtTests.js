@@ -23,5 +23,13 @@ describe('cut', function() {
     var stringTest = "dies ist eine spitzmarke, abgeschnittenmittenimwortohnesoftcut";
     assert.equal(cut(stringTest, { cutLen: 30, softcut: false, fill: '...'}), "dies ist eine spitzmarke, abge...");
   });
+  it('cut: spitzmarke to be longer than 30 chars, expected to be appended with \'...more\'', function() {
+    var stringTest = "dies ist eine spitzmarke, ein bisschen länger als 30 Zeichen und sollte mit...more abschliessen";
+    assert.equal(cut(stringTest, { cutLen: 30, softcut: true, fill: '...more'}), "dies ist eine spitzmarke, ein...more");
+  });
+  it('cut: spitzmarke to be longer than 30 chars, expected to be appended with \'...more\'', function() {
+    var stringTest = "dies ist eine spitzmarke, abgeschnittenmittenimwortohnesoftcutabermit...moreamschluss";
+    assert.equal(cut(stringTest, { cutLen: 30, softcut: false, fill: '...more'}), "dies ist eine spitzmarke, abge...more");
+  });
 
 });

@@ -15,6 +15,7 @@ var getRelationFor = registry.getRelationFor;
 
 // providing real data for the unit tests
 var articleImage = require("./data/100003483.asset_image.json").data;
+var articleNoAsset = require("./data/100004993.article_no_asset.json").data;
 var articleImageIsUgc = require("./data/100003483.asset_image.is_ugc.json").data;
 var articleImageWithLabel = require("./data/100003483.asset_image.with_label.json").data;
 var articleImageNoTagsInLead = require("./data/100003483.asset_image.no_tags_in_lead.json").data;
@@ -436,5 +437,31 @@ describe('view', function() {
       assert.equal(view.spitzmarke, articleImageNoContextLabelEmptyKeywordsCities.cities[0].name);
     });
   });
+
+  var assert = require('chai').assert;
+  var normalize = require("../../app/node_modules/helpers/get-article-url.jsx").normalize;
+
+  describe('teaserNineColCssClass', function() {
+    it('teaserNineColCssClass returns 9ColTeaserWithImage for an article with a teaser compatible asset', function() {
+      var view = new View(articleImage);
+      assert.equal(view.teaserNineColCssClass, "9ColTeaserWithImage");
+    });
+    it('teaserNineColCssClass returns 9ColTeaserNoImage for an article with no teaser compatible asset', function() {
+      var view = new View(articleNoAsset);
+      assert.equal(view.teaserNineColCssClass, "9ColTeaserNoImage");
+    });
+  });
+
+  describe('providesTeaserCompatibleMainAsset', function() {
+    it('providesTeaserCompatibleMainAsset, true for an article with a teaser compatible asset', function() {
+      var view = new View(articleImage);
+      assert.equal(view.providesTeaserCompatibleMainAsset, true);
+    });
+    it('providesTeaserCompatibleMainAsset, false for an article with no teaser compatible asset', function() {
+      var view = new View(articleNoAsset);
+      assert.equal(view.providesTeaserCompatibleMainAsset, false);
+    });
+  });
+
 
 });
