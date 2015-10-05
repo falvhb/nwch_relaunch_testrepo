@@ -5,7 +5,7 @@ var cut = require("../../app/node_modules/legacy/helpers/textfmt.jsx").cut;
 // ${view.cut(view.text, { cutLen: 150, softcut: true, fill: '...mehr' } )}
 // ${view.cut(view.text, { cutLen: 300, softcut: true, fill: '...mehr' } )}
 
-describe('cut', function() {
+describe('textfmt', function() {
 
   it('cut: spitzmarke to be shorter than 30 chars, expected to be returned as is', function() {
     var stringTest = "spitzmarke, kürzer 30 Zeichen";
