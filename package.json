@@ -1,6 +1,6 @@
 {
   "name": "az-nwch-js",
-  "version": "0.0.44",
+  "version": "0.0.47",
   "engines": {
     "node": "0.12.x"
   },
@@ -19,6 +19,7 @@
     "watch": "gulp",
     "lint": "gulp lint",
     "mocha": "mocha --recursive --colors --require test/setup",
+    "build_client": "gulp build_client --production",
     "test": "gulp test",
     "start": "node server/server.js"
   },
@@ -98,12 +99,16 @@
     "karma": "^0.13.9",
     "karma-chai": "^0.1.0",
     "karma-chai-plugins": "^0.6.0",
+    "karma-chai-sinon": "^0.1.5",
+    "karma-chrome-launcher": "^0.2.0",
     "karma-cli": "0.0.4",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.0.2",
     "karma-phantomjs-launcher": "^0.2.0",
+    "karma-sinon-chai": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.7.0",
+    "legit-tests": "^0.4.4",
     "libxmljs": "^0.14.2",
     "mocha": "^2.2.5",
     "nock": "^2.7.0",
@@ -115,7 +120,8 @@
     "react-remarkable": "^1.1.1",
     "react-to-jsx": "^1.3.1",
     "sassdoc": "^2.1.13",
-    "sinon": "^1.15.4",
+    "sinon": "git+https://github.com/uberVU/Sinon.JS",
+    "sinon-chai": "^2.8.0",
     "supertest": "^1.0.1",
     "svg4everybody": "0.0.2",
     "testdom": "^1.0.1",

@@ -1,5 +1,5 @@
 [inet_http_server]
-port = 0.0.0.0:${ports:supervisor}
+port = 0.0.0.0:11499
 
 [supervisord]
 logfile = ${buildout:directory}/var/log/supervisord.log
@@ -15,11 +15,14 @@ childlogdir = ${buildout:directory}/var/log/supervisor
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [supervisorctl]
-serverurl = http://localhost:${ports:supervisor}
+serverurl = http://localhost:11499
 
 [program:app]
-command = node . NODE_ENV=production
+environment=NODE_ENV=production,PORT=11400
+command = node .
 directory = ${buildout:directory}/..
 redirect_stderr=true
 priority = 1
 stopasgroup = true
+autostart = true
+autorestart = true

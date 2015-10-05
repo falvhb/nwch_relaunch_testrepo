@@ -1,5 +1,20 @@
 /*eslint-disable no-console, no-unused-vars */
 
+// -----------------------------------------------------------------------------
+// Environment
+// -----------------------------------------------------------------------------
+
+var dotenv = require('dotenv');
+dotenv.load({path: '.env'});
+
+// For the deployment we load an additional file which will hold settings
+// specific for the deployment.
+var isDeployed = process.env.DEPLOYED;
+if (isDeployed) {
+  dotenv.load({path: '.env.deploy'});
+}
+
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var nunjucks = require('nunjucks');
@@ -9,13 +24,6 @@ var engines = require('consolidate');
 var app = module.exports = express();
 var waitAPI = require('./routing/api').waitAPI;
 
-// -----------------------------------------------------------------------------
-// Environment
-// -----------------------------------------------------------------------------
-
-require('dotenv').load({
-  path: '.env'
-});
 var isDevelopment = process.env.NODE_ENV === 'development';
 
 // -----------------------------------------------------------------------------
@@ -118,6 +126,13 @@ app.use(require('./modules/cookie-session')({
 // -----------------------------------------------------------------------------
 
 app.get('/favicon.ico', function(req, res) { res.send(''); });
+
+// The probe_status endpoint is used by haproxy to check if the instance is
+// alive.
+app.get('/probe_status',
+        function(req, res) {
+          res.send('OK');
+        });
 
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';

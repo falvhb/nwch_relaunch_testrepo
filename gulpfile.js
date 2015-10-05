@@ -38,6 +38,7 @@ gulp.task('static-includes', require('./tasks/static-includes.js'));
 
 // Tests
 gulp.task('test:react', require('./tasks/tests.js').react);
+gulp.task('test:react-local-watch', require('./tasks/tests.js').reactLocalWatch);
 gulp.task('test:api', require('./tasks/tests.js').api);
 gulp.task('test', ['test:react', 'test:api']);
 
@@ -69,6 +70,9 @@ gulp.task('buildtask', function() {
 
 // Production build
 gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'test', 'sync-styleguide', 'sass:docs'));
+
+// build the static files for production use without running tests
+gulp.task('build_client', sequence('buildtask', 'assets', 'webpack'));
 
 // Development
 gulp.task('dev', sequence('server', 'watch', 'webpack'));

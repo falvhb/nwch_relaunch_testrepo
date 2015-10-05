@@ -5,6 +5,26 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/10/02 0.0.47
+=================
+
+ - fixed setup for deployment
+
+ - added /probe_status endpoint for haproxy
+
+2015/09/30 0.0.46
+=================
+
+- server is now reading an additional configuration file if
+  process.env.DEPLOYED is set. This is needed to be able to deploy multiple
+  versions at the same time.
+- added tests for video library components
+- trimmed title of video teaser
+- added displaying of source in video library
+
+2015/09/29 0.0.45
+=================
+
 - implementation of Video Library component in Style Guide
 - Teaser: add labelling and formats
 
