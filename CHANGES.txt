@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added legacy treasers
+
 2015/10/02 0.0.47
 =================
 
