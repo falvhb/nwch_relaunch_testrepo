@@ -8,6 +8,7 @@ var Teaser = require('components/teaser');
 var TeaserSwitchable = require('components/teaser-switchable');
 var TopicDetail = require('components/topic-detail');
 var LatestArticles = require('components/latest-articles');
+var VideoLibrary = require('components/video-library');
 
 // Map IDs to required components
 var components = {
@@ -21,6 +22,7 @@ var components = {
   teaserSwitchable: TeaserSwitchable,
   topicDetail: TopicDetail,
   latestArticles: LatestArticles
+  videoLibrary: VideoLibrary
 };
 
 // Hydrate all components client-side
