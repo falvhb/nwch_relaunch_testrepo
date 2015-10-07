@@ -14,11 +14,14 @@ function ResMock() {
   this.set = function(key, value) {
     this.headers[key] = value;
     return this;
-  }
+  };
+  this.header = function(key, value) {
+    return this.set(key, value);
+  };
   this.status = function(code) {
     this.code = code;
     return this;
-  }
+  };
 }
 
 function ReqMock() {

@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - middleware to set cache headers for varnish caching
  - added legacy treasers
 
 2015/10/02 0.0.47
