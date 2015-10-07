@@ -11,6 +11,7 @@ var Footer = require('components/footer');
 var HeaderNav = require('components/header-nav');
 var RelatedVideos = require('components/related-videos');
 var Teaser = require('components/teaser');
+var TeaserSwitchView = require('components/teaser-switch-view');
 var TopicDetail = require('components/topic-detail');
 
 // Map IDs to required components
@@ -22,6 +23,7 @@ var components = {
   headerNav: HeaderNav,
   relatedVideos: RelatedVideos,
   teaser: Teaser,
+  teaserSwitchView: TeaserSwitchView,
   topicDetail: TopicDetail
 };
 
