@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/10/07 0.0.48
+=================
+
  - added varnish cache middleware to all endpoints
    Deploy:
     add VARNISH_CACHE_TIME and VARNISH_GRACE_TIME environment variables
