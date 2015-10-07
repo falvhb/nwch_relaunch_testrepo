@@ -22,7 +22,7 @@ export LC_CTYPE="en_US.UTF-8"
 
 ### Styleguide
 
-When working in the styleguide, on http://localhost:8000
+When working in the styleguide, on http://localhost:8000/styleguide
 
 ```sh
 $ gulp assets
