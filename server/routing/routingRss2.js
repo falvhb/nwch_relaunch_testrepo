@@ -24,8 +24,11 @@ module.exports = function routingRss2(req, res) {
   NotFound.prototype = new Error();
 
   function checkData(apiData) {
-    if (!apiData || apiData && _.isEmpty(apiData.data)) {
+    if (!apiData) {
       throw new ServiceUnavailable();
+    }
+    if (apiData.error) {
+      throw new NotFound();
     }
     if (ressortPath(req) !== null && _.isEmpty(apiData.data.ressort)) {
       throw new NotFound();

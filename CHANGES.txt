@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - fix rss2 error response for not existing ressorts
+
 2015/10/07 0.0.48
 =================
 

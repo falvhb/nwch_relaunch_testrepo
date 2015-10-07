@@ -20,14 +20,14 @@ function mockApiGet(request, sampleFeed, omit, onlyMainRessortData) {
     ignore_for_canonical: false,
     urlpart: 'subRessortPath',
     title: 'The SubRessort Title',
-  }
+  };
 
   var ressortWithoutSubressortData = {
     parent: null,
     ignore_for_canonical: false,
     urlpart: 'mainRessortPath',
     title: 'The MainRessort Title without a Subressort',
-  }
+  };
 
   request.api.get = function(key) {
     if (key === 'rss2') {
@@ -62,7 +62,7 @@ function mockApiGet(request, sampleFeed, omit, onlyMainRessortData) {
               }
             ]
           }
-        ]
+        ];
       }
       if (!omit || omit && !omit.ressort) {
         if (onlyMainRessortData) {
@@ -76,7 +76,7 @@ function mockApiGet(request, sampleFeed, omit, onlyMainRessortData) {
         total: 23
       };
     }
-  }
+  };
 }
 
 
@@ -91,8 +91,8 @@ describe('RSS2 Feed Router', function() {
     req.headers = {
       'x-forwarded-proto': 'http',
       host: 'www.domain.com',
-    }
-    req.originalUrl = 'rss2.xml'
+    };
+    req.originalUrl = 'rss2.xml';
     res = new ResMock();
 
     sampleFeed = {
@@ -104,7 +104,7 @@ describe('RSS2 Feed Router', function() {
         }
       },
       items: [ ]
-    }
+    };
 
   });
 
@@ -117,7 +117,7 @@ describe('RSS2 Feed Router', function() {
           total: 23
         };
       }
-    }
+    };
 
     // process the request
     rssRouter(req, res);
@@ -243,7 +243,7 @@ describe('RSS2 Feed Router', function() {
     done();
   });
 
-  it('be ok if not ressort is requested, and no ressort is returned', function(done) {
+  it('be ok if no ressort is requested, and no ressort is returned', function(done) {
     mockApiGet(req, sampleFeed, /*omit*/ {ressort: true});
 
     // process the request
@@ -257,7 +257,7 @@ describe('RSS2 Feed Router', function() {
     done();
   });
 
-  it('should return an error if a ressort is requested but not returned', function(done) {
+  it('should return 404 if a ressort is requested but not returned', function(done) {
     mockApiGet(req, sampleFeed, /*omit*/ {ressort: true});
 
     req.params.ressort = 'mainRessortPath';
@@ -270,7 +270,7 @@ describe('RSS2 Feed Router', function() {
     done();
   });
 
-  it('should return an error if a ressort/subressort is requested but not returned', function(done) {
+  it('should return 404 if a ressort/subressort is requested but not returned', function(done) {
     mockApiGet(req, sampleFeed, /*omit*/ {ressort: true});
 
     req.params.ressort = 'mainRessortPath';
@@ -284,8 +284,8 @@ describe('RSS2 Feed Router', function() {
     done();
   });
 
-  it('return an error if no domain data is returned', function(done) {
-    sampleFeed.domain = {}
+  it('should return 404 if no domain data is returned', function(done) {
+    sampleFeed.domain = {};
     mockApiGet(req, sampleFeed);
 
     // process the request
@@ -296,12 +296,26 @@ describe('RSS2 Feed Router', function() {
     done();
   });
 
-  it("should return an error if no data is returned.", function(done) {
+  it("should return 404 if API returns an error structure.", function(done) {
     req.api.get = function(key) {
       if (key === 'rss2') {
-        return {};
+        return {"error": {"status": 400}};
       }
-    }
+    };
+
+    // process the request
+    rssRouter(req, res);
+
+    assert.equal(res.code, 404);
+    done();
+  });
+
+  it("should return 503 if API is not accessable.", function(done) {
+    req.api.get = function(key) {
+      if (key === 'rss2') {
+        return undefined;
+      }
+    };
 
     // process the request
     rssRouter(req, res);
