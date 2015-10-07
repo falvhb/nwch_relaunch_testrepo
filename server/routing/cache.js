@@ -6,7 +6,7 @@
  * cacheTime: set "Varnish-Control" in seconds
  * graceTime: set "Varnish-Grace" in seconds
  *
- * useage:
+ * usage:
  *    cache(3600) : cache for an hour
  *    cache(3600, 600) : cache for an hour with a grace time of 10 minutes
  */
