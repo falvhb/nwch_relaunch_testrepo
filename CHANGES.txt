@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added varnish cache middleware to all endpoints
+   Deploy:
+    add VARNISH_CACHE_TIME and VARNISH_GRACE_TIME environment variables
  - middleware to set cache headers for varnish caching
  - added legacy treasers
 

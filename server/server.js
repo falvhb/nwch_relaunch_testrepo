@@ -23,6 +23,7 @@ var fs = require('fs');
 var engines = require('consolidate');
 var app = module.exports = express();
 var waitAPI = require('./routing/api').waitAPI;
+var cache = require('./routing/cache');
 
 var isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -139,46 +140,58 @@ var API_PREFIX = '/__api__';
 var COMPONENT_PREFIX = '/__component__';
 var LEGACY_PREFIX = '/__legacy__';
 
+var VARNISH_CACHE_TIME = process.env.VARNISH_CACHE_TIME;
+var VARNISH_GRACE_TIME = process.env.VARNISH_GRACE_TIME;
+
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
         loadTopic,
         waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactTopicAPIRouter);
 
 app.get([LAYOUT_PREFIX + '/thema/:topicKeyword',
          LAYOUT_PREFIX + '/thema/:topicKeyword/seite/:page'],
         loadTopic,
         waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactTopicLayoutRouter);
 
 app.get(['/:ressort?/:subressort?/rss2.xml',
          '/:ressort?/:subressort?/rss2full.xml'],
         loadRss2,
         waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         rss2Router);
 
 app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         loadDossier,
         loadComponentRequirements(),
         waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactDossierRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadComponentRequirements('ressort-header'),
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactRessortHeaderRenderer);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
         loadDomain,
         waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         nodeIncludesRouter);
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
         loadArticle,
         waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         loadComponentRequirements(),
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
 app.get(LEGACY_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component',
         loadArticle,
         waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         legacyReactComponentsRouter);
 
 
