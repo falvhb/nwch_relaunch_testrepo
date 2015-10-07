@@ -40,4 +40,16 @@ describe('routing: "cache" middleware', function() {
     expect(this.res.headers).to.have.property('Varnish-Control', 3600);
     expect(this.res.headers).to.have.property('Varnish-Grace', 600);
   });
+
+  it('can be called with cacheTime set to "undefined"', function() {
+    cache(undefined)(this.req, this.res, this.next);
+    expect(this.res.headers).to.not.have.property('Varnish-Control');
+    expect(this.res.headers).to.not.have.property('Varnish-Grace');
+  });
+
+  it('can be called with graceTime set to "undefined"', function() {
+    cache(3600, undefined)(this.req, this.res, this.next);
+    expect(this.res.headers).to.have.property('Varnish-Control', 3600);
+    expect(this.res.headers).to.not.have.property('Varnish-Grace');
+  });
 });

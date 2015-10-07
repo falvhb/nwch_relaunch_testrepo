@@ -12,9 +12,11 @@
  */
 function cache(cacheTime, graceTime) {
   function cacheMiddleware(req, res, next) {
-    res.header('Varnish-Control', cacheTime);
-    if (graceTime) {
-      res.header('Varnish-Grace', graceTime);
+    if (cacheTime) {
+      res.header('Varnish-Control', cacheTime);
+      if (graceTime) {
+        res.header('Varnish-Grace', graceTime);
+      }
     }
     next();
   }
