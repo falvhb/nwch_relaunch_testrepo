@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/10/07 0.0.50
+=================
+
  - fix API error handling
 
 2015/10/07 0.0.49
