@@ -5,6 +5,21 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/10/07 0.0.51
+=================
+
+ - fixed the domain settings
+
+2015/10/07 0.0.50
+=================
+
+ - fix API error handling
+
+2015/10/07 0.0.49
+=================
+
+ - fix rss2 error response for not existing ressorts
+
 2015/10/07 0.0.48
 =================
 

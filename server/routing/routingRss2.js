@@ -24,8 +24,11 @@ module.exports = function routingRss2(req, res) {
   NotFound.prototype = new Error();
 
   function checkData(apiData) {
-    if (!apiData || apiData && _.isEmpty(apiData.data)) {
+    if (!apiData) {
       throw new ServiceUnavailable();
+    }
+    if (apiData.errors || !apiData.data) {
+      throw new NotFound();
     }
     if (ressortPath(req) !== null && _.isEmpty(apiData.data.ressort)) {
       throw new NotFound();
@@ -59,7 +62,7 @@ module.exports = function routingRss2(req, res) {
     if (e instanceof NotFound) {
       return res.status(404).send('Not Found');
     }
-    return res.status(501).send('Internal Server Error');
+    return res.status(500).send('Internal Server Error');
   }
   var domainInfo = rssData.domain;
   var ressortInfo = null;

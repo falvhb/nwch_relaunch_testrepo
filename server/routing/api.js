@@ -65,6 +65,9 @@ Api.prototype.retrieve = function(apiConfig, cb) {
       self._endApiCall();
     })
     .catch(function(response) {
+      if (response.data) {
+        self._data[apiConfig.key] = response.data;
+      }
       if (response instanceof Error) {
         cb(response);
       } else {
