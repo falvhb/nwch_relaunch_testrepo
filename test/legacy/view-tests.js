@@ -71,65 +71,78 @@ var articleQuizWithTeaserInFirstAsset = require("./data/100003395.asset_quiz.fir
 
 describe('view', function() {
 
-  describe("mainTeaserAssetUrl", function() {
+  describe("getTeaserUrl", function() {
 
     it('create a view using an article with images, register and see if we get the right url', function() {
       var view = new View(articleImage);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds an image gallery, register and see if we get the right url', function() {
       var view = new View(articleImageGallery);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/ksr4EHKxcS5GcNfq_dzPFI9wJsE/8a1b0111855f2e61cf4c5a16ec083f2ec54eaaf6/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/ksr4EHKxcS5GcNfq_dzPFI9wJsE/8a1b0111855f2e61cf4c5a16ec083f2ec54eaaf6/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds a video, register and see if we get the right url - in this case, still_image is null but kaltura_id is set', function() {
       var view = new View(articleVideo);
-      assert.equal(view.mainTeaserAssetUrl, "https://cdnapisec.kaltura.com/p/1289881/thumbnail/entry_id/1_7zywfjdn/quality/30/width/220/height/130/type/3");
+      assert.equal(view.getTeaserUrl(),
+                   "https://cdnapisec.kaltura.com/p/1289881/thumbnail/entry_id/1_7zywfjdn/quality/30/width/220/height/130/type/3");
     });
     it('create a view using an article that holds a video with kaltura id and a still_image, register and see if we get the right url - the one from still_image is expected', function() {
       var view = new View(articleVideoKaltura);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/DLDA3ekP0zGXUia_8pVrTBXJoR0/e54b69a2e5fad7768d52635f913a96a6170c1803/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/DLDA3ekP0zGXUia_8pVrTBXJoR0/e54b69a2e5fad7768d52635f913a96a6170c1803/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
 
     it('create a view using an article that holds a video with kaltura id, register and see if we get the right url', function() {
       var view = new View(articleVideoKalturaNoStillImage);
-      assert.equal(view.mainTeaserAssetUrl, "https://cdnapisec.kaltura.com/p/1289881/thumbnail/entry_id/1_7zywfjdn/quality/30/width/220/height/130/type/3");
+      assert.equal(view.getTeaserUrl(),
+                   "https://cdnapisec.kaltura.com/p/1289881/thumbnail/entry_id/1_7zywfjdn/quality/30/width/220/height/130/type/3");
     });
 
     it('create a view using an article that holds an audio, register and see if we get the right url - none in this case, since there is no still image present', function() {
       var view = new View(articleAudio);
-      assert.equal(view.mainTeaserAssetUrl, "");
+      assert.equal(view.getTeaserUrl(), "");
     });
     it('create a view using an article that holds an audio, register and see if we get the right url - should return the image_url of the still_image', function() {
       var view = new View(articleAudioWithStillImage);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/DLDA3ekP0zGXUia_8pVrTBXJoR0/e54b69a2e5fad7768d52635f913a96a6170c1803/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/DLDA3ekP0zGXUia_8pVrTBXJoR0/e54b69a2e5fad7768d52635f913a96a6170c1803/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds a htmlsnippet, register and see if we get the right url', function() {
       var view = new View(articleHtmlSnippet);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds a htmlsnippet, register and see if we get the right url', function() {
       var view = new View(articleHtmlSnippet2);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds a survey, register and see if we get the right url', function() {
       var view = new View(articleSurvey);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds a survey with teaser image in first asset, register and see if we get the right url', function() {
       var view = new View(articleSurveyWithTeaserInFirstAsset);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/wsT6NKdgl44RImtZ6ElmQsAAXzk/c4446a583936497fc5aee84fac2da0147c7b6fec/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/wsT6NKdgl44RImtZ6ElmQsAAXzk/c4446a583936497fc5aee84fac2da0147c7b6fec/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds a quiz, register and see if we get the right url', function() {
       var view = new View(articleQuiz);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds a quiz reverse, register and see if we get the right url(empty)', function() {
       var view = new View(articleQuizReverse);
-      assert.equal(view.mainTeaserAssetUrl, "");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/REA1Fl3nSf3YtgKTbyYdImgXoy8/1b80b0c7066f63c2f1dcbc0c2bcbf692e5877480/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
     it('create a view using an article that holds a quiz with teaser image in first asset, register and see if we get the right url', function() {
       var view = new View(articleQuizWithTeaserInFirstAsset);
-      assert.equal(view.mainTeaserAssetUrl, "http://localhost.local:8185/__ip/KeHsAFJPLrOwbSGomSlTvsoD3lw/ab06e1860c98d5d47d915c447d3ae3f6a4074819/teaser-goldbach");
+      assert.equal(view.getTeaserUrl(),
+                   "http://localhost.local:8185/__ip/KeHsAFJPLrOwbSGomSlTvsoD3lw/ab06e1860c98d5d47d915c447d3ae3f6a4074819/teaser-goldbach/GcGlR_MvKLHuBwcRueWc_1cYutY/220x130");
     });
   });
 
@@ -166,7 +179,7 @@ describe('view', function() {
     });
     it('get the article\'s main asset of a quiz', function() {
       var view = new View(articleQuizReverse);
-      assert.instanceOf(view.mainAsset, assets.Quiz);
+      assert.instanceOf(view.mainAsset, assets.Image);
     });
   });
 
@@ -238,15 +251,9 @@ describe('view', function() {
     var letterboxF = false;
     var letterboxT = true;
 
-    // real
-    it('getTeaserUrl returns with the expected suffix(letterbox=false)', function() {
+    it('getTeaserUrl returns with the expected suffix', function() {
       var view = new View(articleImage, { width: width, height: height });
-      assert.isTrue(view.getTeaserUrl(letterboxF).endsWith(width + 'x' + height))
-    });
-    // real
-    it('getTeaserUrl returns with the expected suffix(letterbox=true)', function() {
-      var view = new View(articleImage, { width: width, height: height });
-      assert.isTrue(view.getTeaserUrl(letterboxT).endsWith(width + 'x' + height + ',fill'))
+      assert.isTrue(view.getTeaserUrl().endsWith(width + 'x' + height))
     });
   });
 

@@ -5,7 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
-- change nav-item "Panorama" to "Leben/Wissen"
+ - fix legacy teaser and image handling
+ - change nav-item "Panorama" to "Leben/Wissen"
 
 2015/10/07 0.0.51
 =================
