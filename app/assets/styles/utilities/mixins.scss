@@ -421,3 +421,33 @@ $image-loader-size: 30px;
   float: left;
   padding-left: $spacing;
 }
+
+
+/// Fit image to box - stretch image up to fill new ratio
+/// @access public
+/// @param {List} $current-ratio - current ratio of image in the format (W, H)
+/// @param {List} $new-ratio - intended new ratio of image in the format (W, H)
+@mixin fit-image-to-box($current-ratio, $new-ratio) {
+  $current-width: nth($current-ratio, 1);
+  $current-height: nth($current-ratio, 2);
+
+  $new-width: nth($new-ratio, 1);
+  $new-height: nth($new-ratio, 2);
+
+  $current-padding: ($current-height / $current-width) * 100;
+  $new-padding: ($new-height / $new-width) * 100;
+
+  $image-width: ($new-padding / $current-padding) * 100;
+  $extra-width: $image-width - 100;
+  $margin-left: $extra-width / 2;
+
+  .responsive-image {
+    padding-bottom: $new-padding * 1%;
+  }
+
+  .picture__img {
+    width: $image-width * 1%;
+    margin-left: -$margin-left * 1%;
+    max-width: none;
+  }
+}
