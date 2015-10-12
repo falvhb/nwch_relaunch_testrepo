@@ -6,7 +6,7 @@ var karmaConfig = _.assign({}, karmaConfigDefault, {
     captureConsole: true
   },
   autoWatch: true,
-  browsers: [ 'Chrome' ],
+  browsers: [ 'PhantomJS'/*'Chrome'*/ ],
   singleRun: false,
 });
 
