@@ -57,6 +57,7 @@ app.use(require('./routing/api'));
 var loadArticle = require('./routing/loadArticle');
 var loadDomain = require('./routing/loadDomain');
 var loadDossier = require('./routing/loadDossier');
+var loadLatestArticles = require('./routing/loadLatestArticles');
 var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
@@ -68,6 +69,7 @@ var reCaptcha = require('./routing/reCaptcha');
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactDossierRouter = require('./routing/routingDossier');
+var reactLatestArticlesRouter = require('./routing/routingLatestArticles');
 var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
@@ -175,6 +177,13 @@ app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactDossierRouter);
+
+app.get(COMPONENT_PREFIX + '/:component/:variation',
+        loadLatestArticles,
+        loadComponentRequirements(),
+        waitAPI,
+        reactLatestArticlesRouter);
+
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadComponentRequirements('ressort-header'),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),

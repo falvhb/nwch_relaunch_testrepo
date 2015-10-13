@@ -13,6 +13,7 @@ var RelatedVideos = require('components/related-videos');
 var Teaser = require('components/teaser');
 var TeaserSwitchView = require('components/teaser-switch-view');
 var TopicDetail = require('components/topic-detail');
+var LatestArticles = require('components/latest-articles');
 
 // Map IDs to required components
 var components = {
@@ -24,7 +25,8 @@ var components = {
   relatedVideos: RelatedVideos,
   teaser: Teaser,
   teaserSwitchView: TeaserSwitchView,
-  topicDetail: TopicDetail
+  topicDetail: TopicDetail,
+  latestArticles: LatestArticles
 };
 
 // Hydrate all components client-side
