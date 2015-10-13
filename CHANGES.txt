@@ -31,6 +31,7 @@ unreleased
     add VARNISH_CACHE_TIME and VARNISH_GRACE_TIME environment variables
  - middleware to set cache headers for varnish caching
  - added legacy treasers
+ - removed “Zusammenfassung” text from DossierHeader
 
 2015/10/02 0.0.47
 =================
