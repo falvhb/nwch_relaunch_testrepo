@@ -24,14 +24,16 @@
 <meta name="msapplication-config" content="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/{{ skin }}/browserconfig.xml">
 <meta name="theme-color" content="{{ "#e30613" if skin == "ot" else "#1b4d85" }}">
 
-{# Inline the JavaScript utilities file since it needs to be synchronously
-   loaded. Also, it is very lightweight so it should not make any difference. #}
+{# Add helper classes for JS and touch detection #}
+<script>
+  {% include 'client/scripts/html-classes.js' %}
+</script>
+
+{# Add webfont loading script, adds loadFont function  #}
 <script>
   {% include 'client/scripts/webfont-loading.js' %}
 </script>
 
-{# Asynchronously request the font-face stylesheet based on the WOFF support,
-    then store it in localStorage for future visits. #}
 <script>
   (function (global) {
 

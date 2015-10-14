@@ -1,9 +1,3 @@
-var HtmlClasses = require('clientside/html-support-classes');
-var htmlClasses = new HtmlClasses();
-htmlClasses.init();
-
-var Iso = require('iso-react');
-
 var ArticleDetail = require('components/article-detail');
 var ArticleIntro = require('components/article-intro');
 var DossierHeader = require('components/dossier-header');
@@ -30,6 +24,7 @@ var components = {
 };
 
 // Hydrate all components client-side
+var Iso = require('iso-react');
 var iso = new Iso();
 iso.hydrate(components);
 
@@ -56,10 +51,10 @@ Advertising.injectAd({
 
 Advertising.init('.ad');
 
-// Stickiness
+// Ad Stickiness
 var StickyNode = require('advertising/sticky-node');
 
-var load = function() {
+var loadFunction = function() {
   StickyNode.init({
     element: '#side_ad',
     parent: '.ad--skyscraper',
@@ -69,4 +64,4 @@ var load = function() {
   });
 };
 
-window.addEventListener('load', load, false);
+window.addEventListener('load', loadFunction, false);

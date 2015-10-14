@@ -178,7 +178,7 @@ app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactDossierRouter);
 
-app.get(COMPONENT_PREFIX + '/:component/:variation',
+app.get(COMPONENT_PREFIX + '/latest/:component/:variation',
         loadLatestArticles,
         loadComponentRequirements(),
         waitAPI,
