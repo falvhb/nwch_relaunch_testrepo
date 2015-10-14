@@ -22,10 +22,12 @@ Using homebrew::
 Python 2.7 is needed.
 
 
-For homebrew you also need to add this to your .profile or .bashrc::
+For homebrew you also need to add this to your .profile, .bashrc or .zshrc::
 
     export C_INCLUDE_PATH="/usr/local/include"
     export LIBRARY_PATH="/usr/local/lib"
+
+Restart your Terminal before you go to the next step.
 
 
 Installation
@@ -88,10 +90,10 @@ entries::
 
 Now download the openresty file and move it to the buildout cache::
 
-    $ wget  http://openresty.org/download/ngx_openresty-1.4.3.6.tar.gz
+    $ wget http://openresty.org/download/ngx_openresty-1.4.3.6.tar.gz
     $ mv ngx_openresty-1.4.3.6.tar.gz ~/.buildout/cache/26b5e8f396fd26c987f4e15572e11526
 
-Now buildout should work.
+Buildout should work now.
 
 
 Usage
