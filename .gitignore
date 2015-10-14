@@ -24,6 +24,7 @@ deploy/bin/*
 deploy/eggs/*
 deploy/etc/supervisord-dev.conf
 deploy/etc/supervisord.conf
+tags
 
 # keep seed file for ad config
 !/scripts/az-banners-all-sites.csv
