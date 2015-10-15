@@ -1,4 +1,4 @@
-var karma = require('karma').server;
+var Server = require('karma').Server;
 var path = require('path');
 var _ = require('lodash');
 
@@ -42,17 +42,15 @@ var karmaOptionsLocalWatch = _.assign({}, karmaOptions, {
 });
 
 function reactTests(done) {
-  karma.start(karmaOptions, function ensureExitCode(exitCode) {
+  new Server(karmaOptions, function ensureExitCode(exitCode) {
     exitCodes.react = exitCode;
-    done();
-  });
+  }, done).start();
 }
 
 function reactTestsLocalWatch(done) {
-  karma.start(karmaOptionsLocalWatch, function ensureExitCode(exitCode) {
+  new Server(karmaOptionsLocalWatch, function ensureExitCode(exitCode) {
     exitCodes.react = exitCode;
-    done();
-  });
+  }, done).start();
 }
 
 
