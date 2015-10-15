@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - restored image gallery functionality to set a certain teaser image other
+   than the first one
  - add probestatus endpoint
  - added tests for expander
 
