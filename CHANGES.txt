@@ -5,6 +5,11 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added localdev nginx location for
+   - dashboard
+   - anmelden
+   - registrieren
+
 2015/10/08 0.0.53
 =================
 
