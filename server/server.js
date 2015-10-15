@@ -134,10 +134,10 @@ app.get('/favicon.ico', function(req, res) { res.send(''); });
 // The probe_status endpoint is used by haproxy to check if the instance is
 // alive.
 app.post('/probe_status',
-  probeStatus
+          probeStatus
 );
 app.get('/probe_status',
-  probeStatus
+          probeStatus
 );
 
 var LAYOUT_PREFIX = '/__layout__';

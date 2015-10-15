@@ -9,7 +9,6 @@ describe('probestatus', function() {
 
   var req;
   var res;
-  var next;
 
   beforeEach(function() {
     this.req = new requestMock.ReqMock();

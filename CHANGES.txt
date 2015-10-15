@@ -5,7 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
- - add probestatus endpoint in node
+ - add probestatus endpoint
  - fix legacy teaser and image handling
  - change nav-item "Panorama" to "Leben/Wissen"
 
