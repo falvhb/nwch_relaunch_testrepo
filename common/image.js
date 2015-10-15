@@ -1,6 +1,5 @@
 var responsiveImage = require('../app/node_modules/mixins/responsive-image');
 
-
 module.exports = {
 
   createImageSrc: function(src, width, height, letterbox) {
