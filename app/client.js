@@ -5,7 +5,7 @@ var Footer = require('components/footer');
 var HeaderNav = require('components/header-nav');
 var RelatedVideos = require('components/related-videos');
 var Teaser = require('components/teaser');
-var TeaserSwitchView = require('components/teaser-switch-view');
+var TeaserSwitchable = require('components/teaser-switchable');
 var TopicDetail = require('components/topic-detail');
 var LatestArticles = require('components/latest-articles');
 
@@ -18,7 +18,7 @@ var components = {
   headerNav: HeaderNav,
   relatedVideos: RelatedVideos,
   teaser: Teaser,
-  teaserSwitchView: TeaserSwitchView,
+  TeaserSwitchable: TeaserSwitchable,
   topicDetail: TopicDetail,
   latestArticles: LatestArticles
 };
