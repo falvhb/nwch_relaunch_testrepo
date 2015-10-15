@@ -75,6 +75,7 @@ var rss2Router = require('./routing/routingRss2');
 var loadComponentRequirements = require('./routing/loadComponentRequirements');
 var reactPostComponents = require('./routing/postComponents');
 var legacyReactComponentsRouter = require('./routing/routingLegacyComponents');
+var probeStatus = require('./routing/probestatus');
 
 // -----------------------------------------------------------------------------
 // Styleguide Routing / Json
@@ -119,6 +120,8 @@ app.use(require('./modules/cookie-session')({
   secret: process.env.SESSION_SECRET
 }));
 
+// We need this to parse POST parameters into req.body
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // -----------------------------------------------------------------------------
 // App Routing
@@ -130,10 +133,12 @@ app.get('/favicon.ico', function(req, res) { res.send(''); });
 
 // The probe_status endpoint is used by haproxy to check if the instance is
 // alive.
+app.post('/probe_status',
+          probeStatus
+);
 app.get('/probe_status',
-        function(req, res) {
-          res.send('OK');
-        });
+          probeStatus
+);
 
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
@@ -193,7 +198,6 @@ app.get(LEGACY_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:componen
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         legacyReactComponentsRouter);
-
 
 // catch-all route, throws an error to invoke error handling
 app.all('*', function(req, res) {

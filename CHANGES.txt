@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - add probestatus endpoint
  - added tests for expander
 
 2015/10/08 0.0.52
