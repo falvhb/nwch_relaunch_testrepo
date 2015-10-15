@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 var getSkinName = require('../modules/skin');
 
-
 /**
  * A middleware to load the the domain config.
  */

@@ -57,6 +57,7 @@ app.use(require('./routing/api'));
 var loadArticle = require('./routing/loadArticle');
 var loadDomain = require('./routing/loadDomain');
 var loadDossier = require('./routing/loadDossier');
+var loadLatestArticles = require('./routing/loadLatestArticles');
 var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
@@ -68,6 +69,7 @@ var reCaptcha = require('./routing/reCaptcha');
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactDossierRouter = require('./routing/routingDossier');
+var reactLatestArticlesRouter = require('./routing/routingLatestArticles');
 var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
@@ -131,14 +133,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/favicon.ico', function(req, res) { res.send(''); });
 
+
 // The probe_status endpoint is used by haproxy to check if the instance is
 // alive.
-app.post('/probe_status',
-          probeStatus
-);
-app.get('/probe_status',
-          probeStatus
-);
+app.post('/probe_status', probeStatus);
+app.get('/probe_status', probeStatus);
 
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
@@ -175,24 +174,35 @@ app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactDossierRouter);
+
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadComponentRequirements('ressort-header'),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactRessortHeaderRenderer);
+
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
         loadDomain,
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         nodeIncludesRouter);
+
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component(latest-articles)/:variation(default|news|ugc)',
+        loadLatestArticles,
+        waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
+        reactLatestArticlesRouter);
+
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
         loadArticle,
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
+
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         loadComponentRequirements(),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
+
 app.get(LEGACY_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component',
         loadArticle,
         waitAPI,

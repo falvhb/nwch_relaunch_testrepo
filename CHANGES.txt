@@ -5,6 +5,16 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - Teaser: massive refactoring of logic and conditionals for labels and switchable variations, as well as abstracting teaser parts
+ - TeaserSwitchable: added for separating concerns of teasers which change in variation
+   DEPLOY: update ALL node views in CMS as slot:recommendations?component=teaser-switchable now used
+ - ResponsiveImage: refactored to use <picture> element / picturefill and srcSet for PageSpeed and clientside performance
+ - ResponsiveImage: mixin deprecated and functions abstracted
+   TODO: abstract further, re-activate tests and align with Web IT about Kaltura images
+ - Picture: added for above and future re-usability
+ - Styleguide: fixed all views / components
+ - Helpers: refactored into clearer folder structure
+ - Teaser: stopped Sass code duplication and improved rendering
  - restored image gallery functionality to set a certain teaser image other
    than the first one
  - add probestatus endpoint

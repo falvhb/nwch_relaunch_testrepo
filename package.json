@@ -113,7 +113,7 @@
     "mocha": "^2.2.5",
     "nock": "^2.7.0",
     "phantomjs-polyfill": "0.0.1",
-    "picturefill": "^2.3.1",
+    "picturefill": "^3.0.1",
     "pre-commit": "^1.0.7",
     "promisify-node": "^0.1.5",
     "react-highlight": "^0.5.0",
