@@ -18,7 +18,7 @@ var components = {
   headerNav: HeaderNav,
   relatedVideos: RelatedVideos,
   teaser: Teaser,
-  TeaserSwitchable: TeaserSwitchable,
+  teaserSwitchable: TeaserSwitchable,
   topicDetail: TopicDetail,
   latestArticles: LatestArticles
 };
