@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - RelatedVides: fix horizontal scrolling bug and resizing behaviour
  - added localdev nginx location for
    - dashboard
    - anmelden
