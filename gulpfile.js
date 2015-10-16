@@ -16,6 +16,7 @@ gulp.task('lint', ['eslint', 'scss-lint']);
 
 // Compile Sass and its documentation
 gulp.task('sass', require('./tasks/sass.js'));
+gulp.task('sass:dashboard', require('./tasks/sass-dashboard.js'));
 gulp.task('sass:env', require('./tasks/sass-env.js'));
 gulp.task('sass:docs', require('./tasks/sass-doc.js'));
 // Disabled for now because form styles changed and we didn't seem to be using wufoo styles
@@ -55,6 +56,7 @@ gulp.task('sync-styleguide', ['sync-styleguide:typography', 'sync-styleguide:col
 // Assets compilation
 gulp.task('assets', sequence('clean', [
   'sass:env',
+  'sass:dashboard',
   'sass',
   // 'sass:wufoo',
   'static-scripts',

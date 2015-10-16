@@ -96,6 +96,15 @@ app.get('/styleguide/components.json', function(req, res) {
 });
 
 // -----------------------------------------------------------------------------
+// Dashboard Routing
+// -----------------------------------------------------------------------------
+
+var dashboardRouting = require('./routing/dashboard');
+app.get([
+  '/dashboard', '/dashboard/:page', '/anmelden', '/registrieren'
+], dashboardRouting);
+
+// -----------------------------------------------------------------------------
 // SassDoc
 // -----------------------------------------------------------------------------
 
