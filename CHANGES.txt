@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/10/08 0.0.53
+=================
+
  - Teaser: massive refactoring of logic and conditionals for labels and switchable variations, as well as abstracting teaser parts
  - TeaserSwitchable: added for separating concerns of teasers which change in variation
    DEPLOY: update ALL node views in CMS as slot:recommendations?component=teaser-switchable now used
