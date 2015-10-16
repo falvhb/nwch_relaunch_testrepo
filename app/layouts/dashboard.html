@@ -1,8 +1,30 @@
 <html>
   <head>
     {% include "app/includes/__head_shared.html" %}
+    {# Add webfont loading script, adds loadFont function  #}
+    <script>
+      {% include 'client/scripts/webfont-loading.js' %}
+    </script>
+
+    <script>
+      (function (global) {
+
+        // Check for defined globals
+        global.az = global.az || {};
+
+        // Load fonts to LocalStorage
+        global.loadFont(
+          'az-fonts',
+          '{{ staticBasePath }}/client/fonts/data-woff.css',
+          '{{ staticBasePath }}/client/fonts/data-woff2.css'
+        );
+
+      })(window);
+    </script>
+
     <link rel="stylesheet" href="{{ staticBasePath }}/client/styles.css" />
     <link rel="stylesheet" href="{{ staticBasePath }}/client/dashboard.css" />
+
   </head>
   <body>
     <div id="dashboard"></div>

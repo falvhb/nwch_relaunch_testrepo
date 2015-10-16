@@ -21,25 +21,3 @@
 <meta name="msapplication-TileImage" content="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/mstile-144x144.png">
 <meta name="msapplication-config" content="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/{{ skin }}/browserconfig.xml">
 <meta name="theme-color" content="{{ "#e30613" if skin == "ot" else "#1b4d85" }}">
-
-
-{# Add webfont loading script, adds loadFont function  #}
-<script>
-  {% include 'client/scripts/webfont-loading.js' %}
-</script>
-
-<script>
-  (function (global) {
-
-    // Check for defined globals
-    global.az = global.az || {};
-
-    // Load fonts to LocalStorage
-    global.loadFont(
-      'az-fonts',
-      '{{ staticBasePath }}/client/fonts/data-woff.css',
-      '{{ staticBasePath }}/client/fonts/data-woff2.css'
-    );
-
-  })(window);
-</script>
