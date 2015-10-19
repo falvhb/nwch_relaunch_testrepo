@@ -8,6 +8,7 @@ var HeaderNav = require('components/header-nav');
 var RelatedVideos = require('components/related-videos');
 var Teaser = require('components/teaser');
 var TopicDetail = require('components/topic-detail');
+var VideoLibrary = require('components/video-library');
 
 // Map ids to required components
 var components = {
@@ -18,7 +19,8 @@ var components = {
   headerNav: HeaderNav,
   relatedVideos: RelatedVideos,
   teaser: Teaser,
-  topicDetail: TopicDetail
+  topicDetail: TopicDetail,
+  videoLibrary: VideoLibrary
 };
 
 // Hydrate all components client-side
