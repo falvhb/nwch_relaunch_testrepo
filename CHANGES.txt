@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ -  more fixes for the legacy teaser6ColTiny component
+
 2015/10/19 0.0.54
 =================
 
