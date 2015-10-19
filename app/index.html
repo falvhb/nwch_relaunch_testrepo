@@ -13,28 +13,6 @@
 
     {# Tracking has to be loaded synchronously here. #}
     <script src="/client/tracking.bundled.js"></script>
-
-    {# Asynchronously request the font-face stylesheet based on the WOFF support,
-       then store it in localStorage for future visits. #}
-    <script>
-      (function (global) {
-        global.loadFont(
-          // Font storage name
-          'az-fonts',
-          // WOFF URL
-          '/client/fonts/data-woff.css',
-          // WOFF2 URL
-          '/client/fonts/data-woff2.css'
-        );
-      })(window);
-    </script>
-    <link rel="stylesheet" href="/client/styles.css" />
-    {% block head %}{% endblock %}
-  </head>
-
-  <body class="styleguide-body">
-    {# @TODO: Move to external file.
-       NetMetrix PageView tracking. #}
     <script>
       if (typeof window.AZTracker !== 'undefined' && window.AZTracker.trackPageView) {
         window.AZTracker.trackPageView({
@@ -61,6 +39,25 @@
       }
     </script>
 
+    {# Asynchronously request the font-face stylesheet based on the WOFF support,
+       then store it in localStorage for future visits. #}
+    <script>
+      (function (global) {
+        global.loadFont(
+          // Font storage name
+          'az-fonts',
+          // WOFF URL
+          '/client/fonts/data-woff.css',
+          // WOFF2 URL
+          '/client/fonts/data-woff2.css'
+        );
+      })(window);
+    </script>
+    <link rel="stylesheet" href="/client/styles.css" />
+    {% block head %}{% endblock %}
+  </head>
+
+  <body class="styleguide-body">
     <div id="app" class="wrapper">{% block content %}{% endblock %}</div>
     <script src="/client/styleguide.bundled.js"></script>
     {% block scripts %}{% endblock %}
