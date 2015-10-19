@@ -64,3 +64,6 @@
 <!--# include virtual="{{ staticBasePath }}/client/includes/advertising/{{ skin }}_{{ pageType }}.html" -->
 {%- endif %}
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+{# Tracking has to be loaded synchronously before page's body is rendered. #}
+<!-- <script src="{{ staticBasePath }}/client/tracking.bundled.js"></script> -->

@@ -11,6 +11,9 @@
       {% include "client/scripts/webfont-loading.js" %}
     </script>
 
+    {# Tracking has to be loaded synchronously here. #}
+    <script src="/client/tracking.bundled.js"></script>
+
     {# Asynchronously request the font-face stylesheet based on the WOFF support,
        then store it in localStorage for future visits. #}
     <script>
@@ -30,6 +33,34 @@
   </head>
 
   <body class="styleguide-body">
+    {# @TODO: Move to external file.
+       NetMetrix PageView tracking. #}
+    <script>
+      if (typeof window.AZTracker !== 'undefined' && window.AZTracker.trackPageView) {
+        window.AZTracker.trackPageView({
+          domain: 'aznetz',
+          path: {
+            product: 'live',
+
+            // exclude as it is already contained in url path
+            // sitename: 'styleguide',
+
+            // component name event tracking, "page" or "empty" for pageview tracking
+            // @TODO: adjust in concept
+            // view: 'page',
+
+            path: window.location.pathname,
+            event: 'pageview',
+            id: null,
+            index: null
+          },
+          referer: document.referer,
+          screenWidth: screen.width,
+          screenHeight: screen.height
+        });
+      }
+    </script>
+
     <div id="app" class="wrapper">{% block content %}{% endblock %}</div>
     <script src="/client/styleguide.bundled.js"></script>
     {% block scripts %}{% endblock %}
