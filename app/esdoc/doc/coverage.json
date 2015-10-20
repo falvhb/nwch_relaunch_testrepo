@@ -1,0 +1,12 @@
+{
+  "coverage": "100%",
+  "expectCount": 3,
+  "actualCount": 3,
+  "files": {
+    "tracking/tracker.jsx": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    }
+  }
+}

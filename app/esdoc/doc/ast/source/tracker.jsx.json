@@ -1,0 +1,884 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "NetMetrixTracker",
+            "range": [
+              82,
+              98
+            ],
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 7
+              },
+              "end": {
+                "line": 2,
+                "column": 23
+              }
+            }
+          },
+          "range": [
+            82,
+            98
+          ],
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 7
+            },
+            "end": {
+              "line": 2,
+              "column": 23
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "tracking/net-metrix-tracker",
+        "raw": "'tracking/net-metrix-tracker'",
+        "range": [
+          104,
+          133
+        ],
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 29
+          },
+          "end": {
+            "line": 2,
+            "column": 58
+          }
+        }
+      },
+      "range": [
+        75,
+        134
+      ],
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 59
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Line",
+          "value": " import GoogleAnalyticsTracker from 'tracking/google-analytics-tracker';",
+          "range": [
+            0,
+            74
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 74
+            }
+          }
+        }
+      ],
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n ",
+          "range": [
+            136,
+            238
+          ],
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 0
+            },
+            "end": {
+              "line": 6,
+              "column": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ExportDefaultDeclaration",
+      "declaration": {
+        "type": "ClassDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "Tracker",
+          "range": [
+            260,
+            267
+          ],
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 21
+            },
+            "end": {
+              "line": 7,
+              "column": 28
+            }
+          }
+        },
+        "superClass": null,
+        "body": {
+          "type": "ClassBody",
+          "body": [
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "trackPageView",
+                "range": [
+                  1991,
+                  2004
+                ],
+                "loc": {
+                  "start": {
+                    "line": 45,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 45,
+                    "column": 22
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "data",
+                    "range": [
+                      2005,
+                      2009
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 45,
+                        "column": 23
+                      },
+                      "end": {
+                        "line": 45,
+                        "column": 27
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "Identifier",
+                            "name": "NetMetrixTracker",
+                            "range": [
+                              2017,
+                              2033
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 46,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 46,
+                                "column": 20
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "trackPageView",
+                            "range": [
+                              2034,
+                              2047
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 46,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 46,
+                                "column": 34
+                              }
+                            }
+                          },
+                          "range": [
+                            2017,
+                            2047
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 46,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 46,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "name": "data",
+                            "range": [
+                              2048,
+                              2052
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 46,
+                                "column": 35
+                              },
+                              "end": {
+                                "line": 46,
+                                "column": 39
+                              }
+                            }
+                          }
+                        ],
+                        "range": [
+                          2017,
+                          2053
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 46,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 46,
+                            "column": 40
+                          }
+                        }
+                      },
+                      "range": [
+                        2017,
+                        2054
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 46,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 46,
+                          "column": 41
+                        }
+                      },
+                      "trailingComments": [
+                        {
+                          "type": "Line",
+                          "value": " GoogleAnalyticsTracker.trackPageView(data);",
+                          "range": [
+                            2059,
+                            2105
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 47,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 47,
+                              "column": 50
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "range": [
+                    2011,
+                    2109
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 45,
+                      "column": 29
+                    },
+                    "end": {
+                      "line": 48,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  2004,
+                  2109
+                ],
+                "loc": {
+                  "start": {
+                    "line": 45,
+                    "column": 22
+                  },
+                  "end": {
+                    "line": 48,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                1984,
+                2109
+              ],
+              "loc": {
+                "start": {
+                  "line": 45,
+                  "column": 2
+                },
+                "end": {
+                  "line": 48,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * @example\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * NetMetrixTracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.view       - The view. `page` for `path.event=='pageview'` or `'[component name]'` for event _tracking.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view _tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the component or the page.\n   * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   ",
+                  "range": [
+                    273,
+                    1981
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 9,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 44,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * Tracks events.\n   *\n   * @todo: implementation\n   *\n   ",
+                  "range": [
+                    2113,
+                    2179
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 50,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 55,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": true
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "trackEvent",
+                "range": [
+                  2189,
+                  2199
+                ],
+                "loc": {
+                  "start": {
+                    "line": 56,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 56,
+                    "column": 19
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "data",
+                    "range": [
+                      2200,
+                      2204
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 56,
+                        "column": 20
+                      },
+                      "end": {
+                        "line": 56,
+                        "column": 24
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "Identifier",
+                            "name": "NetMetrixTracker",
+                            "range": [
+                              2212,
+                              2228
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 57,
+                                "column": 4
+                              },
+                              "end": {
+                                "line": 57,
+                                "column": 20
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "trackEvent",
+                            "range": [
+                              2229,
+                              2239
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 57,
+                                "column": 21
+                              },
+                              "end": {
+                                "line": 57,
+                                "column": 31
+                              }
+                            }
+                          },
+                          "range": [
+                            2212,
+                            2239
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 57,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 57,
+                              "column": 31
+                            }
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "name": "data",
+                            "range": [
+                              2240,
+                              2244
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 57,
+                                "column": 32
+                              },
+                              "end": {
+                                "line": 57,
+                                "column": 36
+                              }
+                            }
+                          }
+                        ],
+                        "range": [
+                          2212,
+                          2245
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 57,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 57,
+                            "column": 37
+                          }
+                        }
+                      },
+                      "range": [
+                        2212,
+                        2246
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 57,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 57,
+                          "column": 38
+                        }
+                      },
+                      "trailingComments": [
+                        {
+                          "type": "Line",
+                          "value": " GoogleAnalyticsTracker.trackEvent(data);",
+                          "range": [
+                            2251,
+                            2294
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 58,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 58,
+                              "column": 47
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "range": [
+                    2206,
+                    2298
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 56,
+                      "column": 26
+                    },
+                    "end": {
+                      "line": 59,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  2199,
+                  2298
+                ],
+                "loc": {
+                  "start": {
+                    "line": 56,
+                    "column": 19
+                  },
+                  "end": {
+                    "line": 59,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                2182,
+                2298
+              ],
+              "loc": {
+                "start": {
+                  "line": 56,
+                  "column": 2
+                },
+                "end": {
+                  "line": 59,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Line",
+                  "value": " GoogleAnalyticsTracker.trackPageView(data);",
+                  "range": [
+                    2059,
+                    2105
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 47,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 47,
+                      "column": 50
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * Tracks events.\n   *\n   * @todo: implementation\n   *\n   ",
+                  "range": [
+                    2113,
+                    2179
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 50,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 55,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": true
+            }
+          ],
+          "range": [
+            268,
+            2301
+          ],
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 29
+            },
+            "end": {
+              "line": 61,
+              "column": 1
+            }
+          }
+        },
+        "range": [
+          254,
+          2301
+        ],
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 15
+          },
+          "end": {
+            "line": 61,
+            "column": 1
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n ",
+            "range": [
+              136,
+              238
+            ],
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 6,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": []
+      },
+      "range": [
+        239,
+        2301
+      ],
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 61,
+          "column": 1
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n ",
+          "range": [
+            136,
+            238
+          ],
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 0
+            },
+            "end": {
+              "line": 6,
+              "column": 3
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    75,
+    2301
+  ],
+  "loc": {
+    "start": {
+      "line": 2,
+      "column": 0
+    },
+    "end": {
+      "line": 61,
+      "column": 1
+    }
+  },
+  "comments": [
+    {
+      "type": "Line",
+      "value": " import GoogleAnalyticsTracker from 'tracking/google-analytics-tracker';",
+      "range": [
+        0,
+        74
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 74
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n * Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n ",
+      "range": [
+        136,
+        238
+      ],
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * @example\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * NetMetrixTracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.view       - The view. `page` for `path.event=='pageview'` or `'[component name]'` for event _tracking.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view _tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the component or the page.\n   * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   ",
+      "range": [
+        273,
+        1981
+      ],
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 44,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Line",
+      "value": " GoogleAnalyticsTracker.trackPageView(data);",
+      "range": [
+        2059,
+        2105
+      ],
+      "loc": {
+        "start": {
+          "line": 47,
+          "column": 4
+        },
+        "end": {
+          "line": 47,
+          "column": 50
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * Tracks events.\n   *\n   * @todo: implementation\n   *\n   ",
+      "range": [
+        2113,
+        2179
+      ],
+      "loc": {
+        "start": {
+          "line": 50,
+          "column": 2
+        },
+        "end": {
+          "line": 55,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Line",
+      "value": " GoogleAnalyticsTracker.trackEvent(data);",
+      "range": [
+        2251,
+        2294
+      ],
+      "loc": {
+        "start": {
+          "line": 58,
+          "column": 4
+        },
+        "end": {
+          "line": 58,
+          "column": 47
+        }
+      }
+    }
+  ]
+}
