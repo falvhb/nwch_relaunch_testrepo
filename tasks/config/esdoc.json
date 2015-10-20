@@ -1,6 +1,6 @@
 {
   "source": "./app/node_modules/tracking",
-  "destination": "./docs/esdoc/app/tracking",
+  "destination": "./app/esdoc/doc",
   "includes": ["\\.(js|jsx)$"],
-  "index": ""
+  "index": "./app/esdoc/readme.md"
 }

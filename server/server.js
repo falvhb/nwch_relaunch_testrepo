@@ -104,6 +104,18 @@ app.get('/sassdoc', function(req, res) {
   res.render('sassdoc/index.html');
 });
 
+// -----------------------------------------------------------------------------
+// ESDoc
+// -----------------------------------------------------------------------------
+
+// Serve asset folders
+app.use('/esdoc', express.static('app/esdoc/doc'));
+
+// ESDoc route
+app.get('/esdoc', function(req, res) {
+  res.render('esdoc/doc/index.html');
+});
+
 
 // -----------------------------------------------------------------------------
 // Authentication
