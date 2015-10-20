@@ -1,0 +1,11 @@
+{
+ "source": {
+  "includePattern": ".+\\.(js|jsx)+$"
+ },
+ "plugins": [
+    "node_modules/jsdoc-babel"
+ ],
+ "babel": {
+    "extensions": ["js", "jsx"]
+ }
+}

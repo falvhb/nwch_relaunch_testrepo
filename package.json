@@ -97,6 +97,7 @@
     "is-retina": "^1.0.3",
     "jquery": "^2.1.4",
     "jsdoc": "^3.3.3",
+    "jsdoc-babel": "^0.1.0",
     "json-loader": "^0.5.2",
     "karma": "^0.13.9",
     "karma-chai": "^0.1.0",

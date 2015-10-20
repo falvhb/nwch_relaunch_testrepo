@@ -7,8 +7,10 @@ var options = {
   destination: './docs/jsdoc/app/tracking',
 };
 
+var configFile = 'tasks/config/js-doc.json';
+
 module.exports = function() {
-  var command = './node_modules/.bin/jsdoc ' + options.source + ' -d ' + options.destination;
+  var command = './node_modules/.bin/jsdoc ' + options.source + ' -d ' + options.destination + ' -c ' + configFile;
 
   return gulp
       // Just specify one file as source
