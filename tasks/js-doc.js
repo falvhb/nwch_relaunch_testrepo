@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 var gulp = require('gulp');
-var shell = require('gulp-shell');
+var exec = require('gulp-exec');
 
 var options = {
   source: './app/node_modules/tracking',
@@ -16,6 +16,6 @@ module.exports = function() {
       // We just have to provide one existing source file to run gulp.
       .src('./gulpfile.js')
       .pipe(
-        shell([command])
+        exec([command])
       );
 };
