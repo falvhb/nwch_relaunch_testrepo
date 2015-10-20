@@ -47,6 +47,9 @@ gulp.task('sync-styleguide:typography', require('./tasks/sync-styleguide-typogra
 gulp.task('sync-styleguide:colors', require('./tasks/sync-styleguide-colors.js'));
 gulp.task('sync-styleguide', ['sync-styleguide:typography', 'sync-styleguide:colors']);
 
+// JS Documentation
+gulp.task('jsdoc', require('./tasks/js-doc.js'));
+
 // -----------------------------------------------------------------------------
 // Meta tasks
 // -----------------------------------------------------------------------------
