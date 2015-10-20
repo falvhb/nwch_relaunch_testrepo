@@ -63,7 +63,7 @@ server {
         }
     }
 
-    location ~ '^/(dashboard|anmelden|registrieren)$' {
+    location ~ '^/(dashboard(.*)|anmelden|registrieren)$' {
         # pages which are rendered directly in node
         ssi on;
         proxy_set_header X-Real-IP $remote_addr;
