@@ -14,7 +14,7 @@ function ensureLogin(nextState, replaceState) {
   var redirectPath = location.pathname + location.search;
 
   if (!isLoggedIn()) {
-    replaceState({ lol: 'tralala' }, '/anmelden', { redirectTo: redirectPath });
+    replaceState({ }, '/anmelden', { redirectTo: redirectPath });
   }
 }
 
