@@ -54,14 +54,18 @@ Advertising.init('.ad');
 // Ad Stickiness
 var StickyNode = require('advertising/sticky-node');
 
+var stickyNode = new StickyNode({
+  element: '#side_ad',
+  parent: '.ad--skyscraper',
+  container: '#sticky-wrapper',
+  offset: 170,
+  breakpoint: 1400
+});
+
+window.StickyNode = stickyNode;
+
 var loadFunction = function() {
-  StickyNode.init({
-    element: '#side_ad',
-    parent: '.ad--skyscraper',
-    container: '#sticky-wrapper',
-    offset: 170,
-    breakpoint: 1400
-  });
+  stickyNode.init();
 };
 
 window.addEventListener('load', loadFunction, false);
