@@ -1,5 +1,3 @@
-var Iso = require('iso-react');
-
 var ArticleDetail = require('components/article-detail');
 var ArticleIntro = require('components/article-intro');
 var DossierHeader = require('components/dossier-header');
@@ -7,10 +5,12 @@ var Footer = require('components/footer');
 var HeaderNav = require('components/header-nav');
 var RelatedVideos = require('components/related-videos');
 var Teaser = require('components/teaser');
+var TeaserSwitchable = require('components/teaser-switchable');
 var TopicDetail = require('components/topic-detail');
 var VideoLibrary = require('components/video-library');
+var LatestArticles = require('components/latest-articles');
 
-// Map ids to required components
+// Map IDs to required components
 var components = {
   articleDetail: ArticleDetail,
   articleIntro: ArticleIntro,
@@ -20,10 +20,13 @@ var components = {
   relatedVideos: RelatedVideos,
   teaser: Teaser,
   topicDetail: TopicDetail,
-  videoLibrary: VideoLibrary
+  videoLibrary: VideoLibrary,
+  teaserSwitchable: TeaserSwitchable,
+  latestArticles: LatestArticles
 };
 
 // Hydrate all components client-side
+var Iso = require('iso-react');
 var iso = new Iso();
 iso.hydrate(components);
 
@@ -35,7 +38,7 @@ recommendationsTop.init();
 // Clean CMS empty grid cells
 var ClearEmptyCells = require('clientside/clear-empty-cells');
 var clearEmptyCells = new ClearEmptyCells();
-clearEmptyCells.init({ selector: '.grid__item' });
+// clearEmptyCells.init({ selector: '.grid__item' });
 clearEmptyCells.init({ selector: '.recommendations-top__cell' });
 clearEmptyCells.init({ selector: '.recommendations-bottom__cell' });
 
@@ -50,10 +53,10 @@ Advertising.injectAd({
 
 Advertising.init('.ad');
 
-// Stickiness
+// Ad Stickiness
 var StickyNode = require('advertising/sticky-node');
 
-var load = function() {
+var loadFunction = function() {
   StickyNode.init({
     element: '#side_ad',
     parent: '.ad--skyscraper',
@@ -63,4 +66,4 @@ var load = function() {
   });
 };
 
-window.addEventListener('load', load, false);
+window.addEventListener('load', loadFunction, false);

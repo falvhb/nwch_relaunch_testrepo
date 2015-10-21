@@ -11,4 +11,5 @@ module.exports = {
     }
     return req.headers['x-forwarded-proto'] + '://' + req.headers.host + path;
   }
+
 };
