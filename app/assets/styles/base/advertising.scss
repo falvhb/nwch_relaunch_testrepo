@@ -74,15 +74,15 @@ $skyscraper-width: 300px;
 /**
  * Top Board advert
  */
-#top_board {
-  @include media('<=mobile-portrait') {
-    margin-bottom: 30px;
-  }
+// #top_board {
+//   @include media('<=mobile-portrait') {
+//     margin-bottom: 30px;
+//   }
 
-  @include media('>mobile-portrait') {
-    margin-bottom: 40px;
-  }
-}
+//   @include media('>mobile-portrait') {
+//     margin-bottom: 40px;
+//   }
+// }
 
 /**
  * Content Board advert
@@ -101,31 +101,31 @@ $skyscraper-width: 300px;
 /**
  * Content boards which break grid
  */
-.ad--grid-content-board {
-  @include media('<=mobile-portrait') {
-    margin-top: 30px;
-    margin-bottom: 50px;
-  }
+// .ad--grid-content-board {
+//   @include media('<=mobile-portrait') {
+//     margin-top: 30px;
+//     margin-bottom: 50px;
+//   }
 
-  @include media('>mobile-portrait') {
-    margin-top: 40px;
-    margin-bottom: 60px;
-  }
-}
+//   @include media('>mobile-portrait') {
+//     margin-top: 40px;
+//     margin-bottom: 60px;
+//   }
+// }
 
 /**
  * Bottom Board advert
  * Note: Never add bottom margin due to sticky skyscraper
  */
-#bottom_board {
-  @include media('<=mobile-portrait') {
-    margin-top: 30px;
-  }
+// #bottom_board {
+//   @include media('<=mobile-portrait') {
+//     margin-top: 30px;
+//   }
 
-  @include media('>mobile-portrait') {
-    margin-top: 40px;
-  }
-}
+//   @include media('>mobile-portrait') {
+//     margin-top: 40px;
+//   }
+// }
 
 /**
  * Skyscraper Advert
