@@ -8,7 +8,11 @@ unreleased
 2015/10/19 0.0.55
 =================
 
- -  more fixes for the legacy teaser6ColTiny component
+ - ArticleHeader: add UGC and Sponsored content header
+ - Ads: fix / improve all advertising slot spacing and Skyscraper behaviour
+   DEPLOY: update id="sticky-wrapper" positions in CMS layouts
+ - UGC articles: ensure same layout is used and sympathetic to less data
+ - more fixes for the legacy teaser6ColTiny component
 
 2015/10/19 0.0.54
 =================
