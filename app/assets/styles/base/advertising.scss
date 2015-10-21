@@ -2,10 +2,19 @@
 
 // scss-lint:disable all
 
+$skyscraper-width: 300px;
+
 /**
  * AdTech ad content
  * Note: Added inside <div>s with by ad script
+ * 1. Above everything but the header
+ * 2. Pop-out ads above other ads
  */
+.ad {
+  position: relative;
+  z-index: 50; /* 1 */
+}
+
 .ad * {
   box-sizing: content-box;
 }
@@ -21,8 +30,14 @@
 /**
  * Skyscraper Ad sidebar
  * 1. Hidden until there is space for it
- * 2. Fixed to the right-hand-side
+ * 2. Push to the right-hand-side
+ * 3. Above other ads (for pop-out ad)
+ * 4. Use container as a base when centering
  */
+.container--skyscraper {
+  position: relative;
+}
+
 .ad--skyscraper {
   @include media('<=advertising-skyscraper') {
     display: none; /* 1 */
@@ -30,10 +45,9 @@
 
   @include media('>advertising-skyscraper') {
     position: absolute; /* 2 */
-    width: 300px;
-    top: auto;
-    right: 10px;
+    z-index: 51; /* 3 */
     height: 600px;
+    left: calc(100% + 30px);
   }
 }
 
@@ -62,11 +76,13 @@
  */
 #top_board {
   @include media('<=mobile-portrait') {
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   @include media('>mobile-portrait') {
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }
 
@@ -76,24 +92,25 @@
  */
 #content_board {
   @include media('<=mobile-portrait') {
+    margin-top: 10px;
+    margin-bottom: 40px;
     width: calc(100% + #{(2 * $container-spacing)}); /* 1 */
   }
 
   @include media('>mobile-portrait') {
+    margin-top: 30px;
+    margin-bottom: 55px;
     width: calc(100% + #{(4 * $container-spacing)}); /* 1 */
   }
 }
 
-/**
- * Content boards which break grid
- */
-.ad--grid-content-board {
+.container--article #content_board {
   @include media('<=mobile-portrait') {
-    margin-bottom: 30px;
+    margin-top: 40px;
   }
 
   @include media('>mobile-portrait') {
-    margin-bottom: 40px;
+    margin-top: 55px;
   }
 }
 
@@ -107,7 +124,7 @@
   }
 
   @include media('>mobile-portrait') {
-    margin-top: 40px;
+    margin-top: 55px;
   }
 }
 
@@ -116,8 +133,7 @@
  * Note: Inserted with JS into article body
  */
 #side_ad {
-  width: 300px;
-  text-align: right;
+  width: $skyscraper-width;
 }
 
 /**

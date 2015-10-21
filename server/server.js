@@ -33,7 +33,7 @@ var isDevelopment = process.env.NODE_ENV === 'development';
 
 // Allow requiring of JSX
 require('babel/register')({
-  ignore: /client|www\/node_modules/,
+  only: /\/app|server|tasks|test\//,
   stage: 1,
   extensions: ['.jsx', '.js']
 });
@@ -83,17 +83,19 @@ var probeStatus = require('./routing/probestatus');
 // Styleguide Routing / Json
 // -----------------------------------------------------------------------------
 
-var components = require('./styleguide/components');
-var styleguideRoute = require('./styleguide/routing');
+if (process.env.NODE_ENV === 'development') {
+  var components = require('./styleguide/components');
+  var styleguideRoute = require('./styleguide/routing');
 
-app.get('/styleguide', styleguideRoute);
-app.get('/styleguide/:category/:component', styleguideRoute);
-app.get('/styleguide/:category/:component/preview', styleguideRoute);
-app.get('/styleguide/:category/:component/:variation', styleguideRoute);
-app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
-app.get('/styleguide/components.json', function(req, res) {
-  res.json(components);
-});
+  app.get('/styleguide', styleguideRoute);
+  app.get('/styleguide/:category/:component', styleguideRoute);
+  app.get('/styleguide/:category/:component/preview', styleguideRoute);
+  app.get('/styleguide/:category/:component/:variation', styleguideRoute);
+  app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
+  app.get('/styleguide/components.json', function(req, res) {
+    res.json(components);
+  });
+}
 
 // -----------------------------------------------------------------------------
 // SassDoc
