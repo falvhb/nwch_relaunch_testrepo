@@ -50,7 +50,7 @@ gulp.task('sync-styleguide', ['sync-styleguide:typography', 'sync-styleguide:col
 // JS Documentation
 gulp.task('esdoc', require('./tasks/esdoc.js'));
 // deprecated: use esdoc preferably
-gulp.task('jsdoc', require('./tasks/js-doc.js'));
+gulp.task('jsdoc', require('./tasks/jsdoc.js'));
 
 // -----------------------------------------------------------------------------
 // Meta tasks

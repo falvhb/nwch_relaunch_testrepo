@@ -4,10 +4,10 @@ var exec = require('gulp-exec');
 
 var options = {
   source: './app/node_modules/tracking',
-  destination: './docs/jsdoc/app/tracking',
+  destination: './app/jsdoc/doc',
 };
 
-var configFile = 'tasks/config/js-doc.json';
+var configFile = 'tasks/config/jsdoc.json';
 
 module.exports = function() {
   var command = './node_modules/.bin/jsdoc ' + options.source + ' -d ' + options.destination + ' -c ' + configFile;
