@@ -14,6 +14,9 @@
     {# Track on loading of page. #}
     <script src="/client/tracking.bundled.js"></script>
     <script src="/client/scripts/tracking/netmetrix.js"></script>
+    <noscript id="trackingNoScript">
+      <!-- @TODO: request tag in img -->
+    </noscript>
 
     {# Asynchronously request the font-face stylesheet based on the WOFF support,
        then store it in localStorage for future visits. #}
