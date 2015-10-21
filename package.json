@@ -1,6 +1,6 @@
 {
   "name": "az-nwch-js",
-  "version": "0.0.54",
+  "version": "0.0.55",
   "engines": {
     "node": "0.12.x"
   },
@@ -53,7 +53,7 @@
     "on-headers": "^1.0.0",
     "qs": "^4.0.0",
     "react": "^0.13.3",
-    "react-bem-helper": "^1.0.0",
+    "react-bem-helper": "^1.1.0",
     "react-tools": "^0.13.3",
     "recursive-escape": "^1.0.0",
     "recursive-unescape": "^1.0.0",
