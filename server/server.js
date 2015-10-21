@@ -33,9 +33,9 @@ var isDevelopment = process.env.NODE_ENV === 'development';
 
 // Allow requiring of JSX
 require('babel/register')({
-  ignore: /client/,
+  ignore: /client|www\/node_modules/,
   stage: 1,
-  extensions: ['.jsx']
+  extensions: ['.jsx', '.js']
 });
 
 // Nunjucks
