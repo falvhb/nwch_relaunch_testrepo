@@ -162,9 +162,15 @@ var logRoute = function(req, res, next) {
   console.log('=============Route matched:', req.originalUrl);
   next();
 };
-// matching on following request: 'http://localhost:8000/__component__/mediathek/videos/video-library/all'
-app.get(COMPONENT_PREFIX + '/mediathek/videos/:component/:variation',
+
+// matching on following request: 'http://localhost:8000/__component__/video-library/all'
+app.get(COMPONENT_PREFIX + '/video-library/all',
         logRoute,
+        function(req, res, next) {
+          req.params.component = 'video-library';
+          req.params.variation = 'all';
+          next();
+        },
         // load domain data first
         loadDomain,
         waitAPI,
@@ -172,25 +178,6 @@ app.get(COMPONENT_PREFIX + '/mediathek/videos/:component/:variation',
         loadComponentRequirements(),
         reactComponentsRouter
         );
-
-// var logRoute2 = function(req, res, next) {
-//   console.log('====DEBUG VL2=====', 'route:', req.originalUrl);
-//   next();
-// };
-// app.get(COMPONENT_PREFIX + '/mediathek/videos/:component/_/:variation',
-//         logRoute2,
-//         // load domain data first
-//         loadDomain,
-//         waitAPI,
-//         // load data in api.js (video data)
-//         loadComponentRequirements(),
-//         reactComponentsRouter
-
-//         //@TODO: if subesquent routes are not executed do component loading here
-//         // loadComponentRequirements(),
-//         // cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
-//         // reactComponentsRouter
-//         );
 
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
