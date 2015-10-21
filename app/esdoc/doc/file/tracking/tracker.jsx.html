@@ -53,7 +53,11 @@ export default class Tracker {
    * Net Metrix:
    * Tracks Net Metrix or logs tracking to `console` for non-live hosts.
    *
+   * Google Analytics:
+   * ...
+   *
    * @example
+   * // Currently only covers Net Metrix tracking
    * let data = {
    *   domain: &apos;aznetz&apos;,
    *   path: {
@@ -65,7 +69,7 @@ export default class Tracker {
    *   }
    * };
    *
-   * NetMetrixTracker.trackPageView(data);
+   * Tracker.trackPageView(data);
    *
    *
    * @param  {object}   data                 - Configuration data.

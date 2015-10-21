@@ -44,6 +44,9 @@ import deepForEach from &apos;helpers/deep-foreach&apos;;
 import QS from &apos;qs&apos;;
 import config from &apos;tracking/config.json&apos;;
 
+const TYPE_PAGEVIEW = &apos;Pageview&apos;;
+const TYPE_EVENT = &apos;Event&apos;;
+
 /**
  * @ignore
  */
@@ -128,8 +131,8 @@ export default class NetMetrixTracker {
     image.src = tag;
   }
 
-  static _log(tag) {
-    console.info(`Detected Net Metrix tag not fired. Current host &quot;${window.location.host}&quot; is not configured as live host: `, tag);
+  static _log(tag, type) {
+    console.info(`Detected Net Metrix tag of type &apos;${type}&apos; not fired as current host &quot;${window.location.host}&quot; is not whitelisted as live host in &quot;app/node_modules/tracking/config.json&quot;. Net Metrix tag is: `, tag);
   }
 
   static _isLiveHost() {
@@ -153,28 +156,30 @@ export default class NetMetrixTracker {
     return isLive;
   }
 
-  static _track(data) {
+  static _track(data, type) {
     let tag = this._getTag(data);
 
     // Only request tag if we are live. Otherwise _log to console
     if (this._isLiveHost()) {
       this._requestTag(tag);
     } else {
-      this._log(tag);
+      this._log(tag, type);
     }
   }
 
   static trackEvent(data) {
-    this._track(data);
+    this._track(data, NetMetrixTracker.TYPE_EVENT);
   }
 
   static trackPageView(data) {
-    this._track(data);
+    this._track(data, NetMetrixTracker.TYPE_PAGEVIEW);
   }
 
 }
 
 NetMetrixTracker.config = config;
+NetMetrixTracker.TYPE_PAGEVIEW = TYPE_PAGEVIEW;
+NetMetrixTracker.TYPE_EVENT = TYPE_EVENT;
 </code></pre>
 
 </div>
