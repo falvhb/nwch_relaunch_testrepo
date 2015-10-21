@@ -58,8 +58,9 @@ var stickyNode = new StickyNode({
   parent: '.ad--skyscraper',
   element: '#side_ad',
   container: '#sticky-wrapper',
+  height: 600,
   offset: 170,
-  breakpoint: 1400
+  breakpoint: 1400,
 });
 
 window.StickyNode = stickyNode;

@@ -34,9 +34,9 @@ $skyscraper-width: 300px;
  * 3. Above other ads (for pop-out ad)
  * 4. Use container as a base when centering
  */
- .container--skyscraper {
+.container--skyscraper {
   position: relative;
- }
+}
 
 .ad--skyscraper {
   @include media('<=advertising-skyscraper') {
@@ -74,15 +74,17 @@ $skyscraper-width: 300px;
 /**
  * Top Board advert
  */
-// #top_board {
-//   @include media('<=mobile-portrait') {
-//     margin-bottom: 30px;
-//   }
+#top_board {
+  @include media('<=mobile-portrait') {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
-//   @include media('>mobile-portrait') {
-//     margin-bottom: 40px;
-//   }
-// }
+  @include media('>mobile-portrait') {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
 
 /**
  * Content Board advert
@@ -90,42 +92,41 @@ $skyscraper-width: 300px;
  */
 #content_board {
   @include media('<=mobile-portrait') {
+    margin-top: 10px;
+    margin-bottom: 40px;
     width: calc(100% + #{(2 * $container-spacing)}); /* 1 */
   }
 
   @include media('>mobile-portrait') {
+    margin-top: 30px;
+    margin-bottom: 55px;
     width: calc(100% + #{(4 * $container-spacing)}); /* 1 */
   }
 }
 
-/**
- * Content boards which break grid
- */
-// .ad--grid-content-board {
-//   @include media('<=mobile-portrait') {
-//     margin-top: 30px;
-//     margin-bottom: 50px;
-//   }
+.container--article #content_board {
+  @include media('<=mobile-portrait') {
+    margin-top: 40px;
+  }
 
-//   @include media('>mobile-portrait') {
-//     margin-top: 40px;
-//     margin-bottom: 60px;
-//   }
-// }
+  @include media('>mobile-portrait') {
+    margin-top: 55px;
+  }
+}
 
 /**
  * Bottom Board advert
  * Note: Never add bottom margin due to sticky skyscraper
  */
-// #bottom_board {
-//   @include media('<=mobile-portrait') {
-//     margin-top: 30px;
-//   }
+#bottom_board {
+  @include media('<=mobile-portrait') {
+    margin-top: 30px;
+  }
 
-//   @include media('>mobile-portrait') {
-//     margin-top: 40px;
-//   }
-// }
+  @include media('>mobile-portrait') {
+    margin-top: 55px;
+  }
+}
 
 /**
  * Skyscraper Advert
