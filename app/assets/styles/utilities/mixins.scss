@@ -6,8 +6,6 @@
 
 /// This is intended to be an introduction paragraph to an article. It should not
 /// be used for more than a single paragraph in a row.
-/// @example markup - Introduction paragraph
-///   <p class='type-intro'>Vier Tage lang haben drei Schneeschuhwanderer aus Tschechien im Salzburger Pinzgau im Winterraum einer Hütte in 2100 Metern Seehöhe ausgeharrt, weil sie nach einem massiven Wetterumschwung nicht mehr absteigen konnten.</p>
 @mixin type-intro {
   @include supporting-font;
   font-size: 22px;
@@ -138,8 +136,6 @@
 
 /// This is intended to be used for tiny details, such as secondary labels
 /// or meta data on articles like the author name or the date.
-/// @example markup - Detail information
-///  <p class='type-detail'>Abonnieren</p>
 @mixin type-detail {
   @include supporting-font;
   font-size: 14px;
