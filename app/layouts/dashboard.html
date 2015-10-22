@@ -8,6 +8,10 @@
 
     <script>
       (function (global) {
+        // Check for defined globals
+        global.az = global.az || {};
+        global.az.skin = '{{ skin }}';
+
         // Load fonts to LocalStorage
         global.loadFont(
           'az-fonts',
