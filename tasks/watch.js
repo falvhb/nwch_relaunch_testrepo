@@ -3,7 +3,7 @@ var sassInput = require('./lib/sass-input.js');
 
 module.exports = function() {
   return gulp
-    .watch(sassInput, ['sass', 'sass:wufoo'])
+    .watch(sassInput, ['sass', 'sass:dashboard'])
     .on('change', function(event) {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...'); //eslint-disable-line
     });
