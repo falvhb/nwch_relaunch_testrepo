@@ -451,3 +451,17 @@ $image-loader-size: 30px;
     max-width: none;
   }
 }
+
+// Hides the component from view, but not for screenreaders
+// From http://stackoverflow.com/a/17980063
+@mixin visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  clip: auto;
+}
