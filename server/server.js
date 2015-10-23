@@ -164,11 +164,10 @@ var logRoute = function(req, res, next) {
 };
 
 // matching on following request: 'http://localhost:8000/__component__/video-library/all'
-app.get(COMPONENT_PREFIX + '/video-library/all',
+app.get(COMPONENT_PREFIX + '/video-library/:variation',
         logRoute,
         function(req, res, next) {
           req.params.component = 'video-library';
-          req.params.variation = 'all';
           next();
         },
         // load domain data first
