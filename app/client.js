@@ -21,7 +21,7 @@ var components = {
   teaser: Teaser,
   teaserSwitchable: TeaserSwitchable,
   topicDetail: TopicDetail,
-  latestArticles: LatestArticles
+  latestArticles: LatestArticles,
   videoLibrary: VideoLibrary
 };
 
