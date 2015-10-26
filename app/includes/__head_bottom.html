@@ -68,6 +68,8 @@
 {# Track on loading of page. #}
 <script src="{{ staticBasePath }}/client/tracking.bundled.js"></script>
 <script src="{{ staticBasePath }}/client/scripts/tracking/netmetrix.js"></script>
+{% if netMetrixNoScript != "" %}
 <noscript id="trackingNoScript">
-  <!-- @TODO: request tag in <img src=""...>: Use NetMetrixTracker._getTag() server-side. (see routingNodeIncludes.js for definition of nunjucks variables) -->
+  <img src="{{ netMetrixNoScript }}" width="1" height="1" alt="">
 </noscript>
+{% endif %}

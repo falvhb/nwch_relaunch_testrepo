@@ -7,7 +7,7 @@ if (typeof window.AZTracker !== 'undefined' && window.AZTracker.trackPageView) {
       // exclude as it is already contained in url path
       // sitename: 'styleguide',
 
-      // component name event tracking, "page" or "empty" for pageview tracking
+      // component name event tracking, "page" or empty for pageview tracking
       // @TODO: adjust in concept
       // view: 'page',
 

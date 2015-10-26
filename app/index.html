@@ -11,12 +11,9 @@
       {% include "client/scripts/webfont-loading.js" %}
     </script>
 
-    {# Track on loading of page. #}
+    {# Track on loading of page. Do not use noscript tracking as there is no need to. #}
     <script src="/client/tracking.bundled.js"></script>
     <script src="/client/scripts/tracking/netmetrix.js"></script>
-    <noscript id="trackingNoScript">
-      <!-- @TODO: request tag in <img src=""...>: Use NetMetrixTracker._getTag() server-side. (see routingNodeIncludes.js for definition of nunjucks variables) -->
-    </noscript>
 
     {# Asynchronously request the font-face stylesheet based on the WOFF support,
        then store it in localStorage for future visits. #}
