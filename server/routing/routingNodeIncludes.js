@@ -58,6 +58,7 @@ module.exports = function nodeIncludesRouter(req, res) {
           domain: 'aznetz',
           path: {
             product: 'live',
+            sitename: skin,
             path: req.params,
             // @TODO: adjust in concept
             event: 'pageview',

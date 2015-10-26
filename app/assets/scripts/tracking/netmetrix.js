@@ -3,9 +3,8 @@ if (typeof window.AZTracker !== 'undefined' && window.AZTracker.trackPageView) {
     domain: 'aznetz',
     path: {
       product: 'live',
-
-      // exclude as it is already contained in url path
-      // sitename: 'styleguide',
+      // @TODO: track sitename (skin or 'styleguide')
+      sitename: window.az.globals.skin || 'styleguide',
 
       // component name event tracking, "page" or empty for pageview tracking
       // @TODO: adjust in concept
