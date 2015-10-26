@@ -70,6 +70,10 @@
   @include media('≤mobile-portrait') {
     font-size: 26px;
   }
+
+  @include media('≤desktop-laptop') {
+    font-size: 30px;
+  }
 }
 
 
