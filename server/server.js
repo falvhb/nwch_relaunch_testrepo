@@ -158,14 +158,13 @@ var LEGACY_PREFIX = '/__legacy__';
 var VARNISH_CACHE_TIME = process.env.VARNISH_CACHE_TIME;
 var VARNISH_GRACE_TIME = process.env.VARNISH_GRACE_TIME;
 
-var logRoute = function(req, res, next) {
-  console.log('=============Route matched:', req.originalUrl);
-  next();
-};
 
 // matching on following request: 'http://localhost:8000/__component__/video-library/all'
 app.get(COMPONENT_PREFIX + '/video-library/:variation',
-        logRoute,
+        function(req, res, next) {
+          console.log('=============Route "/video-library/:variation" matched. Requested route: ', req.originalUrl);
+          next();
+        },
         function(req, res, next) {
           req.params.component = 'video-library';
           next();
@@ -231,8 +230,10 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         reactComponentsRouter);
 
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
-        // @TEMP: log route
-        logRoute,
+        function(req, res, next) {
+          console.log('=============Route "/:a?/:b?/:c?/:d?/:e?/:component/:variation" matched. Requested route: ', req.originalUrl);
+          next();
+        },
         loadComponentRequirements(),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
