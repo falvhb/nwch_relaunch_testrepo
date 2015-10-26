@@ -19,6 +19,10 @@ unreleased
    DEPLOY: update id="sticky-wrapper" positions in CMS layouts
  - UGC articles: ensure same layout is used and sympathetic to less data
  - more fixes for the legacy teaser6ColTiny component
+ - Basic dashboard routes setup:
+  - /dashboard now exists and redirects to /anmelden if not signed in
+  - registration and login is working on /registrieren and /anmelden
+  - anmelden page accepts a `?redirectTo=` url parameter for redirecting after login
 
 2015/10/19 0.0.54
 =================
