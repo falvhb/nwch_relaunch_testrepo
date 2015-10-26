@@ -1,0 +1,7 @@
+<svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+  <g id="help">
+    <path d="M10,18.5 L10,18.5 C14.6944204,18.5 18.5,14.6944204 18.5,10 C18.5,5.30557963 14.6944204,1.5 10,1.5 C5.30557963,1.5 1.5,5.30557963 1.5,10 C1.5,14.6944204 5.30557963,18.5 10,18.5 L10,18.5 Z M10,20 L10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 L10,20 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+    <rect id="Rectangle-2" sketch:type="MSShapeGroup" x="9" y="8" width="2" height="8"></rect>
+    <circle id="Oval-2" sketch:type="MSShapeGroup" cx="9.99998784" cy="5.20000005" r="1.20000005"></circle>
+  </g>
+</svg>
