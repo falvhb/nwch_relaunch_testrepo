@@ -28,6 +28,7 @@ React.render((
 
       <Route path="anmelden" component={Authentication} />
       <Route path="registrieren" component={Authentication} />
+      <Route path="*" component={NotFound} />
     </Route>
 
     <Route path="*" component={NotFound} />
