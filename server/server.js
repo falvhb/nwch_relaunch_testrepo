@@ -161,6 +161,7 @@ var VARNISH_GRACE_TIME = process.env.VARNISH_GRACE_TIME;
 
 // matching on following request: 'http://localhost:8000/__component__/video-library/all'
 app.get(COMPONENT_PREFIX + '/video-library/:variation',
+        // @TODO: remove logging
         function(req, res, next) {
           console.log('=============Route "/video-library/:variation" matched. Requested route: ', req.originalUrl);
           next();
@@ -230,6 +231,7 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         reactComponentsRouter);
 
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
+        // @TODO: remove logging
         function(req, res, next) {
           console.log('=============Route "/:a?/:b?/:c?/:d?/:e?/:component/:variation" matched. Requested route: ', req.originalUrl);
           next();
