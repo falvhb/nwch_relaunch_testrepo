@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from 'dashboard/index';
 import Profile from 'dashboard/profile';
 import NotFound from 'dashboard/not-found';
-import Authentication from 'dashboard/Authentication';
+import Authentication from 'dashboard/authentication';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { Router, Route, IndexRedirect } from 'react-router';
 import isLoggedIn from 'helpers/dashboard/is-logged-in';
