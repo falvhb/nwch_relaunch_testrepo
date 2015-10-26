@@ -77,7 +77,11 @@ export default class NetMetrixTracker {
   }
 
   static _sanitizePath(path) {
-    return path.replace(/^[\/]*/, &apos;&apos;).replace(/[\/]*$/, &apos;&apos;);
+    if (typeof path === &apos;string&apos;) {
+      return path.replace(/^[\/]*/, &apos;&apos;).replace(/[\/]*$/, &apos;&apos;);
+    }
+
+    return &apos;&apos;;
   }
 
   static _buildPath(data) {
@@ -93,8 +97,8 @@ export default class NetMetrixTracker {
   static _buildQS(data) {
     let params = {
       r: (data.referer ? `${encodeURIComponent(data.referer)}&amp;` : ``),
-      d: (new Date()).getTime(),
-      x: `${data.screenWidth}x${data.screenHeight}`
+      d: (Math.random() * 100000),
+      x: ((data.screenWidth &amp;&amp; data.screenHeight) ? `${data.screenWidth}x${data.screenHeight}` : ``)
     };
 
     return QS.stringify(params);
@@ -106,7 +110,7 @@ export default class NetMetrixTracker {
     return `https://${data.domain}.wemfbox.ch/cgi-bin/ivw/CP/${path}?${queryString}`;
   }
 
-  static _getTag(data) {
+  static getTag(data) {
     let path,
         cleaned;
 
@@ -135,7 +139,7 @@ export default class NetMetrixTracker {
     console.info(`Detected Net Metrix tag of type &apos;${type}&apos; not fired as current host &quot;${window.location.host}&quot; is not whitelisted as live host in &quot;app/node_modules/tracking/config.json&quot;. Net Metrix tag is: `, tag);
   }
 
-  static _isLiveHost() {
+  static isLiveHost(host) {
     let liveHosts = [];
     let isLive = false;
 
@@ -148,7 +152,7 @@ export default class NetMetrixTracker {
 
     // check if we are on a live host
     _.forEach(liveHosts, function(e) {
-      if (window &amp;&amp; window.location.host.search(e) &gt; -1) {
+      if (host.search(e) &gt; -1) {
         isLive = true;
       }
     });
@@ -157,10 +161,10 @@ export default class NetMetrixTracker {
   }
 
   static _track(data, type) {
-    let tag = this._getTag(data);
+    let tag = this.getTag(data);
 
     // Only request tag if we are live. Otherwise _log to console
-    if (this._isLiveHost()) {
+    if (window &amp;&amp; this.isLiveHost(window.location.host)) {
       this._requestTag(tag);
     } else {
       this._log(tag, type);

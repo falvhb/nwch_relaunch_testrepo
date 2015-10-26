@@ -57,12 +57,13 @@ export default class Tracker {
    * ...
    *
    * @example
-   * // Currently only covers Net Metrix tracking
+   * // Track pageview on Aargauer Zeitung.
+   * // Currently only covers Net Metrix tracking.
    * let data = {
    *   domain: &apos;aznetz&apos;,
    *   path: {
    *     product: &apos;live&apos;,
-   *     sitename: &apos;styleguide&apos;,
+   *     sitename: &apos;aaz&apos;,
    *     view: &apos;page&apos;,
    *     path: window.location.pathname,
    *     event: &apos;pageview&apos;
@@ -77,8 +78,10 @@ export default class Tracker {
    * @param  {object}   data.path            - The path information object.
    * @param  {string}   data.path.product    - The product. Either `&apos;live&apos;`, `&apos;epaper&apos;` or `&apos;service&apos;`.
    * @param  {string}   data.path.sitename   - The newsportal. One of: `&apos;aaz&apos;`, `&apos;bat&apos;`, `&apos;bzb&apos;`, `&apos;blz&apos;`, `&apos;gtb&apos;`, `&apos;liz&apos;`, `&apos;ot&apos;`, `&apos;soz&apos;`.
-   * @param  {string}   data.path.view       - The view. `page` for `path.event==&apos;pageview&apos;` or `&apos;[component name]&apos;` for event _tracking.
-   * @param  {string}   data.path.event      - The user generated event. `&apos;pageview&apos;` for page view _tracking or `&apos;[name of event]&apos;`.
+   * @param  {string}   data.path.view       - The view.
+   *                                           For pageview tracking, e.g. `path.event==&apos;pageview&apos;`: `page` or `&apos;page-noscript&apos;` (when JavaScript disabled).
+   *                                           For event tracking, e.g. `path.event!=&apos;pageview&apos;`: `&apos;[component name]&apos;`.
+   * @param  {string}   data.path.event      - The user generated event. `&apos;pageview&apos;` for page view tracking or `&apos;[name of event]&apos;`.
    * @param  {string}   [data.path.id]       - The ID of the component or the page.
    * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.
    * @param  {string}   [data.referer]       - The referer URL.
@@ -91,15 +94,56 @@ export default class Tracker {
     // GoogleAnalyticsTracker.trackPageView(data);
   }
 
+
   /**
    * Tracks events.
    *
-   * @todo: implementation
+   * @TODO: implementation
    *
    */
   static trackEvent(data) {
     NetMetrixTracker.trackEvent(data);
     // GoogleAnalyticsTracker.trackEvent(data);
+  }
+
+  /**
+   * Gets the Net Metrix tag to track.
+   *
+   * @param  {object}  data  See @link Tracker.trackPageView specs.
+   *
+   * @example
+   * // Get Net Metrix tag for pageview tracking
+   * let data = {
+   *   domain: &apos;aznetz&apos;,
+   *   path: {
+   *     product: &apos;live&apos;,
+   *     sitename: &apos;styleguide&apos;,
+   *     view: &apos;page&apos;,
+   *     path: window.location.pathname,
+   *     event: &apos;pageview&apos;
+   *   }
+   * };
+   *
+   * Tracker.getNetMetrixTag(data);
+   *
+   * @return  {string}  The Net Metrix tag as string.
+   */
+  static getNetMetrixTag(data) {
+    return NetMetrixTracker.getTag(data);
+  }
+
+  /**
+   * Determines if the current host is a live host which has to be tracked in Net Metrix.
+   *
+   * @param  {string}  host  The host.
+   *
+   * @example
+   * Tracker.isNetMetrixLiveHost(window.location.host);
+   *
+   * @return  {Boolean}  Returns `true` if the current host is a live host.
+   */
+  static isNetMetrixLiveHost(host) {
+    return NetMetrixTracker.isLiveHost(host);
   }
 
 }

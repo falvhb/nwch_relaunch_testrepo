@@ -348,6 +348,18 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "tracking/tracker.jsx~tracker.getnetmetrixtag",
+    "class/tracking/tracker.jsx~Tracker.html#static-method-getNetMetrixTag",
+    "tracking/tracker.jsx~Tracker.getNetMetrixTag",
+    "method"
+  ],
+  [
+    "tracking/tracker.jsx~tracker.isnetmetrixlivehost",
+    "class/tracking/tracker.jsx~Tracker.html#static-method-isNetMetrixLiveHost",
+    "tracking/tracker.jsx~Tracker.isNetMetrixLiveHost",
+    "method"
+  ],
+  [
     "tracking/tracker.jsx~tracker.trackevent",
     "class/tracking/tracker.jsx~Tracker.html#static-method-trackEvent",
     "tracking/tracker.jsx~Tracker.trackEvent",

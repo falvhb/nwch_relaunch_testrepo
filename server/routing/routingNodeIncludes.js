@@ -60,7 +60,8 @@ module.exports = function nodeIncludesRouter(req, res) {
             product: 'live',
             path: req.params,
             // @TODO: adjust in concept
-            event: 'noscript'
+            event: 'pageview',
+            view: 'page-noscript'
           }
         });
       } else {

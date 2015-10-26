@@ -92,6 +92,58 @@
     <td>
       <div>
         <p>
+           <span data-ice="name"><span><a href="class/tracking/tracker.jsx~Tracker.html#static-method-getNetMetrixTag">getNetMetrixTag</a></span></span><span data-ice="signature">(data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Gets the Net Metrix tag to track.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      <span data-ice="static">static</span>
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/tracking/tracker.jsx~Tracker.html#static-method-isNetMetrixLiveHost">isNetMetrixLiveHost</a></span></span><span data-ice="signature">(host: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Determines if the current host is a live host which has to be tracked in Net Metrix.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      <span data-ice="static">static</span>
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
            <span data-ice="name"><span><a href="class/tracking/tracker.jsx~Tracker.html#static-method-trackEvent">trackEvent</a></span></span><span data-ice="signature">(data: <span>*</span>)</span>
         </p>
       </div>
@@ -146,6 +198,170 @@
 <div data-ice="staticMethodDetails"><h2 data-ice="title">Static Public Methods</h2>
 
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-method-getNetMetrixTag">
+    <span class="access" data-ice="access">public</span>
+    <span data-ice="static">static</span>
+    
+    
+    
+    <span data-ice="name">getNetMetrixTag</span><span data-ice="signature">(data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/tracking/tracker.jsx.html#lineNumber91">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Gets the Net Metrix tag to track.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">data</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>See @link Tracker.trackPageView specs.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>The Net Metrix tag as string.</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">// Get Net Metrix tag for pageview tracking
+let data = {
+  domain: &apos;aznetz&apos;,
+  path: {
+    product: &apos;live&apos;,
+    sitename: &apos;styleguide&apos;,
+    view: &apos;page&apos;,
+    path: window.location.pathname,
+    event: &apos;pageview&apos;
+  }
+};
+
+Tracker.getNetMetrixTag(data);</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-method-isNetMetrixLiveHost">
+    <span class="access" data-ice="access">public</span>
+    <span data-ice="static">static</span>
+    
+    
+    
+    <span data-ice="name">isNetMetrixLiveHost</span><span data-ice="signature">(host: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/tracking/tracker.jsx.html#lineNumber105">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Determines if the current host is a live host which has to be tracked in Net Metrix.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">host</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The host.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>Returns <code>true</code> if the current host is a live host.</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">Tracker.isNetMetrixLiveHost(window.location.host);</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-method-trackEvent">
     <span class="access" data-ice="access">public</span>
     <span data-ice="static">static</span>
@@ -156,7 +372,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/tracking/tracker.jsx.html#lineNumber60">source</a></span></span>
+      <span data-ice="source"><span><a href="file/tracking/tracker.jsx.html#lineNumber64">source</a></span></span>
     </span>
   </h3>
 
@@ -164,7 +380,7 @@
   
   
   <div data-ice="description"><p>Tracks events.</p>
-<p>@todo: implementation</p>
+<p>@TODO: implementation</p>
 </div>
 
   
@@ -214,7 +430,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/tracking/tracker.jsx.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/tracking/tracker.jsx.html#lineNumber52">source</a></span></span>
     </span>
   </h3>
 
@@ -277,14 +493,16 @@ Tracks Net Metrix or logs tracking to <code>console</code> for non-live hosts.</
       <td data-ice="name" data-depth="2">data.path.view</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The view. <code>page</code> for <code>path.event==&apos;pageview&apos;</code> or <code>&apos;[component name]&apos;</code> for event _tracking.</p>
+      <td data-ice="description"><p>The view.
+                                          For pageview tracking, e.g. <code>path.event==&apos;pageview&apos;</code>: <code>page</code> or <code>&apos;page-noscript&apos;</code> (when JavaScript disabled).
+                                          For event tracking, e.g. <code>path.event!=&apos;pageview&apos;</code>: <code>&apos;[component name]&apos;</code>.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="2">
       <td data-ice="name" data-depth="2">data.path.event</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The user generated event. <code>&apos;pageview&apos;</code> for page view _tracking or <code>&apos;[name of event]&apos;</code>.</p>
+      <td data-ice="description"><p>The user generated event. <code>&apos;pageview&apos;</code> for page view tracking or <code>&apos;[name of event]&apos;</code>.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="2">
@@ -340,12 +558,13 @@ Tracks Net Metrix or logs tracking to <code>console</code> for non-live hosts.</
     
   <div class="example-doc" data-ice="exampleDoc">
       
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">// Currently only covers Net Metrix tracking
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">// Track pageview on Aargauer Zeitung.
+// Currently only covers Net Metrix tracking.
 let data = {
   domain: &apos;aznetz&apos;,
   path: {
     product: &apos;live&apos;,
-    sitename: &apos;styleguide&apos;,
+    sitename: &apos;aaz&apos;,
     view: &apos;page&apos;,
     path: window.location.pathname,
     event: &apos;pageview&apos;

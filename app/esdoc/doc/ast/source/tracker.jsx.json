@@ -146,16 +146,16 @@
                 "type": "Identifier",
                 "name": "trackPageView",
                 "range": [
-                  2069,
-                  2082
+                  2302,
+                  2315
                 ],
                 "loc": {
                   "start": {
-                    "line": 49,
+                    "line": 52,
                     "column": 9
                   },
                   "end": {
-                    "line": 49,
+                    "line": 52,
                     "column": 22
                   }
                 }
@@ -168,16 +168,16 @@
                     "type": "Identifier",
                     "name": "data",
                     "range": [
-                      2083,
-                      2087
+                      2316,
+                      2320
                     ],
                     "loc": {
                       "start": {
-                        "line": 49,
+                        "line": 52,
                         "column": 23
                       },
                       "end": {
-                        "line": 49,
+                        "line": 52,
                         "column": 27
                       }
                     }
@@ -197,16 +197,16 @@
                             "type": "Identifier",
                             "name": "NetMetrixTracker",
                             "range": [
-                              2095,
-                              2111
+                              2328,
+                              2344
                             ],
                             "loc": {
                               "start": {
-                                "line": 50,
+                                "line": 53,
                                 "column": 4
                               },
                               "end": {
-                                "line": 50,
+                                "line": 53,
                                 "column": 20
                               }
                             }
@@ -215,31 +215,31 @@
                             "type": "Identifier",
                             "name": "trackPageView",
                             "range": [
-                              2112,
-                              2125
+                              2345,
+                              2358
                             ],
                             "loc": {
                               "start": {
-                                "line": 50,
+                                "line": 53,
                                 "column": 21
                               },
                               "end": {
-                                "line": 50,
+                                "line": 53,
                                 "column": 34
                               }
                             }
                           },
                           "range": [
-                            2095,
-                            2125
+                            2328,
+                            2358
                           ],
                           "loc": {
                             "start": {
-                              "line": 50,
+                              "line": 53,
                               "column": 4
                             },
                             "end": {
-                              "line": 50,
+                              "line": 53,
                               "column": 34
                             }
                           }
@@ -249,47 +249,47 @@
                             "type": "Identifier",
                             "name": "data",
                             "range": [
-                              2126,
-                              2130
+                              2359,
+                              2363
                             ],
                             "loc": {
                               "start": {
-                                "line": 50,
+                                "line": 53,
                                 "column": 35
                               },
                               "end": {
-                                "line": 50,
+                                "line": 53,
                                 "column": 39
                               }
                             }
                           }
                         ],
                         "range": [
-                          2095,
-                          2131
+                          2328,
+                          2364
                         ],
                         "loc": {
                           "start": {
-                            "line": 50,
+                            "line": 53,
                             "column": 4
                           },
                           "end": {
-                            "line": 50,
+                            "line": 53,
                             "column": 40
                           }
                         }
                       },
                       "range": [
-                        2095,
-                        2132
+                        2328,
+                        2365
                       ],
                       "loc": {
                         "start": {
-                          "line": 50,
+                          "line": 53,
                           "column": 4
                         },
                         "end": {
-                          "line": 50,
+                          "line": 53,
                           "column": 41
                         }
                       },
@@ -298,16 +298,16 @@
                           "type": "Line",
                           "value": " GoogleAnalyticsTracker.trackPageView(data);",
                           "range": [
-                            2137,
-                            2183
+                            2370,
+                            2416
                           ],
                           "loc": {
                             "start": {
-                              "line": 51,
+                              "line": 54,
                               "column": 4
                             },
                             "end": {
-                              "line": 51,
+                              "line": 54,
                               "column": 50
                             }
                           }
@@ -316,16 +316,16 @@
                     }
                   ],
                   "range": [
-                    2089,
-                    2187
+                    2322,
+                    2420
                   ],
                   "loc": {
                     "start": {
-                      "line": 49,
+                      "line": 52,
                       "column": 29
                     },
                     "end": {
-                      "line": 52,
+                      "line": 55,
                       "column": 3
                     }
                   }
@@ -333,16 +333,16 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  2082,
-                  2187
+                  2315,
+                  2420
                 ],
                 "loc": {
                   "start": {
-                    "line": 49,
+                    "line": 52,
                     "column": 22
                   },
                   "end": {
-                    "line": 52,
+                    "line": 55,
                     "column": 3
                   }
                 }
@@ -350,26 +350,26 @@
               "kind": "method",
               "computed": false,
               "range": [
-                2062,
-                2187
+                2295,
+                2420
               ],
               "loc": {
                 "start": {
-                  "line": 49,
+                  "line": 52,
                   "column": 2
                 },
                 "end": {
-                  "line": 52,
+                  "line": 55,
                   "column": 3
                 }
               },
               "leadingComments": [
                 {
                   "type": "Block",
-                  "value": "*\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * Google Analytics:\n   * ...\n   *\n   * @example\n   * // Currently only covers Net Metrix tracking\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.view       - The view. `page` for `path.event=='pageview'` or `'[component name]'` for event _tracking.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view _tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the component or the page.\n   * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   ",
+                  "value": "*\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * Google Analytics:\n   * ...\n   *\n   * @example\n   * // Track pageview on Aargauer Zeitung.\n   * // Currently only covers Net Metrix tracking.\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'aaz',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.view       - The view.\n   *                                           For pageview tracking, e.g. `path.event=='pageview'`: `page` or `'page-noscript'` (when JavaScript disabled).\n   *                                           For event tracking, e.g. `path.event!='pageview'`: `'[component name]'`.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the component or the page.\n   * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   ",
                   "range": [
                     273,
-                    2059
+                    2292
                   ],
                   "loc": {
                     "start": {
@@ -377,7 +377,7 @@
                       "column": 2
                     },
                     "end": {
-                      "line": 48,
+                      "line": 51,
                       "column": 5
                     }
                   }
@@ -386,18 +386,18 @@
               "trailingComments": [
                 {
                   "type": "Block",
-                  "value": "*\n   * Tracks events.\n   *\n   * @todo: implementation\n   *\n   ",
+                  "value": "*\n   * Tracks events.\n   *\n   * @TODO: implementation\n   *\n   ",
                   "range": [
-                    2191,
-                    2257
+                    2425,
+                    2491
                   ],
                   "loc": {
                     "start": {
-                      "line": 54,
+                      "line": 58,
                       "column": 2
                     },
                     "end": {
-                      "line": 59,
+                      "line": 63,
                       "column": 5
                     }
                   }
@@ -411,16 +411,16 @@
                 "type": "Identifier",
                 "name": "trackEvent",
                 "range": [
-                  2267,
-                  2277
+                  2501,
+                  2511
                 ],
                 "loc": {
                   "start": {
-                    "line": 60,
+                    "line": 64,
                     "column": 9
                   },
                   "end": {
-                    "line": 60,
+                    "line": 64,
                     "column": 19
                   }
                 }
@@ -433,16 +433,16 @@
                     "type": "Identifier",
                     "name": "data",
                     "range": [
-                      2278,
-                      2282
+                      2512,
+                      2516
                     ],
                     "loc": {
                       "start": {
-                        "line": 60,
+                        "line": 64,
                         "column": 20
                       },
                       "end": {
-                        "line": 60,
+                        "line": 64,
                         "column": 24
                       }
                     }
@@ -462,16 +462,16 @@
                             "type": "Identifier",
                             "name": "NetMetrixTracker",
                             "range": [
-                              2290,
-                              2306
+                              2524,
+                              2540
                             ],
                             "loc": {
                               "start": {
-                                "line": 61,
+                                "line": 65,
                                 "column": 4
                               },
                               "end": {
-                                "line": 61,
+                                "line": 65,
                                 "column": 20
                               }
                             }
@@ -480,31 +480,31 @@
                             "type": "Identifier",
                             "name": "trackEvent",
                             "range": [
-                              2307,
-                              2317
+                              2541,
+                              2551
                             ],
                             "loc": {
                               "start": {
-                                "line": 61,
+                                "line": 65,
                                 "column": 21
                               },
                               "end": {
-                                "line": 61,
+                                "line": 65,
                                 "column": 31
                               }
                             }
                           },
                           "range": [
-                            2290,
-                            2317
+                            2524,
+                            2551
                           ],
                           "loc": {
                             "start": {
-                              "line": 61,
+                              "line": 65,
                               "column": 4
                             },
                             "end": {
-                              "line": 61,
+                              "line": 65,
                               "column": 31
                             }
                           }
@@ -514,47 +514,47 @@
                             "type": "Identifier",
                             "name": "data",
                             "range": [
-                              2318,
-                              2322
+                              2552,
+                              2556
                             ],
                             "loc": {
                               "start": {
-                                "line": 61,
+                                "line": 65,
                                 "column": 32
                               },
                               "end": {
-                                "line": 61,
+                                "line": 65,
                                 "column": 36
                               }
                             }
                           }
                         ],
                         "range": [
-                          2290,
-                          2323
+                          2524,
+                          2557
                         ],
                         "loc": {
                           "start": {
-                            "line": 61,
+                            "line": 65,
                             "column": 4
                           },
                           "end": {
-                            "line": 61,
+                            "line": 65,
                             "column": 37
                           }
                         }
                       },
                       "range": [
-                        2290,
-                        2324
+                        2524,
+                        2558
                       ],
                       "loc": {
                         "start": {
-                          "line": 61,
+                          "line": 65,
                           "column": 4
                         },
                         "end": {
-                          "line": 61,
+                          "line": 65,
                           "column": 38
                         }
                       },
@@ -563,16 +563,16 @@
                           "type": "Line",
                           "value": " GoogleAnalyticsTracker.trackEvent(data);",
                           "range": [
-                            2329,
-                            2372
+                            2563,
+                            2606
                           ],
                           "loc": {
                             "start": {
-                              "line": 62,
+                              "line": 66,
                               "column": 4
                             },
                             "end": {
-                              "line": 62,
+                              "line": 66,
                               "column": 47
                             }
                           }
@@ -581,16 +581,16 @@
                     }
                   ],
                   "range": [
-                    2284,
-                    2376
+                    2518,
+                    2610
                   ],
                   "loc": {
                     "start": {
-                      "line": 60,
+                      "line": 64,
                       "column": 26
                     },
                     "end": {
-                      "line": 63,
+                      "line": 67,
                       "column": 3
                     }
                   }
@@ -598,16 +598,16 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  2277,
-                  2376
+                  2511,
+                  2610
                 ],
                 "loc": {
                   "start": {
-                    "line": 60,
+                    "line": 64,
                     "column": 19
                   },
                   "end": {
-                    "line": 63,
+                    "line": 67,
                     "column": 3
                   }
                 }
@@ -615,16 +615,16 @@
               "kind": "method",
               "computed": false,
               "range": [
-                2260,
-                2376
+                2494,
+                2610
               ],
               "loc": {
                 "start": {
-                  "line": 60,
+                  "line": 64,
                   "column": 2
                 },
                 "end": {
-                  "line": 63,
+                  "line": 67,
                   "column": 3
                 }
               },
@@ -633,34 +633,542 @@
                   "type": "Line",
                   "value": " GoogleAnalyticsTracker.trackPageView(data);",
                   "range": [
-                    2137,
-                    2183
+                    2370,
+                    2416
                   ],
                   "loc": {
                     "start": {
-                      "line": 51,
+                      "line": 54,
                       "column": 4
                     },
                     "end": {
-                      "line": 51,
+                      "line": 54,
                       "column": 50
                     }
                   }
                 },
                 {
                   "type": "Block",
-                  "value": "*\n   * Tracks events.\n   *\n   * @todo: implementation\n   *\n   ",
+                  "value": "*\n   * Tracks events.\n   *\n   * @TODO: implementation\n   *\n   ",
                   "range": [
-                    2191,
-                    2257
+                    2425,
+                    2491
                   ],
                   "loc": {
                     "start": {
-                      "line": 54,
+                      "line": 58,
                       "column": 2
                     },
                     "end": {
-                      "line": 59,
+                      "line": 63,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * Gets the Net Metrix tag to track.\n   *\n   * @param  {object}  data  See @link Tracker.trackPageView specs.\n   *\n   * @example\n   * // Get Net Metrix tag for pageview tracking\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.getNetMetrixTag(data);\n   *\n   * @return  {string}  The Net Metrix tag as string.\n   ",
+                  "range": [
+                    2614,
+                    3128
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 90,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": true
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "getNetMetrixTag",
+                "range": [
+                  3138,
+                  3153
+                ],
+                "loc": {
+                  "start": {
+                    "line": 91,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 91,
+                    "column": 24
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "data",
+                    "range": [
+                      3154,
+                      3158
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 91,
+                        "column": 25
+                      },
+                      "end": {
+                        "line": 91,
+                        "column": 29
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "Identifier",
+                            "name": "NetMetrixTracker",
+                            "range": [
+                              3173,
+                              3189
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 92,
+                                "column": 11
+                              },
+                              "end": {
+                                "line": 92,
+                                "column": 27
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "getTag",
+                            "range": [
+                              3190,
+                              3196
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 92,
+                                "column": 28
+                              },
+                              "end": {
+                                "line": 92,
+                                "column": 34
+                              }
+                            }
+                          },
+                          "range": [
+                            3173,
+                            3196
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 92,
+                              "column": 11
+                            },
+                            "end": {
+                              "line": 92,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "name": "data",
+                            "range": [
+                              3197,
+                              3201
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 92,
+                                "column": 35
+                              },
+                              "end": {
+                                "line": 92,
+                                "column": 39
+                              }
+                            }
+                          }
+                        ],
+                        "range": [
+                          3173,
+                          3202
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 92,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 92,
+                            "column": 40
+                          }
+                        }
+                      },
+                      "range": [
+                        3166,
+                        3203
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 92,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 92,
+                          "column": 41
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    3160,
+                    3207
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 91,
+                      "column": 31
+                    },
+                    "end": {
+                      "line": 93,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  3153,
+                  3207
+                ],
+                "loc": {
+                  "start": {
+                    "line": 91,
+                    "column": 24
+                  },
+                  "end": {
+                    "line": 93,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                3131,
+                3207
+              ],
+              "loc": {
+                "start": {
+                  "line": 91,
+                  "column": 2
+                },
+                "end": {
+                  "line": 93,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Line",
+                  "value": " GoogleAnalyticsTracker.trackEvent(data);",
+                  "range": [
+                    2563,
+                    2606
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 66,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 66,
+                      "column": 47
+                    }
+                  }
+                },
+                {
+                  "type": "Block",
+                  "value": "*\n   * Gets the Net Metrix tag to track.\n   *\n   * @param  {object}  data  See @link Tracker.trackPageView specs.\n   *\n   * @example\n   * // Get Net Metrix tag for pageview tracking\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.getNetMetrixTag(data);\n   *\n   * @return  {string}  The Net Metrix tag as string.\n   ",
+                  "range": [
+                    2614,
+                    3128
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 90,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * Determines if the current host is a live host which has to be tracked in Net Metrix.\n   *\n   * @param  {string}  host  The host.\n   *\n   * @example\n   * Tracker.isNetMetrixLiveHost(window.location.host);\n   *\n   * @return  {Boolean}  Returns `true` if the current host is a live host.\n   ",
+                  "range": [
+                    3211,
+                    3510
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 95,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 104,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "static": true
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "isNetMetrixLiveHost",
+                "range": [
+                  3520,
+                  3539
+                ],
+                "loc": {
+                  "start": {
+                    "line": 105,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 105,
+                    "column": 28
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "name": "host",
+                    "range": [
+                      3540,
+                      3544
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 105,
+                        "column": 29
+                      },
+                      "end": {
+                        "line": 105,
+                        "column": 33
+                      }
+                    }
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "MemberExpression",
+                          "computed": false,
+                          "object": {
+                            "type": "Identifier",
+                            "name": "NetMetrixTracker",
+                            "range": [
+                              3559,
+                              3575
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 106,
+                                "column": 11
+                              },
+                              "end": {
+                                "line": 106,
+                                "column": 27
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "name": "isLiveHost",
+                            "range": [
+                              3576,
+                              3586
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 106,
+                                "column": 28
+                              },
+                              "end": {
+                                "line": 106,
+                                "column": 38
+                              }
+                            }
+                          },
+                          "range": [
+                            3559,
+                            3586
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 106,
+                              "column": 11
+                            },
+                            "end": {
+                              "line": 106,
+                              "column": 38
+                            }
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "name": "host",
+                            "range": [
+                              3587,
+                              3591
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 106,
+                                "column": 39
+                              },
+                              "end": {
+                                "line": 106,
+                                "column": 43
+                              }
+                            }
+                          }
+                        ],
+                        "range": [
+                          3559,
+                          3592
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 106,
+                            "column": 11
+                          },
+                          "end": {
+                            "line": 106,
+                            "column": 44
+                          }
+                        }
+                      },
+                      "range": [
+                        3552,
+                        3593
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 106,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 106,
+                          "column": 45
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    3546,
+                    3597
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 105,
+                      "column": 35
+                    },
+                    "end": {
+                      "line": 107,
+                      "column": 3
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  3539,
+                  3597
+                ],
+                "loc": {
+                  "start": {
+                    "line": 105,
+                    "column": 28
+                  },
+                  "end": {
+                    "line": 107,
+                    "column": 3
+                  }
+                }
+              },
+              "kind": "method",
+              "computed": false,
+              "range": [
+                3513,
+                3597
+              ],
+              "loc": {
+                "start": {
+                  "line": 105,
+                  "column": 2
+                },
+                "end": {
+                  "line": 107,
+                  "column": 3
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n   * Determines if the current host is a live host which has to be tracked in Net Metrix.\n   *\n   * @param  {string}  host  The host.\n   *\n   * @example\n   * Tracker.isNetMetrixLiveHost(window.location.host);\n   *\n   * @return  {Boolean}  Returns `true` if the current host is a live host.\n   ",
+                  "range": [
+                    3211,
+                    3510
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 95,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 104,
                       "column": 5
                     }
                   }
@@ -671,7 +1179,7 @@
           ],
           "range": [
             268,
-            2379
+            3600
           ],
           "loc": {
             "start": {
@@ -679,14 +1187,14 @@
               "column": 29
             },
             "end": {
-              "line": 65,
+              "line": 109,
               "column": 1
             }
           }
         },
         "range": [
           254,
-          2379
+          3600
         ],
         "loc": {
           "start": {
@@ -694,7 +1202,7 @@
             "column": 15
           },
           "end": {
-            "line": 65,
+            "line": 109,
             "column": 1
           }
         },
@@ -722,7 +1230,7 @@
       },
       "range": [
         239,
-        2379
+        3600
       ],
       "loc": {
         "start": {
@@ -730,7 +1238,7 @@
           "column": 0
         },
         "end": {
-          "line": 65,
+          "line": 109,
           "column": 1
         }
       },
@@ -759,7 +1267,7 @@
   "sourceType": "module",
   "range": [
     75,
-    2379
+    3600
   ],
   "loc": {
     "start": {
@@ -767,7 +1275,7 @@
       "column": 0
     },
     "end": {
-      "line": 65,
+      "line": 109,
       "column": 1
     }
   },
@@ -810,10 +1318,10 @@
     },
     {
       "type": "Block",
-      "value": "*\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * Google Analytics:\n   * ...\n   *\n   * @example\n   * // Currently only covers Net Metrix tracking\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.view       - The view. `page` for `path.event=='pageview'` or `'[component name]'` for event _tracking.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view _tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the component or the page.\n   * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   ",
+      "value": "*\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * Google Analytics:\n   * ...\n   *\n   * @example\n   * // Track pageview on Aargauer Zeitung.\n   * // Currently only covers Net Metrix tracking.\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'aaz',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.view       - The view.\n   *                                           For pageview tracking, e.g. `path.event=='pageview'`: `page` or `'page-noscript'` (when JavaScript disabled).\n   *                                           For event tracking, e.g. `path.event!='pageview'`: `'[component name]'`.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the component or the page.\n   * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   ",
       "range": [
         273,
-        2059
+        2292
       ],
       "loc": {
         "start": {
@@ -821,7 +1329,7 @@
           "column": 2
         },
         "end": {
-          "line": 48,
+          "line": 51,
           "column": 5
         }
       }
@@ -830,34 +1338,34 @@
       "type": "Line",
       "value": " GoogleAnalyticsTracker.trackPageView(data);",
       "range": [
-        2137,
-        2183
+        2370,
+        2416
       ],
       "loc": {
         "start": {
-          "line": 51,
+          "line": 54,
           "column": 4
         },
         "end": {
-          "line": 51,
+          "line": 54,
           "column": 50
         }
       }
     },
     {
       "type": "Block",
-      "value": "*\n   * Tracks events.\n   *\n   * @todo: implementation\n   *\n   ",
+      "value": "*\n   * Tracks events.\n   *\n   * @TODO: implementation\n   *\n   ",
       "range": [
-        2191,
-        2257
+        2425,
+        2491
       ],
       "loc": {
         "start": {
-          "line": 54,
+          "line": 58,
           "column": 2
         },
         "end": {
-          "line": 59,
+          "line": 63,
           "column": 5
         }
       }
@@ -866,17 +1374,53 @@
       "type": "Line",
       "value": " GoogleAnalyticsTracker.trackEvent(data);",
       "range": [
-        2329,
-        2372
+        2563,
+        2606
       ],
       "loc": {
         "start": {
-          "line": 62,
+          "line": 66,
           "column": 4
         },
         "end": {
-          "line": 62,
+          "line": 66,
           "column": 47
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * Gets the Net Metrix tag to track.\n   *\n   * @param  {object}  data  See @link Tracker.trackPageView specs.\n   *\n   * @example\n   * // Get Net Metrix tag for pageview tracking\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     view: 'page',\n   *     path: window.location.pathname,\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.getNetMetrixTag(data);\n   *\n   * @return  {string}  The Net Metrix tag as string.\n   ",
+      "range": [
+        2614,
+        3128
+      ],
+      "loc": {
+        "start": {
+          "line": 69,
+          "column": 2
+        },
+        "end": {
+          "line": 90,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n   * Determines if the current host is a live host which has to be tracked in Net Metrix.\n   *\n   * @param  {string}  host  The host.\n   *\n   * @example\n   * Tracker.isNetMetrixLiveHost(window.location.host);\n   *\n   * @return  {Boolean}  Returns `true` if the current host is a live host.\n   ",
+      "range": [
+        3211,
+        3510
+      ],
+      "loc": {
+        "start": {
+          "line": 95,
+          "column": 2
+        },
+        "end": {
+          "line": 104,
+          "column": 5
         }
       }
     }
