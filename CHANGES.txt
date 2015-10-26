@@ -11,11 +11,21 @@ unreleased
 2015/10/19 0.0.55
 =================
 
+ - CategoryOverview: new component for displaying an overview of a labeltype i.e. Meinung teasers
+   DEPLOY: add HTML to CMS layout with tal includes for this news manager
+ - Teaser: new 'author' variation added for use in the above
+ - Teaser: auto-switches basic, meining Teasers -> quote teaser
+ - Grid: sets same-height Teasers per row \o/
+ - ArticleHeader: add Avatar for Meinung articles, with fallback
  - ArticleHeader: add UGC and Sponsored content header
  - Ads: fix / improve all advertising slot spacing and Skyscraper behaviour
    DEPLOY: update id="sticky-wrapper" positions in CMS layouts
  - UGC articles: ensure same layout is used and sympathetic to less data
  - more fixes for the legacy teaser6ColTiny component
+ - Basic dashboard routes setup:
+  - /dashboard now exists and redirects to /anmelden if not signed in
+  - registration and login is working on /registrieren and /anmelden
+  - anmelden page accepts a `?redirectTo=` url parameter for redirecting after login
 
 2015/10/19 0.0.54
 =================
