@@ -4,7 +4,8 @@ var path = require('path');
 var config = {
   entry: {
     client: ['./app/vendor.js', './app/client.js'],
-    styleguide: ['./app/vendor.js', './app/styleguide.js']
+    styleguide: ['./app/vendor.js', './app/styleguide.js'],
+    dashboard: ['./app/dashboard.js', './app/dashboard.js']
   },
   module: {
     loaders: [

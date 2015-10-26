@@ -1,6 +1,7 @@
 /*eslint-disable no-warning-comments*/
 var path = require('path');
 var getSkinName = require('../modules/skin');
+var getIconPath = require('../modules/icon-path');
 
 var defaults = {
   folder: './app/includes'
@@ -38,12 +39,6 @@ module.exports = function nodeIncludesRouter(req, res) {
       }
     }
     var skin = getSkinName(req);
-    var iconPath = 'az';
-    if (skin.match(/^(bzb|blz)$/)) {
-      iconPath = 'bz';
-    } else if (skin.match(/^(ot)$/)) {
-      iconPath = 'ot';
-    }
 
     var domain = req.api.get('domain') || {};
     var env = process.env;
@@ -54,7 +49,7 @@ module.exports = function nodeIncludesRouter(req, res) {
       'withBugMuncher': env.BUG_MUNCHER === 'true',
       'pageType': pageType,
       'skin': skin,
-      'iconPath': iconPath,
+      'iconPath': getIconPath(skin),
       'staticBasePath': '/__node__/' + version + '/__static__',
       'kaltura_frontend_video_player_id': domain.kaltura_frontend_video_player_id || env.KALTURA_PLAYER_ID,
       'kaltura_frontend_adless_video_player_id': domain.kaltura_frontend_adless_video_player_id || env.KALTURA_PLAYER_NOADS_ID,
