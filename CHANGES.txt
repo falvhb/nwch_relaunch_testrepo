@@ -12,6 +12,7 @@ unreleased
    DEPLOY: add HTML to CMS layout with tal includes for this news manager
  - Teaser: new 'author' variation added for use in the above
  - Teaser: auto-switches basic, meining Teasers -> quote teaser
+ - Grid: sets same-height Teasers per row \o/
  - ArticleHeader: add Avatar for Meinung articles, with fallback
  - ArticleHeader: add UGC and Sponsored content header
  - Ads: fix / improve all advertising slot spacing and Skyscraper behaviour
