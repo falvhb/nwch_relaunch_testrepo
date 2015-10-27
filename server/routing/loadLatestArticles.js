@@ -18,6 +18,8 @@ function loadLatestArticles(req, res, next) {
   var queryParams = {
     'domain': getSkinName(req),
     'limit': 9,
+    'sort': 'newest',
+    'resolve': 'author_detail.image.asset,author_detail.user'
   };
 
   if (variations[variation]) {

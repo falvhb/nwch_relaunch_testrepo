@@ -7,10 +7,13 @@ unreleased
 
  - New icons: Crest and Help
  - Visuals and functionality for /dashboard
+ - added basic Net Metrix Tracking module
 
 2015/10/19 0.0.55
 =================
 
+ - Avatars: correct asset relation in getAvatar function
+ - Teaser: fix all article labelling and spacing of equal heights
  - CategoryOverview: new component for displaying an overview of a labeltype i.e. Meinung teasers
    DEPLOY: add HTML to CMS layout with tal includes for this news manager
  - Teaser: new 'author' variation added for use in the above

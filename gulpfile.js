@@ -49,6 +49,11 @@ gulp.task('sync-styleguide:typography', require('./tasks/sync-styleguide-typogra
 gulp.task('sync-styleguide:colors', require('./tasks/sync-styleguide-colors.js'));
 gulp.task('sync-styleguide', ['sync-styleguide:typography', 'sync-styleguide:colors']);
 
+// JS Documentation
+gulp.task('esdoc', require('./tasks/esdoc.js'));
+// deprecated: use esdoc preferably
+gulp.task('jsdoc', require('./tasks/jsdoc.js'));
+
 // -----------------------------------------------------------------------------
 // Meta tasks
 // -----------------------------------------------------------------------------

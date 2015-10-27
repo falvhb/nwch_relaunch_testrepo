@@ -8,6 +8,7 @@ var Teaser = require('components/teaser');
 var TeaserSwitchable = require('components/teaser-switchable');
 var TopicDetail = require('components/topic-detail');
 var LatestArticles = require('components/latest-articles');
+var VideoLibrary = require('components/video-library');
 
 // Map IDs to required components
 var components = {
@@ -20,7 +21,8 @@ var components = {
   teaser: Teaser,
   teaserSwitchable: TeaserSwitchable,
   topicDetail: TopicDetail,
-  latestArticles: LatestArticles
+  latestArticles: LatestArticles,
+  videoLibrary: VideoLibrary
 };
 
 // Hydrate all components client-side
@@ -36,7 +38,7 @@ recommendationsTop.init();
 // Clean CMS empty grid cells
 var ClearEmptyCells = require('clientside/clear-empty-cells');
 var clearEmptyCells = new ClearEmptyCells();
-// clearEmptyCells.init({ selector: '.grid__item' });
+clearEmptyCells.init({ selector: '.grid__item' });
 clearEmptyCells.init({ selector: '.recommendations-top__cell' });
 clearEmptyCells.init({ selector: '.recommendations-bottom__cell' });
 
