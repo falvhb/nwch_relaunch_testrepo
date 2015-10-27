@@ -9,7 +9,7 @@ module.exports = function(req) {
   var domain = getSkinName(req);
 
   var apiConfig = {
-    endpoint: '/content/cities?domain=aaz'+ domain,
+    endpoint: '/content/cities?domain='+ domain,
     key: 'cities'
   };
   // console.log(apiConfig.endpoint);

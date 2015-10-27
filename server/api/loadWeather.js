@@ -8,6 +8,7 @@ module.exports = function(req) {
    */
   var domain = getSkinName(req);
 
+  // @TODO define parish for each skin
   var parish = domain === 'aaz' ? 1 : 300;
   var apiConfig = {
     endpoint: '/weather/3h?city='+ parish,
