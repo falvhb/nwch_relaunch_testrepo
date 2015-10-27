@@ -486,7 +486,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "// import GoogleAnalyticsTracker from 'tracking/google-analytics-tracker';\nimport NetMetrixTracker from 'tracking/net-metrix-tracker';\n\n/**\n * Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n */\nexport default class Tracker {\n\n  /**\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * Google Analytics:\n   * ...\n   *\n   * @example\n   * // Track pageview on Aargauer Zeitung.\n   * // Currently only covers Net Metrix tracking.\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'aaz',\n   *     path: window.location.pathname,\n   *     view: 'page',\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.path       - The path of the url of the current page.\n   * @param  {string}   data.path.view       - The view.\n   *                                           For pageview tracking, e.g. `path.event=='pageview'`: `page` or `'page-noscript'` (when JavaScript disabled).\n   *                                           For event tracking, e.g. `path.event!='pageview'`: `'[name of the component that receives the user event]'`.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the component or the page.\n   * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   */\n  static trackPageView(data) {\n    NetMetrixTracker.trackPageView(data);\n    // GoogleAnalyticsTracker.trackPageView(data);\n  }\n\n\n  /**\n   * Tracks events.\n   *\n   * @TODO: implementation\n   *\n   */\n  static trackEvent(data) {\n    NetMetrixTracker.trackEvent(data);\n    // GoogleAnalyticsTracker.trackEvent(data);\n  }\n\n  /**\n   * Gets the Net Metrix tag to track.\n   *\n   * @param  {object}  data  See @link Tracker.trackPageView specs.\n   *\n   * @example\n   * // Get Net Metrix tag for pageview tracking\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     path: window.location.pathname,\n   *     view: 'page',\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.getNetMetrixTag(data);\n   *\n   * @return  {string}  The Net Metrix tag as string.\n   */\n  static getNetMetrixTag(data) {\n    return NetMetrixTracker.getTag(data);\n  }\n\n  /**\n   * Determines if the current host is a live host which has to be tracked in Net Metrix.\n   *\n   * @param  {string}  host  The host.\n   *\n   * @example\n   * Tracker.isNetMetrixLiveHost(window.location.host);\n   *\n   * @return  {Boolean}  Returns `true` if the current host is a live host.\n   */\n  static isNetMetrixLiveHost(host) {\n    return NetMetrixTracker.isLiveHost(host);\n  }\n\n}\n"
+    "content": "// import GoogleAnalyticsTracker from 'tracking/google-analytics-tracker';\nimport NetMetrixTracker from 'tracking/net-metrix-tracker';\n\n/**\n * Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n *\n * For tracking Net Metrix make sure the host under which the page is requested is configured\n * as live host in `./app/node_modules/tracking/config.json`.\n * If the host is not whitelisted tracking is logged to `console`.\n */\nexport default class Tracker {\n\n  /**\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * Google Analytics:\n   * ...\n   *\n   * @example\n   * // Track pageview on Aargauer Zeitung.\n   * // Currently only covers Net Metrix tracking.\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'aaz',\n   *     path: window.location.pathname,\n   *     view: 'page',\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.path       - The path of the url of the current page.\n   * @param  {string}   data.path.view       - The view.\n   *                                           For pageview tracking, e.g. `path.event=='pageview'`: `page` or `'page-noscript'` (when JavaScript disabled).\n   *                                           For event tracking, e.g. `path.event!='pageview'`: `'[name of the component that receives the user event]'`.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the component or the page.\n   * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   */\n  static trackPageView(data) {\n    NetMetrixTracker.trackPageView(data);\n    // GoogleAnalyticsTracker.trackPageView(data);\n  }\n\n\n  /**\n   * Tracks events.\n   *\n   * @TODO: implementation\n   *\n   */\n  static trackEvent(data) {\n    NetMetrixTracker.trackEvent(data);\n    // GoogleAnalyticsTracker.trackEvent(data);\n  }\n\n  /**\n   * Gets the Net Metrix tag to track.\n   *\n   * @param  {object}  data  See @link Tracker.trackPageView specs.\n   *\n   * @example\n   * // Get Net Metrix tag for pageview tracking\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     path: window.location.pathname,\n   *     view: 'page',\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.getNetMetrixTag(data);\n   *\n   * @return  {string}  The Net Metrix tag as string.\n   */\n  static getNetMetrixTag(data) {\n    return NetMetrixTracker.getTag(data);\n  }\n\n  /**\n   * Determines if the current host is a live host which has to be tracked in Net Metrix.\n   *\n   * @param  {string}  host  The host.\n   *\n   * @example\n   * Tracker.isNetMetrixLiveHost(window.location.host);\n   *\n   * @return  {Boolean}  Returns `true` if the current host is a live host.\n   */\n  static isNetMetrixLiveHost(host) {\n    return NetMetrixTracker.isLiveHost(host);\n  }\n\n}\n"
   },
   {
     "__docId__": 22,
@@ -500,8 +500,8 @@
     "export": true,
     "importPath": "az-nwch-js/tracking/tracker.jsx",
     "importStyle": "Tracker",
-    "description": "Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).",
-    "lineNumber": 7,
+    "description": "Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n\nFor tracking Net Metrix make sure the host under which the page is requested is configured\nas live host in `./app/node_modules/tracking/config.json`.\nIf the host is not whitelisted tracking is logged to `console`.",
+    "lineNumber": 11,
     "interface": false
   },
   {
@@ -517,7 +517,7 @@
     "examples": [
       "// Track pageview on Aargauer Zeitung.\n// Currently only covers Net Metrix tracking.\nlet data = {\n  domain: 'aznetz',\n  path: {\n    product: 'live',\n    sitename: 'aaz',\n    path: window.location.pathname,\n    view: 'page',\n    event: 'pageview'\n  }\n};\n\nTracker.trackPageView(data);"
     ],
-    "lineNumber": 53,
+    "lineNumber": 57,
     "params": [
       {
         "nullable": null,
@@ -662,7 +662,7 @@
     "longname": "tracking/tracker.jsx~Tracker.trackEvent",
     "access": null,
     "description": "Tracks events.\n\n@TODO: implementation",
-    "lineNumber": 65,
+    "lineNumber": 69,
     "params": [
       {
         "name": "data",
@@ -686,7 +686,7 @@
     "examples": [
       "// Get Net Metrix tag for pageview tracking\nlet data = {\n  domain: 'aznetz',\n  path: {\n    product: 'live',\n    sitename: 'styleguide',\n    path: window.location.pathname,\n    view: 'page',\n    event: 'pageview'\n  }\n};\n\nTracker.getNetMetrixTag(data);"
     ],
-    "lineNumber": 92,
+    "lineNumber": 96,
     "params": [
       {
         "nullable": null,
@@ -722,7 +722,7 @@
     "examples": [
       "Tracker.isNetMetrixLiveHost(window.location.host);"
     ],
-    "lineNumber": 106,
+    "lineNumber": 110,
     "params": [
       {
         "nullable": null,
