@@ -13,7 +13,6 @@
 
     {# Track on loading of page. Do not use noscript tracking as there is no need to. #}
     <script src="/client/tracking.bundled.js"></script>
-    <script src="/client/scripts/tracking/netmetrix.js"></script>
 
     {# Asynchronously request the font-face stylesheet based on the WOFF support,
        then store it in localStorage for future visits. #}
@@ -34,6 +33,28 @@
   </head>
 
   <body class="styleguide-body">
+
+    {# Track NetMetrix. #}
+    <script>
+      if (typeof window.AZTracker !== 'undefined' && window.AZTracker.trackPageView) {
+        window.AZTracker.trackPageView({
+          domain: 'aznetz',
+          path: {
+            product: 'live',
+            sitename: 'styleguide',
+            view: 'page',
+            path: window.location.pathname,
+            event: 'pageview',
+            id: null,
+            index: null
+          },
+          referer: document.referer,
+          screenWidth: screen.width,
+          screenHeight: screen.height
+        });
+      }
+    </script>
+
     <div id="app" class="wrapper">{% block content %}{% endblock %}</div>
     <script src="/client/styleguide.bundled.js"></script>
     {% block scripts %}{% endblock %}
