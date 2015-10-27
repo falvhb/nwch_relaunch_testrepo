@@ -4,6 +4,13 @@ var camelCase = require('camelcase');
 var disabledIsosByVariation = require('./disabledIsosByVariation');
 var Iso = require('../../app/node_modules/iso-react');
 
+function containsData(target) {
+  for (var key in target) {
+    if (target[key] && target[key] !== null) return true;
+  }
+  return false;
+}
+
 module.exports = function renderComponent(params) {
 
   var output, component = params || {};
@@ -16,23 +23,27 @@ module.exports = function renderComponent(params) {
     component.data = component.state;
   }
 
-  if (_.get(component.slot, 'iso') && !_.includes(disabledIsosByVariation[component.componentName], component.componentVariation)) {
+  if (containsData(component.data)) {
+    if (_.get(component.slot, 'iso') && !_.includes(disabledIsosByVariation[component.componentName], component.componentVariation)) {
 
-    var iso = new Iso();
+      var iso = new Iso();
 
-    output = iso.wrap({
-      component: component.element,
-      state: component.data,
-      meta: {
-        id: component.componentName,
-        variation: component.componentVariation
-      }
-    });
+      output = iso.wrap({
+        component: component.element,
+        state: component.data,
+        meta: {
+          id: component.componentName,
+          variation: component.componentVariation
+        }
+      });
 
-  } else {
-    var el = React.createElement(component.element, component.data);
-    output = React.renderToString(el, component.data);
+    } else {
+      var el = React.createElement(component.element, component.data);
+      output = React.renderToString(el, component.data);
+    }
+
+    return output;
   }
 
-  return output;
+  return null;
 };
