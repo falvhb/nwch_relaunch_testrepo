@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var exec = require('gulp-exec');
 
 var options = {
-  source: './app/node_modules/tracking',
+  source: './app/node_modules',
   destination: './app/jsdoc/doc',
 };
 
