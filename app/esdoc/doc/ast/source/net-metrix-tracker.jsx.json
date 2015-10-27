@@ -1575,7 +1575,7 @@
                                 },
                                 "property": {
                                   "type": "Identifier",
-                                  "name": "view",
+                                  "name": "path",
                                   "range": [
                                     641,
                                     645
@@ -1665,7 +1665,7 @@
                                 },
                                 "property": {
                                   "type": "Identifier",
-                                  "name": "path",
+                                  "name": "view",
                                   "range": [
                                     663,
                                     667

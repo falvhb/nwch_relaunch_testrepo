@@ -64,8 +64,8 @@ export default class Tracker {
    *   path: {
    *     product: &apos;live&apos;,
    *     sitename: &apos;aaz&apos;,
-   *     view: &apos;page&apos;,
    *     path: window.location.pathname,
+   *     view: &apos;page&apos;,
    *     event: &apos;pageview&apos;
    *   }
    * };
@@ -78,9 +78,10 @@ export default class Tracker {
    * @param  {object}   data.path            - The path information object.
    * @param  {string}   data.path.product    - The product. Either `&apos;live&apos;`, `&apos;epaper&apos;` or `&apos;service&apos;`.
    * @param  {string}   data.path.sitename   - The newsportal. One of: `&apos;aaz&apos;`, `&apos;bat&apos;`, `&apos;bzb&apos;`, `&apos;blz&apos;`, `&apos;gtb&apos;`, `&apos;liz&apos;`, `&apos;ot&apos;`, `&apos;soz&apos;`.
+   * @param  {string}   data.path.path       - The path of the url of the current page.
    * @param  {string}   data.path.view       - The view.
    *                                           For pageview tracking, e.g. `path.event==&apos;pageview&apos;`: `page` or `&apos;page-noscript&apos;` (when JavaScript disabled).
-   *                                           For event tracking, e.g. `path.event!=&apos;pageview&apos;`: `&apos;[component name]&apos;`.
+   *                                           For event tracking, e.g. `path.event!=&apos;pageview&apos;`: `&apos;[name of the component that receives the user event]&apos;`.
    * @param  {string}   data.path.event      - The user generated event. `&apos;pageview&apos;` for page view tracking or `&apos;[name of event]&apos;`.
    * @param  {string}   [data.path.id]       - The ID of the component or the page.
    * @param  {string}   [data.path.index]    - The index of the request. Example: For the image gallery this is the index of the image requested.
@@ -118,8 +119,8 @@ export default class Tracker {
    *   path: {
    *     product: &apos;live&apos;,
    *     sitename: &apos;styleguide&apos;,
-   *     view: &apos;page&apos;,
    *     path: window.location.pathname,
+   *     view: &apos;page&apos;,
    *     event: &apos;pageview&apos;
    *   }
    * };

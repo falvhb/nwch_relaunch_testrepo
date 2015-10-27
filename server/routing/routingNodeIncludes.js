@@ -50,23 +50,22 @@ module.exports = function nodeIncludesRouter(req, res) {
     var env = process.env;
 
     var netMetrixNoScript = '';
-    // @TODO: change to '__body_top'
+
+    // @Jukart:@TODO: change to '__body_top'
     if (req.params.viewname === '__head_bottom' && domain.data.properties.without_wemf === false) {
-      // @TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
+      // @Jukart:@TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
       if (Tracker.isNetMetrixLiveHost(req.headers.host)) {
         netMetrixNoScript = Tracker.getNetMetrixTag({
           domain: 'aznetz',
           path: {
             product: 'live',
             sitename: skin,
-            path: req.params,
-            // @TODO: adjust in concept
-            event: 'pageview',
-            view: 'page-noscript'
+            // @Jukart:@TODO: How do I get the path of the requested page here? e.g. mediathek/video/alle for homepage of mediathek.
+            // path: null,
+            view: 'page-noscript',
+            event: 'pageview'
           }
         });
-      } else {
-        // console.info(req.headers.host, 'is not configured as live host. <noscript> tracking not fired...');
       }
     }
 
