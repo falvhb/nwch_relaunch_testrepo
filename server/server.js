@@ -121,7 +121,7 @@ app.get('/esdoc', function(req, res) {
 // -----------------------------------------------------------------------------
 
 // Serve asset folders
-app.use('/jsdoc', express.static('doc/jsdoc/doc'));
+app.use('/jsdoc', express.static('docs/jsdoc/doc'));
 
 // JSDoc route
 app.get('/jsdoc', function(req, res) {
