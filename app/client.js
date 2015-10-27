@@ -7,6 +7,7 @@ var RelatedVideos = require('components/related-videos');
 var Teaser = require('components/teaser');
 var TeaserSwitchable = require('components/teaser-switchable');
 var TopicDetail = require('components/topic-detail');
+var VideoLibrary = require('components/video-library');
 var LatestArticles = require('components/latest-articles');
 
 // Map IDs to required components
@@ -18,8 +19,9 @@ var components = {
   headerNav: HeaderNav,
   relatedVideos: RelatedVideos,
   teaser: Teaser,
-  teaserSwitchable: TeaserSwitchable,
   topicDetail: TopicDetail,
+  videoLibrary: VideoLibrary,
+  teaserSwitchable: TeaserSwitchable,
   latestArticles: LatestArticles
 };
 

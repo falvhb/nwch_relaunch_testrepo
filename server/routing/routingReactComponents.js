@@ -34,7 +34,9 @@ module.exports = function(req, res) {
     'article': req.article ? req.article.data : null,
     'variation': c.variationName,
     'skin': getSkinName(req),
-    'path': req._parsedUrl.path
+    'path': req._parsedUrl.path,
+    // added all api data to state so that we can access them in the slot.js' module
+    'api': req.api
   };
 
   // send component render
