@@ -3,7 +3,7 @@
   "expectCount": 5,
   "actualCount": 5,
   "files": {
-    "tracking/tracker.jsx": {
+    "node_modules/tracking/tracker.jsx": {
       "expectCount": 5,
       "actualCount": 5,
       "undocumentLines": []

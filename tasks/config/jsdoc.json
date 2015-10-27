@@ -1,6 +1,6 @@
 {
  "source": {
-  "include": ["app/node_modules/tracking/tracker.jsx", "app/node_modules/mixins/tracking.jsx"],
+  "include": [/*"app/node_modules/tracking/tracker.jsx",*/ "app/node_modules/mixins/tracking.jsx"],
   "includePattern": ".+\\.(js|jsx)+$"
  },
  "plugins": [

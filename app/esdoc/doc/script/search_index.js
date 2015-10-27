@@ -1,8 +1,8 @@
 window.esdocSearchIndex = [
   [
-    "az-nwch-js/tracking/tracker.jsx~tracker",
-    "class/tracking/tracker.jsx~Tracker.html",
-    "<span>Tracker</span> <span class=\"search-result-import-path\">az-nwch-js/tracking/tracker.jsx</span>",
+    "az-nwch-js/node_modules/tracking/tracker.jsx~tracker",
+    "class/node_modules/tracking/tracker.jsx~Tracker.html",
+    "<span>Tracker</span> <span class=\"search-result-import-path\">az-nwch-js/node_modules/tracking/tracker.jsx</span>",
     "class"
   ],
   [
@@ -330,45 +330,51 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "tracking/google-analytics-tracker.jsx",
-    "file/tracking/google-analytics-tracker.jsx.html",
-    "tracking/google-analytics-tracker.jsx",
+    "node_modules/mixins/tracking.jsx",
+    "file/node_modules/mixins/tracking.jsx.html",
+    "node_modules/mixins/tracking.jsx",
     "file"
   ],
   [
-    "tracking/net-metrix-tracker.jsx",
-    "file/tracking/net-metrix-tracker.jsx.html",
-    "tracking/net-metrix-tracker.jsx",
+    "node_modules/tracking/google-analytics-tracker.jsx",
+    "file/node_modules/tracking/google-analytics-tracker.jsx.html",
+    "node_modules/tracking/google-analytics-tracker.jsx",
     "file"
   ],
   [
-    "tracking/tracker.jsx",
-    "file/tracking/tracker.jsx.html",
-    "tracking/tracker.jsx",
+    "node_modules/tracking/net-metrix-tracker.jsx",
+    "file/node_modules/tracking/net-metrix-tracker.jsx.html",
+    "node_modules/tracking/net-metrix-tracker.jsx",
     "file"
   ],
   [
-    "tracking/tracker.jsx~tracker.getnetmetrixtag",
-    "class/tracking/tracker.jsx~Tracker.html#static-method-getNetMetrixTag",
-    "tracking/tracker.jsx~Tracker.getNetMetrixTag",
+    "node_modules/tracking/tracker.jsx",
+    "file/node_modules/tracking/tracker.jsx.html",
+    "node_modules/tracking/tracker.jsx",
+    "file"
+  ],
+  [
+    "node_modules/tracking/tracker.jsx~tracker.getnetmetrixtag",
+    "class/node_modules/tracking/tracker.jsx~Tracker.html#static-method-getNetMetrixTag",
+    "node_modules/tracking/tracker.jsx~Tracker.getNetMetrixTag",
     "method"
   ],
   [
-    "tracking/tracker.jsx~tracker.isnetmetrixlivehost",
-    "class/tracking/tracker.jsx~Tracker.html#static-method-isNetMetrixLiveHost",
-    "tracking/tracker.jsx~Tracker.isNetMetrixLiveHost",
+    "node_modules/tracking/tracker.jsx~tracker.isnetmetrixlivehost",
+    "class/node_modules/tracking/tracker.jsx~Tracker.html#static-method-isNetMetrixLiveHost",
+    "node_modules/tracking/tracker.jsx~Tracker.isNetMetrixLiveHost",
     "method"
   ],
   [
-    "tracking/tracker.jsx~tracker.trackevent",
-    "class/tracking/tracker.jsx~Tracker.html#static-method-trackEvent",
-    "tracking/tracker.jsx~Tracker.trackEvent",
+    "node_modules/tracking/tracker.jsx~tracker.trackevent",
+    "class/node_modules/tracking/tracker.jsx~Tracker.html#static-method-trackEvent",
+    "node_modules/tracking/tracker.jsx~Tracker.trackEvent",
     "method"
   ],
   [
-    "tracking/tracker.jsx~tracker.trackpageview",
-    "class/tracking/tracker.jsx~Tracker.html#static-method-trackPageView",
-    "tracking/tracker.jsx~Tracker.trackPageView",
+    "node_modules/tracking/tracker.jsx~tracker.trackpageview",
+    "class/node_modules/tracking/tracker.jsx~Tracker.html#static-method-trackPageView",
+    "node_modules/tracking/tracker.jsx~Tracker.trackPageView",
     "method"
   ]
 ]
