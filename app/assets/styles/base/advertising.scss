@@ -66,8 +66,8 @@ $skyscraper-width: 300px;
   > a,
   > img,
   > object {
-    display: inline-block; /* 1 */
     text-align: left;
+    display: inline-block; /* 1 */
   }
 }
 
@@ -80,9 +80,14 @@ $skyscraper-width: 300px;
     margin-bottom: 20px;
   }
 
-  @include media('>mobile-portrait') {
+  @include media('>mobile-portrait', '<=desktop-laptop') {
     margin-top: 30px;
     margin-bottom: 30px;
+  }
+
+  @include media('>desktop-laptop') {
+    margin-top: 30px;
+    margin-bottom: 50px;
   }
 }
 
@@ -109,8 +114,14 @@ $skyscraper-width: 300px;
     margin-top: 40px;
   }
 
-  @include media('>mobile-portrait') {
+  @include media('>mobile-portrait', '<=desktop-laptop') {
     margin-top: 55px;
+    margin-bottom: 40px;
+  }
+
+  @include media('>desktop-laptop') {
+    margin-top: 70px;
+    margin-bottom: 40px;
   }
 }
 
@@ -124,7 +135,7 @@ $skyscraper-width: 300px;
   }
 
   @include media('>mobile-portrait') {
-    margin-top: 55px;
+    margin-top: 40px;
   }
 }
 
