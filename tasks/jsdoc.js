@@ -4,7 +4,7 @@ var exec = require('gulp-exec');
 
 var options = {
   source: './app/node_modules',
-  destination: './app/jsdoc/doc',
+  destination: './docs/jsdoc/doc',
 };
 
 var configFile = 'tasks/config/jsdoc.json';

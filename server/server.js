@@ -109,7 +109,7 @@ app.get('/sassdoc', function(req, res) {
 // -----------------------------------------------------------------------------
 
 // Serve asset folders
-app.use('/esdoc', express.static('app/esdoc/doc'));
+app.use('/esdoc', express.static('docs/esdoc/doc'));
 
 // ESDoc route
 app.get('/esdoc', function(req, res) {
@@ -121,7 +121,7 @@ app.get('/esdoc', function(req, res) {
 // -----------------------------------------------------------------------------
 
 // Serve asset folders
-app.use('/jsdoc', express.static('app/jsdoc/doc'));
+app.use('/jsdoc', express.static('doc/jsdoc/doc'));
 
 // JSDoc route
 app.get('/jsdoc', function(req, res) {
