@@ -1,0 +1,12 @@
+{
+ "source": {
+  "include": [/*"app/node_modules/tracking/tracker.jsx",*/ "app/node_modules/mixins/tracking.jsx"],
+  "includePattern": ".+\\.(js|jsx)+$"
+ },
+ "plugins": [
+    "node_modules/jsdoc-babel"
+ ],
+ "babel": {
+    "extensions": ["js", "jsx"]
+ }
+}

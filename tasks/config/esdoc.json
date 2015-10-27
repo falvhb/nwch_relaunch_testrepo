@@ -1,0 +1,6 @@
+{
+  "source": "./app/node_modules",
+  "destination": "./docs/esdoc/doc",
+  "includes": ["tracking\/[^\/]*\\.(js|jsx)$", "mixins\/tracking\\.(js|jsx)$"],
+  "index": "./app/esdoc/readme.md"
+}
