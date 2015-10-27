@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added basic Net Metrix Tracking module
  - fix legacy teaser and image handling
  - change nav-item "Panorama" to "Leben/Wissen"
 
