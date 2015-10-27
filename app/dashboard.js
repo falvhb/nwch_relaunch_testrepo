@@ -6,6 +6,7 @@ import Authentication from 'dashboard/authentication';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { Router, Route, IndexRedirect } from 'react-router';
 import isLoggedIn from 'helpers/dashboard/is-logged-in';
+import 'svg4everybody';
 
 let history = createBrowserHistory();
 
