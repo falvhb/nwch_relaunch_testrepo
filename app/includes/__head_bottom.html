@@ -31,7 +31,8 @@
       'kaltura_frontend_video_player_id': {{kaltura_frontend_video_player_id}},
       'kaltura_frontend_adless_video_player_id': {{kaltura_frontend_adless_video_player_id}},
       'kaltura_mediathek_video_player_id': {{kaltura_mediathek_video_player_id}},
-      'kaltura_mediathek_category_id': {{kaltura_mediathek_category_id}}
+      'kaltura_mediathek_category_id': {{kaltura_mediathek_category_id}},
+      'skin': '{{skin}}'
     };
 
   })(window);
@@ -43,3 +44,12 @@
 
 <script src="//aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
 <script src="//www.google.com/recaptcha/api.js" async defer></script>
+
+{# Track on loading of page. #}
+<script src="{{ staticBasePath }}/client/tracking.bundled.js"></script>
+<script src="{{ staticBasePath }}/client/scripts/tracking/netmetrix.js"></script>
+{% if netMetrixNoScript != "" %}
+<noscript id="trackingNoScript">
+  <img src="{{ netMetrixNoScript }}" width="1" height="1" alt="">
+</noscript>
+{% endif %}

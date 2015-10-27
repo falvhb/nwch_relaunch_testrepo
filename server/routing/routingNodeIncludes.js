@@ -2,6 +2,7 @@
 var path = require('path');
 var getSkinName = require('../modules/skin');
 var getIconPath = require('../modules/icon-path');
+var Tracker = require('../../app/node_modules/tracking/tracker.jsx');
 
 var defaults = {
   folder: './app/includes'
@@ -43,6 +44,26 @@ module.exports = function nodeIncludesRouter(req, res) {
     var domain = req.api.get('domain') || {};
     var env = process.env;
 
+    var netMetrixNoScript = '';
+
+    // @Jukart:@TODO: change to '__body_top'
+    if (req.params.viewname === '__head_bottom' && domain.data.properties.without_wemf === false) {
+      // @Jukart:@TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
+      if (Tracker.isNetMetrixLiveHost(req.headers.host)) {
+        netMetrixNoScript = Tracker.getNetMetrixTag({
+          domain: 'aznetz',
+          path: {
+            product: 'live',
+            sitename: skin,
+            // @Jukart:@TODO: How do I get the path of the requested page here? e.g. mediathek/video/alle for homepage of mediathek.
+            // path: null,
+            view: 'page-noscript',
+            event: 'pageview'
+          }
+        });
+      }
+    }
+
     var version = process.env.VERSION || '@@VERSION';
     var data = {
       'withAds': pageType !== '',
@@ -54,7 +75,8 @@ module.exports = function nodeIncludesRouter(req, res) {
       'kaltura_frontend_video_player_id': domain.kaltura_frontend_video_player_id || env.KALTURA_PLAYER_ID,
       'kaltura_frontend_adless_video_player_id': domain.kaltura_frontend_adless_video_player_id || env.KALTURA_PLAYER_NOADS_ID,
       'kaltura_mediathek_video_player_id': domain.kaltura_mediathek_video_player_id || 'null',
-      'kaltura_mediathek_category_id': domain.kaltura_mediathek_category_id || 'null'
+      'kaltura_mediathek_category_id': domain.kaltura_mediathek_category_id || 'null',
+      'netMetrixNoScript': netMetrixNoScript
     };
     res.send(renderNunchuck(component, data));
   }

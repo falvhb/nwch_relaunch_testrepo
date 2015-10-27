@@ -118,6 +118,29 @@ app.get('/sassdoc', function(req, res) {
   res.render('sassdoc/index.html');
 });
 
+// -----------------------------------------------------------------------------
+// ESDoc
+// -----------------------------------------------------------------------------
+
+// Serve asset folders
+app.use('/esdoc', express.static('docs/esdoc/doc'));
+
+// ESDoc route
+app.get('/esdoc', function(req, res) {
+  res.render('esdoc/doc/index.html');
+});
+
+// -----------------------------------------------------------------------------
+// TEMP: JSDoc
+// -----------------------------------------------------------------------------
+
+// Serve asset folders
+app.use('/jsdoc', express.static('docs/jsdoc/doc'));
+
+// JSDoc route
+app.get('/jsdoc', function(req, res) {
+  res.render('jsdoc/doc/index.html');
+});
 
 // -----------------------------------------------------------------------------
 // Authentication
