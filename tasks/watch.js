@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var sassInput = require('./lib/sass-input.js');
+var sassInput = require('./lib/sass-input.js').concat('./app/node_modules/dashboard/**/*.scss');
 
 module.exports = function() {
   return gulp

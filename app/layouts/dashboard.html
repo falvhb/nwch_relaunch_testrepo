@@ -8,6 +8,10 @@
 
     <script>
       (function (global) {
+        // Check for defined globals
+        global.az = global.az || {};
+        global.az.skin = '{{ skin }}';
+
         // Load fonts to LocalStorage
         global.loadFont(
           'az-fonts',
@@ -23,7 +27,23 @@
 
   </head>
   <body>
-    <div id="dashboard"></div>
+    <div id="dashboard">
+      <div class="dashboard">
+        <div class="dashboard__header dashboard__header--logged-out">
+          <a class="header-logo" href="/" title="Startseite">
+            <img class="header-logo__img" src="{{ logoPath }}">
+          </a>
+        </div>
+          <div class="dashboard-container dashboard-container--small">
+            <header class="section-header section-header--default">
+              <h1 class="section-header__title section-header__title--default">
+                Seite wird geladen…
+              </h1>
+            </header>
+            <p style="text-align:center">Bitte haben Sie ein wenig Geduld.</p>
+          </div>
+      </div>
+    </div>
     <script src="{{ staticBasePath }}/client/dashboard.bundled.js"></script>
   </body>
 </html>
