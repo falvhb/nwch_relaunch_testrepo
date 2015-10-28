@@ -60,6 +60,11 @@ export default MyComponent;
 @TODO: Add code sample
 
 
+#### Chartbeat
+
+@TODO: Add code sample
+
+
 ### Pageview Tracking
 
 Pageview tracking is triggered when a page is loaded. The tracking happens in the Node include `app/includes/__body_top` by using the static class `Tracker` (`app/node_modules/tracking/tracker.jsx`).
@@ -89,6 +94,11 @@ Tracker.trackPageView({
 ```
 
 #### Google Analytics
+
+@TODO: Add code sample
+
+
+#### Chartbeat
 
 @TODO: Add code sample
 
