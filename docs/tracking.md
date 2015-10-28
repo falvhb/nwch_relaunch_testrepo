@@ -69,7 +69,7 @@ Pageview tracking is triggered when a page is loaded. The tracking happens in th
 Example for usage of `Tracker` to track a pageview in Net Metrix:
 
 ```
-import NetMetrixTracker from 'tracking/net-metrix-tracker';
+import Tracker from 'tracking/tracker';
 
 Tracker.trackPageView({
   domain: 'aznetz',
