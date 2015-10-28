@@ -83,9 +83,7 @@ Tracker.trackPageView({
     sitename: (typeof window.az !== 'undefined' ? window.az.globals.skin : 'noskin'),
     view: 'page',
     path: window.location.pathname,
-    event: 'pageview',
-    id: null,
-    index: null
+    event: 'pageview'
   },
   referer: document.referer,
   screenWidth: screen.width,
