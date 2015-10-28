@@ -47,7 +47,7 @@ module.exports = function nodeIncludesRouter(req, res) {
     var netMetrixNoScript = '';
 
     // @Jukart:@TODO: change to '__body_top'
-    if (req.params.viewname === '__head_bottom' && domain.data.properties.without_wemf === false) {
+    if (req.params.viewname === '__head_bottom' && typeof domain.data !== 'undefined' && domain.data.properties.without_wemf === false) {
       // @Jukart:@TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
       if (Tracker.isNetMetrixLiveHost(req.headers.host)) {
         netMetrixNoScript = Tracker.getNetMetrixTag({
