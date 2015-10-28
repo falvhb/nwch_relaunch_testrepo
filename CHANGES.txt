@@ -8,6 +8,8 @@ unreleased
  - New icons: Crest and Help
  - Visuals and functionality for /dashboard
  - added basic Net Metrix Tracking module
+ - Login button now works and links to /anmelden
+ - Login button now says “Mein Profil” when user is logged in
 
 2015/10/19 0.0.55
 =================
