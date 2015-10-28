@@ -24,6 +24,8 @@ User interactions are always handled by components.
 
 To make a component track a user interaction it has to include the mixin `app/node_includes/mixins/tracking.jsx` and call its `track` method.
 
+#### Net Metrix
+
 Example for using the mixin `Tracking` to track an event in Net Metrix:
 
 ```
@@ -53,9 +55,16 @@ export default MyComponent;
 
 ```
 
+#### Google Analytics
+
+@TODO: Add code sample
+
+
 ### Pageview Tracking
 
 Pageview tracking is triggered when a page is loaded. The tracking happens in the Node include `app/includes/__body_top` by using the static class `Tracker` (`app/node_modules/tracking/tracker.jsx`).
+
+#### Net Metrix
 
 Example for usage of `Tracker` to track a pageview in Net Metrix:
 
@@ -78,6 +87,11 @@ Tracker.trackPageView({
   screenHeight: screen.height
 });
 ```
+
+#### Google Analytics
+
+@TODO: Add code sample
+
 
 ## API Documentation
 
