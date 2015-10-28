@@ -58,6 +58,7 @@ var loadArticle = require('./routing/loadArticle');
 var loadDomain = require('./routing/loadDomain');
 var loadDossier = require('./routing/loadDossier');
 var loadCity = require('./routing/loadCity');
+var loadClubByUrlPart = require('./routing/loadClub');
 var loadLatestArticles = require('./routing/loadLatestArticles');
 var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
@@ -71,6 +72,7 @@ var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactDossierRouter = require('./routing/routingDossier');
 var reactCityRouter = require('./routing/routingCity');
+var reactClubRouter = require('./routing/routingClub');
 var reactLatestArticlesRouter = require('./routing/routingLatestArticles');
 var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
@@ -217,6 +219,13 @@ app.get(COMPONENT_PREFIX + '/gemeinde/:city_id/:component/:variation',
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactCityRouter);
+
+app.get(COMPONENT_PREFIX + '/verein/:club_urlpart/:component/:variation',
+        loadClubByUrlPart,
+        loadComponentRequirements(),
+        waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
+        reactClubRouter);
 
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadComponentRequirements('ressort-header'),
