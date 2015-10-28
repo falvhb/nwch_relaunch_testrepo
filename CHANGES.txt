@@ -5,6 +5,7 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added city endpoint to be able to render components on a city
  - New icons: Crest and Help
  - Visuals and functionality for /dashboard
  - added basic Net Metrix Tracking module
