@@ -1,4 +1,4 @@
-var cloadClub = require('../api/cloadClub');
+var loadClub = require('../api/loadClub');
 
 /**
  * A middleware to load the the club data.
@@ -7,7 +7,7 @@ var cloadClub = require('../api/cloadClub');
  *                          only the <id> part is used to lookup the club
  */
 module.exports = function(req, res, next) {
-  cloadClub(req, res);
+  loadClub(req, res);
 
   // signal that we need to wait for the API to finish the request
   next();
