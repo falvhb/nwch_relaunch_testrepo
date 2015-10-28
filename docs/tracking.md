@@ -1,9 +1,5 @@
 # Tracking documentation
 
-For API documentation see [Tracker](http://localhost:8000/esdoc/).
-
-To build documentation run task `gulp esdoc`.
-
 
 ## Introduction
 
@@ -15,6 +11,8 @@ We differentiate between two kinds of tracking:
 
 Pageview tracking occurs when a page is loaded. Event tracking on the other side is triggered by a user interaction.
 
+To make sure tracking only happens on live environment you have to configure the live hosts under `app/node_modules/tracking/config.json`. Tracking on non-live hosts, e.g. hosts which are not contained in the list, is currently logged to `console` on the client.
+
 
 ## Integration
 
@@ -24,7 +22,7 @@ Pageview tracking occurs when a page is loaded. Event tracking on the other side
 Event tracking is triggered by a user interaction such as clicking on a video teaser in the `Video Library` component.
 User interactions are always handled by components. 
 
-To make a `ComponentA` track a user interaction it has to include the mixin `app/node_includes/mixins/tracking.jsx` and call its `track` method.
+To make a component track a user interaction it has to include the mixin `app/node_includes/mixins/tracking.jsx` and call its `track` method.
 
 Example for using the mixin `Tracking` to track an event in Net Metrix:
 
@@ -81,3 +79,12 @@ Tracker.trackPageView({
 });
 ```
 
+## API Documentation
+
+To make inline documentation in code more readable you can build esdoc or jsdoc to generate HTML documentation locally.
+
+To build documentation run tasks `gulp esdoc` and `gulp jsdoc`respectively.
+
+Documentation can then be accessed locally:
+* [Tracker](http://localhost:8000/esdoc/)
+* [Mixin Tracking](http://localhost:8000/jsdoc/)
