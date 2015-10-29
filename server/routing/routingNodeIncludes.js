@@ -44,24 +44,24 @@ module.exports = function nodeIncludesRouter(req, res) {
     var domain = req.api.get('domain') || {};
     var env = process.env;
 
-    var netMetrixNoScript = '';
+    var without_wemf = (typeof domain.data !== 'undefined' ? domain.data.properties.without_wemf : false);
 
-    if (typeof domain.data !== 'undefined' && domain.data.properties.without_wemf === false) {
+    var netMetrixNoScript = '';
+    if (!without_wemf) {
       // @Jukart:@TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
-      if (Tracker.isNetMetrixLiveHost()) {
-        netMetrixNoScript = Tracker.getNetMetrixTag({
-          domain: 'aznetz',
-          path: {
-            product: 'live',
-            sitename: skin,
-            // @Jukart:@TODO: How do I get the path of the requested page here? e.g. mediathek/video/alle for homepage of mediathek.
-            // path: null,
-            view: 'page-noscript',
-            event: 'pageview'
-          }
-        });
-      }
+      netMetrixNoScript = Tracker.getNetMetrixTag({
+        domain: 'aznetz',
+        path: {
+          product: 'live',
+          sitename: skin,
+          // @Jukart:@TODO: How do I get the path of the requested page here? e.g. mediathek/video/alle for homepage of mediathek.
+          // path: null,
+          view: 'page-noscript',
+          event: 'pageview'
+        }
+      });
     }
+
 
     var version = process.env.VERSION || '@@VERSION';
     var data = {
@@ -75,7 +75,8 @@ module.exports = function nodeIncludesRouter(req, res) {
       'kaltura_frontend_adless_video_player_id': domain.kaltura_frontend_adless_video_player_id || env.KALTURA_PLAYER_NOADS_ID,
       'kaltura_mediathek_video_player_id': domain.kaltura_mediathek_video_player_id || 'null',
       'kaltura_mediathek_category_id': domain.kaltura_mediathek_category_id || 'null',
-      'netMetrixNoScript': netMetrixNoScript
+      'netMetrixNoScript': netMetrixNoScript,
+      'without_wemf': without_wemf
     };
     res.send(renderNunchuck(component, data));
   }

@@ -11,7 +11,7 @@ We differentiate between two kinds of tracking:
 
 Pageview tracking occurs when a page is loaded. Event tracking on the other side is triggered by a user interaction.
 
-To make sure tracking only happens on chosen portals you have to set the configuration variable `no_wemf` in the domain configuration of the cms.
+To make sure tracking only happens on chosen portals you have to set the configuration variable `without_wemf` in the domain configuration of the cms.
 
 
 ## Integration
