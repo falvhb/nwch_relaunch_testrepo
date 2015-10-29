@@ -18,7 +18,12 @@ var defaults = {
     'helpers',
     'higher-order',
     'iso-react',
-    'client'
+    'advertising',
+    'clientside',
+    'config',
+    'legacy',
+    'tracking',
+    'dashboard'
   ],
   config: '.config.json',
   data: '.data.json',
