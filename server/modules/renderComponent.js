@@ -14,12 +14,13 @@ function containsData(target) {
 module.exports = function renderComponent(params) {
 
   var output, component = params || {};
+  var slotData = _.get(component, 'slot.data');
 
   component.componentName = camelCase(params.componentName);
 
-  if (component.slot && typeof(component.slot.data) === 'function') {
-    component.data = component.slot.data(component.state);
-  } else if (component.slot.data == null) {
+  if (component.slot && typeof(slotData) === 'function') {
+    component.data = slotData(component.state);
+  } else if (!slotData) {
     component.data = component.state;
   }
 
