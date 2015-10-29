@@ -16,7 +16,9 @@ $image-loader-size: 30px;
  * 2. Displayed
  * 3. On top of content
  */
+
 /// CSS based loading Spinner for loading animations
+/// Creates an `::after` element with `opacity: 1`
 /// @access public
 @mixin loading-spinner {
   &::after {
@@ -39,6 +41,8 @@ $image-loader-size: 30px;
 
 /// Add a loading spinner to sliders, defining wrapper and inner elements
 /// @access public
+/// @param {Selector} $wrapper - set wrapping element selector (spinner gets added)
+/// @param {Selector} $inner - set inner element selector (hidden when slider loading or resizing)
 @mixin slider-loading($wrapper, $inner) {
   .#{$wrapper} {
     position: relative;

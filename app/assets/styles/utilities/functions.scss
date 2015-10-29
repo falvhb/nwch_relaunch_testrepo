@@ -16,7 +16,7 @@
   @return mix(black, $color, $percentage);
 }
 
-/// Asset path helpers pased on environment. Uses global $environment variable in utilities/environment.scss
+/// Asset path helpers pased on environment. Uses global `$environment` variable in `utilities/environment.scss`
 /// @access public
 /// @return {String}
 @function get-base-path() {

@@ -1,12 +1,14 @@
 @import 'utilities/variables';
 
-/// Helper for thinner text, only supported by -moz-osx and -webkit
+/// Helper for thinner text, only supported by `-moz-osx` and `-webkit`
+/// @access public
 @mixin font-smoothing {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /// Helper for prividing IE9 fallback font when declaring supporting font stack
+/// @access public
 @mixin supporting-font {
   font-family: $supporting-font-stack;
 
@@ -16,6 +18,7 @@
 }
 
 /// Helper for clearfixing an element
+/// @access public
 @mixin clearfix {
   &::after {
     content: '';
@@ -26,6 +29,7 @@
 
 /// Helper to hide component from view but keep it enabled for screenreaders
 /// From http://stackoverflow.com/a/17980063
+/// @access public
 @mixin visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);

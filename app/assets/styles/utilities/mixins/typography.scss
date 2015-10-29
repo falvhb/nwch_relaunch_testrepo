@@ -146,9 +146,8 @@
 
 /// This is intended to be a word, phrase or name to give context to an article
 /// or a quote.
-/// @see {mixin} type-blockquote
 /// @example markup - Catchword
-///  <p class='type-catchword'>DEUTSCHLAND</p>
+///  <p class='type-catchword'>Aargau</p>
 @mixin type-catchword {
   @include supporting-font;
   font-size: 13px;

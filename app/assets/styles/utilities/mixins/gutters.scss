@@ -1,5 +1,8 @@
 @import 'utilities/variables';
 
+/// Activate a grid layout
+/// @access public
+/// @param {String} $size ['small'] - set `'small'` (1 x `$container-spacing`) or `'large'` (2 x `$container-spacing`) gutters
 @mixin container-gutters($size: 'small') {
   @if ($size == 'small') {
     $gutter: $container-spacing;
@@ -11,6 +14,11 @@
   padding-right: $gutter;
 }
 
+/// Activate a grid layout
+/// @access public
+/// @param {String} $direction ['pull'] - `'pull'` (outdent) or `'push'` (indent) the edges
+/// @param {String} $breakpoint ['both'] - set breakpoints `'both'`, `'mobile'` or `'desktop'`
+/// @param {String} $method ['margin'] - set method for spacing `'margin'` or `'padding'`
 @mixin edges($direction: 'pull', $breakpoint: 'both', $method: 'margin') {
 
   @if $direction == 'pull' {
