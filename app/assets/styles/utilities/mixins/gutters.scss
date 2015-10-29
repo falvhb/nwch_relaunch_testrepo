@@ -1,0 +1,36 @@
+@import 'utilities/variables';
+
+@mixin container-gutters($size: 'small') {
+  @if ($size == 'small') {
+    $gutter: $container-spacing;
+  } @else {
+    $gutter: $container-spacing * 2;
+  }
+
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@mixin edges($direction: 'pull', $breakpoint: 'both', $method: 'margin') {
+
+  @if $direction == 'pull' {
+    $factor: -1;
+  } @else if $direction == 'push' {
+    $factor: 1;
+  }
+
+  @if $breakpoint == 'both' or $breakpoint == 'mobile' {
+    @include media('<=mobile-portrait') {
+      #{$method}-left: $factor * $container-spacing;
+      #{$method}-right: $factor * $container-spacing;
+    }
+  }
+
+  @if $breakpoint == 'both' or $breakpoint == 'desktop' {
+    @include media('>mobile-portrait') {
+      #{$method}-left: $factor * ($container-spacing * 2);
+      #{$method}-right: $factor * ($container-spacing * 2);
+    }
+  }
+
+}

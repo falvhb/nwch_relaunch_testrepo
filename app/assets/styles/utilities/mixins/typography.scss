@@ -1,0 +1,160 @@
+@import 'utilities/variables';
+
+/// This is intended to be an introduction paragraph to an article. It should not
+/// be used for more than a single paragraph in a row.
+@mixin type-intro {
+  @include supporting-font;
+  font-size: 22px;
+  line-height: 1.41;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  @include media('≤mobile-portrait') {
+    font-size: 18px;
+  }
+}
+
+
+/// This is intended to be the default typographic styles for paragraphs, lists
+/// and basically the core content of an article.
+/// @example markup - Copy text
+///  <p class='type-copy'>Die Männer seien am vergangen Freitagmorgen zu der Tour aufgebrochen, die sie zum Ingolstädterhaus auf 2119 Meter führen sollte, teilte die Polizei mit. Gegen 23.00 Uhr erreichten sie die im Winter nicht bewirtschaftete Hütte und quartierten sich im Winterraum ein, der frei zugänglich ist, über zwölf Schlafplätze, aber keine Verpflegung verfügt.</p>
+@mixin type-copy {
+  font: 20px / 1.41 $text-font-stack;
+  letter-spacing: 0.3px;
+
+  @include media('≤mobile-portrait') {
+    font-size: 18px;
+  }
+}
+
+
+/// Alternate copy text.
+/// @todo To be determined.
+/// @example markup - Alternate copy text
+///  <p class='type-copy-alternate'>Die Redaktion sucht nach Augenzeugen, die am vergangenen Dienstag den Unfall am Marktplatz in Aarau beobachet haben. Ein schwarzer Mercedes war an einen Poller geprallt und hatte sich überschlagen, 2 Passanten wurden leicht verletzt.</p>
+@mixin type-copy-alternate {
+  @include supporting-font;
+  font-size: 16px;
+  line-height: 1.5;
+
+  @include media('≤mobile-portrait') {
+    font-size: 15px;
+  }
+}
+
+/// Alternate headline text.
+/// @todo To be determined.
+/// @example markup - Alternate copy text
+///  <h2 class='type-headline-alternate'>Die Redaktion sucht nach Augenzeugen, die am vergangenen Dienstag den Unfall am Marktplatz in Aarau beobachet haben. Ein schwarzer Mercedes war an einen Poller geprallt und hatte sich überschlagen, 2 Passanten wurden leicht verletzt.</h2>
+@mixin type-headline-alternate {
+  @include supporting-font;
+  font-size: 18px;
+  line-height: 1.333;
+  font-weight: 700;
+}
+
+
+
+/// This is intended to be used for the main headline, such as article's.
+/// @example markup - Primary headline
+///  <h1 class='type-h1'>Staatsanwaltschaft ermittelt nach Brückeneinsturz gegen Unbekannt</h1>
+@mixin type-h1 {
+  font: 48px / 1.125 $headline-font-stack;
+  letter-spacing: 0.9px;
+
+  @include media('≤mobile-portrait') {
+    font-size: 26px;
+  }
+
+  @include media('≤desktop-laptop') {
+    font-size: 30px;
+  }
+}
+
+
+/// This is intended to be used when `type-h1` is a bit too *in yo' face*.
+/// @example markup - Secondary headline
+///  <h2 class='type-h2'>Staatsanwaltschaft ermittelt nach Brückeneinsturz gegen Unbekannt</h2>
+@mixin type-h2 {
+  font: 32px / 1.25 $headline-font-stack;
+  letter-spacing: 0.6px;
+  margin-bottom: 15px;
+
+  @include media('≤mobile-portrait') {
+    font-size: 22px;
+  }
+}
+
+
+/// This is intended to be used when `type-h2` is a bit too *in yo' face*.
+/// @example markup - Tertiary headline
+///  <h3 class='type-h3'>Staatsanwaltschaft ermittelt nach Brückeneinsturz gegen Unbekannt</h3>
+@mixin type-h3 {
+  font: 24px / 1.25 $headline-font-stack;
+  letter-spacing: 0.6px;
+  margin-bottom: 15px;
+
+  @include media('≤mobile-portrait') {
+    font-size: 18px;
+  }
+}
+
+
+/// This is intended to style titles that are part of secondary content, for
+/// instance related content within an article.
+/// @example markup - Mini headline
+///  <h4 class='type-h4'>Staatsanwaltschaft ermittelt nach Brückeneinsturz gegen Unbekannt</h4>
+@mixin type-h4 {
+  font: 18px / 1.3333 $headline-font-stack;
+  letter-spacing: 0.6px;
+}
+
+
+/// This is intended to style blockquotes. It should not be used on inline quotes.
+/// @example markup - Blockquote
+///  <blockquote class='type-blockquote'>«Am Sonntag wurden die Tschechen im Alter von 32, 35 und 38 Jahren dann vom Wetterumschwung überrascht»</blockquote>
+@mixin type-blockquote {
+  font: 32px / 1.1875 $headline-font-stack;
+  letter-spacing: 0.6px;
+}
+
+
+/// This is intended to be used for captions such as under an image or video.
+/// @example markup - Caption
+///  <p class='type-caption'>Zunzger Kinder im Fasnachtsfieber</p>
+@mixin type-caption {
+  @include supporting-font;
+  font-size: 16px;
+  line-height: 1.375;
+  letter-spacing: 0.2px;
+  color: $medium-grey;
+}
+
+
+/// This is intended to be used for smaller details, such as secondary labels
+/// or meta data on articles like the author name or the date.
+///  <p class='type-detail'>Zunzger Kinder im Fasnachtsfieber</p>
+@mixin type-detail {
+  @include supporting-font;
+  font-size: 14px;
+  line-height: 1.3333;
+  letter-spacing: 0.1px;
+  color: $medium-grey;
+}
+
+
+/// This is intended to be a word, phrase or name to give context to an article
+/// or a quote.
+/// @see {mixin} type-blockquote
+/// @example markup - Catchword
+///  <p class='type-catchword'>DEUTSCHLAND</p>
+@mixin type-catchword {
+  @include supporting-font;
+  font-size: 13px;
+  line-height: 1.23;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: $medium-grey;
+}

@@ -1,0 +1,30 @@
+@import 'utilities/variables';
+
+@mixin content-width($method: 'margin') {
+  @include media('>desktop-laptop') {
+    #{$method}-right: $sidebar-width + $container-spacing;
+  }
+}
+
+@mixin article-body-width($method: 'margin') {
+  @include media('>desktop-laptop') {
+    #{$method}-right: $sidebar-width + (3 * $container-spacing);
+  }
+}
+
+@mixin main-layout {
+  width: 100%;
+
+  @include media('<=tablet-portrait') {
+    max-width: 650px;
+  }
+
+  @include media('>tablet-portrait', '<=desktop-laptop') {
+    width: 80%;
+  }
+
+  @include media('<=desktop-laptop') {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

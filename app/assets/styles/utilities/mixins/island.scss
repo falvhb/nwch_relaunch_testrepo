@@ -1,0 +1,50 @@
+@import 'utilities/variables';
+
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+
+
+/// Helper for `island` mixin for DRY padding values
+@mixin island-padding($padding) {
+  padding: $padding;
+
+  &::before {
+    right: $padding;
+    left: $padding;
+  }
+}
+
+/// Create an island with blocked-off content and a top border
+@mixin island($color: $light-blue, $small-padding: $container-spacing, $large-padding: false) {
+
+  background: $very-light-grey;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    height: 4px;
+    background-color: $color;
+  }
+
+  @if $small-padding == $large-padding or $large-padding == false {
+    @include island-padding($small-padding);
+  } @else {
+
+    @include media('<=mobile-portrait') {
+      @include island-padding($small-padding);
+    }
+
+    @include media('>mobile-portrait') {
+      @include island-padding($large-padding);
+    }
+
+  }
+
+}
+

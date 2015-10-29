@@ -1,3 +1,5 @@
+@import 'utilities/variables';
+
 /// Slightly lighten a color
 /// @access public
 /// @param {Color} $color - color to tint
@@ -6,6 +8,7 @@
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
 }
+
 
 /// Slightly darken a color
 /// @access public
@@ -16,21 +19,8 @@
   @return mix(black, $color, $percentage);
 }
 
-/// Asset path helpers pased on environment. Uses global $environment variable in utilities/environment.scss
-/// @access public
-/// @return {String}
-@function get-base-path() {
-  @if ($environment == 'prod') {
-    @return '/__node__/__static__/';
-  }
-
-  @return '/';
-}
-
-/// Asset function for background images, based on environment toggle
-/// @access public
-/// @param {String} $path - path to file
-/// @return {url('...')}
-@function asset($path) {
-  @return url(get-base-path() + $path);
+/// Overlay Gradient for images for a better contrast to the text on the image
+/// @param {Number} $percentage [65%] - percentage of top position
+@mixin image-gradient($percentage: 65%) {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) $percentage, #000 100%);
 }
