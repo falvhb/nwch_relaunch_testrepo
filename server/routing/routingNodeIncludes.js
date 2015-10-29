@@ -48,7 +48,7 @@ module.exports = function nodeIncludesRouter(req, res) {
 
     if (typeof domain.data !== 'undefined' && domain.data.properties.without_wemf === false) {
       // @Jukart:@TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
-      if (Tracker.isNetMetrixLiveHost(req.headers.host)) {
+      if (Tracker.isNetMetrixLiveHost()) {
         netMetrixNoScript = Tracker.getNetMetrixTag({
           domain: 'aznetz',
           path: {

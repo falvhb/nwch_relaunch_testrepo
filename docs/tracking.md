@@ -11,7 +11,7 @@ We differentiate between two kinds of tracking:
 
 Pageview tracking occurs when a page is loaded. Event tracking on the other side is triggered by a user interaction.
 
-To make sure tracking only happens on live environment you have to configure the live hosts under `app/node_modules/tracking/config.json`. Tracking on non-live hosts, e.g. hosts which are not contained in the list, is currently logged to `console` on the client.
+To make sure tracking only happens on chosen portals you have to set the configuration variable `no_wemf` in the domain configuration of the cms.
 
 
 ## Integration
