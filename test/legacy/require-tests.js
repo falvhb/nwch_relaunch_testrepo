@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
 
 describe('require', function() {
-
+  this.timeout(5000);
   it('the require test: see if we can get all files to load ... sort order is alphabetical, per directory.', function() {
     require('../../app/node_modules/legacy/components/article-anriss');
     require('../../app/node_modules/legacy/components/article-anriss-as-link');

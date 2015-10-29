@@ -70,6 +70,8 @@ describe('Components Router', function() {
   });
 
   it('returns an HTML comment including errors if no data is found', function() {
+    this.timeout(5000);
+
     req.api.get = function(key) {
       if (key === 'article') {
         return {
