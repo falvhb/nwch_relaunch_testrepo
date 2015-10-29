@@ -74,7 +74,7 @@ Api.prototype.retrieve = function(apiConfig, cb) {
         cb(new Error(response.status));
       }
       self._endApiCall();
-    });
+    }).done();
 };
 
 

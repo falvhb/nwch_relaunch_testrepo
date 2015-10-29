@@ -43,4 +43,4 @@ function ReqMock() {
 module.exports = {
   ReqMock: ReqMock,
   ResMock: ResMock,
-}
+};
