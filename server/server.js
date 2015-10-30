@@ -158,11 +158,49 @@ var LEGACY_PREFIX = '/__legacy__';
 var VARNISH_CACHE_TIME = process.env.VARNISH_CACHE_TIME;
 var VARNISH_GRACE_TIME = process.env.VARNISH_GRACE_TIME;
 
-
+var Kaltura = require('kaltura-client/KalturaClient.js');
 app.get(COMPONENT_PREFIX + '/:component(video-library)/:variation',
         function(req, res, next) {
           console.log('=============Route "/:component(video-library)/:variation" matched. Requested route: ', req.originalUrl);
-          next();
+          // console.log(process.env.KALTURA_ADMIN_SECRET);
+
+
+          var accountID = '1789881';
+          var secret = process.env.KALTURA_ADMIN_SECRET;//'6c3df18d7959bc91cdf1482a91133a57';
+          // var accountID = 1719221;
+          // var secret = '';//process.env.KALTURA_ADMIN_SECRET;
+
+          var userId = 'PhilippKiller@gmx.ch';
+          var expiry = 86400;
+          var privileges;
+
+          var config = new Kaltura.KalturaConfiguration(accountID);
+          var client = new Kaltura.KalturaClient(config);
+          var type = Kaltura.enums.KalturaSessionType.ADMIN;
+          var result = client.session.start(
+            function (ks) {
+              client.setKs(ks);
+
+              var filter = new Kaltura.objects.KalturaBaseEntryFilter();
+              filter.freeText = 'test*';
+              var pager = new Kaltura.objects.KalturaFilterPager();
+              pager.pageSize = 2;
+              pager.pageIndex = 1;
+
+              client.baseEntry.listAction(function(d) {
+                console.log(d);
+
+                next();
+              }, filter, pager);
+
+            },
+            secret,
+            userId,
+            type,
+            accountID,
+            expiry,
+            privileges);
+
         },
         loadDomain,
         waitAPI,  // wait for domain data
