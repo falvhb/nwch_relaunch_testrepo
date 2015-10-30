@@ -160,6 +160,10 @@ var VARNISH_GRACE_TIME = process.env.VARNISH_GRACE_TIME;
 
 
 app.get(COMPONENT_PREFIX + '/:component(video-library)/:variation',
+        function(req, res, next) {
+          console.log('=============Route "/:component(video-library)/:variation" matched. Requested route: ', req.originalUrl);
+          next();
+        },
         loadDomain,
         waitAPI,  // wait for domain data
         loadComponentRequirements(),
@@ -219,6 +223,10 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         reactComponentsRouter);
 
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
+        function(req, res, next) {
+          console.log('=============Route "/:a?/:b?/:c?/:d?/:e?/:component/:variation" matched. Requested route: ', req.originalUrl);
+          next();
+        },
         loadComponentRequirements(),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
