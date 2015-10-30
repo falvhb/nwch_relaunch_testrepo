@@ -28,15 +28,15 @@ module.exports = function(componentName) {
       return;
     }
     // Here we try to get the api module of the component.
-    var api;
+    var component_api;
     try {
-      api = require('../../app/node_modules/components/' + cn + '/api');
+      component_api = require('../../app/node_modules/components/' + cn + '/api');
     } catch (e) {
       // not found (is okay)
       next();
       return;
     }
-    if (api(req, res)) {
+    if (component_api(req, res)) {
       // wait for the API calls to finish
       req.api.done(function() {
         next();

@@ -14,26 +14,6 @@ function Api() {
 }
 
 
-Api.prototype._startApiCall = function() {
-  ++this._count;
-};
-
-
-Api.prototype._endApiCall = function() {
-  --this._count;
-  if (this._count === 0) {
-    this._invokeDone();
-  }
-};
-
-
-Api.prototype._invokeDone = function() {
-  this._doneCallbacks.forEach(function(cb) {
-    cb();
-  });
-};
-
-
 /**
  * Perform an API call.
  *
@@ -48,7 +28,7 @@ Api.prototype.retrieve = function(apiConfig, cb) {
   if (typeof apiConfig.key !== 'string') {
     throw new Error('key not set');
   }
-  this._data[apiConfig.key] = null;
+  this.set(apiConfig.key, null);
 
   if (typeof cb !== 'function') {
     cb = function () {/**/};
@@ -60,13 +40,13 @@ Api.prototype.retrieve = function(apiConfig, cb) {
   axios.get(api + apiConfig.endpoint)
     .then(function(response) {
       // success - store the retrieved object
-      self._data[apiConfig.key] = response.data;
+      self.set(apiConfig.key, response.data);
       cb(null, response.data);
       self._endApiCall();
     })
     .catch(function(response) {
       if (response.data) {
-        self._data[apiConfig.key] = response.data;
+        self.set(apiConfig.key, response.data);
       }
       if (response instanceof Error) {
         cb(response);
@@ -96,10 +76,65 @@ Api.prototype.done = function(callback) {
 
 
 /**
+ * Can be used to tell the Api that there is an external Api call running.
+ * After calling this method "endExternalApiCall" must be used when the
+ * external call has been finished. If "endExternalApiCall" is not call the
+ * Api will block forever in the done method.
+ */
+Api.prototype.startExternalApiCall = function(key) {
+  if (key) {
+    this._data[key] = null;
+  }
+  this._startApiCall();
+};
+
+
+/**
+ * Tell the Api that a started request is finished.
+ */
+Api.prototype.endExternalApiCall = function(key, value) {
+  if (key) {
+    this._data[key] = value;
+  }
+  this._endApiCall();
+};
+
+
+/**
  * Get a retrieved value.
  */
 Api.prototype.get = function(key) {
   return this._data[key];
+};
+
+
+/**
+ * Set a retrieved value.
+ */
+Api.prototype.set = function(key, value) {
+  this._data[key] = value;
+};
+
+
+Api.prototype._startApiCall = function() {
+  ++this._count;
+};
+
+
+Api.prototype._endApiCall = function() {
+  --this._count;
+  if (this._count === 0) {
+    this._invokeDone();
+  }
+};
+
+
+Api.prototype._invokeDone = function() {
+  var dcb = this._doneCallbacks;
+  this._doneCallbacks = [];
+  dcb.forEach(function(cb) {
+    cb();
+  });
 };
 
 

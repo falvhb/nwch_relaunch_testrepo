@@ -53,6 +53,7 @@ app.use('/client', express.static('client'));
 // API Middleware
 // Registers an API object on req that should be used for all API calls.
 app.use(require('./routing/api'));
+
 // middlewares for retrieving data from the REST API
 var loadArticle = require('./routing/loadArticle');
 var loadDomain = require('./routing/loadDomain');
@@ -160,14 +161,10 @@ var VARNISH_GRACE_TIME = process.env.VARNISH_GRACE_TIME;
 
 
 app.get(COMPONENT_PREFIX + '/:component(video-library)/:variation',
-        function(req, res, next) {
-          console.log('=============Route "/:component(video-library)/:variation" matched. Requested route: ', req.originalUrl);
-          next();
-        },
         loadDomain,
         waitAPI,  // wait for domain data
         loadComponentRequirements(),
-        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
+        // cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter
         );
 
@@ -223,10 +220,6 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         reactComponentsRouter);
 
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
-        function(req, res, next) {
-          console.log('=============Route "/:a?/:b?/:c?/:d?/:e?/:component/:variation" matched. Requested route: ', req.originalUrl);
-          next();
-        },
         loadComponentRequirements(),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
