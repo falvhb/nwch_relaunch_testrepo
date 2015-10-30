@@ -5,7 +5,66 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added club endpoint to be able to render components on a club
+ - added city endpoint to be able to render components on a city
+ - New icons: Crest and Help
+ - Visuals and functionality for /dashboard
  - added basic Net Metrix Tracking module
+ - Login button now works and links to /anmelden
+ - Login button now says “Mein Profil” when user is logged in
+
+2015/10/19 0.0.55
+=================
+
+ - Avatars: correct asset relation in getAvatar function
+ - Teaser: fix all article labelling and spacing of equal heights
+ - CategoryOverview: new component for displaying an overview of a labeltype i.e. Meinung teasers
+   DEPLOY: add HTML to CMS layout with tal includes for this news manager
+ - Teaser: new 'author' variation added for use in the above
+ - Teaser: auto-switches basic, meining Teasers -> quote teaser
+ - Grid: sets same-height Teasers per row \o/
+ - ArticleHeader: add Avatar for Meinung articles, with fallback
+ - ArticleHeader: add UGC and Sponsored content header
+ - Ads: fix / improve all advertising slot spacing and Skyscraper behaviour
+   DEPLOY: update id="sticky-wrapper" positions in CMS layouts
+ - UGC articles: ensure same layout is used and sympathetic to less data
+ - more fixes for the legacy teaser6ColTiny component
+ - Basic dashboard routes setup:
+  - /dashboard now exists and redirects to /anmelden if not signed in
+  - registration and login is working on /registrieren and /anmelden
+  - anmelden page accepts a `?redirectTo=` url parameter for redirecting after login
+
+2015/10/19 0.0.54
+=================
+
+ - fixed legacy teaser6ColTiny component
+ - RelatedVides: fix horizontal scrolling bug and resizing behaviour
+ - added localdev nginx location for
+   - dashboard
+   - anmelden
+   - registrieren
+
+2015/10/08 0.0.53
+=================
+
+ - Teaser: massive refactoring of logic and conditionals for labels and switchable variations, as well as abstracting teaser parts
+ - TeaserSwitchable: added for separating concerns of teasers which change in variation
+   DEPLOY: update ALL node views in CMS as slot:recommendations?component=teaser-switchable now used
+ - ResponsiveImage: refactored to use <picture> element / picturefill and srcSet for PageSpeed and clientside performance
+ - ResponsiveImage: mixin deprecated and functions abstracted
+   TODO: abstract further, re-activate tests and align with Web IT about Kaltura images
+ - Picture: added for above and future re-usability
+ - Styleguide: fixed all views / components
+ - Helpers: refactored into clearer folder structure
+ - Teaser: stopped Sass code duplication and improved rendering
+ - restored image gallery functionality to set a certain teaser image other
+   than the first one
+ - add probestatus endpoint
+ - added tests for expander
+
+2015/10/08 0.0.52
+=================
+
  - fix legacy teaser and image handling
  - change nav-item "Panorama" to "Leben/Wissen"
 
@@ -32,6 +91,7 @@ unreleased
     add VARNISH_CACHE_TIME and VARNISH_GRACE_TIME environment variables
  - middleware to set cache headers for varnish caching
  - added legacy treasers
+ - removed “Zusammenfassung” text from DossierHeader
 
 2015/10/02 0.0.47
 =================

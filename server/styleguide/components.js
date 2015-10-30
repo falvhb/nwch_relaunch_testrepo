@@ -9,14 +9,16 @@ var recursiveEscape = require('recursive-escape');
 var defaults = {
   folder: './app/node_modules',
   extensions: ['index.jsx', 'index.js'],
-  //@TODO:@Richard: Right place to exclude components from styleguide? Does it make sense to hide ceratain components?
-  ignore: ['styleguide',
-            'mixins',
-            'utils',
-            'helpers',
-            'higher-order',
-            'iso-react',
-            'client'
+  //@TODO : @Richard: Right place to exclude components from styleguide? Does it make sense to hide ceratain components?
+  //@REPLY: yes to hiding, not everything is a component that can be rendered in the browser e.g. a helper
+  ignore: [
+    'styleguide',
+    'mixins',
+    'utils',
+    'helpers',
+    'higher-order',
+    'iso-react',
+    'client'
   ],
   config: '.config.json',
   data: '.data.json',

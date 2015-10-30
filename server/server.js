@@ -33,9 +33,9 @@ var isDevelopment = process.env.NODE_ENV === 'development';
 
 // Allow requiring of JSX
 require('babel/register')({
-  ignore: /client/,
+  only: /\/app|server|tasks|test\//,
   stage: 1,
-  extensions: ['.jsx']
+  extensions: ['.jsx', '.js']
 });
 
 // Nunjucks
@@ -57,6 +57,9 @@ app.use(require('./routing/api'));
 var loadArticle = require('./routing/loadArticle');
 var loadDomain = require('./routing/loadDomain');
 var loadDossier = require('./routing/loadDossier');
+var loadCity = require('./routing/loadCity');
+var loadClubByUrlPart = require('./routing/loadClub');
+var loadLatestArticles = require('./routing/loadLatestArticles');
 var loadRessortNav = require('./routing/loadRessortNav');
 var loadTopic = require('./routing/loadTopic');
 var loadUser = require('./routing/loadUser');
@@ -68,6 +71,9 @@ var reCaptcha = require('./routing/reCaptcha');
 var reactTopicLayoutRouter = require('./routing/routingTopicLayout');
 var reactTopicAPIRouter = require('./routing/routingTopicAPI');
 var reactDossierRouter = require('./routing/routingDossier');
+var reactCityRouter = require('./routing/routingCity');
+var reactClubRouter = require('./routing/routingClub');
+var reactLatestArticlesRouter = require('./routing/routingLatestArticles');
 var reactRessortHeaderRenderer = require('./routing/routingRessortHeader');
 var reactComponentsRouter = require('./routing/routingReactComponents');
 var nodeIncludesRouter = require('./routing/routingNodeIncludes');
@@ -75,22 +81,34 @@ var rss2Router = require('./routing/routingRss2');
 var loadComponentRequirements = require('./routing/loadComponentRequirements');
 var reactPostComponents = require('./routing/postComponents');
 var legacyReactComponentsRouter = require('./routing/routingLegacyComponents');
+var probeStatus = require('./routing/probestatus');
 
 // -----------------------------------------------------------------------------
 // Styleguide Routing / Json
 // -----------------------------------------------------------------------------
 
-var components = require('./styleguide/components');
-var styleguideRoute = require('./styleguide/routing');
+if (process.env.NODE_ENV === 'development') {
+  var components = require('./styleguide/components');
+  var styleguideRoute = require('./styleguide/routing');
 
-app.get('/styleguide', styleguideRoute);
-app.get('/styleguide/:category/:component', styleguideRoute);
-app.get('/styleguide/:category/:component/preview', styleguideRoute);
-app.get('/styleguide/:category/:component/:variation', styleguideRoute);
-app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
-app.get('/styleguide/components.json', function(req, res) {
-  res.json(components);
-});
+  app.get('/styleguide', styleguideRoute);
+  app.get('/styleguide/:category/:component', styleguideRoute);
+  app.get('/styleguide/:category/:component/preview', styleguideRoute);
+  app.get('/styleguide/:category/:component/:variation', styleguideRoute);
+  app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
+  app.get('/styleguide/components.json', function(req, res) {
+    res.json(components);
+  });
+}
+
+// -----------------------------------------------------------------------------
+// Dashboard Routing
+// -----------------------------------------------------------------------------
+
+var dashboardRouting = require('./routing/dashboard');
+app.get([
+  '/dashboard', '/dashboard/:page', '/anmelden', '/registrieren'
+], dashboardRouting);
 
 // -----------------------------------------------------------------------------
 // SassDoc
@@ -142,6 +160,8 @@ app.use(require('./modules/cookie-session')({
   secret: process.env.SESSION_SECRET
 }));
 
+// We need this to parse POST parameters into req.body
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // -----------------------------------------------------------------------------
 // App Routing
@@ -151,12 +171,11 @@ app.use(require('./modules/cookie-session')({
 
 app.get('/favicon.ico', function(req, res) { res.send(''); });
 
+
 // The probe_status endpoint is used by haproxy to check if the instance is
 // alive.
-app.get('/probe_status',
-        function(req, res) {
-          res.send('OK');
-        });
+app.post('/probe_status', probeStatus);
+app.get('/probe_status', probeStatus);
 
 var LAYOUT_PREFIX = '/__layout__';
 var API_PREFIX = '/__api__';
@@ -193,30 +212,54 @@ app.get(COMPONENT_PREFIX + '/dossier/:dossier/:component/:variation',
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactDossierRouter);
+
+app.get(COMPONENT_PREFIX + '/gemeinde/:city_id/:component/:variation',
+        loadCity,
+        loadComponentRequirements(),
+        waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
+        reactCityRouter);
+
+app.get(COMPONENT_PREFIX + '/verein/:club_urlpart/:component/:variation',
+        loadClubByUrlPart,
+        loadComponentRequirements(),
+        waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
+        reactClubRouter);
+
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         loadComponentRequirements('ressort-header'),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactRessortHeaderRenderer);
+
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
         loadDomain,
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         nodeIncludesRouter);
+
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component(latest-articles)/:variation(default|news|ugc)',
+        loadLatestArticles,
+        waitAPI,
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
+        reactLatestArticlesRouter);
+
 app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component/:variation',
         loadArticle,
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
+
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
         loadComponentRequirements(),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
+
 app.get(LEGACY_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:component',
         loadArticle,
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         legacyReactComponentsRouter);
-
 
 // catch-all route, throws an error to invoke error handling
 app.all('*', function(req, res) {

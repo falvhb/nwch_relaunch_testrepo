@@ -1,6 +1,6 @@
 {
   "name": "az-nwch-js",
-  "version": "0.0.51",
+  "version": "0.0.55",
   "engines": {
     "node": "0.12.x"
   },
@@ -37,6 +37,7 @@
     "camelcase": "^1.1.0",
     "console-polyfill": "^0.2.2",
     "consolidate": "^0.13.1",
+    "cookie": "^0.2.2",
     "cors": "^2.5.2",
     "crypto-js": "^3.1.5",
     "debug": "^2.2.0",
@@ -46,6 +47,7 @@
     "express": "^4.13.3",
     "get-query-param": "^1.0.0",
     "gulp-mocha": "^2.1.2",
+    "history": "^1.12.5",
     "hmacsha1": "^1.0.0",
     "keygrip": "^1.0.1",
     "lodash": "^3.9.3",
@@ -56,7 +58,8 @@
     "on-headers": "^1.0.0",
     "qs": "^4.0.0",
     "react": "^0.13.3",
-    "react-bem-helper": "^1.0.0",
+    "react-bem-helper": "^1.1.0",
+    "react-router": "^1.0.0-rc3",
     "react-tools": "^0.13.3",
     "recursive-escape": "^1.0.0",
     "recursive-unescape": "^1.0.0",
@@ -118,7 +121,7 @@
     "mocha": "^2.2.5",
     "nock": "^2.7.0",
     "phantomjs-polyfill": "0.0.1",
-    "picturefill": "^2.3.1",
+    "picturefill": "^3.0.1",
     "pre-commit": "^1.0.7",
     "promisify-node": "^0.1.5",
     "react-highlight": "^0.5.0",

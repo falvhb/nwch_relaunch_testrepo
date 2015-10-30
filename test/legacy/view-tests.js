@@ -446,7 +446,7 @@ describe('view', function() {
   });
 
   var assert = require('chai').assert;
-  var normalize = require("../../app/node_modules/helpers/get-article-url.jsx").normalize;
+  var normalize = require("../../app/node_modules/helpers/article/get-url.jsx").normalize;
 
   describe('teaserNineColCssClass', function() {
     it('teaserNineColCssClass returns 9ColTeaserWithImage for an article with a teaser compatible asset', function() {

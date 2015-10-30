@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var normalize = require('../../app/node_modules/helpers/get-article-url').normalize;
+var normalize = require('../../app/node_modules/helpers/article/get-url').normalize;
 
 describe('normalize', function() {
 

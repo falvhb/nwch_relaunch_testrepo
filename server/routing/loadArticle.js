@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+
 /**
  * Loads the article with id `req.params.articleId` and stores it in
  * `req.api.article`.

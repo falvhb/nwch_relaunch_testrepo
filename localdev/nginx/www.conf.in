@@ -33,6 +33,9 @@ server {
 
     location ~ '^/\+\+ckey\+\+ssi/__node__/' {
         rewrite ^/\+\+ckey\+\+ssi/__node__/(.*) /$1;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
         proxy_set_header X-SKIN $skin_name;
         proxy_pass http://${backend:node};
         break;
@@ -41,6 +44,20 @@ server {
     location ~ '^/__node__/(@@VERSION|\d+\.\d+\.\d+)/__static__/' {
         ssi off;
         rewrite ^/__node__/.*/__static__/(.*) /$1;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-SKIN $skin_name;
+        proxy_pass http://${backend:node};
+        break;
+    }
+
+    location ~ '^/__node__/__static__/' {
+        ssi off;
+        rewrite ^/__node__/__static__/(.*) /$1;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
         proxy_set_header X-SKIN $skin_name;
         proxy_pass http://${backend:node};
         break;
@@ -61,6 +78,17 @@ server {
         if ($skin_name != 'az') {
             rewrite /(.*) /__rss2__/$1;
         }
+    }
+
+    location ~ '^/(dashboard(/.*)?|anmelden|registrieren)$' {
+        # pages which are rendered directly in node
+        ssi on;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-SKIN $skin_name;
+        proxy_pass http://${backend:node};
+        break;
     }
 
     location ~ '/__addefend__' {

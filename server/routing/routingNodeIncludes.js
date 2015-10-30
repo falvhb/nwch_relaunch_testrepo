@@ -1,6 +1,7 @@
 /*eslint-disable no-warning-comments*/
 var path = require('path');
 var getSkinName = require('../modules/skin');
+var getIconPath = require('../modules/icon-path');
 var Tracker = require('../../app/node_modules/tracking/tracker.jsx');
 
 var defaults = {
@@ -39,12 +40,6 @@ module.exports = function nodeIncludesRouter(req, res) {
       }
     }
     var skin = getSkinName(req);
-    var iconPath = 'az';
-    if (skin.match(/^(bzb|blz)$/)) {
-      iconPath = 'bz';
-    } else if (skin.match(/^(ot)$/)) {
-      iconPath = 'ot';
-    }
 
     var domain = req.api.get('domain') || {};
     var env = process.env;
@@ -52,7 +47,7 @@ module.exports = function nodeIncludesRouter(req, res) {
     var netMetrixNoScript = '';
 
     // @Jukart:@TODO: change to '__body_top'
-    if (req.params.viewname === '__head_bottom' && domain.data.properties.without_wemf === false) {
+    if (req.params.viewname === '__head_bottom' && typeof domain.data !== 'undefined' && domain.data.properties.without_wemf === false) {
       // @Jukart:@TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
       if (Tracker.isNetMetrixLiveHost(req.headers.host)) {
         netMetrixNoScript = Tracker.getNetMetrixTag({
@@ -75,7 +70,7 @@ module.exports = function nodeIncludesRouter(req, res) {
       'withBugMuncher': env.BUG_MUNCHER === 'true',
       'pageType': pageType,
       'skin': skin,
-      'iconPath': iconPath,
+      'iconPath': getIconPath(skin),
       'staticBasePath': '/__node__/' + version + '/__static__',
       'kaltura_frontend_video_player_id': domain.kaltura_frontend_video_player_id || env.KALTURA_PLAYER_ID,
       'kaltura_frontend_adless_video_player_id': domain.kaltura_frontend_adless_video_player_id || env.KALTURA_PLAYER_NOADS_ID,

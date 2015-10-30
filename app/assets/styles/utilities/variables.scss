@@ -151,6 +151,8 @@ $breakpoints: (
   'advertising-iphone6-portrait': 414px,
   'advertising-skyscraper': 1400px,
   'full-screen-space': 1700px,
+  'grid-break-1': 500px,
+  'grid-break-2': 46.25em
 );
 
 
@@ -162,7 +164,8 @@ $breakpoints: (
 ///   - list is used for *or* conditions (e.g. retina)
 $media-expressions: (
   'print': 'print',
-  'retina': ('(-webkit-min-device-pixel-ratio: 2)',
+  'retina':
+  ('(-webkit-min-device-pixel-ratio: 2)',
     '(min-resolution: 192dpi)')
 );
 
