@@ -33,7 +33,7 @@
       'kaltura_mediathek_video_player_id': {{kaltura_mediathek_video_player_id}},
       'kaltura_mediathek_category_id': {{kaltura_mediathek_category_id}},
       'skin': '{{skin}}',
-      'without_wemf'; '{{without_wemf}}'
+      'without_wemf': {{without_wemf}}
     };
 
   })(window);
@@ -48,7 +48,6 @@
 
 {# Tracking on loading of page. #}
 <script src="{{ staticBasePath }}/client/tracking.bundled.js"></script>
-{% if (not without_wemf) %}
 <script>
   if (typeof window.AZTracker !== 'undefined' && window.AZTracker.trackPageView) {
     window.AZTracker.trackPageView({
@@ -66,7 +65,6 @@
     });
   }
 </script>
-{% endif %}
 {% if (not without_wemf) and (netMetrixNoScript != "") %}
 <noscript id="trackingNoScript">
   <img src="{{ netMetrixNoScript }}" width="1" height="1" alt="">
