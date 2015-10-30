@@ -15,7 +15,7 @@ module.exports = function(req, res, next) {
   var type = Kaltura.enums.KalturaSessionType.ADMIN;
   client.session.start(
     function (ks) {
-      req.kaltura = {ks: ks};
+      req.api._data.kaltura = {kalturaSession: ks};
 
       next();
     },
