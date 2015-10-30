@@ -159,24 +159,13 @@ var VARNISH_CACHE_TIME = process.env.VARNISH_CACHE_TIME;
 var VARNISH_GRACE_TIME = process.env.VARNISH_GRACE_TIME;
 
 
-// matching on following request: 'http://localhost:8000/__component__/video-library/all'
-app.get(COMPONENT_PREFIX + '/video-library/:variation',
-        function(req, res, next) {
-          console.log('=============Route "/video-library/:variation" matched. Requested route: ', req.originalUrl);
-          next();
-        },
-        function(req, res, next) {
-          req.params.component = 'video-library';
-          next();
-        },
-        // load domain data first
+app.get(COMPONENT_PREFIX + '/:component(video-library)/:variation',
         loadDomain,
-        waitAPI,
-        // load data in api.js (video data)
+        waitAPI,  // wait for domain data
         loadComponentRequirements(),
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter
         );
-
 
 app.get([API_PREFIX + '/thema/:topicKeyword',
          API_PREFIX + '/thema/:topicKeyword/seite/:page'],
@@ -230,10 +219,6 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/:text-:articleId(\\d+)/:compo
         reactComponentsRouter);
 
 app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:component/:variation',
-        function(req, res, next) {
-          console.log('=============Route "/:a?/:b?/:c?/:d?/:e?/:component/:variation" matched. Requested route: ', req.originalUrl);
-          next();
-        },
         loadComponentRequirements(),
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter);
