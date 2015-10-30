@@ -53,6 +53,7 @@ app.use('/client', express.static('client'));
 // API Middleware
 // Registers an API object on req that should be used for all API calls.
 app.use(require('./routing/api'));
+
 // middlewares for retrieving data from the REST API
 var loadArticle = require('./routing/loadArticle');
 var loadDomain = require('./routing/loadDomain');
@@ -165,7 +166,7 @@ app.get(COMPONENT_PREFIX + '/:component(video-library)/:variation',
         loadKalturaSession,
         waitAPI,  // wait for domain data
         loadComponentRequirements(),
-        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
+        // cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter
         );
 
