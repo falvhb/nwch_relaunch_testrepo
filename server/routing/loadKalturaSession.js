@@ -4,9 +4,9 @@ var Kaltura = require('kaltura-client/KalturaClient.js');
  * A middleware to load the Kaltura Session.
  */
 module.exports = function(req, res, next) {
-  var partnerId = '1789881';
-  var userId = 'Viewer';
-  var password = 'Lfd7sdfhl!@';
+  var partnerId = process.env.KALTURA_ACCOUNT_ID;
+  var userId = process.env.KALTURA_API_USER;
+  var password = process.env.KALTURA_API_PASSWORD;
   var expiry = 86400;
   var privileges;
 
@@ -28,7 +28,6 @@ module.exports = function(req, res, next) {
   // req.api.set('kaltura', {_client: client});
 
   client.doMultiRequest(function(data) {
-    console.info('+++++++++ MultiRequest done.', data);
 
     var data1 = data[0];
     var ks = (typeof data1 === 'string' ? data1 : 'no-valid-ks');
