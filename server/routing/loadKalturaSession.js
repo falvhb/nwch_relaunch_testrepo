@@ -13,33 +13,30 @@ module.exports = function(req, res, next) {
   var config = new Kaltura.KalturaConfiguration(partnerId);
   var client = new Kaltura.KalturaClient(config);
 
-  // var secret = process.env.KALTURA_ADMIN_SECRET;
-  // var type = Kaltura.enums.KalturaSessionType.ADMIN;
-  //
-  // client.session.start(
-  //   function (ks) {
-  //     req.api.set('kaltura', {kalturaSession: ks});
-  //     next();
-  //   },
-  //   secret,
-  //   userId,
-  //   type,
-  //   partnerId,
-  //   expiry,
-  //   privileges);
+  // @TODO: use multirequest for performance gains
+  client.startMultiRequest();
 
-  client.user.login(function(data) {
-      var ks = (typeof data === 'string' ? data : 'no-valid-ks');
-      req.api.set('kaltura', {kalturaSession: ks});
-
-      client.setKs(ks);
-
-      next();
-    },
+  client.user.login(
+    function() {},
     partnerId,
     userId,
     password,
     expiry,
-    privileges);
+    privileges
+  );
+
+  // req.api.set('kaltura', {_client: client});
+
+  client.doMultiRequest(function(data) {
+    console.info('+++++++++ MultiRequest done.', data);
+
+    var data1 = data[0];
+    var ks = (typeof data1 === 'string' ? data1 : 'no-valid-ks');
+    req.api.set('kaltura', {kalturaSession: ks});
+
+    // client.setKs(ks);
+
+    next();
+  });
 
 };
