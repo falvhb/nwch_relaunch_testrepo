@@ -9,7 +9,7 @@ if (typeof window.AZTracker !== 'undefined' && window.AZTracker.trackPageView) {
       path: window.location.pathname,
       event: 'pageview',
       id: null,
-      index: null
+      paging: null
     },
     referer: document.referer,
     screenWidth: screen.width,

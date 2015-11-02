@@ -37,6 +37,7 @@ function ReqMock() {
   this.headers = {
     'x-skin': 'aaz'
   };
+  this.originalUrl = '/';
 }
 
 

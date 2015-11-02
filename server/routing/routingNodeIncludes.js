@@ -44,27 +44,25 @@ module.exports = function nodeIncludesRouter(req, res) {
     var domain = req.api.get('domain') || {};
     var env = process.env;
 
+    var url_parts = req.originalUrl.split('/');
+    var page_url = '/' + url_parts.slice(2, url_parts.length - 1).join('/');
+
     var netMetrixNoScript = '';
 
-    // @Jukart:@TODO: change to '__body_top'
-    if (req.params.viewname === '__head_bottom' && typeof domain.data !== 'undefined' && domain.data.properties.without_wemf === false) {
-      // @Jukart:@TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
-      if (Tracker.isNetMetrixLiveHost(req.headers.host)) {
-        netMetrixNoScript = Tracker.getNetMetrixTag({
-          domain: 'aznetz',
-          path: {
-            product: 'live',
-            sitename: skin,
-            // @Jukart:@TODO: How do I get the path of the requested page here? e.g. mediathek/video/alle for homepage of mediathek.
-            // path: null,
-            view: 'page-noscript',
-            event: 'pageview'
-          }
-        });
-      }
+    if (domain.data && !domain.data.properties.without_wemf) {
+      netMetrixNoScript = Tracker.getNetMetrixTag({
+        domain: 'aznetz',
+        path: {
+          product: 'live',
+          sitename: skin,
+          path: page_url,
+          view: 'page-noscript',
+          event: 'pageview'
+        }
+      });
     }
 
-    var version = process.env.VERSION || '@@VERSION';
+    var version = env.VERSION || '@@VERSION';
     var data = {
       'withAds': pageType !== '',
       'withBugMuncher': env.BUG_MUNCHER === 'true',
