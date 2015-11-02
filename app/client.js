@@ -6,6 +6,7 @@ var HeaderNav = require('components/header-nav');
 var RelatedVideos = require('components/related-videos');
 var Teaser = require('components/teaser');
 var TeaserSwitchable = require('components/teaser-switchable');
+var Cover = require('components/cover');
 var TopicDetail = require('components/topic-detail');
 var LatestArticles = require('components/latest-articles');
 var VideoLibrary = require('components/video-library');
@@ -20,6 +21,7 @@ var components = {
   relatedVideos: RelatedVideos,
   teaser: Teaser,
   teaserSwitchable: TeaserSwitchable,
+  cover: Cover,
   topicDetail: TopicDetail,
   latestArticles: LatestArticles,
   videoLibrary: VideoLibrary
