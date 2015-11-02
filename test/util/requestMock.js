@@ -37,10 +37,11 @@ function ReqMock() {
   this.headers = {
     'x-skin': 'aaz'
   };
+  this.originalUrl = '/';
 }
 
 
 module.exports = {
   ReqMock: ReqMock,
   ResMock: ResMock,
-}
+};

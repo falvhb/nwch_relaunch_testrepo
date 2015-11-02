@@ -1,7 +1,3 @@
-// -----------------------------------------------------------------------------
-// This file contains all application-wide Sass functions.
-// -----------------------------------------------------------------------------
-
 /// Slightly lighten a color
 /// @access public
 /// @param {Color} $color - color to tint
@@ -20,7 +16,7 @@
   @return mix(black, $color, $percentage);
 }
 
-/// Asset path helpers pased on environment. Uses global $environment variable in utilities/environment.scss
+/// Asset path helpers pased on environment. Uses global `$environment` variable in `utilities/environment.scss`
 /// @access public
 /// @return {String}
 @function get-base-path() {

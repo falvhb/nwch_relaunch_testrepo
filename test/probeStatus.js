@@ -54,4 +54,3 @@ describe('probestatus', function() {
   });
 
 });
-  

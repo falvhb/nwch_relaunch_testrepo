@@ -87,19 +87,17 @@ var probeStatus = require('./routing/probestatus');
 // Styleguide Routing / Json
 // -----------------------------------------------------------------------------
 
-if (process.env.NODE_ENV === 'development') {
-  var components = require('./styleguide/components');
-  var styleguideRoute = require('./styleguide/routing');
+var components = require('./styleguide/components');
+var styleguideRoute = require('./styleguide/routing');
 
-  app.get('/styleguide', styleguideRoute);
-  app.get('/styleguide/:category/:component', styleguideRoute);
-  app.get('/styleguide/:category/:component/preview', styleguideRoute);
-  app.get('/styleguide/:category/:component/:variation', styleguideRoute);
-  app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
-  app.get('/styleguide/components.json', function(req, res) {
-    res.json(components);
-  });
-}
+app.get('/styleguide', styleguideRoute);
+app.get('/styleguide/:category/:component', styleguideRoute);
+app.get('/styleguide/:category/:component/preview', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
+app.get('/styleguide/components.json', function(req, res) {
+  res.json(components);
+});
 
 // -----------------------------------------------------------------------------
 // Dashboard Routing
@@ -232,7 +230,7 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactRessortHeaderRenderer);
 
-app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_top|__body_bottom|__head_bottom)',
         loadDomain,
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),

@@ -45,17 +45,17 @@ module.exports = function nodeIncludesRouter(req, res) {
     var env = process.env;
 
     var without_wemf = (typeof domain.data !== 'undefined' ? domain.data.properties.without_wemf : false);
+    var url_parts = req.originalUrl.split('/');
+    var page_url = '/' + url_parts.slice(2, url_parts.length - 1).join('/');
     var netMetrixNoScript = '';
 
     if (!without_wemf) {
-      // @Jukart:@TODO: how do I get the host of the current page requested? e.g. www.aargauerzeitung.ch (live) or localhost:8801 (localdev)
       netMetrixNoScript = Tracker.getNetMetrixTag({
         domain: 'aznetz',
         path: {
           product: 'live',
           sitename: skin,
-          // @Jukart:@TODO: How do I get the path of the requested page here? e.g. mediathek/video/alle for homepage of mediathek.
-          // path: null,
+          path: page_url,
           view: 'page-noscript',
           event: 'pageview'
         }

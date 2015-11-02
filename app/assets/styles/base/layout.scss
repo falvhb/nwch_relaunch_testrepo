@@ -34,6 +34,7 @@
 /**
  * We use FlexBox to change the order of the elements in the article.
  * 1. Flexbox needs width
+ * 2. Styleguide only, when no ads
  */
 
 // scss-lint:disable SelectorFormat, IdSelector
@@ -58,6 +59,16 @@
 
 #content_board {
   order: 4;
+}
+
+article + .recommendations-bottom {
+  @include media('<=desktop-laptop') {
+    margin-top: 50px;
+  }
+
+  @include media('>desktop-laptop') {
+    margin-top: 80px;
+  }
 }
 
 // scss-lint:enable SelectorFormat, IdSelector
