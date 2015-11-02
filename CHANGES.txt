@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - added /styleguide route to localdev nginx
+   styleguide can be used like this: http://localhost:8801/styleguide
  - added club endpoint to be able to render components on a club
  - added city endpoint to be able to render components on a city
  - New icons: Crest and Help
