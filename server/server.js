@@ -232,7 +232,7 @@ app.get(COMPONENT_PREFIX + '/:ressort/:subressort?/ressort-header/:variation?',
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactRessortHeaderRenderer);
 
-app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_bottom|__head_bottom)',
+app.get(COMPONENT_PREFIX + '/:a?/:b?/:c?/:d?/:e?/:viewname(__body_top|__body_bottom|__head_bottom)',
         loadDomain,
         waitAPI,
         cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
