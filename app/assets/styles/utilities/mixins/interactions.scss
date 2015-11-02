@@ -1,0 +1,43 @@
+@import 'utilities/variables';
+
+/// Mixin to help specifying styles for all kinds of interaction at once
+/// @access public
+/// @param {Bool} $self [false] - Whether to include default state as well
+@mixin on-interaction($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Mixin to add an arrow icon to element e.g. alongside 'Mehr Artikel'
+/// @access public
+/// @param {String} $direction - direction for arrow linked to filename e.g. `arrow-down.svg`
+@mixin arrow-icon($direction: false) {
+  content: '';
+  display: inline-block;
+  vertical-align: middle; /* 1 */
+  height: 1em;
+  width: 1em;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+
+  @if $direction {
+    background-image: asset('client/images/icons/sprite/arrow-#{$direction}.svg');
+  }
+
+  @if $direction == 'down' {
+    margin-top: -3px;
+  }
+}

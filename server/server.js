@@ -87,19 +87,17 @@ var probeStatus = require('./routing/probestatus');
 // Styleguide Routing / Json
 // -----------------------------------------------------------------------------
 
-if (process.env.NODE_ENV === 'development') {
-  var components = require('./styleguide/components');
-  var styleguideRoute = require('./styleguide/routing');
+var components = require('./styleguide/components');
+var styleguideRoute = require('./styleguide/routing');
 
-  app.get('/styleguide', styleguideRoute);
-  app.get('/styleguide/:category/:component', styleguideRoute);
-  app.get('/styleguide/:category/:component/preview', styleguideRoute);
-  app.get('/styleguide/:category/:component/:variation', styleguideRoute);
-  app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
-  app.get('/styleguide/components.json', function(req, res) {
-    res.json(components);
-  });
-}
+app.get('/styleguide', styleguideRoute);
+app.get('/styleguide/:category/:component', styleguideRoute);
+app.get('/styleguide/:category/:component/preview', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation', styleguideRoute);
+app.get('/styleguide/:category/:component/:variation/preview', styleguideRoute);
+app.get('/styleguide/components.json', function(req, res) {
+  res.json(components);
+});
 
 // -----------------------------------------------------------------------------
 // Dashboard Routing

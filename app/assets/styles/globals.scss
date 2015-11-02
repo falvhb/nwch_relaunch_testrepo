@@ -10,4 +10,13 @@
 @import 'utilities/environment';
 @import 'utilities/variables';
 @import 'utilities/functions';
-@import 'utilities/mixins';
+
+@import 'utilities/mixins/grid';
+@import 'utilities/mixins/gutters';
+@import 'utilities/mixins/helpers';
+@import 'utilities/mixins/images';
+@import 'utilities/mixins/interactions';
+@import 'utilities/mixins/island';
+@import 'utilities/mixins/loading';
+@import 'utilities/mixins/typography';
+@import 'utilities/mixins/widths';

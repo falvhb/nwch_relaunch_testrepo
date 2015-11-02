@@ -1,0 +1,48 @@
+@import 'utilities/variables';
+
+/// Create an island with blocked-off content and a top border
+/// @access private
+/// @param {Color} $color [`$light-blue`] - color for top of island box
+/// @param {Length} $small-padding [`$container-spacing`] - padding of box on mobile
+/// @param {Length} $large-padding [false] - padding of box on desktop (false by default uses `$small-padding`)
+@mixin island($color: $light-blue, $small-padding: $container-spacing, $large-padding: false) {
+
+  background: $very-light-grey;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    height: 4px;
+    background-color: $color;
+  }
+
+  @if $small-padding == $large-padding or $large-padding == false {
+    @include island-padding($small-padding);
+  } @else {
+
+    @include media('<=mobile-portrait') {
+      @include island-padding($small-padding);
+    }
+
+    @include media('>mobile-portrait') {
+      @include island-padding($large-padding);
+    }
+
+  }
+
+}
+
+/// Helper for `island` mixin for DRY padding values
+/// @access private
+/// @param {Length} $padding - padding to be applied to island
+@mixin island-padding($padding) {
+  padding: $padding;
+
+  &::before {
+    right: $padding;
+    left: $padding;
+  }
+}

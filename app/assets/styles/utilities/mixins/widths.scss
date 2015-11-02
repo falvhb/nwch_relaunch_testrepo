@@ -1,0 +1,39 @@
+@import 'utilities/variables';
+
+/// Main layout constructor used for elements that take the 'main' layout
+/// Adds max width and centering on snmall/medium screens
+/// @access public
+@mixin main-layout {
+  width: 100%;
+
+  @include media('<=tablet-portrait') {
+    max-width: 650px;
+  }
+
+  @include media('>tablet-portrait', '<=desktop-laptop') {
+    width: 80%;
+  }
+
+  @include media('<=desktop-laptop') {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/// Adds right-hand-side spacing to offset sidebar on article page
+/// @access public
+/// @param {String} $method ['margin'] - method to use for spacing
+@mixin content-width($method: 'margin') {
+  @include media('>desktop-laptop') {
+    #{$method}-right: $sidebar-width + $container-spacing;
+  }
+}
+
+/// Adds right-hand-side spacing to offset sidebar *and* gutter on article page
+/// @access public
+/// @param {String} $method ['margin'] - method to use for spacing
+@mixin article-body-width($method: 'margin') {
+  @include media('>desktop-laptop') {
+    #{$method}-right: $sidebar-width + (3 * $container-spacing);
+  }
+}
