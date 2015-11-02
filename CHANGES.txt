@@ -5,6 +5,9 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+2015/11/02 0.0.56
+=================
+
  - moved NetMetrix static code into __body_top template
  - added __body_top include
  - added /styleguide route to localdev nginx
