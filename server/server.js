@@ -166,7 +166,7 @@ app.get(COMPONENT_PREFIX + '/:component(video-library)/:variation',
         loadKalturaSession,
         waitAPI,  // wait for domain data
         loadComponentRequirements(),
-        // cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
+        cache(VARNISH_CACHE_TIME, VARNISH_GRACE_TIME),
         reactComponentsRouter
         );
 

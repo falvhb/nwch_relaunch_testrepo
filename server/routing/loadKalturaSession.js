@@ -6,7 +6,7 @@ var Kaltura = require('kaltura-client/KalturaClient.js');
 module.exports = function(req, res, next) {
   var accountID = '1789881';
   var secret = process.env.KALTURA_ADMIN_SECRET;
-  var userId = 'PhilippKiller@gmx.ch';
+  var userId = 'API3rdPartyAdmin';
   var expiry = 86400;
   var privileges;
 
@@ -15,8 +15,7 @@ module.exports = function(req, res, next) {
   var type = Kaltura.enums.KalturaSessionType.ADMIN;
   client.session.start(
     function (ks) {
-      req.api._data.kaltura = {kalturaSession: ks};
-
+      req.api.set('kaltura', {kalturaSession: ks});
       next();
     },
     secret,
