@@ -5,6 +5,8 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+- added Net Metrix tracking of video player
+
 2015/11/02 0.0.56
 =================
 
