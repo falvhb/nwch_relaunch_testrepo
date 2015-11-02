@@ -74,6 +74,16 @@ server {
         break;
     }
 
+    location ~ '^/styleguide' {
+        # Route the styleguilde to node
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-SKIN $skin_name;
+        proxy_pass http://${backend:node};
+        break;
+    }
+
     location ~ '/.*rss2(full)?.xml$' {
         if ($skin_name != 'az') {
             rewrite /(.*) /__rss2__/$1;
