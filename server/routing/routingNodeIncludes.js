@@ -50,18 +50,16 @@ module.exports = function nodeIncludesRouter(req, res) {
     var netMetrixNoScript = '';
 
     if (domain.data && !domain.data.properties.without_wemf) {
-      if (Tracker.isNetMetrixLiveHost(req.headers.host)) {
-        netMetrixNoScript = Tracker.getNetMetrixTag({
-          domain: 'aznetz',
-          path: {
-            product: 'live',
-            sitename: skin,
-            path: page_url,
-            view: 'page-noscript',
-            event: 'pageview'
-          }
-        });
-      }
+      netMetrixNoScript = Tracker.getNetMetrixTag({
+        domain: 'aznetz',
+        path: {
+          product: 'live',
+          sitename: skin,
+          path: page_url,
+          view: 'page-noscript',
+          event: 'pageview'
+        }
+      });
     }
 
     var version = env.VERSION || '@@VERSION';
