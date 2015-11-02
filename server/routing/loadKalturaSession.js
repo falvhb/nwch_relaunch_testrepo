@@ -1,4 +1,4 @@
-var Kaltura = require('kaltura-client/KalturaClient.js');
+var Kaltura = require('kaltura/KalturaClient.js');
 
 /**
  * A middleware to load the Kaltura Session.
