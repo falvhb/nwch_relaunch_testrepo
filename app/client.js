@@ -38,11 +38,11 @@ var recommendationsTop = new RecommendationsTop();
 recommendationsTop.init();
 
 // Clean CMS empty grid cells
-// var ClearEmptyCells = require('clientside/clear-empty-cells');
-// var clearEmptyCells = new ClearEmptyCells();
-// clearEmptyCells.init({ selector: '.grid__item' });
-// clearEmptyCells.init({ selector: '.recommendations-top__cell' });
-// clearEmptyCells.init({ selector: '.recommendations-bottom__cell' });
+var ClearEmptyCells = require('clientside/clear-empty-cells');
+var clearEmptyCells = new ClearEmptyCells();
+clearEmptyCells.init({ selector: '.grid__item' });
+clearEmptyCells.init({ selector: '.recommendations-top__cell' });
+clearEmptyCells.init({ selector: '.recommendations-bottom__cell' });
 
 // Advertising
 var Advertising = require('advertising');
