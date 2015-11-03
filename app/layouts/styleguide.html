@@ -1,19 +1,9 @@
 <!DOCTYPE html>
 <html lang="de-ch">
   <head>
-    <meta charset="UTF-8" />
     <title>{% block title %}{{ title | default('AZ') }}{% endblock %}</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "app/includes/__head_shared.html" %}
 
-    {# Inline the JavaScript utilities file since it needs to be synchronously
-       loaded. Also, it is very lightweight so it should not make any difference. #}
-    <script>
-      {% include "client/scripts/webfont-loading.js" %}
-    </script>
-
-    {# Asynchronously request the font-face stylesheet based on the WOFF support,
-       then store it in localStorage for future visits. #}
     <script>
       (function (global) {
         global.loadFont(
@@ -27,17 +17,13 @@
       })(window);
     </script>
 
-    <link rel="stylesheet" href="{{ staticBasePath }}/client/styles.css" />
-    <link rel="stylesheet" href="{{ staticBasePath }}/client/styleguide.css" />
-
-    {% block head %}{% endblock %}
+    <link rel="stylesheet" href="{{ staticBasePath }}/client/styles/client.css" />
+    <link rel="stylesheet" href="{{ staticBasePath }}/client/styles/styleguide.css" />
   </head>
-
   <body class="styleguide-body">
     <div id="app" class="wrapper">{{ content }}</div>
     <script src="{{ staticBasePath }}/client/styleguide.bundled.js"></script>
     <script src="{{ staticBasePath }}/client/components.bundled.js"></script>
     <script src="{{ staticBasePath }}/client/scripts/vendor/prism.min.js"></script>
-    {% block scripts %}{% endblock %}
   </body>
 </html>

@@ -117,7 +117,7 @@ gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'styleguide', 'doc
 gulp.task('build:test', sequence('test', 'build'));
 
 // Development
-gulp.task('dev', sequence('server', 'watch', 'webpack'));
+gulp.task('dev', sequence('assets', 'server', 'watch', 'webpack'));
 
 // Default task
 gulp.task('default', ['dev']);

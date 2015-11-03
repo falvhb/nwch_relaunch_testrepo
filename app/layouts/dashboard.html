@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="de-ch">
   <head>
+    <title>{% block title %}{{ title | default('AZ') }}{% endblock %}</title>
     {% include "app/includes/__head_shared.html" %}
-    {# Add webfont loading script, adds loadFont function  #}
-    <script>
-      {% include 'client/scripts/webfont-loading.js' %}
-    </script>
 
     <script>
       (function (global) {
@@ -23,9 +20,8 @@
       })(window);
     </script>
 
-    <link rel="stylesheet" href="{{ staticBasePath }}/client/styles.css" />
-    <link rel="stylesheet" href="{{ staticBasePath }}/client/dashboard.css" />
-
+    <link rel="stylesheet" href="{{ staticBasePath }}/client/styles/client.css" />
+    <link rel="stylesheet" href="{{ staticBasePath }}/client/styles/dashboard.css" />
   </head>
   <body>
     <div id="dashboard">

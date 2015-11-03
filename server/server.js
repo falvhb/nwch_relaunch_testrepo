@@ -5,15 +5,20 @@
 // -----------------------------------------------------------------------------
 
 var dotenv = require('dotenv');
-dotenv.load({path: '.env'});
+
+dotenv.load({
+  path: '.env'
+});
 
 // For the deployment we load an additional file which will hold settings
 // specific for the deployment.
 var isDeployed = process.env.DEPLOYED;
-if (isDeployed) {
-  dotenv.load({path: '.env.deploy'});
-}
 
+if (isDeployed) {
+  dotenv.load({
+    path: '.env.deploy'
+  });
+}
 
 var express = require('express');
 var bodyParser = require('body-parser');

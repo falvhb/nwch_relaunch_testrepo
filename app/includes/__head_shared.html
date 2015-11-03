@@ -21,3 +21,13 @@
 <meta name="msapplication-TileImage" content="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/mstile-144x144.png">
 <meta name="msapplication-config" content="{{ staticBasePath }}/client/images/device-icons/{{ iconPath }}/{{ skin }}/browserconfig.xml">
 <meta name="theme-color" content="{{ "#e30613" if skin == "ot" else "#1b4d85" }}">
+
+{# Add helper classes for JS and touch detection #}
+<script>
+  {% include 'client/scripts/html-classes.js' %}
+</script>
+
+{# Add webfont loading script, adds loadFont function  #}
+<script>
+  {% include 'client/scripts/webfont-loading.js' %}
+</script>

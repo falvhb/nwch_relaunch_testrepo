@@ -20,16 +20,24 @@ export LC_CTYPE="en_US.UTF-8"
 
 ## Development
 
-### Styleguide
+The site is available at http://localhost:8801.
 
-When working in the styleguide, on http://localhost:8000/styleguide
+The styleguide is available at http://localhost:8801/styleguide.
+
+To begin development, run
 
 ```sh
-$ gulp assets
 $ gulp
-OR
-$ gulp assets && gulp
 ```
+
+To restart your server at any time (for example because of an error) use the `nodemon` command
+
+```sh
+$ rs
+```
+
+For full documentation of setting up the local development environment please see [localdev](localdev).
+
 ---------------------------
 
 ### Components
@@ -45,23 +53,6 @@ We are aiming towards a jQuery independent architecture and **jQuery should neve
 
 ---------------------------
 
-### Back-end
-
-When working with back-end integration, on http://localhost:8801.
-
-
-```sh
-$ gulp assets --production
-$ gulp --production
-OR
-$ gulp assets --prod && gulp --prod
-```
-
-For full documentation of setting up this local development environment please see [localdev](localdev).
-
-### Note
-
-`gulp assets` compiles static assets to save them being compiled on every watch. Do this once, every time you start developing or update something in `/assets`.
 
 ## API
 

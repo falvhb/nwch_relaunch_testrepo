@@ -5,6 +5,8 @@ var path = require('path');
 var componentForRequest = require('./componentForRequest');
 var recursiveUnescape = require('recursive-unescape');
 var components = require('./components');
+var getSkinName = require('../modules/skin');
+var getIconPath = require('../modules/icon-path');
 
 var renderReact = function(params) {
   var defaults = {
@@ -46,6 +48,7 @@ var renderReact = function(params) {
 
 module.exports = function(req, res) {
   var unescapedComponents = recursiveUnescape(components);
+  var skin = getSkinName(req);
   var version = process.env.VERSION || '@@VERSION';
   var staticBasePath = '/__node__/' + version + '/__static__';
 
@@ -56,6 +59,7 @@ module.exports = function(req, res) {
       component: componentForRequest(req.params, unescapedComponents),
       preview: (req.url.indexOf('preview') > -1)
     }),
-    staticBasePath: staticBasePath
+    staticBasePath: staticBasePath,
+    iconPath: getIconPath(skin)
   });
 };
