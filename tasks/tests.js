@@ -9,14 +9,13 @@ var exitCodes = {
   react: 0
 };
 
-// ensure proper exit codes;
+// Ensure proper exit codes;
 process.on('exit', function() {
   var total = _.reduce(exitCodes, function(subTotal, n) {
     return subTotal + n;
   }, 0);
   process.exit(total);
 });
-
 
 // API tests
 function apiTests(done) {
@@ -29,7 +28,6 @@ function apiTests(done) {
   });
 }
 
-
 // React tests
 var karmaOptions = {
   configFile: path.join(__dirname, '../karma.conf.js'),
@@ -37,7 +35,12 @@ var karmaOptions = {
 };
 
 var karmaOptionsLocalWatch = _.assign({}, karmaOptions, {
-  configFile: path.join(__dirname, '../karma.conf.local.js'),
+  configFile: path.join(__dirname, '../karma.conf.js'),
+  client: {
+    captureConsole: true
+  },
+  autoWatch: true,
+  browsers: [ 'PhantomJS'/*'Chrome'*/ ],
   singleRun: false
 });
 
@@ -47,15 +50,14 @@ function reactTests(done) {
   }, done).start();
 }
 
-function reactTestsLocalWatch(done) {
+function reactWatch(done) {
   new Server(karmaOptionsLocalWatch, function ensureExitCode(exitCode) {
     exitCodes.react = exitCode;
   }, done).start();
 }
 
-
 module.exports = {
   api: apiTests,
   react: reactTests,
-  reactLocalWatch: reactTestsLocalWatch
+  reactWatch: reactWatch
 };
