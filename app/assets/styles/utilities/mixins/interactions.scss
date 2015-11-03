@@ -34,7 +34,7 @@
   opacity: 0.5;
 
   @if $direction {
-    background-image: asset('client/images/icons/sprite/arrow-#{$direction}.svg');
+    background-image: asset('images/icons/sprite/arrow-#{$direction}.svg');
   }
 
   @if $direction == 'down' {

@@ -20,11 +20,7 @@
 /// @access public
 /// @return {String}
 @function get-base-path() {
-  @if ($environment == 'prod') {
-    @return '/__node__/__static__/';
-  }
-
-  @return '/';
+  @return '/__node__/@@VERSION/__static__/client/';
 }
 
 /// Asset function for background images, based on environment toggle
