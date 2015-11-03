@@ -45,7 +45,9 @@ gulp.task('static:icons', require('./tasks/icons.js'));
 gulp.task('static:fonts', require('./tasks/fonts.js'));
 
 gulp.task('assets', sequence('clean', [
-  'sass',
+  'sass:client',
+  'sass:dashboard',
+  'sass:styleguide',
   'static:scripts',
   'static:images',
   'static:includes',
@@ -106,12 +108,12 @@ gulp.task('docs', [
 // -----------------------------------------------------------------------------
 
 // Prod environment toggle
-gulp.task('buildtask', function() {
+gulp.task('building', function() {
   gutil.env.build = true;
 });
 
 // Production build
-gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'styleguide', 'docs'));
+gulp.task('build', sequence('building', 'assets', 'webpack', 'styleguide', 'docs'));
 
 // Build with tests
 gulp.task('build:test', sequence('test', 'build'));
