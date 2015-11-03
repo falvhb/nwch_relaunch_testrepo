@@ -2,7 +2,7 @@
   "name": "az-nwch-js",
   "version": "0.0.56",
   "engines": {
-    "node": "4.0.0",
+    "node": "0.12.7",
     "npm": "2.14.2"
   },
   "private": true,
@@ -99,6 +99,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
     "gulp-wrap": "^0.11.0",
+    "highlight.js": "^8.9.1",
     "imports-loader": "^0.6.4",
     "jquery": "^2.1.4",
     "jsdoc": "^3.3.3",
@@ -109,7 +110,7 @@
     "karma-chai-plugins": "^0.6.0",
     "karma-chai-sinon": "^0.1.5",
     "karma-chrome-launcher": "^0.2.0",
-    "karma-cli": "0.0.4",
+    "karma-cli": "^0.1.1",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.0.2",
     "karma-phantomjs-launcher": "^0.2.0",
@@ -120,6 +121,7 @@
     "libxmljs": "^0.14.2",
     "mocha": "^2.2.5",
     "nock": "^2.7.0",
+    "phantomjs": "^1.9.18",
     "phantomjs-polyfill": "0.0.1",
     "picturefill": "^3.0.1",
     "pre-commit": "^1.0.7",
