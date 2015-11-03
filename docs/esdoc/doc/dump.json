@@ -1,0 +1,1518 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "node_modules/mixins/tracking.jsx",
+    "memberof": null,
+    "longname": "node_modules/mixins/tracking.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "/* eslint-disable no-console */\nimport _ from 'lodash';\nimport Tracker from 'tracking/tracker';\n\nconst PAGEVIEW = 1;\nconst EVENT = 2;\n\n/**\n * Mixin for tracking.\n *\n * @module mixins/tracking\n */\nmodule.exports = {\n\n  /**\n   * Constant for specifying the type \"pageview\".\n   *\n   * @type  {integer}\n   */\n  PAGEVIEW: PAGEVIEW,\n\n  /**\n   * Constant for specifying the type \"event\".\n   *\n   * @type  {integer}\n   */\n  EVENT: EVENT,\n\n  /**\n   * Track certain events\n   *\n   * @param type {string}   Type of tracking, either `PAGEVIEW` or `EVENT`.\n   * @param data {Object}   Configuration object for the call.\n   *                      Required fields: event, id, paging\n   *\n   * @example\n   * // import mixin\n   * import Tracking from 'mixins/tracking';\n   *\n   * const VideoLibrary = React.createClass({\n   *\n   *   mixins: [Tracking],\n   *\n   *   componentDidMount() {\n   *     this.track(Tracking.EVENT, {\n   *       event: 'selectVideo',\n   *       id: '1_sdfsdfs'\n   *     });\n   *   }\n   *\n   *   // Further component logic goes here\n   *\n   * });\n   */\n  track: function(type, data) {\n    let defaultData,\n        processedData;\n\n    defaultData = {\n      domain: 'aznetz',\n      path: {\n        product: 'live',\n        sitename: this.props.site,\n        view: this.constructor.displayName.toLowerCase(),\n        path: window.location.pathname\n      },\n      referer: document.referer,\n      screenWidth: screen.width,\n      screenHeight: screen.height\n    };\n    processedData = _.extend(defaultData, {path: _.extend(defaultData.path, data)});\n\n    // do the actual tracking\n    if (type === this.EVENT) {\n      Tracker.trackEvent(processedData);\n    }\n\n    if (type === this.PAGEVIEW) {\n      Tracker.trackPageView(processedData);\n    }\n\n  }\n\n};\n"
+  },
+  {
+    "__docId__": 1,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "PAGEVIEW",
+    "memberof": "node_modules/mixins/tracking.jsx",
+    "longname": "node_modules/mixins/tracking.jsx~PAGEVIEW",
+    "access": null,
+    "export": false,
+    "importPath": "az-nwch-js/node_modules/mixins/tracking.jsx",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 2,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "EVENT",
+    "memberof": "node_modules/mixins/tracking.jsx",
+    "longname": "node_modules/mixins/tracking.jsx~EVENT",
+    "access": null,
+    "export": false,
+    "importPath": "az-nwch-js/node_modules/mixins/tracking.jsx",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 3,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "node_modules/tracking/google-analytics-tracker.jsx",
+    "memberof": null,
+    "longname": "node_modules/tracking/google-analytics-tracker.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 3,
+    "content": "/* eslint-disable no-console */\n// import _ from 'lodash';\nimport 'console-polyfill';\n\n/**\n * @ignore\n */\nexport default class GoogleAnalyticsTracker {\n\n  trackEvent() {\n    console.warn('@TODO: trackEvent');\n  }\n\n  trackPageView() {\n    console.warn('@TODO: trackPageView');\n  }\n\n}\n"
+  },
+  {
+    "__docId__": 4,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "GoogleAnalyticsTracker",
+    "memberof": "node_modules/tracking/google-analytics-tracker.jsx",
+    "longname": "node_modules/tracking/google-analytics-tracker.jsx~GoogleAnalyticsTracker",
+    "access": null,
+    "export": true,
+    "importPath": "az-nwch-js/node_modules/tracking/google-analytics-tracker.jsx",
+    "importStyle": "GoogleAnalyticsTracker",
+    "description": null,
+    "lineNumber": 8,
+    "ignore": true,
+    "interface": false
+  },
+  {
+    "__docId__": 5,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "trackEvent",
+    "memberof": "node_modules/tracking/google-analytics-tracker.jsx~GoogleAnalyticsTracker",
+    "longname": "node_modules/tracking/google-analytics-tracker.jsx~GoogleAnalyticsTracker#trackEvent",
+    "access": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 6,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "trackPageView",
+    "memberof": "node_modules/tracking/google-analytics-tracker.jsx~GoogleAnalyticsTracker",
+    "longname": "node_modules/tracking/google-analytics-tracker.jsx~GoogleAnalyticsTracker#trackPageView",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 7,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "node_modules/tracking/net-metrix-tracker.jsx",
+    "memberof": null,
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "/* eslint-disable no-console */\nimport _ from 'lodash';\n// import 'console-polyfill';\nimport deepForEach from 'helpers/deep-foreach';\nimport QS from 'qs';\nimport config from 'tracking/config.json';\n\nconst TYPE_PAGEVIEW = 'Pageview';\nconst TYPE_EVENT = 'Event';\n\n/**\n * @ignore\n */\nexport default class NetMetrixTracker {\n\n  static _removeEmptyMembers(data) {\n    let clone = _.cloneDeep(data);\n\n    return deepForEach(clone, function(e, key, obj) {\n      if (e === null || e === '' || typeof(e) === 'undefined' ) {\n        delete obj[key];\n      }\n    });\n  }\n\n  static _getOrderedPath(data) {\n    let path = [\n      data.path.product,\n      data.path.sitename,\n      // data.path.path,\n      data.path.view/*,\n      data.path.event,\n      data.path.id,\n      data.path.paging*/\n    ];\n\n    return _.remove(path, _.isNotUndefined);\n  }\n\n  static _sanitizePath(path) {\n    if (typeof path === 'string') {\n      return path.replace(/^[\\/]*/, '').replace(/[\\/]*$/, '');\n    }\n\n    return '';\n  }\n\n  static _buildPath(data) {\n    let path = '';\n\n    if (data.length && data.length > 0) {\n      path = data.join('/').toLowerCase();\n    }\n\n    return path;\n  }\n\n  static _buildQS(data) {\n    let params = {\n      r: (data.referer ? `${encodeURIComponent(data.referer)}&` : ``),\n      d: (Math.random() * 100000),\n      x: ((data.screenWidth && data.screenHeight) ? `${data.screenWidth}x${data.screenHeight}` : ``)\n    };\n\n    return QS.stringify(params);\n  }\n\n  static _buildTag(data, path) {\n    let queryString = this._buildQS(data);\n\n    return `https://${data.domain}.wemfbox.ch/cgi-bin/ivw/CP/${path}?${queryString}`;\n  }\n\n  static getTag(data) {\n    let path,\n        cleaned;\n\n    // remove empty properties from data.path\n    cleaned = this._removeEmptyMembers(data);\n\n    // remove slahes from  data.path.path at start and end\n    cleaned.path.path = this._sanitizePath(data.path.path);\n\n    // order path properties\n    cleaned.path = this._getOrderedPath(cleaned);\n\n    //  get path as string\n    path = this._buildPath(cleaned.path);\n\n    return this._buildTag(cleaned, path);\n  }\n\n  static _requestTag(tag) {\n    let image = new Image();\n\n    // @TODO: render <img src=\"..\"> and replace attribute src during runtime.\n    // maybe to make sure all browsers do it?\n    // see code snippet from wildeisen\n    // see parsed url\n    //\n    // Track Net Metrix using document.write?? -> think through\n    image.src = tag;\n  }\n\n  static _log(tag, type) {\n    console.info(`Detected Net Metrix tag of type '${type}' not fired as current host \"${window.location.host}\" is not whitelisted as live host in \"app/node_modules/tracking/config.json\". Net Metrix tag is: `, tag);\n  }\n\n  static isLiveHost(host) {\n    let liveHosts = [];\n    let isLive = false;\n\n    // throw error if live hosts are not specified\n    if (typeof this.config === 'undefined' || !this.config || !this.config.netMetrix.liveHosts) {\n      console.error('You must specify hosts enabled for _tracking under netMetrix.liveHosts[] in _tracking/config.json in order to _track Net Metrix Audit.');\n    } else {\n      liveHosts = this.config.netMetrix.liveHosts;\n    }\n\n    // check if we are on a live host\n    _.forEach(liveHosts, function(e) {\n      if (host.search(e) > -1) {\n        isLive = true;\n      }\n    });\n\n    return isLive;\n  }\n\n  static _track(data, type) {\n    let tag = this.getTag(data);\n\n    // Only request tag if we are live. Otherwise _log to console\n    if (window && this.isLiveHost(window.location.host)) {\n      this._requestTag(tag);\n    } else {\n      this._log(tag, type);\n    }\n  }\n\n  static trackEvent(data) {\n    this._track(data, NetMetrixTracker.TYPE_EVENT);\n  }\n\n  static trackPageView(data) {\n    this._track(data, NetMetrixTracker.TYPE_PAGEVIEW);\n  }\n\n}\n\nNetMetrixTracker.config = config;\nNetMetrixTracker.TYPE_PAGEVIEW = TYPE_PAGEVIEW;\nNetMetrixTracker.TYPE_EVENT = TYPE_EVENT;\n"
+  },
+  {
+    "__docId__": 8,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "TYPE_PAGEVIEW",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~TYPE_PAGEVIEW",
+    "access": null,
+    "export": false,
+    "importPath": "az-nwch-js/node_modules/tracking/net-metrix-tracker.jsx",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 9,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "TYPE_EVENT",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~TYPE_EVENT",
+    "access": null,
+    "export": false,
+    "importPath": "az-nwch-js/node_modules/tracking/net-metrix-tracker.jsx",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 10,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "NetMetrixTracker",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "access": null,
+    "export": true,
+    "importPath": "az-nwch-js/node_modules/tracking/net-metrix-tracker.jsx",
+    "importStyle": "NetMetrixTracker",
+    "description": null,
+    "lineNumber": 14,
+    "ignore": true,
+    "interface": false
+  },
+  {
+    "__docId__": 11,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_removeEmptyMembers",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._removeEmptyMembers",
+    "access": null,
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 12,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_getOrderedPath",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._getOrderedPath",
+    "access": null,
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 13,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_sanitizePath",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._sanitizePath",
+    "access": null,
+    "description": null,
+    "lineNumber": 40,
+    "undocument": true,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "string"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 14,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_buildPath",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._buildPath",
+    "access": null,
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 15,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_buildQS",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._buildQS",
+    "access": null,
+    "description": null,
+    "lineNumber": 58,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 16,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_buildTag",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._buildTag",
+    "access": null,
+    "description": null,
+    "lineNumber": 68,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "string"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "getTag",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker.getTag",
+    "access": null,
+    "description": null,
+    "lineNumber": 74,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 18,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_requestTag",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._requestTag",
+    "access": null,
+    "description": null,
+    "lineNumber": 93,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tag",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 19,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_log",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._log",
+    "access": null,
+    "description": null,
+    "lineNumber": 105,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tag",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 20,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "isLiveHost",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker.isLiveHost",
+    "access": null,
+    "description": null,
+    "lineNumber": 109,
+    "undocument": true,
+    "params": [
+      {
+        "name": "host",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 21,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "_track",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker._track",
+    "access": null,
+    "description": null,
+    "lineNumber": 130,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "trackEvent",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker.trackEvent",
+    "access": null,
+    "description": null,
+    "lineNumber": 141,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 23,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "trackPageView",
+    "memberof": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker",
+    "longname": "node_modules/tracking/net-metrix-tracker.jsx~NetMetrixTracker.trackPageView",
+    "access": null,
+    "description": null,
+    "lineNumber": 145,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 24,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "node_modules/tracking/tracker.jsx",
+    "memberof": null,
+    "longname": "node_modules/tracking/tracker.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "// import GoogleAnalyticsTracker from 'tracking/google-analytics-tracker';\nimport NetMetrixTracker from 'tracking/net-metrix-tracker';\n\n/**\n * Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n *\n * For tracking Net Metrix make sure the host under which the page is requested is configured\n * as live host in `./app/node_modules/tracking/config.json`.\n * If the host is not whitelisted tracking is logged to `console`.\n */\nexport default class Tracker {\n\n  /**\n   * @desc\n   * Tracks page views.\n   *\n   * Net Metrix:\n   * Tracks Net Metrix or logs tracking to `console` for non-live hosts.\n   *\n   * Google Analytics:\n   * ...\n   *\n   * @example\n   * // Track pageview on Aargauer Zeitung.\n   * // Currently only covers Net Metrix tracking.\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'aaz',\n   *     path: window.location.pathname,\n   *     view: 'page',\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.trackPageView(data);\n   *\n   *\n   * @param  {object}   data                 - Configuration data.\n   * @param  {string}   data.domain          - The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`.\n   * @param  {object}   data.path            - The path information object. This object is used to construct additional sections in Net Metrix tags.\n   * @param  {string}   data.path.product    - The product. Either `'live'`, `'epaper'` or `'service'`.\n   * @param  {string}   data.path.sitename   - The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`.\n   * @param  {string}   data.path.path       - The path of the url of the current page.\n   * @param  {string}   data.path.view       - The view.\n   *                                           For pageview tracking, e.g. `path.event=='pageview'`: `page` or `'page-noscript'` (when JavaScript disabled).\n   *                                           For event tracking, e.g. `path.event!='pageview'`: `'[name of the component that receives the user event]'`.\n   * @param  {string}   data.path.event      - The user generated event. `'pageview'` for page view tracking or `'[name of event]'`.\n   * @param  {string}   [data.path.id]       - The ID of the data or the component or the page displayed. Use this field if you want to specify something such as am ID of a video or a keyword of a search.\n   * @param  {string}   [data.path.paging]    - The paging information. Example: For the image gallery this is the index of the image requested.\n   * @param  {string}   [data.referer]       - The referer URL.\n   * @param  {integer}  [data.screenWidth]   - The width of the devices' screen in pixels.\n   * @param  {integer}  [data.screenHeight]  - The height of the devices' screen in pixels.\n   *\n   */\n  static trackPageView(data) {\n    NetMetrixTracker.trackPageView(data);\n    // GoogleAnalyticsTracker.trackPageView(data);\n  }\n\n\n  /**\n   * Tracks events.\n   *\n   * @TODO: implementation\n   *\n   */\n  static trackEvent(data) {\n    NetMetrixTracker.trackEvent(data);\n    // GoogleAnalyticsTracker.trackEvent(data);\n  }\n\n  /**\n   * Gets the Net Metrix tag to track.\n   *\n   * @param  {object}  data  See @link Tracker.trackPageView specs.\n   *\n   * @example\n   * // Get Net Metrix tag for pageview tracking\n   * let data = {\n   *   domain: 'aznetz',\n   *   path: {\n   *     product: 'live',\n   *     sitename: 'styleguide',\n   *     path: window.location.pathname,\n   *     view: 'page',\n   *     event: 'pageview'\n   *   }\n   * };\n   *\n   * Tracker.getNetMetrixTag(data);\n   *\n   * @return  {string}  The Net Metrix tag as string.\n   */\n  static getNetMetrixTag(data) {\n    return NetMetrixTracker.getTag(data);\n  }\n\n  /**\n   * Determines if the current host is a live host which has to be tracked in Net Metrix.\n   *\n   * @param  {string}  host  The host.\n   *\n   * @example\n   * Tracker.isNetMetrixLiveHost(window.location.host);\n   *\n   * @return  {Boolean}  Returns `true` if the current host is a live host.\n   */\n  static isNetMetrixLiveHost(host) {\n    return NetMetrixTracker.isLiveHost(host);\n  }\n\n}\n"
+  },
+  {
+    "__docId__": 25,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Tracker",
+    "memberof": "node_modules/tracking/tracker.jsx",
+    "longname": "node_modules/tracking/tracker.jsx~Tracker",
+    "access": null,
+    "export": true,
+    "importPath": "az-nwch-js/node_modules/tracking/tracker.jsx",
+    "importStyle": "Tracker",
+    "description": "Does the tracking for all applications (currently Net Metrix, Google Analytics, Chartbeat).\n\nFor tracking Net Metrix make sure the host under which the page is requested is configured\nas live host in `./app/node_modules/tracking/config.json`.\nIf the host is not whitelisted tracking is logged to `console`.",
+    "lineNumber": 11,
+    "interface": false
+  },
+  {
+    "__docId__": 26,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "trackPageView",
+    "memberof": "node_modules/tracking/tracker.jsx~Tracker",
+    "longname": "node_modules/tracking/tracker.jsx~Tracker.trackPageView",
+    "access": null,
+    "description": "Tracks page views.\n\nNet Metrix:\nTracks Net Metrix or logs tracking to `console` for non-live hosts.\n\nGoogle Analytics:\n...",
+    "examples": [
+      "// Track pageview on Aargauer Zeitung.\n// Currently only covers Net Metrix tracking.\nlet data = {\n  domain: 'aznetz',\n  path: {\n    product: 'live',\n    sitename: 'aaz',\n    path: window.location.pathname,\n    view: 'page',\n    event: 'pageview'\n  }\n};\n\nTracker.trackPageView(data);"
+    ],
+    "lineNumber": 57,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "Configuration data."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data.domain",
+        "description": "The identifier for the Audit. For \"Nordwestschweiz Netz\" this is `'aznetz'`."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data.path",
+        "description": "The path information object. This object is used to construct additional sections in Net Metrix tags."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data.path.product",
+        "description": "The product. Either `'live'`, `'epaper'` or `'service'`."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data.path.sitename",
+        "description": "The newsportal. One of: `'aaz'`, `'bat'`, `'bzb'`, `'blz'`, `'gtb'`, `'liz'`, `'ot'`, `'soz'`."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data.path.path",
+        "description": "The path of the url of the current page."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data.path.view",
+        "description": "The view.\n                                          For pageview tracking, e.g. `path.event=='pageview'`: `page` or `'page-noscript'` (when JavaScript disabled).\n                                          For event tracking, e.g. `path.event!='pageview'`: `'[name of the component that receives the user event]'`."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data.path.event",
+        "description": "The user generated event. `'pageview'` for page view tracking or `'[name of event]'`."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "data.path.id",
+        "description": "The ID of the data or the component or the page displayed. Use this field if you want to specify something such as am ID of a video or a keyword of a search."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "data.path.paging",
+        "description": "The paging information. Example: For the image gallery this is the index of the image requested."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "data.referer",
+        "description": "The referer URL."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "integer"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "data.screenWidth",
+        "description": "The width of the devices' screen in pixels."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "integer"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "data.screenHeight",
+        "description": "The height of the devices' screen in pixels."
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 27,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "trackEvent",
+    "memberof": "node_modules/tracking/tracker.jsx~Tracker",
+    "longname": "node_modules/tracking/tracker.jsx~Tracker.trackEvent",
+    "access": null,
+    "description": "Tracks events.\n\n@TODO: implementation",
+    "lineNumber": 69,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 28,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "getNetMetrixTag",
+    "memberof": "node_modules/tracking/tracker.jsx~Tracker",
+    "longname": "node_modules/tracking/tracker.jsx~Tracker.getNetMetrixTag",
+    "access": null,
+    "description": "Gets the Net Metrix tag to track.",
+    "examples": [
+      "// Get Net Metrix tag for pageview tracking\nlet data = {\n  domain: 'aznetz',\n  path: {\n    product: 'live',\n    sitename: 'styleguide',\n    path: window.location.pathname,\n    view: 'page',\n    event: 'pageview'\n  }\n};\n\nTracker.getNetMetrixTag(data);"
+    ],
+    "lineNumber": 96,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "data",
+        "description": "See @link Tracker.trackPageView specs."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "The Net Metrix tag as string."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 29,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "isNetMetrixLiveHost",
+    "memberof": "node_modules/tracking/tracker.jsx~Tracker",
+    "longname": "node_modules/tracking/tracker.jsx~Tracker.isNetMetrixLiveHost",
+    "access": null,
+    "description": "Determines if the current host is a live host which has to be tracked in Net Metrix.",
+    "examples": [
+      "Tracker.isNetMetrixLiveHost(window.location.host);"
+    ],
+    "lineNumber": 110,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "host",
+        "description": "The host."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Boolean"
+      ],
+      "spread": false,
+      "description": "Returns `true` if the current host is a live host."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 49,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 69,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  }
+]

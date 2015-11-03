@@ -1,11 +1,9 @@
 var nodemon = require('gulp-nodemon');
 var pkg = require('../package.json');
-var helpers = require('./lib/helpers');
 
 // load all env variables
-var envPath = helpers.isProduction() ? '.env' : '.env.dev';
 require('dotenv').load({
-  path: envPath
+  path: '.env'
 });
 
 module.exports = function() {

@@ -2,13 +2,11 @@ var helpers = require('./lib/helpers.js');
 var sync = require('./lib/sync-styleguide.js');
 
 module.exports = function() {
-  if (!helpers.isProduction()) {
-    return sync(
-      helpers.assetDir('styles/utilities/mixins.scss'),
-      helpers.sourceDir('node_modules/base/typography/.data.json'),
-      postDataTypography
-    );
-  }
+  return sync(
+    helpers.assetDir('styles/utilities/mixins.scss'),
+    helpers.sourceDir('node_modules/base/typography/.data.json'),
+    postDataTypography
+  );
 };
 
 function postDataTypography(data) {

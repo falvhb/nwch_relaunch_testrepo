@@ -8,12 +8,6 @@ module.exports = function() {
 
   config.plugins = config.plugins || [];
 
-  if (helpers.isProduction()) {
-    delete config.entry.styleguide;
-  } else {
-    delete config.entry.client;
-  }
-
   if (helpers.isBuild()) {
     config.plugins.push(
       new webpack.optimize.UglifyJsPlugin({
@@ -27,7 +21,7 @@ module.exports = function() {
   }
 
   return gulp
-    .src(helpers.isProduction() ? config.entry.client : config.entry.styleguide)
+    .src(config.entry.client)
     .pipe(gulpWebpack(config))
     .pipe(gulp.dest('./client'));
 

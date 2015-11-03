@@ -1,12 +1,15 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var dotenv = require('dotenv');
+dotenv.load();
+
 var config = {
   entry: {
     client: ['./app/vendor.js', './app/client.js'],
     styleguide: ['./app/vendor.js', './app/styleguide.js'],
-    dashboard: ['./app/dashboard.js', './app/dashboard.js'],
-    tracking: ['./app/tracking.js']
+    dashboard: './app/dashboard.js',
+    tracking: './app/tracking.js'
   },
   module: {
     loaders: [
@@ -27,8 +30,9 @@ var config = {
   },
   output: {
     filename: '[name].bundled.js',
+    chunkFilename: '[name].bundled.js',
     path: path.join(__dirname, './client'),
-    publicPath: '/client/'
+    publicPath: '/__node__/@@VERSION/__static__/client/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']

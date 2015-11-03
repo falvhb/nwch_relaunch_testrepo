@@ -8,7 +8,7 @@ var scssLintOptions = {
 
 module.exports = function() {
   return gulp
-    .src(sassInput)
+    .src(sassInput.all)
     .pipe(scssLint(scssLintOptions))
     .pipe(scssLint.failReporter());
 };

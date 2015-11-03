@@ -10,10 +10,16 @@ gulp.task('clean', require('./tasks/clean.js'));
 // -----------------------------------------------------------------------------
 // Sass
 // -----------------------------------------------------------------------------
-gulp.task('sass', require('./tasks/sass.js'));
-gulp.task('sass:env', require('./tasks/sass-env.js'));
-gulp.task('sass:watch', require('./tasks/sass-watch.js'));
+gulp.task('sass:client', require('./tasks/sass-client.js'));
 gulp.task('sass:dashboard', require('./tasks/sass-dashboard.js'));
+gulp.task('sass:styleguide', require('./tasks/sass-styleguide.js'));
+gulp.task('sass:watch', require('./tasks/sass-watch.js'));
+
+gulp.task('sass', [
+  'sass:client',
+  'sass:dashboard',
+  'sass:styleguide'
+]);
 
 // -----------------------------------------------------------------------------
 // Webpack
@@ -32,21 +38,19 @@ gulp.task('watch', [
 // -----------------------------------------------------------------------------
 // Assets
 // -----------------------------------------------------------------------------
-gulp.task('static-scripts', require('./tasks/static-scripts.js'));
-gulp.task('static-images', require('./tasks/static-images.js'));
-gulp.task('static-includes', require('./tasks/static-includes.js'));
-gulp.task('icons', require('./tasks/icons.js'));
-gulp.task('fonts', require('./tasks/fonts.js'));
+gulp.task('static:scripts', require('./tasks/static-scripts.js'));
+gulp.task('static:images', require('./tasks/static-images.js'));
+gulp.task('static:includes', require('./tasks/static-includes.js'));
+gulp.task('static:icons', require('./tasks/icons.js'));
+gulp.task('static:fonts', require('./tasks/fonts.js'));
 
 gulp.task('assets', sequence('clean', [
-  'sass:env',
-  'sass:dashboard',
   'sass',
-  'static-scripts',
-  'static-images',
-  'static-includes',
-  'icons',
-  'fonts'
+  'static:scripts',
+  'static:images',
+  'static:includes',
+  'static:icons',
+  'static:fonts'
 ]));
 
 // -----------------------------------------------------------------------------
@@ -78,7 +82,7 @@ gulp.task('test', [
 gulp.task('sync-styleguide:typography', require('./tasks/sync-styleguide-typography.js'));
 gulp.task('sync-styleguide:colors', require('./tasks/sync-styleguide-colors.js'));
 
-gulp.task('sync-styleguide', [
+gulp.task('styleguide', [
   'sync-styleguide:typography',
   'sync-styleguide:colors'
 ]);
@@ -107,10 +111,10 @@ gulp.task('buildtask', function() {
 });
 
 // Production build
-gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'test', 'sync-styleguide', 'docs'));
+gulp.task('build', sequence('buildtask', 'assets', 'webpack', 'styleguide', 'docs'));
 
-// build the static files for production use without running tests
-gulp.task('build_client', sequence('buildtask', 'assets', 'webpack'));
+// Build with tests
+gulp.task('build:test', sequence('test', 'build'));
 
 // Development
 gulp.task('dev', sequence('server', 'watch', 'webpack'));

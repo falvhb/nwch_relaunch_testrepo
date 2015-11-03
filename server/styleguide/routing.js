@@ -46,12 +46,16 @@ var renderReact = function(params) {
 
 module.exports = function(req, res) {
   var unescapedComponents = recursiveUnescape(components);
+  var version = process.env.VERSION || '@@VERSION';
+  var staticBasePath = '/__node__/' + version + '/__static__';
+
   res.render('layouts/styleguide.html', {
     title: (req.params.component ? slugToTitle(req.params.component) + ' | ' : '') + 'AZ Medien Styleguide',
     content: renderReact({
       components: unescapedComponents,
       component: componentForRequest(req.params, unescapedComponents),
       preview: (req.url.indexOf('preview') > -1)
-    })
+    }),
+    staticBasePath: staticBasePath
   });
 };

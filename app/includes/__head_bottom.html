@@ -48,3 +48,24 @@
 {# Track on loading of page. #}
 <script src="{{ staticBasePath }}/client/tracking.bundled.js"></script>
 <script src="{{ staticBasePath }}/client/scripts/tracking/netmetrix.js"></script>
+
+{# Track NetMetrix. #}
+<script>
+  if (typeof window.AZTracker !== 'undefined' && window.AZTracker.trackPageView) {
+    window.AZTracker.trackPageView({
+      domain: 'aznetz',
+      path: {
+        product: 'live',
+        sitename: 'styleguide',
+        view: 'page',
+        path: window.location.pathname,
+        event: 'pageview',
+        id: null,
+        index: null
+      },
+      referer: document.referer,
+      screenWidth: screen.width,
+      screenHeight: screen.height
+    });
+  }
+</script>
