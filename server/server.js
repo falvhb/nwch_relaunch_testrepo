@@ -118,10 +118,10 @@ app.get([
 // -----------------------------------------------------------------------------
 
 // Serve SassDoc assets folder
-app.use('/sassdoc/assets/', express.static('app/sassdoc/assets'));
+app.use('/docs/sass', express.static('/docs/sass'));
 
 // SassDoc route
-app.get('/sassdoc', function(req, res) {
+app.get('/docs/sass', function(req, res) {
   res.render('sassdoc/index.html');
 });
 
@@ -130,10 +130,10 @@ app.get('/sassdoc', function(req, res) {
 // -----------------------------------------------------------------------------
 
 // Serve asset folders
-app.use('/esdoc', express.static('docs/esdoc/doc'));
+app.use('/docs/esdoc', express.static('docs/esdoc/doc'));
 
 // ESDoc route
-app.get('/esdoc', function(req, res) {
+app.get('/docs/esdoc', function(req, res) {
   res.render('esdoc/doc/index.html');
 });
 
@@ -142,10 +142,10 @@ app.get('/esdoc', function(req, res) {
 // -----------------------------------------------------------------------------
 
 // Serve asset folders
-app.use('/jsdoc', express.static('docs/jsdoc/doc'));
+app.use('/docs/jsdoc', express.static('docs/jsdoc/doc'));
 
 // JSDoc route
-app.get('/jsdoc', function(req, res) {
+app.get('/docs/jsdoc', function(req, res) {
   res.render('jsdoc/doc/index.html');
 });
 

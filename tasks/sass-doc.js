@@ -3,7 +3,7 @@ var sassdoc = require('sassdoc');
 var helpers = require('./lib/helpers.js');
 
 var sassdocOptions = {
-  dest: helpers.sourceDir('docs/sass'),
+  dest: './docs/sass',
   config: './.sassdocrc',
   verbose: true
 };
