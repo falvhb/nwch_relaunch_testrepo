@@ -32,7 +32,7 @@ var config = {
     filename: '[name].bundled.js',
     chunkFilename: '[name].bundled.js',
     path: path.join(__dirname, './client'),
-    publicPath: process.env.STATIC_ASSETS
+    publicPath: process.env.STATIC_ASSETS + '/'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']

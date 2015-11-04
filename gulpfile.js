@@ -92,15 +92,15 @@ gulp.task('styleguide', [
 // -----------------------------------------------------------------------------
 // Documentation
 // -----------------------------------------------------------------------------
-gulp.task('sassdoc', require('./tasks/sass-doc.js'));
-gulp.task('esdoc', require('./tasks/esdoc.js'));
+gulp.task('docs:sassdoc', require('./tasks/sass-doc.js'));
+gulp.task('docs:esdoc', require('./tasks/esdoc.js'));
 // deprecated: use esdoc preferably
-gulp.task('jsdoc', require('./tasks/jsdoc.js'));
+gulp.task('docs:jsdoc', require('./tasks/jsdoc.js'));
 
 gulp.task('docs', [
-  'sassdoc',
-  'esdoc',
-  'jsdoc'
+  'docs:sassdoc',
+  'docs:esdoc',
+  'docs:jsdoc'
 ]);
 
 // -----------------------------------------------------------------------------

@@ -10,6 +10,6 @@ module.exports = function(req, res) {
     staticBasePath: process.env.STATIC_ASSETS,
     iconPath: getIconPath(skin),
     skin: skin,
-    logoPath: getAssetPath('client/images/logos' + DomainVariations[skin].logo)
+    logoPath: getAssetPath('images/logos/' + DomainVariations[skin].logo)
   });
 };

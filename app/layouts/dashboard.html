@@ -13,15 +13,15 @@
         // Load fonts to LocalStorage
         global.loadFont(
           'az-fonts',
-          '{{ staticBasePath }}/client/fonts/data-woff.css',
-          '{{ staticBasePath }}/client/fonts/data-woff2.css'
+          '{{ staticBasePath }}/fonts/data-woff.css',
+          '{{ staticBasePath }}/fonts/data-woff2.css'
         );
 
       })(window);
     </script>
 
-    <link rel="stylesheet" href="{{ staticBasePath }}/client/styles/client.css" />
-    <link rel="stylesheet" href="{{ staticBasePath }}/client/styles/dashboard.css" />
+    <link rel="stylesheet" href="{{ staticBasePath }}/styles/client.css" />
+    <link rel="stylesheet" href="{{ staticBasePath }}/styles/dashboard.css" />
   </head>
   <body>
     <div id="dashboard">
@@ -41,6 +41,6 @@
           </div>
       </div>
     </div>
-    <script src="{{ staticBasePath }}/client/dashboard.bundled.js"></script>
+    <script src="{{ staticBasePath }}/dashboard.bundled.js"></script>
   </body>
 </html>
