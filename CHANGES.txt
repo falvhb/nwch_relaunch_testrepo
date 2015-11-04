@@ -5,6 +5,10 @@ Changes for az-nwch-js
 unreleased
 ==========
 
+ - Cover: adds component with dossier newsletter variations to be used in grid slots
+ - Cover: adds dossier-lite variation for use later in Dossier Widget (out of MVP)
+ - DossierHeader - makes full-width
+
 2015/11/02 0.0.56
 =================
 
