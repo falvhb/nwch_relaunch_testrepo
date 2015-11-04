@@ -49,8 +49,6 @@ var renderReact = function(params) {
 module.exports = function(req, res) {
   var unescapedComponents = recursiveUnescape(components);
   var skin = getSkinName(req);
-  var version = process.env.VERSION || '@@VERSION';
-  var staticBasePath = '/__node__/' + version + '/__static__';
 
   res.render('layouts/styleguide.html', {
     title: (req.params.component ? slugToTitle(req.params.component) + ' | ' : '') + 'AZ Medien Styleguide',
@@ -59,7 +57,7 @@ module.exports = function(req, res) {
       component: componentForRequest(req.params, unescapedComponents),
       preview: (req.url.indexOf('preview') > -1)
     }),
-    staticBasePath: staticBasePath,
+    staticBasePath: process.env.STATIC_ASSETS,
     iconPath: getIconPath(skin)
   });
 };
